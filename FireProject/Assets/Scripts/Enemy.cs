@@ -10,49 +10,39 @@ public enum EnemyType
     GruntPlayer
 }
 
-public class Enemy : MonoBehaviour
+// Define the state of the enemy
+public enum EnemyState
 {
-    public EnemyType enemyType;
+    Idling,
+    Moving,
+    Attacking
+}
+
+public abstract class Enemy : MonoBehaviour
+{
     public Vector3 goal;
     public Transform player;
+    public abstract void update();
 
-    private UnityEngine.AI.NavMeshAgent agent;
+    protected UnityEngine.AI.NavMeshAgent agent;
+    protected float speed;
+    protected EnemyState state = EnemyState.Moving;
+
+    public IEnumerator sleep(int seconds) {
+        yield return new WaitForSeconds(seconds);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        switch (enemyType)
-        {
-            case EnemyType.Tank:
-                agent.speed = 5;
-                break;
-            case EnemyType.GruntGoal:
-                agent.speed = 10;
-                break;
-            case EnemyType.GruntPlayer:
-                agent.speed = 10;
-                break;
-        }
+        agent.speed = speed;
+        agent.stoppingDistance = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (enemyType)
-        {
-            case EnemyType.Tank:
-                // Focus on getting to the goal.
-                agent.SetDestination(goal);
-                break;
-            case EnemyType.GruntGoal:
-                // Focus on getting to the goal.
-                agent.SetDestination(goal);
-                break;
-            case EnemyType.GruntPlayer:
-                // Focus on getting to the player.
-                agent.SetDestination(player.position);
-                break;
-        }
+        update();
     }
 }
