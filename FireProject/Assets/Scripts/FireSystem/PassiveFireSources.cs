@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Switch fire source depending on type.
+/// Switch fire source depending on DamageType.
+/// <para>This is just a glorified gameobject enabler/disabler - will probably change this later.</para>
+/// <para>Must be initialized using Initialize()</para>
 /// </summary>
 public class PassiveFireSources : MonoBehaviour
 {
@@ -16,6 +18,10 @@ public class PassiveFireSources : MonoBehaviour
         passiveLevel1.Initialize(attacker, damagable);
     }
 
+    /// <summary>
+    /// Switch to the input damage type.
+    /// </summary>
+    /// <param name="type">None means to deactivate everything, otherwise specify the type.</param>
     public void Switch(DamageType type)
     {
         if(type== DamageType.None)

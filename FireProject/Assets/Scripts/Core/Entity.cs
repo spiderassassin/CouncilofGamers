@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Base class for entities (IDamageable + IAttacker).
+/// <para>IAttacker is probably optional (leave implimentation blank if not needed).</para>
+/// </summary>
 public abstract class Entity : MonoBehaviour, IDamagable, IAttacker
 {
     public Collider[] colliders;

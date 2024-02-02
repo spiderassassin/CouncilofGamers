@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Defines a fire source in the world (both passive and active).
+/// <para>Must be manually initialized using Initialize()</para>
+/// </summary>
 public class FireSource : MonoBehaviour
 {
     [SerializeField]
@@ -18,6 +22,9 @@ public class FireSource : MonoBehaviour
 
     private List<Collider> inRange;
 
+    /// <summary>
+    /// The lifespan remaining on the fire source before it's deactivated.
+    /// </summary>
     public float LifeSpan { get; private set; }
 
     public void Initialize(IAttacker a, IFlammable d)
@@ -45,6 +52,10 @@ public class FireSource : MonoBehaviour
         inRange.Remove(other);
     }
 
+    /// <summary>
+    /// Activates the fire source for its lifespan.
+    /// </summary>
+    /// <param name="active"></param>
     public void SetActive(bool active)
     {
         this.active = active;
@@ -59,12 +70,14 @@ public class FireSource : MonoBehaviour
     {
         if (active)
         {
+            // Timer for deactivating the fire source.
             LifeSpan -= Time.deltaTime;
             if (LifeSpan <= 0f)
             {
                 SetActive(false);
             }
 
+            // Timer for inflicting damage at the damage rate.
             timer += Time.deltaTime;
             if (timer >= damageRate)
             {

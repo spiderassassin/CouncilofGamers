@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The base class for enemies (Entity + IFlammable).
+/// </summary>
 public class EnemyEntity : Entity, IFlammable
 {
     public PassiveFireSources switcher;
