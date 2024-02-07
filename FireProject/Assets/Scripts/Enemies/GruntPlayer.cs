@@ -13,8 +13,12 @@ public class GruntPlayer: Enemy {
                 state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {
-            // TODO: attack. For now, just stop moving.
+            // Stop moving and attack.
             agent.SetDestination(transform.position);
+            // If player moves out of range, start moving again.
+            if (Vector3.Distance(transform.position, player.position) > 5) {
+                state = EnemyState.Moving;
+            }
         }
     }
 }
