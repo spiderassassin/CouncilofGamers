@@ -19,7 +19,7 @@ public enum EnemyState
     LongRangeAttacking
 }
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : EnemyEntity
 {
     public Vector3 goal;
     public Transform player;
