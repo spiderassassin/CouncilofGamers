@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Controller : MonoBehaviour
+public class Controller : Entity
 {
     public CharacterController characterController;
     public float speed = 10f;
@@ -15,12 +16,19 @@ public class Controller : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 3f;
     public bool sprint = false;
+    public AudioSource source;
     
-   
+    
 
+
+    private void Start()
+    {
+        source = this.GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
+        
         //check if player is grounded
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if(isGrounded && velocity.y < 0)
@@ -31,19 +39,31 @@ public class Controller : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);//it is multiplied by deltatime twice becuase v = 1/2g*tˆ2
 
-    }
+        
+
+
+
+}
     public void Move(float horizontal, float vertical)
     {
 
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;//horizontal and vertical movement of the player
-        if (sprint)
-        {
-            characterController.Move(move * sprintspeed * Time.deltaTime);
-        }
-        else
-        {
-            characterController.Move(move * speed * Time.deltaTime);
-        }
+       
+            Vector3 move = transform.right * horizontal + transform.forward * vertical;//horizontal and vertical movement of the player
+            if (sprint)
+            {
+                characterController.Move(move * sprintspeed * Time.deltaTime);
+                SoundManager.Instance.Play(SoundManager.Instance.playerrun, source);
+            }
+            else
+            {
+                characterController.Move(move * speed * Time.deltaTime);
+                SoundManager.Instance.Play(SoundManager.Instance.playerwalk, source);
+            }
+        
+       
+        
+            
+        
         
     }
 
@@ -52,6 +72,23 @@ public class Controller : MonoBehaviour
         if (isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
         }
     }
+
+
+
+    void Attack()
+    {
+
+    }
+
+    public void OnDamage() {
+        CombatUI.Instance.DamageOverlay();
+
+    }
+
+
+
+    
 }

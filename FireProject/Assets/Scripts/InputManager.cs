@@ -9,14 +9,19 @@ public class InputManager : MonoBehaviour
     float tempmouseX = 0;
     float tempmouseY = 0;
 
-    float horizontal = 0;
-    float vertical = 0;
+    public static float horizontal = 0;
+    public static float vertical = 0;
     public float mouseSensitivity = 100f;
+    AudioSource source;
+    
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        source = this.GetComponent<AudioSource>();
         
+
+
 
 
     }
@@ -39,25 +44,45 @@ public class InputManager : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
+            
             GetComponent<Controller>().Move(horizontal, vertical);
+
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 GetComponent<Controller>().sprint = true;
                 GetComponentInChildren<CameraBehavior>().Sprint();
-
+  
             }
-
         }
+        else
+        {
+
+            if (source.clip == SoundManager.Instance.playerwalk || source.clip == SoundManager.Instance.playerrun)
+            {
+                source.Stop();//no sound if player isnt moving
+            }
+        }
+       
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Controller>().Jump();
+
         }
         
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             GetComponent<Controller>().sprint = false;
             GetComponentInChildren<CameraBehavior>().Sprint();
+
         }
+
+        if (Input.GetKeyUp(KeyCode.J))
+        {
+            GetComponent<Controller>().OnDamage();
+
+        }
+
 
     }
 }
