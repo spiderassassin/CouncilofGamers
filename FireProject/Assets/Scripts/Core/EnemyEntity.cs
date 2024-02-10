@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyEntity : Entity, IFlammable
 {
+    public TextMeshPro text;
     public PassiveFireSources switcher;
     public bool onFire = false;
 
@@ -48,6 +50,7 @@ public class EnemyEntity : Entity, IFlammable
         else if (!attacker.Equals(this))
             SetFire(dmg.type);
 
+        text.text = Health.ToString();
         print(" DAMAGED " + dmg.type);
     }
 }

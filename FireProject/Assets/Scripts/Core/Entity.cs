@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public abstract class Entity : MonoBehaviour, IDamagable, IAttacker
 {
-    public Collider[] colliders;
+    public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
     public float health = 100;
 
     public float Health => health;
