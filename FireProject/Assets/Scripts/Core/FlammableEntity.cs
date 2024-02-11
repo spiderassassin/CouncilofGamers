@@ -6,20 +6,20 @@ using UnityEngine;
 /// <summary>
 /// The base class for enemies (Entity + IFlammable).
 /// </summary>
-public class EnemyEntity : Entity, IFlammable
+public class FlammableEntity : Entity, IFlammable
 {
     public TextMeshPro text;
-    public PassiveFireSources switcher;
+    public PassiveFireSources passiveFireSources;
     public bool onFire = false;
 
     bool IFlammable.IsOnFire { get => onFire; }
     public Collider[] Colliders => colliders;
     public IDamagable Damageable => this;
-    public PassiveFireSources Switcher => switcher;
+    public PassiveFireSources PassiveFireSources => passiveFireSources;
 
     private void Start()
     {
-        switcher.Initialize(this, this);
+        passiveFireSources.Initialize(this, this);
     }
     protected virtual void OnEnable()
     {
@@ -38,19 +38,26 @@ public class EnemyEntity : Entity, IFlammable
 
     public void SetFire(DamageType type)
     {
-
-        Switcher.Switch(type);
+        PassiveFireSources.Switch(type);
+        if(type != DamageType.None)
+        {
+            onFire = true;
+        }
+        else
+        {
+            onFire = false;
+        }
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker,dmg);
+
         if (attacker == null)
             SetFire(dmg.type);
         else if (!attacker.Equals(this))
             SetFire(dmg.type);
 
         text.text = Health.ToString();
-        print(" DAMAGED " + dmg.type);
     }
 }
