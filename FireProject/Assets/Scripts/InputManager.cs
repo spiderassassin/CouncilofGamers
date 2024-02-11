@@ -4,85 +4,55 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    float mouseX = 0;
-    float mouseY = 0;
-    float tempmouseX = 0;
-    float tempmouseY = 0;
+    public static InputManager Instance; //Singleton
 
-    public static float horizontal = 0;
-    public static float vertical = 0;
-    public float mouseSensitivity = 100f;
-    AudioSource source;
+    public float mouseX = 0;
+    public float mouseY = 0;
     
-    // Start is called before the first frame update
-    void Start()
+
+    public float horizontal = 0;
+    public float vertical = 0;
+    public float mouseSensitivity = 100f;
+    public bool spaceDown = false;
+    public bool shiftDown = false;
+    public bool shiftUp = false;
+    public bool takeDamage = false;
+   
+
+    private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        source = this.GetComponent<AudioSource>();
-        
-
-
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        tempmouseX = Input.GetAxis("Mouse X") * mouseSensitivity * 60;//60 is just a multiplier to scale
-        tempmouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * 60;
-        if (tempmouseX != mouseX || tempmouseY != mouseY)
+        if (Instance == null)
         {
-            mouseX = tempmouseX;
-            mouseY = tempmouseY;
-            GetComponentInChildren<CameraBehavior>().Look(mouseX, mouseY);
-        }
-
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        
-
-        if (horizontal != 0 || vertical != 0)
-        {
-            
-            GetComponent<Controller>().Move(horizontal, vertical);
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                GetComponent<Controller>().sprint = true;
-                GetComponentInChildren<CameraBehavior>().Sprint();
-  
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-
-            if (source.clip == SoundManager.Instance.playerwalk || source.clip == SoundManager.Instance.playerrun)
-            {
-                source.Stop();//no sound if player isnt moving
-            }
+            Destroy(gameObject);
         }
-       
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Controller>().Jump();
+    }
 
-        }
+
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
         
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            GetComponent<Controller>().sprint = false;
-            GetComponentInChildren<CameraBehavior>().Sprint();
+    }
 
-        }
+    
+    void Update()
+    {
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * 60;//60 is just a multiplier to scale
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * 60;
 
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            GetComponent<Controller>().OnDamage();
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
-        }
-
-
+        spaceDown = Input.GetKeyDown(KeyCode.Space);
+        shiftDown = Input.GetKeyDown(KeyCode.LeftShift);
+        shiftUp = Input.GetKeyUp(KeyCode.LeftShift);
+        takeDamage = Input.GetKeyDown(KeyCode.J);
     }
 }

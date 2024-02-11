@@ -5,10 +5,16 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
+    
+    public AudioClip jump;
+
+    public AudioSource music;
+
     public AudioClip playerwalk;
     public AudioClip playerrun;
-    public AudioClip jump;
-    
+    public GameObject audioSource;
+
+
 
     private void Awake()
     {
@@ -24,16 +30,31 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void Play(AudioClip clip, AudioSource source)
+    private void Update()
     {
 
-        if (!(source.clip == clip && source.isPlaying == true))
-        {
-            print(clip);
-            source.Stop();
-            source.clip = clip;
-            source.Play();
-        }
+        
     }
-    
+
+
+    public GameObject PlaySoundEffect(AudioClip clip, bool loop, Transform parent)
+    {
+        GameObject obj = Instantiate(audioSource);
+        obj.transform.position = parent.position;
+        obj.transform.SetParent(parent);
+        obj.GetComponent<AudioSource>().loop = loop;
+        obj.GetComponent<AudioSource>().clip = clip;
+        obj.GetComponent<AudioSource>().Play();
+
+
+
+        return obj;
+        
+    }
+
+    public void StopSoundEffect(GameObject obj)
+    {
+        Destroy(obj);
+    }
+
 }
