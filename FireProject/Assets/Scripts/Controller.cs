@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class Controller : Entity
     public float jumpHeight = 3f;
     public bool sprint = false;
     public AudioSource source;
+    public int adrenaline;
+  
     
     
 
@@ -24,6 +27,7 @@ public class Controller : Entity
     private void Start()
     {
         source = this.GetComponent<AudioSource>();
+        Debug.Log(adrenaline);
     }
     // Update is called once per frame
     void Update()
@@ -73,6 +77,7 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
+            adrenaline += 10;
         }
     }
 
