@@ -47,7 +47,7 @@ public abstract class Enemy : FlammableEntity
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         update();
         // Animation updates.
