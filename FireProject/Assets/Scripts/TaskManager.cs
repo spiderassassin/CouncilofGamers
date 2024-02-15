@@ -75,6 +75,18 @@ public class Task
 		if(autoStart)
 			Start();
 	}
+
+	// Create a Task specifically for waiting.
+	public Task(int seconds)
+	{
+		IEnumerator WaitForSeconds(int s)
+		{
+			yield return new WaitForSeconds(s);
+		}
+		task = TaskManager.CreateTask(WaitForSeconds(seconds));
+		task.Finished += TaskFinished;
+		Start();
+	}
 	
 	/// Begins execution of the coroutine
 	public void Start()
