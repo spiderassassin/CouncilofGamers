@@ -16,22 +16,90 @@ public class Controller : Entity
     bool isGrounded;
     public float jumpHeight = 3f;
     public bool sprint = false;
-    public AudioSource source;
-    
-    
+    public bool isMoving = false;
+
+    public AudioClip playerwalk;
+    public AudioClip playerrun;
+    GameObject obj;
 
 
-    private void Start()
-    {
-        source = this.GetComponent<AudioSource>();
-    }
-    // Update is called once per frame
+
+
     void Update()
     {
-        
+        GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
+        if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
+        {
+            if(isMoving == false)
+            {
+                isMoving = true;
+                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+
+            }
+
+            Move(InputManager.Instance.horizontal, InputManager.Instance.vertical);
+
+            if (InputManager.Instance.shiftDown)
+            {
+                SoundManager.Instance.StopSoundEffect(obj);
+                obj = SoundManager.Instance.PlaySoundEffect(playerrun, true, transform);
+
+                sprint = true;
+                GetComponentInChildren<CameraBehavior>().Sprint();
+
+            }
+            else if (InputManager.Instance.shiftUp)
+            {
+                SoundManager.Instance.StopSoundEffect(obj);
+                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+
+                sprint = false;
+                GetComponentInChildren<CameraBehavior>().Sprint();
+
+            }
+        }
+
+        else
+        {
+            if(isMoving == true)
+            {
+                isMoving = false;
+                SoundManager.Instance.StopSoundEffect(obj);
+
+            }
+
+            if(sprint == true)
+            {
+                
+                sprint = false;
+                GetComponentInChildren<CameraBehavior>().Sprint();
+
+            }
+
+           
+        }
+
+        if (InputManager.Instance.spaceDown)
+        {
+            Jump();
+
+        }
+
+        if (InputManager.Instance.takeDamage)
+        {
+            OnDamage();
+        }
+
+        simulateGravity();
+
+
+    }
+
+    void simulateGravity()
+    {
         //check if player is grounded
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -39,12 +107,9 @@ public class Controller : Entity
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);//it is multiplied by deltatime twice becuase v = 1/2g*tˆ2
 
-        
+    }
 
-
-
-}
-    public void Move(float horizontal, float vertical)
+    void Move(float horizontal, float vertical)
     {
 
        
@@ -52,19 +117,14 @@ public class Controller : Entity
             if (sprint)
             {
                 characterController.Move(move * sprintspeed * Time.deltaTime);
-                SoundManager.Instance.Play(SoundManager.Instance.playerrun, source);
+                //SoundManager.Instance.Play(SoundManager.Instance.playerrun, source);
             }
             else
             {
                 characterController.Move(move * speed * Time.deltaTime);
-                SoundManager.Instance.Play(SoundManager.Instance.playerwalk, source);
+                //SoundManager.Instance.Play(SoundManager.Instance.playerwalk, source);
             }
-        
-       
-        
-            
-        
-        
+     
     }
 
     public void Jump()
