@@ -10,14 +10,30 @@ public class FireManager : MonoBehaviour
 {
     public static FireManager manager;
 
-    public GameObject fireSingle;
+    [SerializeField]
+    private int flammableEntitiesOnFire = 0;
 
     private Dictionary<IFlammable, Collider[]> existingFlammables = new Dictionary<IFlammable, Collider[]>();
     private Dictionary<Collider, IFlammable> flammablesMap = new Dictionary<Collider, IFlammable>();
 
+    /// <summary>
+    /// The number of flammable entities currently on fire.
+    /// </summary>
+    public int FlammableEntitiesOnFire => flammableEntitiesOnFire;
+
     private void Awake()
     {
         manager = this;
+    }
+
+    private void Update()
+    {
+        int c = 0;
+        foreach(var f in existingFlammables)
+        {
+            if (f.Key.IsOnFire) ++c;
+        }
+        flammableEntitiesOnFire = c;
     }
 
     /// <summary>

@@ -8,7 +8,7 @@ using UnityEngine;
 public interface IFlammable 
 {
     public IDamagable Damageable { get; }
-    public PassiveFireSources Switcher { get;}
+    public PassiveFireSources PassiveFireSources { get;}
     public bool IsOnFire { get; }
     public Collider[] Colliders { get; }
 

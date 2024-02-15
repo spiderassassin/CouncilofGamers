@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4024264099096536698}
   - component: {fileID: 4024264099096536699}
   - component: {fileID: 4024264099096536700}
-  - component: {fileID: 4024264099096536701}
+  - component: {fileID: 5873492401633839789}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Untagged
@@ -98,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4024264099096536701
+--- !u!114 &5873492401633839789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,24 +107,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4024264099096536702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc39dc59dd58834fbeb2e8373282d67, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f4f5aa4d2dfc5b43957191a928ff8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   detectionMask:
     serializedVersion: 2
-    m_Bits: 1
-  spreadDamage:
-    damage: 5
+    m_Bits: 2147483647
+  activeDamage:
+    damage: 0
     pushBack: 0
     type: 1
-  activeSelfDamage:
+  baseLifespan: 6
+  tickRate: 0.5
+  activeDamageProbability: 0.05
+  selfDamage:
     damage: 1
     pushBack: 0
-    type: 1
-  baseLifespan: 3
-  damageRate: 0.5
-  spreadProbability: 0.1
+    type: 0
 --- !u!1 &4024264099154266145
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,4 +170,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveLevel1: {fileID: 4024264099096536701}
+  passiveLevel1: {fileID: 5873492401633839789}
