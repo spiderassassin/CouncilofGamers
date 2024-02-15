@@ -81,7 +81,7 @@ public abstract class Enemy : FlammableEntity
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
         foreach (Collider hit in hitColliders) {
             // Deal damage if the object has class IDamageable but not Enemy.
-            IDamagable damageable = hit.GetComponent<IDamagable>();
+            IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
                 damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.None));
             }
