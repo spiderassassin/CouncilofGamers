@@ -25,6 +25,7 @@ public class FireSource : MonoBehaviour
 
     private List<Collider> inRange;
     private float timer;
+    public bool tick = true;
 
     /// <summary>
     /// The lifespan remaining on the fire source before it's deactivated.
@@ -63,23 +64,34 @@ public class FireSource : MonoBehaviour
         inRange.Remove(other);
     }
 
+    public void Damage()
+    {
+        DamageTick();
+    }
+
     private void Update()
     {
-        // Timer for deactivating the fire source.
-        LifeSpan -= Time.deltaTime;
-        if (LifeSpan <= 0f)
+        if (tick == true)
         {
-            gameObject.SetActive(false);
-        }
 
-        // Timer for inflicting damage at the damage rate.
-        timer += Time.deltaTime;
-        if (timer >= tickRate)
-        {
-            DamageTick();
 
-            timer = 0;
+            // Timer for deactivating the fire source.
+            LifeSpan -= Time.deltaTime;
+            if (LifeSpan <= 0f)
+            {
+                gameObject.SetActive(false);
+            }
+
+            // Timer for inflicting damage at the damage rate.
+            timer += Time.deltaTime;
+            if (timer >= tickRate)
+            {
+                DamageTick();
+
+                timer = 0;
+            }
         }
+        
     }
 
     protected virtual void DamageTick()

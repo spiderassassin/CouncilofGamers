@@ -21,6 +21,8 @@ public class Controller : Entity
     public AudioClip playerwalk;
     public AudioClip playerrun;
     GameObject obj;
+    public FireSource firesource;
+    public FireSource punchSource;
 
 
 
@@ -90,8 +92,49 @@ public class Controller : Entity
             OnDamage();
         }
 
+        if (InputManager.Instance.punch)
+        {
+            Punch();
+        }
+
+        if (InputManager.Instance.fire)
+        {
+            Fire(true);
+        }
+        if (InputManager.Instance.stopfire)
+        {
+            Fire(false);
+        }
+
+
+        if (InputManager.Instance.snap)
+        {
+            Snap();
+        }
+
+
+
         simulateGravity();
 
+
+    }
+
+    void Punch()
+    {
+        //punchSource.SetActive(true);
+        punchSource.Damage();
+        //punchSource.SetActive(false);
+
+
+    }
+
+    void Fire(bool active)
+    {
+        firesource.SetActive(active);
+    }
+
+    void Snap()
+    {
 
     }
 
