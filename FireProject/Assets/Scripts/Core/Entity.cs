@@ -6,7 +6,7 @@ using UnityEngine;
 /// Base class for entities (IDamageable + IAttacker).
 /// <para>IAttacker is probably optional (leave implimentation blank if not needed).</para>
 /// </summary>
-public abstract class Entity : MonoBehaviour, IDamagable, IAttacker
+public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 {
     public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
     public float health = 100;
