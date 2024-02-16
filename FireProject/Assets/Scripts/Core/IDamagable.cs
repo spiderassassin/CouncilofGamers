@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Characterizes an object that can be damaged.
 /// </summary>
-public interface IDamagable
+public interface IDamageable
 {
     /// <summary>
     /// The current health of this damageable.

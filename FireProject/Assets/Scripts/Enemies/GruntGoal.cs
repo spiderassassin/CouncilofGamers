@@ -1,14 +1,28 @@
 using UnityEngine;
 
 public class GruntGoal: Enemy {
+    private Task waiting;
+    private Vector3 dest;
+
     public GruntGoal() {
         speed = 10;
     }
 
-    private Vector3 dest;
-
     public override void update() {
-        if (state == EnemyState.Moving) {
+        // Handle the waiting if it's currently being used.
+        if (waiting != null) {
+            if (!waiting.Running) {
+                // Reset task.
+                waiting = null;
+                // If player moves out of range, start moving again.
+                if (Vector3.Distance(transform.position, player.position) > 5) {
+                    state = EnemyState.Moving;
+                } else {
+                    // If we're still in range, attack again.
+                    state = EnemyState.Attacking;
+                }
+            }
+        } else if (state == EnemyState.Moving) {
             // If the player gets within a certain range, start moving towards them instead.
             if (Vector3.Distance(transform.position, player.position) < 15) {
                 dest = player.position;
@@ -24,10 +38,8 @@ public class GruntGoal: Enemy {
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
             agent.SetDestination(transform.position);
-            // If dest (i.e. player) moves out of range, start moving again.
-            if (Vector3.Distance(transform.position, player.position) > 5) {
-                state = EnemyState.Moving;
-            }
+            Attack();
+            waiting = new Task(1);
         }
     }
 }

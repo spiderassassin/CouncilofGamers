@@ -47,7 +47,7 @@ public abstract class Enemy : FlammableEntity
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         update();
         // Animation updates.
@@ -74,5 +74,17 @@ public abstract class Enemy : FlammableEntity
         // Billboarding effect.
         transform.LookAt(mainCamera.transform);
         transform.Rotate(0, 180, 0);
+    }
+
+    public void Attack() {
+        // Deal damage to any entities within a certain range.
+        Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
+        foreach (Collider hit in hitColliders) {
+            // Deal damage if the object has class IDamageable but not Enemy.
+            IDamageable damageable = hit.GetComponent<IDamageable>();
+            if (damageable != null && !hit.GetComponent<Enemy>()) {
+                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.None));
+            }
+        }
     }
 }
