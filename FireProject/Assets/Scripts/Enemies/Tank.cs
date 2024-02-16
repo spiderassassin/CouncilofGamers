@@ -25,7 +25,9 @@ public class Tank: Enemy {
                 // Reset task.
                 waitingLongRange = null;
                 // Fire!
-                Instantiate(projectile, transform.position, Quaternion.identity);
+                Vector3 origin = transform.position;
+                origin.y += 1;
+                Instantiate(projectile, origin, Quaternion.identity);
                 // Resume movement.
                 agent.isStopped = false;
                 state = EnemyState.Moving;
