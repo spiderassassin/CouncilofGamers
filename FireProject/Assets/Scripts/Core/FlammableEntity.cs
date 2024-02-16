@@ -58,6 +58,9 @@ public class FlammableEntity : Entity, IFlammable
         else if (!attacker.Equals(this))
             SetFire(dmg.type);
 
-        text.text = Health.ToString();
+        if (text)
+            text.text = Health.ToString();
+        else
+            print("Health is: " + Health.ToString());
     }
 }
