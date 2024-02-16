@@ -22,7 +22,7 @@ public class AdrenalineSlider : MonoBehaviour
 
         if (adrenalineBar.value >= GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>().MAX_ADRENALINE) //bar is full, snap is ready
         {
-            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = Color.red;
+            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = Color.white;
         }
         else
         {

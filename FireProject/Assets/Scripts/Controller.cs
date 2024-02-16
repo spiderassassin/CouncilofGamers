@@ -18,8 +18,12 @@ public class Controller : Entity
     public float jumpHeight = 3f;
     public bool sprint = false;
     public AudioSource source;
+
+
     public int adrenaline;
     public int MAX_ADRENALINE;
+    public int MAX_HEALTH;
+
   
     public bool isMoving = false;
 
