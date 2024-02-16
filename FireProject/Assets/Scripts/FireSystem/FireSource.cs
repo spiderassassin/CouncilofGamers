@@ -17,7 +17,9 @@ public class FireSource : MonoBehaviour
     public IAttacker source; // Unity doesn't serialize interfaces :(
     public IFlammable self; 
     public LayerMask detectionMask; 
-    public DamageInformation activeDamage; // The damage to inflict on other entities when they are inside the fire source and spreadProbability succeeds. DO NOT RENAME
+    public DamageInformation activeDamage;
+    int originalDamage;
+    // The damage to inflict on other entities when they are inside the fire source and spreadProbability succeeds. DO NOT RENAME
     [SerializeField]
     private float baseLifespan = Mathf.Infinity; // DO NOT RENAME
     public float tickRate = .25f; // DO NOT RENAME
@@ -38,6 +40,10 @@ public class FireSource : MonoBehaviour
         self = d;
     }
 
+    private void Start()
+    {
+        originalDamage = activeDamage.damage;
+    }
     protected virtual void OnEnable()
     {
         inRange = new List<Collider>();
@@ -96,6 +102,7 @@ public class FireSource : MonoBehaviour
 
     protected virtual void DamageTick()
     {
+        activeDamage.damage = originalDamage + (GameManager.Instance.adranaline * GameManager.Instance.Damageboost);
         foreach (var c in inRange)
         {
             if (Random.Range(0f, 1f) <= activeDamageProbability)
