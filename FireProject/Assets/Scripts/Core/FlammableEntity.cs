@@ -14,7 +14,7 @@ public class FlammableEntity : Entity, IFlammable
 
     bool IFlammable.IsOnFire { get => onFire; }
     public Collider[] Colliders => colliders;
-    public IDamagable Damageable => this;
+    public IDamageable Damageable => this;
     public PassiveFireSources PassiveFireSources => passiveFireSources;
 
     private void Start()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class Controller : Entity
     bool isGrounded;
     public float jumpHeight = 3f;
     public bool sprint = false;
+    public AudioSource source;
+    public int adrenaline;
+  
     public bool isMoving = false;
 
     public AudioClip playerwalk;
@@ -41,10 +45,15 @@ public class Controller : Entity
             Destroy(gameObject);
         }
 
+
     }
+
 
     void Update()
     {
+        source = this.GetComponent<AudioSource>();
+        Debug.Log(adrenaline);
+
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
         if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
         {
@@ -200,6 +209,7 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
+            adrenaline += 10;
         }
     }
 

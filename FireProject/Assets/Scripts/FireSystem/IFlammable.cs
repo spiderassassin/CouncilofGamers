@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public interface IFlammable 
 {
-    public IDamagable Damageable { get; }
+    public IDamageable Damageable { get; }
     public PassiveFireSources PassiveFireSources { get;}
     public bool IsOnFire { get; }
     public Collider[] Colliders { get; }
