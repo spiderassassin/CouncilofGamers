@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5169916080161432667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 800, y: -649.47, z: 155.34}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5169916080897649754}
@@ -46,10 +46,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.87
-  m_Height: 4.78
+  m_Radius: 0.28
+  m_Height: 1.65
   m_Direction: 1
-  m_Center: {x: 0, y: 1.36, z: 0}
+  m_Center: {x: 0, y: -0.19, z: 0}
 --- !u!195 &5169916080161432670
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5169916080161432667}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.25
+  m_Radius: 0.34
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -68,7 +68,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3.96
+  m_Height: 1.61
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -134,8 +134,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5169916080897649735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5169916080161432656}
