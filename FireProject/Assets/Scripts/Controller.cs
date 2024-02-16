@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Controller : Entity
 {
+    public static Controller Instance;
     public CharacterController characterController;
     public float speed = 10f;
     public float sprintspeed = 35f;
@@ -20,12 +21,27 @@ public class Controller : Entity
 
     public AudioClip playerwalk;
     public AudioClip playerrun;
+    public AudioClip punch;
+    public AudioClip fire;
     GameObject obj;
+    GameObject fireAudio;
     public FireSource firesource;
     public FireSource punchSource;
 
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
+    }
 
     void Update()
     {
@@ -35,7 +51,7 @@ public class Controller : Entity
             if(isMoving == false)
             {
                 isMoving = true;
-                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+                obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
 
             }
 
@@ -44,7 +60,7 @@ public class Controller : Entity
             if (InputManager.Instance.shiftDown)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundEffect(playerrun, true, transform);
+                obj = SoundManager.Instance.PlaySoundloop(playerrun,  transform);
 
                 sprint = true;
                 GetComponentInChildren<CameraBehavior>().Sprint();
@@ -53,7 +69,7 @@ public class Controller : Entity
             else if (InputManager.Instance.shiftUp)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+                obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
 
                 sprint = false;
                 GetComponentInChildren<CameraBehavior>().Sprint();
@@ -100,10 +116,12 @@ public class Controller : Entity
         if (InputManager.Instance.fire)
         {
             Fire(true);
+            fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
         }
         if (InputManager.Instance.stopfire)
         {
             Fire(false);
+            SoundManager.Instance.StopSoundEffect(fireAudio);
         }
 
 
@@ -119,10 +137,15 @@ public class Controller : Entity
 
     }
 
+
+
+
     void Punch()
     {
         //punchSource.SetActive(true);
         punchSource.Damage();
+        SoundManager.Instance.PlaySoundOnce(punch, transform);
+
         //punchSource.SetActive(false);
 
 
@@ -131,6 +154,7 @@ public class Controller : Entity
     void Fire(bool active)
     {
         firesource.SetActive(active);
+        
     }
 
     void Snap()
@@ -181,13 +205,15 @@ public class Controller : Entity
 
 
 
-    void Attack()
-    {
-
-    }
 
     public void OnDamage() {
         CombatUI.Instance.DamageOverlay();
+        GameManager.Instance.playerHealth -= 10;
+        if(GameManager.Instance.playerHealth <= 0)
+        {
+            Debug.Log("Game Over");
+            SceneManager.LoadScene(0);
+        }
 
     }
 

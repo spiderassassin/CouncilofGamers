@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
-    public Transform spawnPoint;
     public static GameManager Instance;
-    public Transform playerTransform;
-    public List<Enemy> enemies;
-    public GruntPlayer gruntPlayer;
-    public GruntGoal gruntgoal;
-    public Tank tank;
+    public bool wavemode = false;//check wheather the game is in wave mode or downtime mode. It is affected by the wavemanager script
+    public enum GameStage { TutorialWave, PreWave1, Wave1, PreWave2, Wave2, PreWave3, Wave3, PreFinale, Finale};
+    public GameStage gameStage;
+    public int adranaline = 0;
+
     public Wave wave1;
-    public bool isSpawning;
-
-
-
-
+    public Wave wave2;
+    public Wave wave3;
+    public int playerHealth = 100;
+    public int baseHealth = 5;
+    public int Damageboost = 2;
 
     private void Awake()
     {
@@ -32,91 +30,21 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        gameStage = GameStage.TutorialWave;
     }
 
-    // Update is called once per frame
     void Update()
     {
-       if(InputManager.Instance.startwave)
+        adranaline = FireManager.manager.FlammableEntitiesOnFire;
+        if (InputManager.Instance.startwave)
         {
-            StartWave();
-        }
-    }
-
-
-    void StartWave() {
-        if (isSpawning == false)
-        {
-            StartCoroutine(Spawn(wave1));
+           
+            WaveManager.Instance.StartWave(wave1);
         }
         
-    }
-
-    IEnumerator Spawn(Wave wave)
-    {
-        isSpawning = true;
-        for (int i = 0; i < wave.enemies.Count; i++)
-        {
-            yield return new WaitForSeconds(wave.enemies[i].spawndelay);
-            Enemy e = null;
-            switch (wave.enemies[i].enemyType)
-            {
-                case Wave.EnemyType.None:
-                    break;
-                case Wave.EnemyType.GruntGoal:
-                    e = gruntgoal;
-                    break;
-                case Wave.EnemyType.GruntPlayer:
-                    e = gruntPlayer;
-                    break;
-                case Wave.EnemyType.Tank:
-                    e = tank;
-                    break;
-                    
-
-            }
-            GameObject enemy1 = Instantiate(e.gameObject);
-            enemies.Add(enemy1.GetComponent<Enemy>());
-            enemy1.transform.position = spawnPoint.position;
-            enemy1.GetComponent<Enemy>().player = playerTransform;
-
-
-
-        }
-        isSpawning = false;
-    }
-
-
-
-
-}
-
-[System.Serializable]
-public class Wave
-{
-    [System.Serializable]
-    public class EnemyInstance
-    {
-        public EnemyType enemyType;
-        public float spawndelay = 1f;
-
-    }
-
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank};
-    public List<EnemyInstance> enemies;
-
-    IEnumerator Spawn()
-    {
-        for(int i = 0; i<enemies.Count; i++)
-        {
-            yield return new WaitForSeconds(enemies[i].spawndelay);
-
-
-        }
     }
 
 
