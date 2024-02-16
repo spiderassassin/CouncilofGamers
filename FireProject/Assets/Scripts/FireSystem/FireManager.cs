@@ -53,9 +53,9 @@ public class FireManager : MonoBehaviour
             print(enemy.name);
             Vector3 knockbackDirection = (enemy.transform.position - Controller.Instance.transform.position);
             knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
-            print(knockbackDirection);
+            //print(knockbackDirection);
             Rigidbody enemyRigidbody = enemy.GetComponent<Rigidbody>();
-            print(enemyRigidbody.drag);
+            //print(enemyRigidbody.drag);
             enemy.transform.position += Controller.Instance.transform.forward * Time.deltaTime * 100;
             enemyRigidbody.AddForce(knockbackDirection * 100, ForceMode.Impulse);
             
