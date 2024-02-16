@@ -8,12 +8,16 @@ public class GameManager : MonoBehaviour
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode. It is affected by the wavemanager script
     public enum GameStage { TutorialWave, PreWave1, Wave1, PreWave2, Wave2, PreWave3, Wave3, PreFinale, Finale};
     public GameStage gameStage;
-    public int adranaline = 0;
-
+    public int adrenaline = 0;
+    public int MAX_ADRENALINE = 100;
+    public int health = 100;
+   
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
     public int playerHealth = 100;
+    public int MAX_HEALTH = 100;
+
     public int baseHealth = 5;
     public int Damageboost = 2;
 
@@ -38,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        adranaline = FireManager.manager.FlammableEntitiesOnFire;
+        adrenaline = FireManager.manager.FlammableEntitiesOnFire;
         if (InputManager.Instance.startwave)
         {
            

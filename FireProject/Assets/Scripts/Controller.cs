@@ -20,11 +20,6 @@ public class Controller : Entity
     public bool sprint = false;
     public AudioSource source;
 
-
-    public int adrenaline;
-    public int MAX_ADRENALINE;
-    public int MAX_HEALTH;
-
   
     public bool isMoving = false;
 
@@ -172,9 +167,9 @@ public class Controller : Entity
 
     void Snap()
     {
-        if (adrenaline == MAX_ADRENALINE)
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline == GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
         {
-            adrenaline = 0;
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
             //logic for snap goes here
         }
 
@@ -219,7 +214,7 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
-            adrenaline += 10;
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
 

@@ -8,7 +8,7 @@ public class HealthSlider : MonoBehaviour
     public float playerHealth;
     private void Start()
     {
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>().health;
+        playerHealth = GameObject.Find("GameManager").GetComponent<GameManager>().playerHealth;
         healthBar = GetComponent<Slider>();
     }
     public void SetAdrenaline(int a)
@@ -18,7 +18,7 @@ public class HealthSlider : MonoBehaviour
 
     public void Update()
     {
-        healthBar.value = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>().health;
+        healthBar.value = GameObject.Find("GameManager").GetComponent<GameManager>().playerHealth;
 
     }
 }
