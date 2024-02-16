@@ -17,7 +17,14 @@ public class InputManager : MonoBehaviour
     public bool shiftDown = false;
     public bool shiftUp = false;
     public bool takeDamage = false;
-   
+    public bool punch = false;
+
+    public bool fire = false;
+    public bool stopfire = false;//called when user releases input
+    public bool snap = false;
+    public bool startwave = false;//this is for testing only, to start waves
+
+
 
     private void Awake()
     {
@@ -54,5 +61,10 @@ public class InputManager : MonoBehaviour
         shiftDown = Input.GetKeyDown(KeyCode.LeftShift);
         shiftUp = Input.GetKeyUp(KeyCode.LeftShift);
         takeDamage = Input.GetKeyDown(KeyCode.J);
+        punch = Input.GetKeyDown(KeyCode.P);
+        fire = Input.GetKeyDown(KeyCode.I);
+        stopfire = Input.GetKeyUp(KeyCode.I);
+        snap = Input.GetKeyDown(KeyCode.O);
+        startwave = Input.GetKeyDown(KeyCode.M);
     }
 }

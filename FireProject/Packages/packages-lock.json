@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.blockadelabs.sdk": {
+      "version": "file:com.blockadelabs.sdk",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "7.0.5",
       "depth": 1,
@@ -188,7 +196,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
