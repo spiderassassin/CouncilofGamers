@@ -1688,9 +1688,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2dc2a65902746208dfb1bae7941f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: {fileID: 8300000, guid: c7295eb69474f4ef8a034fcb01d29efa, type: 3}
+  music: {fileID: 0}
   playerwalk: {fileID: 8300000, guid: 019bb0e8b264a4e28ba303cc69211e33, type: 3}
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}
-  jump: {fileID: 8300000, guid: c7295eb69474f4ef8a034fcb01d29efa, type: 3}
+  audioSource: {fileID: 0}
 --- !u!4 &275960316
 Transform:
   m_ObjectHideFlags: 0
@@ -10084,7 +10086,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f9af6d0e1f4435ba9f1c4247a5d771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseX: 0
+  mouseY: 0
+  horizontal: 0
+  vertical: 0
   mouseSensitivity: 100
+  spaceDown: 0
+  shiftDown: 0
+  shiftUp: 0
+  takeDamage: 0
+  punch: 0
+  fire: 0
+  stopfire: 0
+  snap: 0
+  startwave: 0
 --- !u!33 &4844155856543257523
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10136,6 +10151,12 @@ MonoBehaviour:
   sprint: 0
   source: {fileID: 0}
   adrenaline: 0
+  MAX_ADRENALINE: 100
+  isMoving: 0
+  playerwalk: {fileID: 0}
+  playerrun: {fileID: 0}
+  firesource: {fileID: 0}
+  punchSource: {fileID: 0}
 --- !u!1 &6458678085241640785
 GameObject:
   m_ObjectHideFlags: 0

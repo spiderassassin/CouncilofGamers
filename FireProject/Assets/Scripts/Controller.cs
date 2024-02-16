@@ -19,6 +19,7 @@ public class Controller : Entity
     public bool sprint = false;
     public AudioSource source;
     public int adrenaline;
+    public int MAX_ADRENALINE;
   
     public bool isMoving = false;
 
@@ -33,7 +34,6 @@ public class Controller : Entity
     void Update()
     {
         source = this.GetComponent<AudioSource>();
-        Debug.Log(adrenaline);
 
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
         if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
@@ -141,6 +141,12 @@ public class Controller : Entity
 
     void Snap()
     {
+        if (adrenaline == MAX_ADRENALINE)
+        {
+            adrenaline = 0;
+            //logic for snap goes here
+        }
+
 
     }
 
