@@ -76,6 +76,25 @@ public abstract class Enemy : FlammableEntity
         transform.Rotate(0, 180, 0);
     }
 
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+
+        if (dmg.pushBack != 0)
+        {
+            Vector3 knockbackDirection = (transform.position - Controller.Instance.transform.position);
+            knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
+            //print(knockbackDirection);
+            Rigidbody enemyRigidbody = gameObject.GetComponent<Rigidbody>();
+            //print(enemyRigidbody.drag);
+            agent.enabled = false;
+            transform.position += Controller.Instance.transform.forward * Time.deltaTime * 100;
+            enemyRigidbody.AddForce(knockbackDirection * 100, ForceMode.Impulse);
+            agent.enabled = true;
+        }
+    }
+
+    
     public void Attack() {
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);

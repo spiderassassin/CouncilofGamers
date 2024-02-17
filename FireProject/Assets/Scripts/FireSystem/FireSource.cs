@@ -64,7 +64,6 @@ public class FireSource : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         inRange.Add(other);
-        print(other.name);
     }
     private void OnTriggerExit(Collider other)
     {
