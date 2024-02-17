@@ -49,6 +49,8 @@ public abstract class Enemy : FlammableEntity
     // Update is called once per frame
     protected override void Update()
     {
+        // Scale speed based on adrenaline.
+        agent.speed = speed + (GameManager.Instance.adranaline);
         update();
         // Animation updates.
         if (state == EnemyState.Moving) {
