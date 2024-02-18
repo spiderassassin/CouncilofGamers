@@ -23,7 +23,6 @@ public abstract class Enemy : FlammableEntity
 {
     public Vector3 goal;
     public Transform player;
-    public abstract void update();
     public Animator animator;
 
     protected UnityEngine.AI.NavMeshAgent agent;
@@ -37,7 +36,7 @@ public abstract class Enemy : FlammableEntity
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
@@ -49,9 +48,9 @@ public abstract class Enemy : FlammableEntity
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
         // Scale speed based on adrenaline.
         agent.speed = speed + (GameManager.Instance.adranaline);
-        update();
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);

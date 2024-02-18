@@ -4,11 +4,14 @@ using UnityEngine;
 public class GruntPlayer: Enemy {
     private Task waiting;
 
-    public GruntPlayer() {
+    protected override void Start()
+    {
         speed = 10;
+        base.Start();
     }
 
-    public override void update() {
+    protected override void Update() {
+        base.Update();
         if (!player) return;
 
         // Handle the waiting if it's currently being used.
