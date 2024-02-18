@@ -15,6 +15,11 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public Vector3 Position => transform.position;
 
+    private void OnValidate()
+    {
+        if (colliders.Length == 0) Debug.LogError("Dont forget to assign colliders!");
+    }
+
     public void Attack()
     {
         throw new System.NotImplementedException();

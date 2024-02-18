@@ -1646,9 +1646,9 @@ MonoBehaviour:
   spawnPoint4: {fileID: 463061586}
   playerTransform: {fileID: 8913934894348048307}
   enemies: []
-  gruntPlayer: {fileID: 2256398928212653491, guid: 5137ed43e445f9b4facb683e54b600f1, type: 3}
-  gruntgoal: {fileID: 7576069097904414278, guid: d4ec3a4239e99164da1da66349665570, type: 3}
-  tank: {fileID: 2248288369613509277, guid: d9ebd37b32b4e4e41a9bf465b010f9ee, type: 3}
+  gruntPlayer: {fileID: 5169916080161432669, guid: 5137ed43e445f9b4facb683e54b600f1, type: 3}
+  gruntgoal: {fileID: 7576069097904414278, guid: 2b02bbb4f3310ff4da5fca4de681f4d7, type: 3}
+  tank: {fileID: 3502675710442377554, guid: d9ebd37b32b4e4e41a9bf465b010f9ee, type: 3}
   isSpawning: 0
 --- !u!4 &218940897
 Transform:
@@ -1681,7 +1681,10 @@ MonoBehaviour:
   gameStage: 0
   adranaline: 0
   wave1:
-    enemies: []
+    enemies:
+    - enemyType: 2
+      spawndelay: 0
+      spawnPoint: 0
   wave2:
     enemies: []
   wave3:
@@ -11047,6 +11050,8 @@ MonoBehaviour:
     m_Bits: 8
   jumpHeight: 3
   sprint: 0
+  source: {fileID: 0}
+  adrenaline: 0
   isMoving: 0
   playerwalk: {fileID: 8300000, guid: 019bb0e8b264a4e28ba303cc69211e33, type: 3}
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}

@@ -52,7 +52,7 @@ public class Controller : Entity
     void Update()
     {
         source = this.GetComponent<AudioSource>();
-        Debug.Log(adrenaline);
+        //Debug.Log(adrenaline);
 
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
         if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
