@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// The base class for enemies (Entity + IFlammable).
 /// </summary>
-public class FlammableEntity : Entity, IFlammable
+public abstract class FlammableEntity : Entity, IFlammable
 {
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;

@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager Instance;
+
     //all the spawn points from where the enemies will spawn
     public Transform spawnPoint1;
     public Transform spawnPoint2;
     public Transform spawnPoint3;
     public Transform spawnPoint4;
-    
-    
-
-
-    public static WaveManager Instance;
     public Transform playerTransform;
-    public List<Enemy> enemies;
     public GruntPlayer gruntPlayer;
     public GruntGoal gruntgoal;
     public Tank tank;
  
     public bool isSpawning;
 
-
+    private List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
 
     private void Awake()
     {
@@ -37,11 +33,15 @@ public class WaveManager : MonoBehaviour
         }
 
     }
+    private void OnEnable()
+    {
+        livingEnemies = new List<Enemy>();
+    }
 
     private void Update()
     {
         if((GameManager.Instance.wavemode == true) && (isSpawning == false) ) {
-            if(enemies.Count == 0)
+            if(livingEnemies.Count == 0)
             {
                 GameManager.Instance.wavemode = false;
             }
@@ -85,7 +85,7 @@ public class WaveManager : MonoBehaviour
                     
             }
             GameObject enemy1 = Instantiate(e.gameObject);
-            enemies.Add(enemy1.GetComponent<Enemy>());
+            livingEnemies.Add(enemy1.GetComponent<Enemy>());
 
             Transform spawnPoint = null;
             switch (waveChunk.enemies[i].spawnPoint)

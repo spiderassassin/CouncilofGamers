@@ -9,6 +9,8 @@ public class GruntPlayer: Enemy {
     }
 
     public override void update() {
+        if (!player) return;
+
         // Handle the waiting if it's currently being used.
         if (waiting != null) {
             if (!waiting.Running) {

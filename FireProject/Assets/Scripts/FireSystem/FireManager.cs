@@ -19,7 +19,7 @@ public class FireManager : MonoBehaviour
     /// <summary>
     /// The number of flammable entities currently on fire.
     /// </summary>
-    public int FlammableEntitiesOnFire => flammableEntitiesOnFire;
+    public int EntitiesOnFire => flammableEntitiesOnFire;
 
     private void Awake()
     {

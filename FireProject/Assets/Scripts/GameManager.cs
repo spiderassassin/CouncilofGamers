@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        adranaline = FireManager.manager.FlammableEntitiesOnFire;
+        adranaline = FireManager.manager.EntitiesOnFire;
         if (InputManager.Instance.startwave)
         {
            
