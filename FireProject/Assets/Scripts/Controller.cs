@@ -12,8 +12,6 @@ public class Controller : Entity
     public float sprintspeed = 35f;
     public Vector3 velocity;
     public float gravity = -9.81f;
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 3f;
@@ -174,7 +172,7 @@ public class Controller : Entity
     void simulateGravity()
     {
         //check if player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = characterController.isGrounded; // Physics.CheckSphere(groundCheck.position, .05f, groundMask);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
