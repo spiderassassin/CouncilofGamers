@@ -55,7 +55,7 @@ public class Controller : Entity
         //Debug.Log(adrenaline);
 
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
-        if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
+        if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
         {
             if(isMoving == false)
             {
@@ -64,9 +64,9 @@ public class Controller : Entity
 
             }
 
-            Move(InputManager.Instance.horizontal, InputManager.Instance.vertical);
+            Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
 
-            if (InputManager.Instance.shiftDown)
+            if (InputManager.Instance.sprintOn)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
                 obj = SoundManager.Instance.PlaySoundloop(playerrun,  transform);
@@ -75,7 +75,7 @@ public class Controller : Entity
                 GetComponentInChildren<CameraBehavior>().Sprint();
 
             }
-            else if (InputManager.Instance.shiftUp)
+            else if (InputManager.Instance.sprintOff)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
                 obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
@@ -106,7 +106,7 @@ public class Controller : Entity
            
         }
 
-        if (InputManager.Instance.spaceDown)
+        if (InputManager.Instance.jump)
         {
             Jump();
 

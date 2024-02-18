@@ -17,7 +17,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     private void OnValidate()
     {
-        if (colliders.Length == 0) Debug.LogError("Dont forget to assign colliders!");
+        if (colliders.Length == 0) Debug.LogError("Dont forget to assign colliders! "+gameObject.name);
     }
 
     public void Attack()
