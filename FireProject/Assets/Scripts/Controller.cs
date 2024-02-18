@@ -28,6 +28,7 @@ public class Controller : Entity
     GameObject obj;
     GameObject fireAudio;
     public FireSource firesource;
+    public ParticleSystem coneFireSystem;
     public FireSource punchSource;
 
 
@@ -161,7 +162,10 @@ public class Controller : Entity
     void Fire(bool active)
     {
         firesource.SetActive(active);
-        
+        if (!active)
+            coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        else
+            coneFireSystem.Play(true);
     }
 
     void Snap()
