@@ -49,7 +49,7 @@ public abstract class Enemy : FlammableEntity
     {
         base.Update();
         // Scale speed based on adrenaline.
-        agent.speed = speed + (GameManager.Instance.adranaline);
+        agent.speed = speed + (GameManager.Instance.adrenaline);
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);
