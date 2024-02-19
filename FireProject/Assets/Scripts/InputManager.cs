@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     private InputAction punchAction;
     private InputAction sprintAction;
     private InputAction snapAction;
+    private InputAction fireballAction;
 
     public float mouseX = 0;
     public float mouseY = 0;
@@ -32,6 +33,7 @@ public class InputManager : MonoBehaviour
     public bool sprintOff = false;
     public bool takeDamage = false;
     public bool punch => punchAction.WasPerformedThisFrame();
+    public bool fireball => fireballAction.WasPerformedThisFrame();
 
     public bool fire = false;
     public bool stopfire = false;//called when user releases input
@@ -75,6 +77,7 @@ public class InputManager : MonoBehaviour
 
         punchAction = playerInput.currentActionMap.FindAction("Punch");
         snapAction = playerInput.currentActionMap.FindAction("Snap");
+        fireballAction = playerInput.currentActionMap.FindAction("Fireball");
 
         sprintAction = playerInput.currentActionMap.FindAction("Sprint");
         sprintAction.performed += SprintAction_performed;

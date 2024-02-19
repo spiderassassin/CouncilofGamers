@@ -17,7 +17,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     public IDamageable Damageable => this;
     public PassiveFireSources PassiveFireSources => passiveFireSources;
 
-    private void Start()
+    protected virtual void Start()
     {
         passiveFireSources.Initialize(this, this);
     }
@@ -38,10 +38,12 @@ public abstract class FlammableEntity : Entity, IFlammable
 
     public void SetFire(DamageType type)
     {
+        if (!Utilities.IsFireType(type)) return;
+
         PassiveFireSources.Switch(type);
         if(type != DamageType.None)
         {
-            onFire = true;
+                onFire = true;
         }
         else
         {
@@ -52,6 +54,8 @@ public abstract class FlammableEntity : Entity, IFlammable
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker,dmg);
+
+        print(dmg.type);
 
         if (attacker == null)
             SetFire(dmg.type);

@@ -35,9 +35,9 @@ public abstract class Enemy : FlammableEntity
         yield return new WaitForSeconds(seconds);
     }
 
-    // Start is called before the first frame update
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
         agent.stoppingDistance = 5;
@@ -45,7 +45,6 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
         base.Update();
@@ -94,8 +93,12 @@ public abstract class Enemy : FlammableEntity
             agent.enabled = true;
         }
     }
+    public override void Death()
+    {
+        base.Death();
+        Destroy(gameObject);
+    }
 
-    
     public void Attack() {
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);

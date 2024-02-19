@@ -31,6 +31,8 @@ public class PassiveFireSource : FireSource
         base.DamageTick();
 
         if (self != null)
+        {
             self.Damageable.OnDamaged(source, selfDamage);
+        }
     }
 }

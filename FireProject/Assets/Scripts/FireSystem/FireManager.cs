@@ -74,5 +74,6 @@ public class FireManager : MonoBehaviour
         if (!flammablesMap.ContainsKey(c)) return null;
         return flammablesMap[c];
     }
+
 }
-public enum DamageType { None, FirePassive_Lvl1 }
+public enum DamageType { None, Punch, FirePassive_Lvl1 }

@@ -24,9 +24,11 @@ public class PassiveFireSources : MonoBehaviour
     /// <param name="type">None means to deactivate everything, otherwise specify the type.</param>
     public void Switch(DamageType type)
     {
+        if (!Utilities.IsFireType(type)) return;
+
         if(type== DamageType.None)
         {
-            passiveLevel1.SetActive(false);
+                passiveLevel1.SetActive(false);
         }
         else
         {

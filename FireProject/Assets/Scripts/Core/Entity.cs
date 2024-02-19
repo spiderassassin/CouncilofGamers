@@ -36,10 +36,19 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         health -= dmg.damage;
+        if (health < 0)
+        {
+            Death(); // might be bad if this is repeatedly called
+        }
     }
 
     public void StopAttack()
     {
         throw new System.NotImplementedException();
+    }
+
+    public virtual void Death()
+    {
+        print("DYING " + gameObject.name);
     }
 }

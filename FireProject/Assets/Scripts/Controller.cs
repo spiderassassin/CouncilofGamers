@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Controller : Entity
 {
     public static Controller Instance;
+
     public CharacterController characterController;
     public float speed = 10f;
     public float sprintspeed = 35f;
@@ -30,7 +31,8 @@ public class Controller : Entity
     public FireSource firesource;
     public ParticleSystem coneFireSystem;
     public FireSource punchSource;
-
+    public Fireball fireballPrefab;
+    public Transform fireballOrigin;
 
     private void Awake()
     {
@@ -116,6 +118,11 @@ public class Controller : Entity
             OnDamage();
         }
 
+        if (InputManager.Instance.fireball)
+        {
+            Fireball();
+        }
+
         if (InputManager.Instance.punch)
         {
             Punch();
@@ -166,6 +173,13 @@ public class Controller : Entity
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         else
             coneFireSystem.Play(true);
+    }
+
+    void Fireball()
+    {
+        Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+        g.transform.position = fireballOrigin.position;
+        g.Launch(fireballOrigin.forward);
     }
 
     void Snap()
