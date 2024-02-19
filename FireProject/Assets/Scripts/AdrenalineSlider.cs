@@ -8,7 +8,7 @@ public class AdrenalineSlider : MonoBehaviour
     public int playerAdrenaline;
     private void Start()
     {
-        playerAdrenaline = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>().adrenaline;
+        playerAdrenaline = GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline;
         adrenalineBar = GetComponent<Slider>();
     }
     public void SetAdrenaline(int a)
@@ -18,11 +18,11 @@ public class AdrenalineSlider : MonoBehaviour
 
     public void Update()
     {
-        adrenalineBar.value = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>().adrenaline;
+        adrenalineBar.value = GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline;
 
-        if (adrenalineBar.value >= 100) //bar is full, snap is ready
+        if (adrenalineBar.value >= GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
         {
-            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = Color.red;
+            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = Color.white;
         }
         else
         {

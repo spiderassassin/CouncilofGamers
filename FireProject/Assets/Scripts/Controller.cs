@@ -18,7 +18,7 @@ public class Controller : Entity
     public float jumpHeight = 3f;
     public bool sprint = false;
     public AudioSource source;
-    public int adrenaline;
+
   
     public bool isMoving = false;
 
@@ -53,7 +53,7 @@ public class Controller : Entity
     void Update()
     {
         source = this.GetComponent<AudioSource>();
-        //Debug.Log(adrenaline);
+
 
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
         if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
@@ -184,6 +184,12 @@ public class Controller : Entity
 
     void Snap()
     {
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline == GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
+            //logic for snap goes here
+        }
+
 
     }
 
@@ -225,7 +231,7 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
-            adrenaline += 10;
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
 

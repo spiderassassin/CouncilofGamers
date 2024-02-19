@@ -108,7 +108,7 @@ public class FireSource : MonoBehaviour
 
     protected virtual void DamageTick()
     {
-        activeDamage.damage = originalDamage + (GameManager.Instance.adranaline * GameManager.Instance.Damageboost);
+        activeDamage.damage = originalDamage + (GameManager.Instance.adrenaline * GameManager.Instance.Damageboost);
         foreach (var c in inRange)
         {
             if (Random.Range(0f, 1f) <= activeDamageProbability)
