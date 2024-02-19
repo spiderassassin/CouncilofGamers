@@ -19,7 +19,7 @@ public class FireManager : MonoBehaviour
     /// <summary>
     /// The number of flammable entities currently on fire.
     /// </summary>
-    public int FlammableEntitiesOnFire => flammableEntitiesOnFire;
+    public int EntitiesOnFire => flammableEntitiesOnFire;
 
     private void Awake()
     {
@@ -74,5 +74,6 @@ public class FireManager : MonoBehaviour
         if (!flammablesMap.ContainsKey(c)) return null;
         return flammablesMap[c];
     }
+
 }
-public enum DamageType { None, FirePassive_Lvl1 }
+public enum DamageType { None, Punch, FirePassive_Lvl1 }

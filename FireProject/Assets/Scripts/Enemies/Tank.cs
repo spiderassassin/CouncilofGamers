@@ -11,7 +11,7 @@ public class Tank: Enemy {
         speed = 2;
     }
 
-    public override void update() {
+    protected override void Update() {
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
             if (!waitingShortRange.Running) {

@@ -4,11 +4,15 @@ public class GruntGoal: Enemy {
     private Task waiting;
     private Vector3 dest;
 
-    public GruntGoal() {
+    protected override void Start()
+    {
         speed = 10;
+        base.Start();
     }
 
-    public override void update() {
+    protected override void Update() {
+        base.Update();
+
         // Handle the waiting if it's currently being used.
         if (waiting != null) {
             if (!waiting.Running) {

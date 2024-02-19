@@ -7,13 +7,12 @@ using UnityEngine.SceneManagement;
 public class Controller : Entity
 {
     public static Controller Instance;
+
     public CharacterController characterController;
     public float speed = 10f;
     public float sprintspeed = 35f;
     public Vector3 velocity;
     public float gravity = -9.81f;
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 3f;
@@ -30,8 +29,10 @@ public class Controller : Entity
     GameObject obj;
     GameObject fireAudio;
     public FireSource firesource;
+    public ParticleSystem coneFireSystem;
     public FireSource punchSource;
-
+    public Fireball fireballPrefab;
+    public Transform fireballOrigin;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class Controller : Entity
         //Debug.Log(adrenaline);
 
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
-        if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
+        if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
         {
             if(isMoving == false)
             {
@@ -64,9 +65,9 @@ public class Controller : Entity
 
             }
 
-            Move(InputManager.Instance.horizontal, InputManager.Instance.vertical);
+            Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
 
-            if (InputManager.Instance.shiftDown)
+            if (InputManager.Instance.sprintOn)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
                 obj = SoundManager.Instance.PlaySoundloop(playerrun,  transform);
@@ -75,7 +76,7 @@ public class Controller : Entity
                 GetComponentInChildren<CameraBehavior>().Sprint();
 
             }
-            else if (InputManager.Instance.shiftUp)
+            else if (InputManager.Instance.sprintOff)
             {
                 SoundManager.Instance.StopSoundEffect(obj);
                 obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
@@ -106,7 +107,7 @@ public class Controller : Entity
            
         }
 
-        if (InputManager.Instance.spaceDown)
+        if (InputManager.Instance.jump)
         {
             Jump();
 
@@ -115,6 +116,11 @@ public class Controller : Entity
         if (InputManager.Instance.takeDamage)
         {
             OnDamage();
+        }
+
+        if (InputManager.Instance.fireball)
+        {
+            Fireball();
         }
 
         if (InputManager.Instance.punch)
@@ -163,7 +169,17 @@ public class Controller : Entity
     void Fire(bool active)
     {
         firesource.SetActive(active);
-        
+        if (!active)
+            coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        else
+            coneFireSystem.Play(true);
+    }
+
+    void Fireball()
+    {
+        Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+        g.transform.position = fireballOrigin.position;
+        g.Launch(fireballOrigin.forward);
     }
 
     void Snap()
@@ -174,7 +190,7 @@ public class Controller : Entity
     void simulateGravity()
     {
         //check if player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = characterController.isGrounded; // Physics.CheckSphere(groundCheck.position, .05f, groundMask);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;

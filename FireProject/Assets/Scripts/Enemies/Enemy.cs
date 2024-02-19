@@ -23,7 +23,6 @@ public abstract class Enemy : FlammableEntity
 {
     public Vector3 goal;
     public Transform player;
-    public abstract void update();
     public Animator animator;
 
     protected UnityEngine.AI.NavMeshAgent agent;
@@ -36,9 +35,9 @@ public abstract class Enemy : FlammableEntity
         yield return new WaitForSeconds(seconds);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
         agent.stoppingDistance = 5;
@@ -46,12 +45,11 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
         // Scale speed based on adrenaline.
         agent.speed = speed + (GameManager.Instance.adranaline);
-        update();
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);
@@ -95,8 +93,12 @@ public abstract class Enemy : FlammableEntity
             agent.enabled = true;
         }
     }
+    public override void Death()
+    {
+        base.Death();
+        Destroy(gameObject);
+    }
 
-    
     public void Attack() {
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);

@@ -17,7 +17,15 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     private void OnValidate()
     {
-        if (colliders.Length == 0) Debug.LogError("Dont forget to assign colliders!");
+        if (colliders.Length == 0)
+        {
+            Debug.LogError("Dont forget to assign colliders! " + gameObject.name);
+            colliders = new Collider[]
+            {
+                GetComponent<Collider>()
+            };
+        }
+            
     }
 
     public void Attack()
@@ -28,10 +36,19 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         health -= dmg.damage;
+        if (health < 0)
+        {
+            Death(); // might be bad if this is repeatedly called
+        }
     }
 
     public void StopAttack()
     {
         throw new System.NotImplementedException();
+    }
+
+    public virtual void Death()
+    {
+        print("DYING " + gameObject.name);
     }
 }
