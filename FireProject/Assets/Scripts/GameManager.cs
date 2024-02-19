@@ -42,7 +42,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        adrenaline = FireManager.manager.FlammableEntitiesOnFire;
+
+        adrenaline = FireManager.manager.EntitiesOnFire;
+
         if (InputManager.Instance.startwave)
         {
            

@@ -19,7 +19,7 @@ public class FireManager : MonoBehaviour
     /// <summary>
     /// The number of flammable entities currently on fire.
     /// </summary>
-    public int FlammableEntitiesOnFire => flammableEntitiesOnFire;
+    public int EntitiesOnFire => flammableEntitiesOnFire;
 
     private void Awake()
     {
@@ -47,19 +47,7 @@ public class FireManager : MonoBehaviour
         IFlammable f = Lookup(c);
         if (f == null) return;
         f.Damageable.OnDamaged(attacker, activeFire);
-        if(activeFire.pushBack != 0)
-        {
-            GameObject enemy = c.gameObject;
-            print(enemy.name);
-            Vector3 knockbackDirection = (enemy.transform.position - Controller.Instance.transform.position);
-            knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
-            print(knockbackDirection);
-            Rigidbody enemyRigidbody = enemy.GetComponent<Rigidbody>();
-            print(enemyRigidbody.drag);
-            enemy.transform.position += Controller.Instance.transform.forward * Time.deltaTime * 100;
-            enemyRigidbody.AddForce(knockbackDirection * 100, ForceMode.Impulse);
-            
-        }
+        
     }
 
     public void AddFlammable(IFlammable f, Collider[] c)
@@ -86,5 +74,6 @@ public class FireManager : MonoBehaviour
         if (!flammablesMap.ContainsKey(c)) return null;
         return flammablesMap[c];
     }
+
 }
-public enum DamageType { None, FirePassive_Lvl1 }
+public enum DamageType { None, Punch, FirePassive_Lvl1 }

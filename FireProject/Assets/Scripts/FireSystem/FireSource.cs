@@ -18,21 +18,23 @@ public class FireSource : MonoBehaviour
     public IFlammable self; 
     public LayerMask detectionMask; 
     public DamageInformation activeDamage;
-    int originalDamage;
     // The damage to inflict on other entities when they are inside the fire source and spreadProbability succeeds. DO NOT RENAME
     [SerializeField]
     private float baseLifespan = Mathf.Infinity; // DO NOT RENAME
     public float tickRate = .25f; // DO NOT RENAME
     public float activeDamageProbability = .1f; // DO NOT RENAME
 
-    private List<Collider> inRange;
-    private float timer;
     public bool tick = true;
+    public bool damageOnEnter = false;
 
     /// <summary>
     /// The lifespan remaining on the fire source before it's deactivated.
     /// </summary>
     public float LifeSpan { get; private set; }
+
+    private List<Collider> inRange;
+    private float timer;
+    private int originalDamage;
 
     public void Initialize(IAttacker a, IFlammable d)
     {
@@ -61,11 +63,15 @@ public class FireSource : MonoBehaviour
         gameObject.SetActive(active);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         inRange.Add(other);
+        if (damageOnEnter)
+        {
+            FireManager.manager.FireDamageOnCollider(source, other, activeDamage);
+        }
     }
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         inRange.Remove(other);
     }
