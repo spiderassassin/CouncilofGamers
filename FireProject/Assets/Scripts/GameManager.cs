@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public enum GameStage { TutorialWave, PreWave1, Wave1, PreWave2, Wave2, PreWave3, Wave3, PreFinale, Finale};
     public GameStage gameStage;
     public int adrenaline = 0;
-    public int MAX_ADRENALINE = 100;
+    public int MAX_ADRENALINE = 10;
     public int health = 100;
    
     public Wave wave1;

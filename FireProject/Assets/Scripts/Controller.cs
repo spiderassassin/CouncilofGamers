@@ -231,7 +231,7 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
-            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
+            //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
 
