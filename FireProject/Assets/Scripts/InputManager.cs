@@ -156,20 +156,22 @@ public class InputManager : MonoBehaviour
     
     void Update()
     {
-        /*mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.x * 60;//60 is just a multiplier to scale
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.x * 60;//60 is just a multiplier to scale
         mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.y * 60;
 
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
+        
+        
+        //sprintOn = Input.GetKeyDown(KeyCode.LeftShift);
+        //sprintOff = Input.GetKeyUp(KeyCode.LeftShift);
 
-        jump = Input.GetKeyDown(KeyCode.Space);
-        sprintOn = Input.GetKeyDown(KeyCode.LeftShift);
-        sprintOff = Input.GetKeyUp(KeyCode.LeftShift);*/
-        takeDamage = Input.GetKeyDown(KeyCode.J);
+        //jump = Input.GetKeyDown(KeyCode.Space);
+        //takeDamage = Input.GetKeyDown(KeyCode.J);
         // punch = Input.GetKeyDown(KeyCode.P);
-        /*fire = Input.GetKeyDown(KeyCode.I);
-        stopfire = Input.GetKeyUp(KeyCode.I);
-        snap = Input.GetKeyDown(KeyCode.O);*/
-        startwave = Input.GetKeyDown(KeyCode.M);
+        //fire = Input.GetKeyDown(KeyCode.I);
+        //stopfire = Input.GetKeyUp(KeyCode.I);
+        //snap = Input.GetKeyDown(KeyCode.O);
+        //startwave = Input.GetKeyDown(KeyCode.M);
     }
 }

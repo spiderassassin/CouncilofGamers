@@ -17,6 +17,7 @@ public class Controller : Entity
     bool isGrounded;
     public float jumpHeight = 3f;
     public bool sprint = false;
+    public bool isFiring = false;
     public AudioSource source;
 
   
@@ -69,20 +70,26 @@ public class Controller : Entity
 
             if (InputManager.Instance.sprintOn)
             {
-                SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundloop(playerrun,  transform);
+                if (sprint == false)
+                {
+                    sprint = true;
+                    SoundManager.Instance.StopSoundEffect(obj);
+                    obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
 
-                sprint = true;
-                GetComponentInChildren<CameraBehavior>().Sprint();
+                    GetComponentInChildren<CameraBehavior>().Sprint();
+                }
 
             }
             else if (InputManager.Instance.sprintOff)
             {
-                SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                if (sprint == true)
+                {
 
-                sprint = false;
-                GetComponentInChildren<CameraBehavior>().Sprint();
+                    sprint = false;
+                    SoundManager.Instance.StopSoundEffect(obj);
+                    obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                    GetComponentInChildren<CameraBehavior>().Sprint();
+                }
 
             }
         }
@@ -131,12 +138,21 @@ public class Controller : Entity
         if (InputManager.Instance.fire)
         {
             Fire(true);
-            fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
+            if(isFiring == false)
+            {
+                isFiring = true;
+                fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
+            }
+            
         }
         if (InputManager.Instance.stopfire)
         {
             Fire(false);
+            isFiring = false;
+            
             SoundManager.Instance.StopSoundEffect(fireAudio);
+            
+            
         }
 
 
