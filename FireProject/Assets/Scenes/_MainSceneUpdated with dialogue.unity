@@ -14140,7 +14140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
-  mouseSensitivity: {x: 1, y: 1}
+  mouseSensitivity: {x: 20, y: 20}
   toggleSprint: 0
   mouseX: 0
   mouseY: 0
