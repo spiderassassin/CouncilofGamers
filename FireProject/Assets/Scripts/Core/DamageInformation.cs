@@ -11,4 +11,11 @@ public struct DamageInformation
     public int damage;
     public float pushBack;
     public DamageType type;
+
+    public DamageInformation(int damage, float pushBack, DamageType type)
+    {
+        this.damage = damage;
+        this.pushBack = pushBack;
+        this.type = type;
+    }
 }

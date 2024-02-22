@@ -1,60 +1,95 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Controller : Entity
 {
+    public static Controller Instance;
+
     public CharacterController characterController;
     public float speed = 10f;
     public float sprintspeed = 35f;
     public Vector3 velocity;
     public float gravity = -9.81f;
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 3f;
     public bool sprint = false;
+    public bool isFiring = false;
+    public AudioSource source;
+
+  
     public bool isMoving = false;
 
     public AudioClip playerwalk;
     public AudioClip playerrun;
+    public AudioClip punch;
+    public AudioClip fire;
     GameObject obj;
+    GameObject fireAudio;
+    public FireSource firesource;
+    public ParticleSystem coneFireSystem;
+    public FireSource punchSource;
+    public Fireball fireballPrefab;
+    public Transform fireballOrigin;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
 
+    }
 
 
     void Update()
     {
+        source = this.GetComponent<AudioSource>();
+
+
         GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
-        if (InputManager.Instance.horizontal != 0 || InputManager.Instance.vertical != 0)
+        if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
         {
             if(isMoving == false)
             {
                 isMoving = true;
-                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+                obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
 
             }
 
-            Move(InputManager.Instance.horizontal, InputManager.Instance.vertical);
+            Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
 
-            if (InputManager.Instance.shiftDown)
+            if (InputManager.Instance.sprintOn)
             {
-                SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundEffect(playerrun, true, transform);
+                if (sprint == false)
+                {
+                    sprint = true;
+                    SoundManager.Instance.StopSoundEffect(obj);
+                    obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
 
-                sprint = true;
-                GetComponentInChildren<CameraBehavior>().Sprint();
+                    GetComponentInChildren<CameraBehavior>().Sprint();
+                }
 
             }
-            else if (InputManager.Instance.shiftUp)
+            else if (InputManager.Instance.sprintOff)
             {
-                SoundManager.Instance.StopSoundEffect(obj);
-                obj = SoundManager.Instance.PlaySoundEffect(playerwalk, true, transform);
+                if (sprint == true)
+                {
 
-                sprint = false;
-                GetComponentInChildren<CameraBehavior>().Sprint();
+                    sprint = false;
+                    SoundManager.Instance.StopSoundEffect(obj);
+                    obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                    GetComponentInChildren<CameraBehavior>().Sprint();
+                }
 
             }
         }
@@ -79,7 +114,7 @@ public class Controller : Entity
            
         }
 
-        if (InputManager.Instance.spaceDown)
+        if (InputManager.Instance.jump)
         {
             Jump();
 
@@ -90,7 +125,86 @@ public class Controller : Entity
             OnDamage();
         }
 
+        if (InputManager.Instance.fireball)
+        {
+            Fireball();
+        }
+
+        if (InputManager.Instance.punch)
+        {
+            Punch();
+        }
+
+        if (InputManager.Instance.fire)
+        {
+            Fire(true);
+            if(isFiring == false)
+            {
+                isFiring = true;
+                fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
+            }
+            
+        }
+        if (InputManager.Instance.stopfire)
+        {
+            Fire(false);
+            isFiring = false;
+            
+            SoundManager.Instance.StopSoundEffect(fireAudio);
+            
+            
+        }
+
+
+        if (InputManager.Instance.snap)
+        {
+            Snap();
+        }
+
+
+
         simulateGravity();
+
+
+    }
+
+
+
+
+    void Punch()
+    {
+        //punchSource.SetActive(true);
+        punchSource.Damage();
+        SoundManager.Instance.PlaySoundOnce(punch, transform);
+
+        //punchSource.SetActive(false);
+
+
+    }
+
+    void Fire(bool active)
+    {
+        firesource.SetActive(active);
+        if (!active)
+            coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        else
+            coneFireSystem.Play(true);
+    }
+
+    void Fireball()
+    {
+        Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+        g.transform.position = fireballOrigin.position;
+        g.Launch(fireballOrigin.forward);
+    }
+
+    void Snap()
+    {
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline == GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
+            //logic for snap goes here
+        }
 
 
     }
@@ -98,7 +212,7 @@ public class Controller : Entity
     void simulateGravity()
     {
         //check if player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = characterController.isGrounded; // Physics.CheckSphere(groundCheck.position, .05f, groundMask);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -133,18 +247,21 @@ public class Controller : Entity
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
+            //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
 
 
 
-    void Attack()
-    {
-
-    }
 
     public void OnDamage() {
         CombatUI.Instance.DamageOverlay();
+        GameManager.Instance.playerHealth -= 10;
+        if(GameManager.Instance.playerHealth <= 0)
+        {
+            Debug.Log("Game Over");
+            SceneManager.LoadScene(0);
+        }
 
     }
 
