@@ -178,6 +178,7 @@ public class Controller : Entity
         //punchSource.SetActive(true);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
+        armAnimator.SetTrigger("punch");
 
         //punchSource.SetActive(false);
 
