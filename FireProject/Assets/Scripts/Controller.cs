@@ -27,6 +27,8 @@ public class Controller : Entity
     public AudioClip playerrun;
     public AudioClip punch;
     public AudioClip fire;
+    public AudioClip snap;
+
     GameObject obj;
     GameObject fireAudio;
     public FireSource firesource;
@@ -34,6 +36,8 @@ public class Controller : Entity
     public FireSource punchSource;
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
+    public float healthIncreaseRate = 1;
+    public int snapEffect = 30;
 
     private void Awake()
     {
@@ -49,10 +53,20 @@ public class Controller : Entity
 
 
     }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
 
     void Update()
     {
+        if (health < 100)
+        {
+            health += Time.deltaTime * healthIncreaseRate;
+        }
+
+
         source = this.GetComponent<AudioSource>();
 
 
@@ -122,7 +136,7 @@ public class Controller : Entity
 
         if (InputManager.Instance.takeDamage)
         {
-            OnDamage();
+            //OnDamaged();
         }
 
         if (InputManager.Instance.fireball)
@@ -158,7 +172,8 @@ public class Controller : Entity
 
         if (InputManager.Instance.snap)
         {
-            Snap();
+            StartCoroutine(Snap());
+            
         }
 
 
@@ -198,11 +213,19 @@ public class Controller : Entity
         g.Launch(fireballOrigin.forward);
     }
 
-    void Snap()
+    IEnumerator Snap()
     {
-        if (GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline == GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
+        print("SNAP");
+        if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
+
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
+            SoundManager.Instance.PlaySoundOnce(snap, transform);
+            GameManager.Instance.SnapMultiplier = snapEffect;
+            yield return new WaitForSeconds(5f);
+
+            GameManager.Instance.SnapMultiplier = 1;
+
+
             //logic for snap goes here
         }
 
@@ -252,20 +275,21 @@ public class Controller : Entity
     }
 
 
-
-
-    public void OnDamage() {
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
         CombatUI.Instance.DamageOverlay();
-        GameManager.Instance.playerHealth -= 10;
-        if(GameManager.Instance.playerHealth <= 0)
+        //health -= 10;
+
+        if (health <= 0)
         {
             Debug.Log("Game Over");
+            SoundManager.Instance.MusicStop();
+            Cursor.lockState = CursorLockMode.None;
+            Destroy(CombatUI.Instance);
+
             SceneManager.LoadScene(0);
         }
-
     }
-
-
 
     
 }

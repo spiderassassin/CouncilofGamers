@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
-    public int playerHealth = 100;
+   
     public int MAX_HEALTH = 100;
 
     public int baseHealth = 5;
     public int Damageboost = 2;
+    public int SnapMultiplier = 1;
 
     private void Awake()
     {
@@ -44,12 +45,14 @@ public class GameManager : MonoBehaviour
     {
 
         adrenaline = FireManager.manager.EntitiesOnFire;
+        
 
         if (InputManager.Instance.startwave)
         {
            
             WaveManager.Instance.StartWave(wave1);
         }
+        
         
     }
 

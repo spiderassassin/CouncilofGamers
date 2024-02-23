@@ -96,6 +96,7 @@ public abstract class Enemy : FlammableEntity
     public override void Death()
     {
         base.Death();
+        WaveManager.Instance.livingEnemies.Remove(this);
         Destroy(gameObject);
     }
 

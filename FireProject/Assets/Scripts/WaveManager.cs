@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
  
     public bool isSpawning;
 
-    private List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
+    public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
 
     private void Awake()
     {
@@ -44,9 +44,13 @@ public class WaveManager : MonoBehaviour
             if(livingEnemies.Count == 0)
             {
                 GameManager.Instance.wavemode = false;
+                print("Wave Over");
+                GameManager.Instance.gameStage++;
             }
         }
     }
+
+    
 
 
 
@@ -60,6 +64,8 @@ public class WaveManager : MonoBehaviour
         }
         
     }
+
+    
 
     IEnumerator Spawn(Wave waveChunk)
     {
