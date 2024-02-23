@@ -35,6 +35,8 @@ public class Controller : Entity
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
 
+    public Animator armAnimator;
+
     private void Awake()
     {
         if (Instance == null)
@@ -204,7 +206,9 @@ public class Controller : Entity
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
             //logic for snap goes here
+            armAnimator.SetTrigger("snap");
         }
+        armAnimator.SetTrigger("snap");
 
 
     }
