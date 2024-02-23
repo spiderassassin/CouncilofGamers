@@ -37,7 +37,9 @@ public class InputManager : MonoBehaviour
 
     public bool fire = false;
     public bool stopfire = false;//called when user releases input
-    public bool snap =>snapAction.WasPerformedThisFrame();
+    //public bool snap =>snapAction.WasPerformedThisFrame();
+    public bool snap = false;
+
     public bool startwave = false;//this is for testing only, to start waves
 
 
@@ -150,7 +152,7 @@ public class InputManager : MonoBehaviour
 
     void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
+         
     }
 
     
@@ -171,7 +173,7 @@ public class InputManager : MonoBehaviour
         // punch = Input.GetKeyDown(KeyCode.P);
         //fire = Input.GetKeyDown(KeyCode.I);
         //stopfire = Input.GetKeyUp(KeyCode.I);
-        //snap = Input.GetKeyDown(KeyCode.O);
-        //startwave = Input.GetKeyDown(KeyCode.M);
+        snap = Input.GetKeyDown(KeyCode.O);
+        startwave = Input.GetKeyDown(KeyCode.M);
     }
 }

@@ -73,9 +73,17 @@ public class SoundManager : MonoBehaviour
         Destroy(obj);
     }
 
-    public void MusicChange()
+    public void MusicChange(AudioClip clip)
     {
-
+        music.Stop();
+        music.clip = clip;
+        music.Play();
     }
+
+    public void MusicStop()
+    {
+        music.Stop(); 
+    }
+
 
 }

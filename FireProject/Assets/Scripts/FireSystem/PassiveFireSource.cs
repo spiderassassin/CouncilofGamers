@@ -17,6 +17,8 @@ public class PassiveFireSource : FireSource
     // Used for fire sources the do passive damage + spread.
     public DamageInformation selfDamage; // DO NOT RENAME
 
+    
+
     private void OnValidate()
     {
         if(selfDamage.type != DamageType.None)
@@ -32,6 +34,8 @@ public class PassiveFireSource : FireSource
 
         if (self != null)
         {
+
+            selfDamage.damage = GameManager.Instance.SnapMultiplier;
             self.Damageable.OnDamaged(source, selfDamage);
         }
     }
