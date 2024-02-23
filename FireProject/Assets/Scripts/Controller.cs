@@ -278,7 +278,7 @@ public class Controller : Entity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         CombatUI.Instance.DamageOverlay();
-        //health -= 10;
+        health -= 10;
 
         if (health <= 0)
         {

@@ -2660,7 +2660,7 @@ MonoBehaviour:
   wavemode: 0
   gameStage: 0
   adrenaline: 0
-  MAX_ADRENALINE: 100
+  MAX_ADRENALINE: 10
   health: 100
   wave1:
     enemies:
@@ -2698,10 +2698,10 @@ MonoBehaviour:
     enemies: []
   wave3:
     enemies: []
-  playerHealth: 100
   MAX_HEALTH: 100
   baseHealth: 5
   Damageboost: 2
+  SnapMultiplier: 1
 --- !u!1 &234037095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,7 +3671,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -25396,6 +25396,7 @@ MonoBehaviour:
   gruntgoal: {fileID: 8585091701780571999, guid: 1b7d89867921fca4eb74f311b4dd08d6, type: 3}
   tank: {fileID: 7232616195353922584, guid: ef883b31c8a5e5e47a92eeacf42822f5, type: 3}
   isSpawning: 0
+  livingEnemies: []
 --- !u!4 &2027314005
 Transform:
   m_ObjectHideFlags: 0
@@ -27146,12 +27147,14 @@ MonoBehaviour:
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}
   punch: {fileID: 8300000, guid: 540a410a2cb3946808cd129c77bc784b, type: 3}
   fire: {fileID: 8300000, guid: a1c2fd3eac5e84defb5b0190d80e2ffc, type: 3}
-  snap: {fileID: 0}
+  snap: {fileID: 8300000, guid: 41c1264dfb80a40dcb0971c5385e7b74, type: 3}
   firesource: {fileID: 986645692}
   coneFireSystem: {fileID: 549289025}
   punchSource: {fileID: 248797618891268833}
   fireballPrefab: {fileID: 4579902582922021047, guid: 2d0da1889b4b792409f6b1f7a8a2052c, type: 3}
   fireballOrigin: {fileID: 1665238772}
+  healthIncreaseRate: 1
+  snapEffect: 30
 --- !u!23 &5773853081804593948
 MeshRenderer:
   m_ObjectHideFlags: 0
