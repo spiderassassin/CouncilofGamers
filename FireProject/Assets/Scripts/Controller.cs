@@ -27,7 +27,7 @@ public class Controller : Entity
     public AudioClip playerrun;
     public AudioClip punch;
     public AudioClip fire;
-    public AudioClip snap;
+    public AudioClip snap, failedSnap;
 
     GameObject obj;
     GameObject fireAudio;
@@ -37,7 +37,6 @@ public class Controller : Entity
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
     public float healthIncreaseRate = 1;
-    public int snapEffect = 30;
 
     private void Awake()
     {
@@ -172,8 +171,8 @@ public class Controller : Entity
 
         if (InputManager.Instance.snap)
         {
-            StartCoroutine(Snap());
-            
+            // StartCoroutine(Snap());
+            Snap();
         }
 
 
@@ -188,13 +187,8 @@ public class Controller : Entity
 
     void Punch()
     {
-        //punchSource.SetActive(true);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
-
-        //punchSource.SetActive(false);
-
-
     }
 
     void Fire(bool active)
@@ -213,7 +207,18 @@ public class Controller : Entity
         g.Launch(fireballOrigin.forward);
     }
 
-    IEnumerator Snap()
+    void Snap()
+    {
+        if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
+        {
+            SoundManager.Instance.PlaySoundOnce(snap, transform);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For responsiveness.
+        }
+    }
+    /*IEnumerator Snap()
     {
         print("SNAP");
         if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
@@ -230,7 +235,7 @@ public class Controller : Entity
         }
 
 
-    }
+    }*/
 
     void simulateGravity()
     {

@@ -41,7 +41,7 @@ public abstract class FlammableEntity : Entity, IFlammable
         if (!Utilities.IsFireType(type)) return;
 
         PassiveFireSources.Switch(type);
-        if(type != DamageType.None)
+        if(type != DamageType.ClearFire)
         {
                 onFire = true;
         }

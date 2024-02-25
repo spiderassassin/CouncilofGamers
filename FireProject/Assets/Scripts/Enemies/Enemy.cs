@@ -107,7 +107,7 @@ public abstract class Enemy : FlammableEntity
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.None));
+                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.ClearFire));
             }
         }
     }

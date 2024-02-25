@@ -9,13 +9,15 @@ using UnityEngine;
 /// </summary>
 public class PassiveFireSources : MonoBehaviour
 {
-    public FireSource passiveLevel1;
+    public FireSource passiveLevel1, passiveLevel2, passiveLevel3;
 
     public DamageType CurrentState { get; private set; }
 
     public void Initialize(IAttacker attacker, IFlammable damagable)
     {
         passiveLevel1.Initialize(attacker, damagable);
+        passiveLevel2.Initialize(attacker, damagable);
+        passiveLevel3.Initialize(attacker, damagable);
     }
 
     /// <summary>
@@ -26,13 +28,23 @@ public class PassiveFireSources : MonoBehaviour
     {
         if (!Utilities.IsFireType(type)) return;
 
-        if(type== DamageType.None)
+        if(type== DamageType.ClearFire)
         {
-                passiveLevel1.SetActive(false);
+            passiveLevel1.SetActive(false);
+            passiveLevel2.SetActive(false);
+            passiveLevel3.SetActive(false);
         }
-        else
+        else if(type== DamageType.FirePassive_Lvl1)
         {
             passiveLevel1.SetActive(true);
+        }
+        else if (type == DamageType.FirePassive_Lvl2)
+        {
+            passiveLevel2.SetActive(true);
+        }
+        else if (type == DamageType.FirePassive_Lvl3)
+        {
+            passiveLevel3.SetActive(true);
         }
         CurrentState = type;
     }

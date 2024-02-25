@@ -58,7 +58,7 @@ public class FireManager : MonoBehaviour
         {
             flammablesMap.Add(c1, f);
         }
-        f.SetFire(DamageType.None);
+        f.SetFire(DamageType.ClearFire);
     }
     public void RemoveFlammable(IFlammable f)
     {
@@ -76,4 +76,7 @@ public class FireManager : MonoBehaviour
     }
 
 }
-public enum DamageType { None, Punch, FirePassive_Lvl1 }
+
+//NOTE: Append new values to the end.
+// See Utilities.cs and update values as needed.
+public enum DamageType { ClearFire = 0, AdditiveDamage = 1, FirePassive_Lvl1 = 2, FirePassive_Lvl2 = 3, FirePassive_Lvl3 = 4 }

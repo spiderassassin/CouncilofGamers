@@ -56,7 +56,7 @@ public class FireSource : MonoBehaviour
     protected virtual void OnDisable()
     {
         if(self != null)
-            self.SetFire(DamageType.None);
+            self.SetFire(DamageType.ClearFire);
     }
     public void SetActive(bool active)
     {
