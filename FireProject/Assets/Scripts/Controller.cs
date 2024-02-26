@@ -27,7 +27,7 @@ public class Controller : Entity
     public AudioClip playerrun;
     public AudioClip punch;
     public AudioClip fire;
-    public AudioClip snap;
+    public AudioClip snap, failedSnap;
 
     GameObject obj;
     GameObject fireAudio;
@@ -37,7 +37,6 @@ public class Controller : Entity
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
     public float healthIncreaseRate = 1;
-    public int snapEffect = 30;
 
     private void Awake()
     {
@@ -58,6 +57,10 @@ public class Controller : Entity
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private float GetDamageMultiplier(float adrenalinePercent)
+    {
+        return 1 + adrenalinePercent;
+    }
 
     void Update()
     {
@@ -172,8 +175,8 @@ public class Controller : Entity
 
         if (InputManager.Instance.snap)
         {
-            StartCoroutine(Snap());
-            
+            // StartCoroutine(Snap());
+            Snap();
         }
 
 
@@ -183,22 +186,17 @@ public class Controller : Entity
 
     }
 
-
-
-
     void Punch()
     {
-        //punchSource.SetActive(true);
+        punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
-
-        //punchSource.SetActive(false);
-
-
     }
 
     void Fire(bool active)
     {
+        firesource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
+
         firesource.SetActive(active);
         if (!active)
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -209,27 +207,24 @@ public class Controller : Entity
     void Fireball()
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+
+        g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
+
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
     }
 
-    IEnumerator Snap()
+    void Snap()
     {
-        print("SNAP");
-        if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
-
+        if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
             SoundManager.Instance.PlaySoundOnce(snap, transform);
-            GameManager.Instance.SnapMultiplier = snapEffect;
-            yield return new WaitForSeconds(5f);
-
-            GameManager.Instance.SnapMultiplier = 1;
-
-
-            //logic for snap goes here
+            FireManager.manager.StepFireLevel();
         }
-
-
+        else
+        {
+            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
+        }
     }
 
     void simulateGravity()

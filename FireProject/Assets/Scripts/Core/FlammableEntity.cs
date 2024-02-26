@@ -13,6 +13,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     public bool onFire = false;
 
     bool IFlammable.IsOnFire { get => onFire; }
+    DamageType CurrentType => passiveFireSources.CurrentState;
     public Collider[] Colliders => colliders;
     public IDamageable Damageable => this;
     public PassiveFireSources PassiveFireSources => passiveFireSources;
@@ -41,7 +42,7 @@ public abstract class FlammableEntity : Entity, IFlammable
         if (!Utilities.IsFireType(type)) return;
 
         PassiveFireSources.Switch(type);
-        if(type != DamageType.None)
+        if(type != DamageType.ClearFire)
         {
                 onFire = true;
         }
@@ -55,7 +56,11 @@ public abstract class FlammableEntity : Entity, IFlammable
     {
         base.OnDamaged(attacker,dmg);
 
-        print(dmg.type);
+        // If the fire type would override the fire to a lower intensity, prevent that.
+        if (Utilities.IsFireType(dmg.type)&& dmg.type < CurrentType)
+        {
+            dmg.type = DamageType.AdditiveDamage;
+        }
 
         if (attacker == null)
             SetFire(dmg.type);
@@ -66,5 +71,12 @@ public abstract class FlammableEntity : Entity, IFlammable
             text.text = Health.ToString();
         else
             print("Health is: " + Health.ToString());
+    }
+
+    public void StepUpFire()
+    {
+        DamageType next = Utilities.GetNextFireStep(CurrentType);
+        if (next == DamageType.ClearFire) return;
+        SetFire(next);
     }
 }

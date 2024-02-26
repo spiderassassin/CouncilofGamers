@@ -21,10 +21,10 @@ public class PassiveFireSource : FireSource
 
     private void OnValidate()
     {
-        if(selfDamage.type != DamageType.None)
+        if(selfDamage.type != DamageType.ClearFire)
         {
             Debug.LogError("Self damage should be typeless (otherwise the entity would be on fire forever).");
-            selfDamage.type = DamageType.None;
+            selfDamage.type = DamageType.ClearFire;
         }
     }
 
@@ -34,8 +34,6 @@ public class PassiveFireSource : FireSource
 
         if (self != null)
         {
-
-            selfDamage.damage = GameManager.Instance.SnapMultiplier;
             self.Damageable.OnDamaged(source, selfDamage);
         }
     }

@@ -17,7 +17,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     private void OnValidate()
     {
-        if (colliders.Length == 0)
+        if (colliders != null&&colliders.Length == 0)
         {
             Debug.LogError("Dont forget to assign colliders! " + gameObject.name);
             colliders = new Collider[]
@@ -28,9 +28,9 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
             
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)

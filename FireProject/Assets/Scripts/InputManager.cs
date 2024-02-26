@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
 
     public static InputManager Instance; //Singleton
 
+    public bool LockPlayerGameplayInput { get; set; }
+
     [SerializeField]
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
@@ -32,17 +34,15 @@ public class InputManager : MonoBehaviour
     public bool sprintOn = false;
     public bool sprintOff = false;
     public bool takeDamage = false;
-    public bool punch => punchAction.WasPerformedThisFrame();
-    public bool fireball => fireballAction.WasPerformedThisFrame();
+    public bool punch => punchAction.WasPerformedThisFrame()&&!LockPlayerGameplayInput;
+    public bool fireball => fireballAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
 
     public bool fire = false;
     public bool stopfire = false;//called when user releases input
-    //public bool snap =>snapAction.WasPerformedThisFrame();
-    public bool snap = false;
+    public bool snap =>snapAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
+    public bool dialouge => jumpAction.WasPerformedThisFrame();
 
     public bool startwave = false;//this is for testing only, to start waves
-
-
 
     private void Awake()
     {
@@ -88,6 +88,7 @@ public class InputManager : MonoBehaviour
 
     private void SprintAction_canceled(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         if (!toggleSprint)
         {
             sprintOn = false;
@@ -97,6 +98,7 @@ public class InputManager : MonoBehaviour
 
     private void SprintAction_performed(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         if (toggleSprint)
         {
             sprintOn = !sprintOn;
@@ -111,42 +113,50 @@ public class InputManager : MonoBehaviour
 
     private void FireAction_canceled(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         stopfire = true;
         fire = false;
     }
 
     private void FireAction_performed(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         stopfire = false;
         fire = true;
     }
 
     private void MoveAction_performed(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         moveX = obj.ReadValue<Vector2>().x;
         moveY = obj.ReadValue<Vector2>().y;
     }
     private void MoveAction_canceled(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         moveX = 0;
         moveY = 0;
     }
     private void LookAction_canceled(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         mouseX = 0;
         mouseY = 0;
     }
     private void JumpAction_canceled(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         jump = false;
     }
     private void LookAction_performed(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         mouseX = obj.ReadValue<Vector2>().x*mouseSensitivity.x;
         mouseY = obj.ReadValue<Vector2>().y*mouseSensitivity.y;
     }
     private void JumpAction_performed(InputAction.CallbackContext obj)
     {
+        if (LockPlayerGameplayInput) return;
         jump = obj.ReadValueAsButton();
     }
 
@@ -158,22 +168,6 @@ public class InputManager : MonoBehaviour
     
     void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity.x * 60;//60 is just a multiplier to scale
-        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity.y * 60;
-
-        moveX = Input.GetAxis("Horizontal");
-        moveY = Input.GetAxis("Vertical");
-        
-        
-        //sprintOn = Input.GetKeyDown(KeyCode.LeftShift);
-        //sprintOff = Input.GetKeyUp(KeyCode.LeftShift);
-
-        //jump = Input.GetKeyDown(KeyCode.Space);
-        //takeDamage = Input.GetKeyDown(KeyCode.J);
-        // punch = Input.GetKeyDown(KeyCode.P);
-        //fire = Input.GetKeyDown(KeyCode.I);
-        //stopfire = Input.GetKeyUp(KeyCode.I);
-        snap = Input.GetKeyDown(KeyCode.O);
-        startwave = Input.GetKeyDown(KeyCode.M);
+        startwave = Input.GetKeyDown(KeyCode.M)&&!LockPlayerGameplayInput;
     }
 }

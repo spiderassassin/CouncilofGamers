@@ -8,11 +8,11 @@ using UnityEngine;
 [System.Serializable]
 public struct DamageInformation
 {
-    public int damage;
+    public float damage;
     public float pushBack;
     public DamageType type;
 
-    public DamageInformation(int damage, float pushBack, DamageType type)
+    public DamageInformation(float damage, float pushBack, DamageType type)
     {
         this.damage = damage;
         this.pushBack = pushBack;

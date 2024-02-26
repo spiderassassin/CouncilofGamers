@@ -15,10 +15,16 @@ public class WaveManager : MonoBehaviour
     public GruntPlayer gruntPlayer;
     public GruntGoal gruntgoal;
     public Tank tank;
- 
-    public bool isSpawning;
 
+    public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
+    public Wave wave1;
+    public Wave wave2;
+    public Wave wave3;
+
+    public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
+
+    public int TotalLivingEnemies => livingEnemies.Count;
 
     private void Awake()
     {
@@ -40,32 +46,30 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if((GameManager.Instance.wavemode == true) && (isSpawning == false) ) {
+        if (InputManager.Instance.startwave)
+        {
+            StartWave(wave1);
+        }
+
+        if ((wavemode == true) && (isSpawning == false) ) {
             if(livingEnemies.Count == 0)
             {
-                GameManager.Instance.wavemode = false;
+                wavemode = false;
                 print("Wave Over");
                 GameManager.Instance.gameStage++;
             }
         }
     }
 
-    
-
-
-
-
-
     public void StartWave(Wave wave) {
-        GameManager.Instance.wavemode = true;
+        wavemode = true;
         if (isSpawning == false)
         {
+            isSpawning = true;
             StartCoroutine(Spawn(wave));
         }
         
     }
-
-    
 
     IEnumerator Spawn(Wave waveChunk)
     {
