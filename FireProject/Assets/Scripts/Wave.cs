@@ -18,4 +18,6 @@ public class Wave
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<EnemyInstance> enemies;
 
+    public int TotalEnemies => enemies.Count;
+
 }

@@ -2661,7 +2661,6 @@ MonoBehaviour:
   gameStage: 0
   adrenaline: 0
   MAX_ADRENALINE: 100
-  health: 100
   wave1:
     enemies:
     - enemyType: 2
@@ -2677,10 +2676,6 @@ MonoBehaviour:
     enemies: []
   wave3:
     enemies: []
-  MAX_HEALTH: 100
-  baseHealth: 5
-  Damageboost: 2
-  SnapMultiplier: 1
 --- !u!1 &234037095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,7 +3816,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28942
+  m_Name: pb_Mesh26344
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10875,9 +10870,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474664498842433657}
     m_Modifications:
+    - target: {fileID: 2198687682187778717, guid: 54249e340c2f2214d908896dc1129070, type: 3}
+      propertyPath: colourAdjustment
+      value: 
+      objectReference: {fileID: 840210383}
+    - target: {fileID: 2198687682187778718, guid: 54249e340c2f2214d908896dc1129070, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778718, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_MaxValue
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682265474190, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13173,6 +13176,17 @@ Transform:
   m_Father: {fileID: 1605373328}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &840210383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2198687682559256886, guid: 54249e340c2f2214d908896dc1129070, type: 3}
+  m_PrefabInstance: {fileID: 564820802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &844986563
 Mesh:
   m_ObjectHideFlags: 0

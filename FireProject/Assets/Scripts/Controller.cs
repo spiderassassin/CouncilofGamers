@@ -216,14 +216,14 @@ public class Controller : Entity
 
     void Snap()
     {
-        if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
+        if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
             SoundManager.Instance.PlaySoundOnce(snap, transform);
             FireManager.manager.StepFireLevel();
         }
         else
         {
-            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For responsiveness.
+            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
         }
     }
 
