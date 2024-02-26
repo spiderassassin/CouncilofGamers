@@ -19,6 +19,12 @@ public class PassiveFireSources : MonoBehaviour
         passiveLevel2.Initialize(attacker, damagable);
         passiveLevel3.Initialize(attacker, damagable);
     }
+    private void DisableAll()
+    {
+        passiveLevel1.SetActive(false);
+        passiveLevel2.SetActive(false);
+        passiveLevel3.SetActive(false);
+    }
 
     /// <summary>
     /// Switch to the input damage type.
@@ -30,20 +36,21 @@ public class PassiveFireSources : MonoBehaviour
 
         if(type== DamageType.ClearFire)
         {
-            passiveLevel1.SetActive(false);
-            passiveLevel2.SetActive(false);
-            passiveLevel3.SetActive(false);
+            DisableAll();
         }
         else if(type== DamageType.FirePassive_Lvl1)
         {
+            DisableAll();
             passiveLevel1.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl2)
         {
+            DisableAll();
             passiveLevel2.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl3)
         {
+            DisableAll();
             passiveLevel3.SetActive(true);
         }
         CurrentState = type;

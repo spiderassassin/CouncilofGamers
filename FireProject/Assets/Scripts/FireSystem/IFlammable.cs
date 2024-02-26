@@ -18,6 +18,7 @@ public interface IFlammable
     /// </summary>
     /// <param name="type">The damage type (None -> no fire).</param>
     public void SetFire(DamageType type);
+    public void StepUpFire(); 
 
     /// <summary>
     /// Call OnEnable.

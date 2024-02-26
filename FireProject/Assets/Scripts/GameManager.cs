@@ -10,17 +10,12 @@ public class GameManager : MonoBehaviour
     public GameStage gameStage;
     public int adrenaline = 0;
     public int MAX_ADRENALINE = 10;
-    public int health = 100;
    
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
-   
-    public int MAX_HEALTH = 100;
 
-    public int baseHealth = 5;
-    public int Damageboost = 2;
-    public int SnapMultiplier = 1;
+    public float AdrenalinePercent => (float)adrenaline / (float)MAX_ADRENALINE;
 
     private void Awake()
     {
@@ -44,8 +39,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        adrenaline = FireManager.manager.EntitiesOnFire;
-        
+        UpdateAdrenaline();
 
         if (InputManager.Instance.startwave)
         {
@@ -56,6 +50,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    private void UpdateAdrenaline()
+    {
+        adrenaline = FireManager.manager.EntitiesOnFire;
+    }
 
 }

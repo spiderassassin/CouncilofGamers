@@ -34,8 +34,6 @@ public class PassiveFireSource : FireSource
 
         if (self != null)
         {
-
-            selfDamage.damage = GameManager.Instance.SnapMultiplier;
             self.Damageable.OnDamaged(source, selfDamage);
         }
     }

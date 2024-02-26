@@ -49,6 +49,15 @@ public class FireManager : MonoBehaviour
         f.Damageable.OnDamaged(attacker, activeFire);
         
     }
+    public void StepFireLevel()
+    {
+        foreach (var f in existingFlammables)
+        {
+            IFlammable i = f.Key;
+            if (!i.IsOnFire) continue;
+            i.StepUpFire();
+        }
+    }
 
     public void AddFlammable(IFlammable f, Collider[] c)
     {
@@ -77,6 +86,7 @@ public class FireManager : MonoBehaviour
 
 }
 
-//NOTE: Append new values to the end.
+// NOTE: Append new values to the end.
 // See Utilities.cs and update values as needed.
+// REQUIRES FirePassive_LvlX to be in ascending values.
 public enum DamageType { ClearFire = 0, AdditiveDamage = 1, FirePassive_Lvl1 = 2, FirePassive_Lvl2 = 3, FirePassive_Lvl3 = 4 }

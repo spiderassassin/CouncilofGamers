@@ -100,7 +100,8 @@ public abstract class Enemy : FlammableEntity
         Destroy(gameObject);
     }
 
-    public void Attack() {
+    public override void Attack() {
+        base.Attack();
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
         foreach (Collider hit in hitColliders) {

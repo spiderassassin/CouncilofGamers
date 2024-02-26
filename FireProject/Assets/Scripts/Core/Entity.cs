@@ -28,9 +28,9 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
             
     }
 
-    public void Attack()
+    public virtual void Attack()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)

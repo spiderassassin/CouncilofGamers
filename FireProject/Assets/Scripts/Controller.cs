@@ -57,6 +57,10 @@ public class Controller : Entity
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private float GetDamageMultiplier(float adrenalinePercent)
+    {
+        return 1 + adrenalinePercent;
+    }
 
     void Update()
     {
@@ -182,17 +186,17 @@ public class Controller : Entity
 
     }
 
-
-
-
     void Punch()
     {
+        punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
     }
 
     void Fire(bool active)
     {
+        firesource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
+
         firesource.SetActive(active);
         if (!active)
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -203,6 +207,9 @@ public class Controller : Entity
     void Fireball()
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+
+        g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
+
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
     }
@@ -212,30 +219,13 @@ public class Controller : Entity
         if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
         {
             SoundManager.Instance.PlaySoundOnce(snap, transform);
+            FireManager.manager.StepFireLevel();
         }
         else
         {
             SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For responsiveness.
         }
     }
-    /*IEnumerator Snap()
-    {
-        print("SNAP");
-        if (GameManager.Instance.adrenaline >= GameManager.Instance.MAX_ADRENALINE)
-
-        {
-            SoundManager.Instance.PlaySoundOnce(snap, transform);
-            GameManager.Instance.SnapMultiplier = snapEffect;
-            yield return new WaitForSeconds(5f);
-
-            GameManager.Instance.SnapMultiplier = 1;
-
-
-            //logic for snap goes here
-        }
-
-
-    }*/
 
     void simulateGravity()
     {
