@@ -2657,25 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavemode: 0
   gameStage: 0
-  adrenaline: 0
-  MAX_ADRENALINE: 100
-  wave1:
-    enemies:
-    - enemyType: 2
-      spawndelay: 1
-      spawnPoint: 0
-    - enemyType: 2
-      spawndelay: 3
-      spawnPoint: 1
-    - enemyType: 2
-      spawndelay: 5
-      spawnPoint: 2
-  wave2:
-    enemies: []
-  wave3:
-    enemies: []
 --- !u!1 &234037095
 GameObject:
   m_ObjectHideFlags: 0
@@ -22913,6 +22895,22 @@ MonoBehaviour:
   gruntPlayer: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
   gruntgoal: {fileID: 8585091701780571999, guid: 1b7d89867921fca4eb74f311b4dd08d6, type: 3}
   tank: {fileID: 7232616195353922584, guid: ef883b31c8a5e5e47a92eeacf42822f5, type: 3}
+  wavemode: 0
+  wave1:
+    enemies:
+    - enemyType: 1
+      spawndelay: 0
+      spawnPoint: 0
+    - enemyType: 1
+      spawndelay: 0
+      spawnPoint: 0
+    - enemyType: 2
+      spawndelay: 0
+      spawnPoint: 0
+  wave2:
+    enemies: []
+  wave3:
+    enemies: []
   isSpawning: 0
   livingEnemies: []
 --- !u!4 &2027314005
