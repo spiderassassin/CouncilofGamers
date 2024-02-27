@@ -38,6 +38,8 @@ public class Controller : Entity
     public Transform fireballOrigin;
     public float healthIncreaseRate = 1;
 
+    public Animator armAnimator;
+
     private void Awake()
     {
         if (Instance == null)
@@ -158,6 +160,7 @@ public class Controller : Entity
             if(isFiring == false)
             {
                 isFiring = true;
+                armAnimator.SetBool("isFlamethrowing", true); // animator trigger
                 fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
             }
             
@@ -166,6 +169,7 @@ public class Controller : Entity
         {
             Fire(false);
             isFiring = false;
+            armAnimator.SetBool("isFlamethrowing", false); // animator un-trigger
             
             SoundManager.Instance.StopSoundEffect(fireAudio);
             
@@ -191,6 +195,11 @@ public class Controller : Entity
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
+        armAnimator.SetTrigger("punch");// animator trigger
+
+        //punchSource.SetActive(false);
+
+
     }
 
     void Fire(bool active)
@@ -207,9 +216,8 @@ public class Controller : Entity
     void Fireball()
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
-
+        armAnimator.SetTrigger("isThrow"); // animator trigger
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
-
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
     }
@@ -218,6 +226,9 @@ public class Controller : Entity
     {
         if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
+            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
+            //logic for snap goes here
+            //armAnimator.SetTrigger("snap");// animator trigger
             SoundManager.Instance.PlaySoundOnce(snap, transform);
             FireManager.manager.StepFireLevel();
         }
@@ -225,6 +236,7 @@ public class Controller : Entity
         {
             SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
         }
+        armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
     }
 
     void simulateGravity()
@@ -264,6 +276,7 @@ public class Controller : Entity
         if (isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            armAnimator.SetTrigger("isJump"); // animator trigger
             //SoundManager.Instance.Play(SoundManager.Instance.jump, source);
             //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
