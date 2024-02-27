@@ -33,7 +33,15 @@ public class CameraBehavior : MonoBehaviour
         animator.SetBool("isSprinting" , GetComponentInParent<Controller>().sprint);
     }
 
-    
+    public void Die()
+    {
+        animator.SetBool("isDead", true);
+    }
+
+
+
+
+
 
     public void Look(float mouseX, float mouseY)
     {
