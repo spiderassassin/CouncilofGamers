@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     public enum GameStage { TutorialWave, PreWave1, Wave1, PreWave2, Wave2, PreWave3, Wave3, PreFinale, Finale};
     public GameStage gameStage;
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
-    public bool snapPossible = false;
+    // Use this variable to notify the game manager that a successful snap occurred.
+    public bool snapped = false;
 
     private float adrenaline = 0;
     private float interpolant => Time.deltaTime * 2;
     // Use 1/10 of the possible range to add on to the interpolation so we reach the target faster.
     private float threshold => GetMaxAdrenaline() * 0.1f;
+    // When this is true, we're waiting for the adrenaline to reach 0 before it starts to recharge.
     private bool recentlySnapped = false;
     
     private void UpdateAdrenaline() // Adjustable as needed.
@@ -47,15 +49,6 @@ public class GameManager : MonoBehaviour
         return 10;
     }
 
-    private void CheckForSnap()
-    {
-        snapPossible = AdrenalinePercent >= 1f;
-        if (InputManager.Instance.snap && snapPossible)
-        {
-            recentlySnapped = true;
-        }
-    }
-
     private void Awake()
     {
         if (Instance == null)
@@ -77,9 +70,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // Check and set this first, so even if we decrease the adrenaline immediately,
-        // other classes can recognize the successful snap.
-        CheckForSnap();
+        // Check for a successful snap before updating adrenaline.
+        if (snapped) {
+            recentlySnapped = true;
+            snapped = false;
+        }
         UpdateAdrenaline();
     }
 
