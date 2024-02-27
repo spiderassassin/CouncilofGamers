@@ -139,7 +139,7 @@ public class Controller : Entity
 
             }
 
-            if (InputManager.Instance.jump && !GameManager.Instance.dialogueState)
+            if (InputManager.Instance.jump)
             {
                 Jump();
 
@@ -285,9 +285,9 @@ public class Controller : Entity
     {
             if (GameManager.Instance.dialogueState)
         {
+            
             return;
         }
-       
             Vector3 move = transform.right * horizontal + transform.forward * vertical;//horizontal and vertical movement of the player
             if (sprint)
             {

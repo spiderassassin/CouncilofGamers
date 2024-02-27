@@ -86,6 +86,7 @@ public class InputManager : MonoBehaviour
         sprintAction = playerInput.currentActionMap.FindAction("Sprint");
         sprintAction.performed += SprintAction_performed;
         sprintAction.canceled += SprintAction_canceled;
+ 
     }
 
     private void SprintAction_canceled(InputAction.CallbackContext obj)
@@ -129,7 +130,10 @@ public class InputManager : MonoBehaviour
 
     private void MoveAction_performed(InputAction.CallbackContext obj)
     {
-        if (LockPlayerGameplayInput) return;
+        if (LockPlayerGameplayInput)
+        {
+            return;
+        }
         moveX = obj.ReadValue<Vector2>().x;
         moveY = obj.ReadValue<Vector2>().y;
     }
@@ -158,13 +162,15 @@ public class InputManager : MonoBehaviour
     }
     private void JumpAction_performed(InputAction.CallbackContext obj)
     {
-        if (LockPlayerGameplayInput) return;
-        jump = obj.ReadValueAsButton();
-        //Debug.Log("dialogue " + dialouge);
-        if (GameManager.Instance.dialogueState)
+        if (LockPlayerGameplayInput && GameManager.Instance.dialogueState)
         {
             dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+            return;
         }
+
+        jump = obj.ReadValueAsButton();
+        //Debug.Log("dialogue " + dialouge);
+
     }
 
     void Start()
@@ -176,5 +182,20 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         startwave = Input.GetKeyDown(KeyCode.M)&&!LockPlayerGameplayInput;
+        if (GameManager.Instance.dialogueState)
+        {
+            LockPlayerGameplayInput = true;
+        }
+        else
+        {
+            LockPlayerGameplayInput = false;
+        }
+
+        if (LockPlayerGameplayInput )
+        {
+            moveX = 0;
+            moveY = 0;
+            //add more things here - sprint, jump, fire, etc
+        }
     }
 }
