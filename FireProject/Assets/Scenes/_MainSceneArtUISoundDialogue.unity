@@ -11844,6 +11844,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1390038366}
   actionPromptsHUD: {fileID: 657778508}
   NPCSprite: {fileID: 1888134733}
+  conversationStartPrompt: {fileID: 1881121409}
   animator: {fileID: 188248927}
 --- !u!4 &645014638
 Transform:
@@ -14160,6 +14161,7 @@ MonoBehaviour:
   stopfire: 0
   startwave: 0
   dialogueManager: {fileID: 645014636}
+  dialogueTrigger: {fileID: 1491700451}
 --- !u!1 &1046122483
 GameObject:
   m_ObjectHideFlags: 0
@@ -21010,12 +21012,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 'Parole Officer '
+    name: Parole Officer
     sentences:
-    - Hi, I'm your friendly neighbourhood parole officer
-    - I'm definitely not secretly a demon
-    - Nah, that'd be crazy
+    - Hi
   dialogueStarted: 0
+  canStartDialogue: 0
   conversationStartPrompt: {fileID: 1881121409}
 --- !u!114 &1491700453
 MonoBehaviour:
@@ -25634,12 +25635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Parole Officer
-    sentences:
-    - Hi, I'm your friendly neighbourhoood parole officer.
-    - I'm definitely not secretly a demon who wants to destroy the world.
-    - No, definitely not.
+    name: 
+    sentences: []
   dialogueStarted: 0
+  canStartDialogue: 0
   conversationStartPrompt: {fileID: 0}
 --- !u!114 &1990769402
 MonoBehaviour:
