@@ -60,6 +60,8 @@ public class SoundManager : MonoBehaviour
         StartCoroutine(Buffer(obj, clip.length));
     }
 
+
+   
     public IEnumerator Buffer(GameObject obj, float len)
     {
         yield return new WaitForSeconds(len);
@@ -82,8 +84,13 @@ public class SoundManager : MonoBehaviour
 
     public void MusicStop()
     {
-        music.Stop(); 
+        music.Pause(); 
     }
+    public void MusicPlay()
+    {
+        music.Play();
+    }
+
 
 
 }

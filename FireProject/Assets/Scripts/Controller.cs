@@ -28,6 +28,8 @@ public class Controller : Entity
     public AudioClip punch;
     public AudioClip fire;
     public AudioClip snap, failedSnap;
+    public AudioClip playerDamage;
+    public AudioClip fireBall;
 
     GameObject obj;
     GameObject fireAudio;
@@ -37,6 +39,7 @@ public class Controller : Entity
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
     public float healthIncreaseRate = 1;
+    bool dead = false;
 
     public Animator armAnimator;
 
@@ -65,127 +68,136 @@ public class Controller : Entity
     }
 
     void Update()
+
     {
-        if (health < 100)
+        if (dead == false)
         {
-            health += Time.deltaTime * healthIncreaseRate;
-        }
-
-
-        source = this.GetComponent<AudioSource>();
-
-
-        GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
-        if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
-        {
-            if(isMoving == false)
+            if (health < 100)
             {
-                isMoving = true;
-                obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
-
+                health += Time.deltaTime * healthIncreaseRate;
             }
 
-            Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
 
-            if (InputManager.Instance.sprintOn)
+            source = this.GetComponent<AudioSource>();
+
+
+            GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
+            if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
             {
-                if (sprint == false)
+                if (isMoving == false)
                 {
-                    sprint = true;
-                    SoundManager.Instance.StopSoundEffect(obj);
-                    obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
+                    isMoving = true;
+                    obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
 
-                    GetComponentInChildren<CameraBehavior>().Sprint();
                 }
 
+                Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
+
+                if (InputManager.Instance.sprintOn)
+                {
+                    if (sprint == false)
+                    {
+                        sprint = true;
+                        SoundManager.Instance.StopSoundEffect(obj);
+                        obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
+
+                        GetComponentInChildren<CameraBehavior>().Sprint();
+                    }
+
+                }
+                else if (InputManager.Instance.sprintOff)
+                {
+                    if (sprint == true)
+                    {
+
+                        sprint = false;
+                        SoundManager.Instance.StopSoundEffect(obj);
+                        obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                        GetComponentInChildren<CameraBehavior>().Sprint();
+                    }
+
+                }
             }
-            else if (InputManager.Instance.sprintOff)
+
+            else
             {
+                if (isMoving == true)
+                {
+                    isMoving = false;
+                    SoundManager.Instance.StopSoundEffect(obj);
+
+                }
+
                 if (sprint == true)
                 {
 
                     sprint = false;
-                    SoundManager.Instance.StopSoundEffect(obj);
-                    obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
                     GetComponentInChildren<CameraBehavior>().Sprint();
+
+                }
+
+
+            }
+
+            if (InputManager.Instance.jump)
+            {
+                Jump();
+
+            }
+
+            if (InputManager.Instance.takeDamage)
+            {
+                //OnDamaged();
+            }
+
+            if (InputManager.Instance.fireball)
+            {
+                Fireball();
+            }
+
+            if (InputManager.Instance.punch)
+            {
+                Punch();
+            }
+
+            if (InputManager.Instance.fire)
+            {
+
+                if (isFiring == false)
+                {
+                    armAnimator.SetBool("isFlamethrowing", true); // animator trigger
+
+                    Fire(true);
+                    isFiring = true;
+
+                    fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
                 }
 
             }
-        }
-
-        else
-        {
-            if(isMoving == true)
+            if (InputManager.Instance.stopfire)
             {
-                isMoving = false;
-                SoundManager.Instance.StopSoundEffect(obj);
+                armAnimator.SetBool("isFlamethrowing", false); // animator un-trigger
+
+                Fire(false);
+                isFiring = false;
+
+
+                SoundManager.Instance.StopSoundEffect(fireAudio);
+
 
             }
 
-            if(sprint == true)
-            {
-                
-                sprint = false;
-                GetComponentInChildren<CameraBehavior>().Sprint();
 
+            if (InputManager.Instance.snap)
+            {
+                // StartCoroutine(Snap());
+                Snap();
             }
 
-           
+
+
+            simulateGravity();
         }
-
-        if (InputManager.Instance.jump)
-        {
-            Jump();
-
-        }
-
-        if (InputManager.Instance.takeDamage)
-        {
-            //OnDamaged();
-        }
-
-        if (InputManager.Instance.fireball)
-        {
-            Fireball();
-        }
-
-        if (InputManager.Instance.punch)
-        {
-            Punch();
-        }
-
-        if (InputManager.Instance.fire)
-        {
-            Fire(true);
-            if(isFiring == false)
-            {
-                isFiring = true;
-                armAnimator.SetBool("isFlamethrowing", true); // animator trigger
-                fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
-            }
-            
-        }
-        if (InputManager.Instance.stopfire)
-        {
-            Fire(false);
-            isFiring = false;
-            armAnimator.SetBool("isFlamethrowing", false); // animator un-trigger
-            
-            SoundManager.Instance.StopSoundEffect(fireAudio);
-            
-            
-        }
-
-
-        if (InputManager.Instance.snap)
-        {
-            // StartCoroutine(Snap());
-            Snap();
-        }
-
-
-
-        simulateGravity();
 
 
     }
@@ -204,11 +216,13 @@ public class Controller : Entity
 
     void Fire(bool active)
     {
+        
         firesource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
 
         firesource.SetActive(active);
         if (!active)
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
         else
             coneFireSystem.Play(true);
     }
@@ -217,6 +231,7 @@ public class Controller : Entity
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
         armAnimator.SetTrigger("isThrow"); // animator trigger
+        SoundManager.Instance.PlaySoundOnce(fireBall, transform);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
@@ -224,19 +239,32 @@ public class Controller : Entity
 
     void Snap()
     {
+        
+
+        armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
         if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
-            //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
-            //logic for snap goes here
-            //armAnimator.SetTrigger("snap");// animator trigger
+            SoundManager.Instance.MusicStop();
+        }
+    }
+    public IEnumerator SnapLogic()
+    {
+        if (GameManager.Instance.AdrenalinePercent >= 1f)
+        {
+            CombatUI.Instance.snap();
             SoundManager.Instance.PlaySoundOnce(snap, transform);
+            
+            yield return new WaitForSeconds(1f);
             FireManager.manager.StepFireLevel();
+            SoundManager.Instance.MusicPlay();
+
+
         }
         else
         {
             SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
+            yield return new WaitForSeconds(0f);
         }
-        armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
     }
 
     void simulateGravity()
@@ -281,21 +309,35 @@ public class Controller : Entity
             //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
+    IEnumerator Die()
+    {
+        
+        GetComponentInChildren<CameraBehavior>().Die();
 
+        Debug.Log("Game Over");
+        yield return new WaitForSeconds(5);
+        SoundManager.Instance.MusicStop();
+        Cursor.lockState = CursorLockMode.None;
+        Destroy(CombatUI.Instance);
+
+        SceneManager.LoadScene(0);
+
+    }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        CombatUI.Instance.DamageOverlay();
-        health -= 10;
-
-        if (health <= 0)
+        if (dead == false)
         {
-            Debug.Log("Game Over");
-            SoundManager.Instance.MusicStop();
-            Cursor.lockState = CursorLockMode.None;
-            Destroy(CombatUI.Instance);
+            CombatUI.Instance.DamageOverlay();
+            SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
+            health -= 10;
 
-            SceneManager.LoadScene(0);
+            if (health <= 0)
+            {
+                dead = true;
+
+                StartCoroutine(Die());
+            }
         }
     }
 

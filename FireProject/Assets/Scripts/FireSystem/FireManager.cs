@@ -55,6 +55,7 @@ public class FireManager : MonoBehaviour
         {
             IFlammable i = f.Key;
             if (!i.IsOnFire) continue;
+
             i.StepUpFire();
         }
     }
