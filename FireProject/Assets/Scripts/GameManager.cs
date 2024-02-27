@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameStage gameStage;
 
     private float adrenaline = 0;
+    public bool dialogueState;
 
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
     private void UpdateAdrenaline() // Adjustable as needed.

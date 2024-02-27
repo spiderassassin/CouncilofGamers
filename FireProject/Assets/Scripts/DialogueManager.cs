@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
+        GameManager.Instance.dialogueState = true;
         
 
         sentences.Clear();
@@ -57,6 +58,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         actionPromptsHUD.SetActive(false);
+        GameManager.Instance.dialogueState = false;
     }
 
     

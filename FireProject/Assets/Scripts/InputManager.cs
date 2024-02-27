@@ -44,6 +44,8 @@ public class InputManager : MonoBehaviour
 
     public bool startwave = false;//this is for testing only, to start waves
 
+    public GameObject dialogueManager;
+
     private void Awake()
     {
         sprintOff = true;
@@ -158,6 +160,11 @@ public class InputManager : MonoBehaviour
     {
         if (LockPlayerGameplayInput) return;
         jump = obj.ReadValueAsButton();
+        //Debug.Log("dialogue " + dialouge);
+        if (GameManager.Instance.dialogueState)
+        {
+            dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+        }
     }
 
     void Start()
