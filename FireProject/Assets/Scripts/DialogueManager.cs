@@ -11,6 +11,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject actionPromptsHUD;
 
+    public GameObject NPCSprite;
+
     public Animator animator;
 
     private Queue<string> sentences;
