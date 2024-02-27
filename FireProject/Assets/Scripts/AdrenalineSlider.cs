@@ -5,28 +5,24 @@ using UnityEngine.UI;
 public class AdrenalineSlider : MonoBehaviour
 {
     public Slider adrenalineBar;
-    public int playerAdrenaline;
+    public Image colourAdjustment;
+    
     private void Start()
     {
-        playerAdrenaline = GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline;
         adrenalineBar = GetComponent<Slider>();
-    }
-    public void SetAdrenaline(int a)
-    {
-        adrenalineBar.value = a;
     }
 
     public void Update()
     {
-        adrenalineBar.value = GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline;
+        adrenalineBar.value = GameManager.Instance.AdrenalinePercent;
 
-        if (adrenalineBar.value >= GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
+        if (adrenalineBar.value >= 1f)
         {
-            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = Color.white;
+            colourAdjustment.color = Color.white;
         }
         else
         {
-            GameObject.FindGameObjectWithTag("Adrenaline Bar").GetComponent<Image>().color = new Color32(255,169,0, 255);
+            colourAdjustment.color = new Color32(255,169,0, 255);
         }
     }
 }

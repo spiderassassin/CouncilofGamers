@@ -23,9 +23,10 @@ public class FireSource : MonoBehaviour
     private float baseLifespan = Mathf.Infinity; // DO NOT RENAME
     public float tickRate = .25f; // DO NOT RENAME
     public float activeDamageProbability = .1f; // DO NOT RENAME
-
     public bool tick = true;
     public bool damageOnEnter = false;
+
+    public float DamageMultiplier { get; set; }
 
     /// <summary>
     /// The lifespan remaining on the fire source before it's deactivated.
@@ -34,7 +35,6 @@ public class FireSource : MonoBehaviour
 
     private List<Collider> inRange;
     private float timer;
-    private int originalDamage;
 
     public void Initialize(IAttacker a, IFlammable d)
     {
@@ -42,10 +42,6 @@ public class FireSource : MonoBehaviour
         self = d;
     }
 
-    private void Start()
-    {
-        originalDamage = activeDamage.damage;
-    }
     protected virtual void OnEnable()
     {
         inRange = new List<Collider>();
@@ -56,7 +52,7 @@ public class FireSource : MonoBehaviour
     protected virtual void OnDisable()
     {
         if(self != null)
-            self.SetFire(DamageType.None);
+            self.SetFire(DamageType.ClearFire);
     }
     public void SetActive(bool active)
     {
@@ -85,8 +81,6 @@ public class FireSource : MonoBehaviour
     {
         if (tick == true)
         {
-
-
             // Timer for deactivating the fire source.
             LifeSpan -= Time.deltaTime;
             if (LifeSpan <= 0f)
@@ -108,11 +102,13 @@ public class FireSource : MonoBehaviour
 
     protected virtual void DamageTick()
     {
-        activeDamage.damage = originalDamage + (GameManager.Instance.adrenaline * GameManager.Instance.Damageboost);
+        DamageInformation d = activeDamage;
+        d.damage *= DamageMultiplier;
+
         foreach (var c in inRange)
         {
             if (Random.Range(0f, 1f) <= activeDamageProbability)
-                FireManager.manager.FireDamageOnCollider(source, c, activeDamage);
+                FireManager.manager.FireDamageOnCollider(source, c, d);
         }
     }
 

@@ -49,7 +49,7 @@ public abstract class Enemy : FlammableEntity
     {
         base.Update();
         // Scale speed based on adrenaline.
-        agent.speed = speed + (GameManager.Instance.adrenaline);
+        agent.speed = speed + (GameManager.Instance.AdrenalinePercent*3);
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);
@@ -96,17 +96,19 @@ public abstract class Enemy : FlammableEntity
     public override void Death()
     {
         base.Death();
+        WaveManager.Instance.livingEnemies.Remove(this);
         Destroy(gameObject);
     }
 
-    public void Attack() {
+    public override void Attack() {
+        base.Attack();
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
         foreach (Collider hit in hitColliders) {
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.None));
+                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.ClearFire));
             }
         }
     }

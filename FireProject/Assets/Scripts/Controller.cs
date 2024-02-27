@@ -27,6 +27,8 @@ public class Controller : Entity
     public AudioClip playerrun;
     public AudioClip punch;
     public AudioClip fire;
+    public AudioClip snap, failedSnap;
+
     GameObject obj;
     GameObject fireAudio;
     public FireSource firesource;
@@ -34,6 +36,7 @@ public class Controller : Entity
     public FireSource punchSource;
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
+    public float healthIncreaseRate = 1;
 
     public Animator armAnimator;
 
@@ -51,10 +54,24 @@ public class Controller : Entity
 
 
     }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
+    private float GetDamageMultiplier(float adrenalinePercent)
+    {
+        return 1 + adrenalinePercent;
+    }
 
     void Update()
     {
+        if (health < 100)
+        {
+            health += Time.deltaTime * healthIncreaseRate;
+        }
+
+
         source = this.GetComponent<AudioSource>();
 
 
@@ -124,7 +141,7 @@ public class Controller : Entity
 
         if (InputManager.Instance.takeDamage)
         {
-            OnDamage();
+            //OnDamaged();
         }
 
         if (InputManager.Instance.fireball)
@@ -162,6 +179,7 @@ public class Controller : Entity
 
         if (InputManager.Instance.snap)
         {
+            // StartCoroutine(Snap());
             Snap();
         }
 
@@ -172,12 +190,9 @@ public class Controller : Entity
 
     }
 
-
-
-
     void Punch()
     {
-        //punchSource.SetActive(true);
+        punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
         armAnimator.SetTrigger("punch");// animator trigger
@@ -189,6 +204,8 @@ public class Controller : Entity
 
     void Fire(bool active)
     {
+        firesource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
+
         firesource.SetActive(active);
         if (!active)
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -200,21 +217,26 @@ public class Controller : Entity
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
         armAnimator.SetTrigger("isThrow"); // animator trigger
+        g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
     }
 
     void Snap()
     {
-        if (GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline == GameObject.Find("GameManager").GetComponent<GameManager>().MAX_ADRENALINE)
+        if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
             //logic for snap goes here
-            armAnimator.SetTrigger("snap");// animator trigger
+            //armAnimator.SetTrigger("snap");// animator trigger
+            SoundManager.Instance.PlaySoundOnce(snap, transform);
+            FireManager.manager.StepFireLevel();
+        }
+        else
+        {
+            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
         }
         armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
-
-
     }
 
     void simulateGravity()
@@ -261,20 +283,21 @@ public class Controller : Entity
     }
 
 
-
-
-    public void OnDamage() {
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
         CombatUI.Instance.DamageOverlay();
-        GameManager.Instance.playerHealth -= 10;
-        if(GameManager.Instance.playerHealth <= 0)
+        health -= 10;
+
+        if (health <= 0)
         {
             Debug.Log("Game Over");
+            SoundManager.Instance.MusicStop();
+            Cursor.lockState = CursorLockMode.None;
+            Destroy(CombatUI.Instance);
+
             SceneManager.LoadScene(0);
         }
-
     }
-
-
 
     
 }

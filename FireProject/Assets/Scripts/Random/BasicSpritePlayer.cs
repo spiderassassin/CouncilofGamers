@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicSpritePlayer : MonoBehaviour
 {
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
     public Sprite[] sprites;
     public float delay = 0.25f;
 

@@ -17,12 +17,14 @@ public class PassiveFireSource : FireSource
     // Used for fire sources the do passive damage + spread.
     public DamageInformation selfDamage; // DO NOT RENAME
 
+    
+
     private void OnValidate()
     {
-        if(selfDamage.type != DamageType.None)
+        if(selfDamage.type != DamageType.ClearFire)
         {
             Debug.LogError("Self damage should be typeless (otherwise the entity would be on fire forever).");
-            selfDamage.type = DamageType.None;
+            selfDamage.type = DamageType.ClearFire;
         }
     }
 
