@@ -21012,7 +21012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Parole Officer
+    name: Parole Guard
     sentences:
     - Hi
   dialogueStarted: 0
@@ -24910,7 +24910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941156348}
   m_Layer: 0
-  m_Name: ParoleOfficerSystem
+  m_Name: ParoleGuardSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
