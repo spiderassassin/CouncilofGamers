@@ -120,11 +120,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1350
+        y: 1349
         width: 2025
         height: 1350
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,11 +141,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2025
-        y: 1350
+        y: 1349
         width: 2025
         height: 1350
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,9 +164,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 2025
-        height: 1350
+        height: 1349
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,9 +185,9 @@ TextureImporter:
         x: 2025
         y: 0
         width: 2025
-        height: 1350
+        height: 1349
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,6 +195,48 @@ TextureImporter:
       bones: []
       spriteID: cc856f4293ba1e741ae31069287844aa
       internalID: 1274501762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arm_spritesheet_modified_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2699
+        width: 2025
+        height: 1350
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64964083870fd2459c852c4fd24fa28
+      internalID: -1665273487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arm_spritesheet_modified_5
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 2699
+        width: 2025
+        height: 1351
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c02c02068f3c88439a81b5ee192525a
+      internalID: 435952159
       vertices: []
       indices: 
       edges: []
@@ -214,6 +256,8 @@ TextureImporter:
       arm_spritesheet_modified_3: 1274501762
       arm_spritesheet_modified_2: -223730983
       arm_spritesheet_modified_1: 272824843
+      arm_spritesheet_modified_4: -1665273487
+      arm_spritesheet_modified_5: 435952159
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
