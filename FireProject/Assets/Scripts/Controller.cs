@@ -226,7 +226,7 @@ public class Controller : Entity
     {
         if (GameManager.Instance.AdrenalinePercent >= 1f)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
+            //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline = 0;
             //logic for snap goes here
             //armAnimator.SetTrigger("snap");// animator trigger
             SoundManager.Instance.PlaySoundOnce(snap, transform);
