@@ -7,6 +7,8 @@ using TMPro;
 public class Intro : MonoBehaviour
 {
     private int textIndex = 0;
+    private bool waitingForInput = false;
+    private int fadeDelay = 2;
     public TextMeshProUGUI[] introText;
     public TextMeshProUGUI continueText;
 
@@ -17,16 +19,20 @@ public class Intro : MonoBehaviour
         foreach (TextMeshProUGUI text in introText) {
             text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         }
-        // Fade in the intro text.
-        StartCoroutine(FadeIn(introText[textIndex]));
-        StartCoroutine(FadeIn(continueText));
+        // Also disable the continue text.
+        ToggleContinueText(false);
+
+        // Fade in the first intro text segment.
+        StartCoroutine(WaitAndLoadText(textIndex));
         ++textIndex;
     }
 
     private void Update()
     {
-        if (InputManager.Instance.dialogue)
+        if (InputManager.Instance.dialogue && waitingForInput)
         {
+            // Disable input handling until we've loaded the next text segment.
+            waitingForInput = false;
             // If we've reached the end of the intro text, load the next scene.
             if (textIndex == introText.Length) {
                 StartCoroutine(WaitAndLoadScene(textIndex));
@@ -35,6 +41,10 @@ public class Intro : MonoBehaviour
                 ++textIndex;
             }
         }
+    }
+
+    private void ToggleContinueText(bool enabled) {
+        continueText.enabled = enabled;
     }
 
     IEnumerator FadeIn(TextMeshProUGUI text) {
@@ -60,22 +70,28 @@ public class Intro : MonoBehaviour
     }
 
     IEnumerator WaitAndLoadText(int index) {
-        // Fade out the current text segment.
-        StartCoroutine(FadeOut(introText[index - 1]));
-        StartCoroutine(FadeOut(continueText));
-        // Delay for a little...
-        yield return new WaitForSeconds(2);
+        // Fade out the current text segment, if it exists.
+        if (index > 0) {
+            StartCoroutine(FadeOut(introText[index - 1]));
+            ToggleContinueText(false);
+            // Delay for a little...
+            yield return new WaitForSeconds(fadeDelay);
+        }
         // ...then load the next text segment.
         StartCoroutine(FadeIn(introText[index]));
-        StartCoroutine(FadeIn(continueText));
+        // Delay for a little...
+        yield return new WaitForSeconds(fadeDelay);
+        // ...then wait for input.
+        ToggleContinueText(true);
+        waitingForInput = true;
     }
 
     IEnumerator WaitAndLoadScene(int index) {
         // Fade out the current text segment.
         StartCoroutine(FadeOut(introText[index - 1]));
-        StartCoroutine(FadeOut(continueText));
+        ToggleContinueText(false);
         // Delay for a little...
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(fadeDelay);
         // ...then load the next scene.
         // Make sure the next scene is positioned after the current one in the build settings!
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
