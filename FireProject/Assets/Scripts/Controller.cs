@@ -242,7 +242,7 @@ public class Controller : Entity
         
 
         armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
-        if (GameManager.Instance.AdrenalinePercent >= 1f)
+        if (GameManager.Instance.snapPossible)
         {
             SoundManager.Instance.MusicStop();
         }
