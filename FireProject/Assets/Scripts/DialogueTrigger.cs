@@ -6,6 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public bool dialogueStarted;
+    public bool canStartDialogue;
     public GameObject conversationStartPrompt;
 
 
@@ -25,10 +26,13 @@ public class DialogueTrigger : MonoBehaviour
         }*/
 
         conversationStartPrompt.SetActive(true);
+        canStartDialogue = true;
     }
 
     public void OnTriggerExit(Collider other)
     {
         conversationStartPrompt.SetActive(false);
     }
+
+    
 }

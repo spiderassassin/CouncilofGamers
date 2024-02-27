@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject NPCSprite;
 
+    public GameObject conversationStartPrompt;
+
     public Animator animator;
 
     private Queue<string> sentences;
