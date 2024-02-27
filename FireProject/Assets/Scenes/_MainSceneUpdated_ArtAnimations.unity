@@ -2657,30 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavemode: 0
   gameStage: 0
-  adrenaline: 0
-  MAX_ADRENALINE: 100
-  health: 100
-  wave1:
-    enemies:
-    - enemyType: 2
-      spawndelay: 1
-      spawnPoint: 0
-    - enemyType: 2
-      spawndelay: 3
-      spawnPoint: 1
-    - enemyType: 2
-      spawndelay: 5
-      spawnPoint: 2
-  wave2:
-    enemies: []
-  wave3:
-    enemies: []
-  playerHealth: 100
-  MAX_HEALTH: 100
-  baseHealth: 5
-  Damageboost: 2
 --- !u!1 &234037095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,11 +3623,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e2040bd90d42a49a5aae036fcaa69304, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10932,6 +10909,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474664498842433657}
     m_Modifications:
+    - target: {fileID: 2198687682187778717, guid: 54249e340c2f2214d908896dc1129070, type: 3}
+      propertyPath: colourAdjustment
+      value: 
+      objectReference: {fileID: 793716652}
     - target: {fileID: 2198687682187778718, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_MaxValue
       value: 10
@@ -13230,6 +13211,17 @@ Transform:
   m_Father: {fileID: 1605373328}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &793716652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2198687682559256886, guid: 54249e340c2f2214d908896dc1129070, type: 3}
+  m_PrefabInstance: {fileID: 564820802}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &844986563
 Mesh:
   m_ObjectHideFlags: 0
@@ -13707,7 +13699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
-  mouseSensitivity: {x: 30, y: 30}
+  mouseSensitivity: {x: 0.5, y: 0.5}
   toggleSprint: 0
   mouseX: 0
   mouseY: 0
@@ -22956,7 +22948,15 @@ MonoBehaviour:
   gruntPlayer: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
   gruntgoal: {fileID: 8585091701780571999, guid: 1b7d89867921fca4eb74f311b4dd08d6, type: 3}
   tank: {fileID: 7232616195353922584, guid: ef883b31c8a5e5e47a92eeacf42822f5, type: 3}
+  wavemode: 0
+  wave1:
+    enemies: []
+  wave2:
+    enemies: []
+  wave3:
+    enemies: []
   isSpawning: 0
+  livingEnemies: []
 --- !u!4 &2027314005
 Transform:
   m_ObjectHideFlags: 0
@@ -24628,13 +24628,16 @@ MonoBehaviour:
   isMoving: 0
   playerwalk: {fileID: 8300000, guid: 019bb0e8b264a4e28ba303cc69211e33, type: 3}
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}
-  punch: {fileID: 8300000, guid: 81e3c2d3ca7cb4d49a0c30e5023d2646, type: 3}
+  punch: {fileID: 8300000, guid: 540a410a2cb3946808cd129c77bc784b, type: 3}
   fire: {fileID: 8300000, guid: a1c2fd3eac5e84defb5b0190d80e2ffc, type: 3}
+  snap: {fileID: 8300000, guid: 41c1264dfb80a40dcb0971c5385e7b74, type: 3}
+  failedSnap: {fileID: 8300000, guid: 41c1264dfb80a40dcb0971c5385e7b74, type: 3}
   firesource: {fileID: 986645692}
   coneFireSystem: {fileID: 549289025}
   punchSource: {fileID: 248797618891268833}
   fireballPrefab: {fileID: 4579902582922021047, guid: 2d0da1889b4b792409f6b1f7a8a2052c, type: 3}
   fireballOrigin: {fileID: 1665238772}
+  healthIncreaseRate: 1
   armAnimator: {fileID: 1474664498842433659}
 --- !u!23 &5773853081804593948
 MeshRenderer:
