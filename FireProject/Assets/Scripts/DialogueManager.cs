@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public GameObject actionPromptsHUD;
 
     public Animator animator;
 
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
+        actionPromptsHUD.SetActive(false);
         
 
         sentences.Clear();
@@ -54,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+        actionPromptsHUD.SetActive(false);
     }
 
     
