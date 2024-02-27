@@ -6,6 +6,8 @@ public class Tank: Enemy {
     private Task waitingShortRange;
     private Task waitingLongRange;
     private Task waitingCooldown;
+    public float attackRange = 6;
+    
 
     public Tank() {
         speed = 2;
@@ -35,8 +37,8 @@ public class Tank: Enemy {
                 waitingCooldown = new Task(5);
             }
         } else if (state == EnemyState.Moving) {
-            agent.SetDestination(goal);
-            if (Vector3.Distance(transform.position, goal) < 6) {
+            agent.SetDestination(goal.position);
+            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
                 // If within 6 units of the goal, attack it.
                 state = EnemyState.Attacking;
             } else if (waitingCooldown == null || !waitingCooldown.Running) {
