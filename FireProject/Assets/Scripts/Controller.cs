@@ -39,10 +39,13 @@ public class Controller : Entity
     public FireSource punchSource;
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
+    public float fireballCooldown = .5f;
     public float healthIncreaseRate = 1;
     bool dead = false;
 
     public Animator armAnimator;
+
+    private float lastFireballTime;
 
     private void Awake()
     {
@@ -230,6 +233,9 @@ public class Controller : Entity
 
     void Fireball()
     {
+        if (Time.timeSinceLevelLoad - lastFireballTime < fireballCooldown) return;
+
+        lastFireballTime = Time.timeSinceLevelLoad;
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
         g.gameObject.SetActive(false);
         armAnimator.SetTrigger("isThrow"); // animator trigger
@@ -251,7 +257,7 @@ public class Controller : Entity
         armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
         if (canSnap())
         {
-            SoundManager.Instance.MusicStop();
+            // SoundManager.Instance.MusicStop();
         }
     }
     public IEnumerator SnapLogic()
