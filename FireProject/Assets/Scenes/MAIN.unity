@@ -3006,7 +3006,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234037095}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2f2fdbe7f26ce4c408b1c5001d76df36, type: 2}
   m_CullingMode: 0
@@ -14405,7 +14405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
-  mouseSensitivity: {x: 0.5, y: 0.5}
+  mouseSensitivity: {x: 0.5, y: 2}
   toggleSprint: 0
   mouseX: 0
   mouseY: 0

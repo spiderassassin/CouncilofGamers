@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -221,8 +221,10 @@ public class InputManager : MonoBehaviour
         {
             moveX = 0;
             moveY = 0;
-            mouseX = 0;
-            mouseY = 0;
+            fire = false;
+            stopfire = true;
+            //mouseX = 0;
+            //mouseY = 0;
             //add more things here - sprint, jump, fire, etc
         }
     }

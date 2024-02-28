@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 50f0382d3853a934b96a2dc0154018b4
   - enabled: 1
-    path: Assets/Scenes/MainScenemusic.unity
-    guid: 098939cbd725b4d4e879fcbbdb356a0c
+    path: Assets/Scenes/MAIN.unity
+    guid: 8ef72f82dda33a344aac3d041c04d40c
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 391ad4d8fd7ef48909ba267a3df5f51c
