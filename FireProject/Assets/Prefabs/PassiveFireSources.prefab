@@ -338,7 +338,7 @@ MonoBehaviour:
     pushBack: 0
     type: 2
   baseLifespan: 6
-  tickRate: 0.5
+  tickRate: 0.25
   activeDamageProbability: 0.05
   tick: 1
   damageOnEnter: 0
@@ -515,12 +515,12 @@ MonoBehaviour:
     pushBack: 0
     type: 4
   baseLifespan: 6
-  tickRate: 0.15
+  tickRate: 0.1
   activeDamageProbability: 0.05
   tick: 1
   damageOnEnter: 0
   selfDamage:
-    damage: 1
+    damage: 2
     pushBack: 0
     type: 0
 --- !u!1 &6174015342280184843
@@ -642,7 +642,7 @@ MonoBehaviour:
     pushBack: 0
     type: 3
   baseLifespan: 6
-  tickRate: 0.25
+  tickRate: 0.2
   activeDamageProbability: 0.05
   tick: 1
   damageOnEnter: 0

@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour, IAttacker
     // Start is called before the first frame update
     void Start()
     {
-        dest = GameObject.Find("Player").transform.position;
+        dest = Controller.Instance.Position;
     }
 
     public void Attack() {
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour, IAttacker
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.ClearFire));
+                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.AdditiveDamage));
             }
         }
         // Destroy the projectile after dealing damage.

@@ -32,7 +32,7 @@ public class Tank: Enemy {
                 waitingCooldown = new Task(5);
             }
         } else if (state == EnemyState.Moving) {
-            agent.SetDestination(goal.position);
+            SetDestination(goal.position);
             if (Vector3.Distance(transform.position, goal.position) < attackRange) {
                 // If within 6 units of the goal, attack it.
                 state = EnemyState.Attacking;
@@ -42,7 +42,7 @@ public class Tank: Enemy {
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and short range attack.
-            agent.SetDestination(transform.position);
+            SetDestination(transform.position);
             Attack();
             waitingShortRange = new Task(1);
         } else if (state == EnemyState.LongRangeAttacking) {

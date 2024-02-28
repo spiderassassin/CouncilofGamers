@@ -144,9 +144,9 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
   body: {fileID: 37018340930786909}
-  speed: 15
+  speed: 8
   attackRange: 5
-  followRange: 15
+  followRange: 10
 --- !u!54 &37018340930786909 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

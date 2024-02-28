@@ -14,7 +14,7 @@ public class Wave
         public int count = 1;
     }
 
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank };
+    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntGoalWithTank };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<EnemyInstance> enemies;
 

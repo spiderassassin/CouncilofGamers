@@ -49,13 +49,16 @@ public class FireManager : MonoBehaviour
         f.Damageable.OnDamaged(attacker, activeFire);
         
     }
-    public void StepFireLevel()
+    public void StepFireLevel(IAttacker attacker, DamageInformation immediateDamage)
     {
+        print(" STEPPED fire");
+        immediateDamage.type = DamageType.AdditiveDamage;
         foreach (var f in existingFlammables)
         {
             IFlammable i = f.Key;
             if (!i.IsOnFire) continue;
 
+            i.Damageable.OnDamaged(attacker, immediateDamage);
             i.StepUpFire();
         }
     }

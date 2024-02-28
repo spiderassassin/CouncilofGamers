@@ -68,6 +68,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_LocalPosition.x
       value: 802.95197
       objectReference: {fileID: 0}
@@ -169,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 8745785091267799905}
-  health: 100
+  health: 5000
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
@@ -178,5 +190,5 @@ MonoBehaviour:
   animator: {fileID: 6918558770028280669}
   body: {fileID: 8745785091267799906}
   speed: 5
-  projectile: {fileID: 0}
-  attackRange: 6
+  projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+  attackRange: 8

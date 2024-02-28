@@ -19,6 +19,7 @@ public class Controller : Entity
     public bool sprint = false;
     public bool isFiring = false;
     public AudioSource source;
+    public DamageInformation snapDamage;
 
   
     public bool isMoving = false;
@@ -262,8 +263,8 @@ public class Controller : Entity
             // Indicate that a snap occurred in the game manager.
             GameManager.Instance.snapped = true;
             
-            yield return new WaitForSeconds(1f);
-            FireManager.manager.StepFireLevel();
+            yield return new WaitForSeconds(.3f);
+            FireManager.manager.StepFireLevel(this, snapDamage);
             SoundManager.Instance.MusicPlay();
 
 

@@ -29,14 +29,14 @@ public class GruntPlayer: Enemy {
                 }
             }
         } else if (state == EnemyState.Moving) {
-            agent.SetDestination(player.position);
+            SetDestination(player.position);
             // If we get within 5 units of the player, attack.
             if (Vector3.Distance(transform.position, player.position) < attackRange) {
                 state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
-            agent.SetDestination(transform.position);
+            SetDestination(transform.position);
             Attack();
             waiting = new Task(1);
         }
