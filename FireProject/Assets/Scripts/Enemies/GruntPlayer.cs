@@ -8,7 +8,6 @@ public class GruntPlayer: Enemy {
 
     protected override void Start()
     {
-        speed = 10;
         base.Start();
     }
 

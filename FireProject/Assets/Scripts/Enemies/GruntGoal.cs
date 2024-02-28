@@ -9,7 +9,6 @@ public class GruntGoal: Enemy {
 
     protected override void Start()
     {
-        speed = 10;
         base.Start();
     }
 
@@ -36,7 +35,7 @@ public class GruntGoal: Enemy {
             } else {
                 dest = goal.position;
             }
-            agent.SetDestination(dest);
+            SetDestination(dest);
 
             // Stop within 5 units of the destination and attack it.
             if (Vector3.Distance(transform.position, dest) < attackRange) {
@@ -45,7 +44,7 @@ public class GruntGoal: Enemy {
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
-            agent.SetDestination(transform.position);
+            SetDestination(transform.position);
             Attack();
             waiting = new Task(1);
         }

@@ -168,7 +168,9 @@ MonoBehaviour:
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
-  goal: {x: 0, y: 0, z: 0}
+  goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
+  speed: 3
   projectile: {fileID: 0}
+  attackRange: 6

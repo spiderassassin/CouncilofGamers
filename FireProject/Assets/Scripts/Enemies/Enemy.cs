@@ -26,7 +26,7 @@ public abstract class Enemy : FlammableEntity
     public Animator animator;
 
     protected UnityEngine.AI.NavMeshAgent agent;
-    protected float speed;
+    public float speed = 5f;
     protected EnemyState state = EnemyState.Moving;
 
     private Camera mainCamera;
@@ -111,5 +111,11 @@ public abstract class Enemy : FlammableEntity
                 damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.ClearFire));
             }
         }
+    }
+
+    public bool SetDestination(Vector3 p)
+    {
+        if (agent.pathPending) return true;
+        return agent.SetDestination(p);
     }
 }

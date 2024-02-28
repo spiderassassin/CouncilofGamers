@@ -140,9 +140,12 @@ MonoBehaviour:
   text: {fileID: 699141154222251344}
   passiveFireSources: {fileID: 5171339551207367786}
   onFire: 0
-  goal: {x: 0, y: 0, z: 0}
+  goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
+  speed: 5
+  attackRange: 5
+  followRange: 15
 --- !u!136 &37018340930786910 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

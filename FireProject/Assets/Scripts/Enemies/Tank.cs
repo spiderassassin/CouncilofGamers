@@ -8,11 +8,6 @@ public class Tank: Enemy {
     private Task waitingCooldown;
     public float attackRange = 6;
     
-
-    public Tank() {
-        speed = 2;
-    }
-
     protected override void Update() {
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
