@@ -56,7 +56,9 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 print("Wave Over");
+                
                 GameManager.Instance.gameStage++;
+                Debug.Log(GameManager.Instance.gameStage);
             }
         }
     }

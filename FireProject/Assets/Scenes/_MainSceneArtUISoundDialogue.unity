@@ -21014,7 +21014,30 @@ MonoBehaviour:
   dialogue:
     name: Parole Guard
     sentences:
-    - Hi
+    - Wow, you're having a good time, aren't you? Makes sense they'd only send a
+      sicko down here. Someone who really likes getting their hands...on fire.
+    - '[You]Who are you?'
+    - Well, you're still technically a prisoner of the Realm, so someone's gotta
+      keep an eye on you. But you can just think of me as your slightly armed cheerleader.
+    - "Speaking of which, still think you\u2019re up for the task? The whole Defender
+      thing, that is."
+    - '[You]I''m stoked, these demons aren''t gonna stand a chance.'
+    - "Cool\u2026 or should I say\u2026 hot. I\u2019ll give you a tip, try to kill
+      the demons before they kill you, the last guy wasn\u2019t so good at that."
+    - "Or don\u2019t. I get an emotional compensation silver piece every time someone
+      dies down here, so I\u2019m a fan of high turnover."
+    - '[You]...'
+    - ...kidding
+    - '[You]Any updates from the outside?'
+    - Actually, yeah, I took a look through the weekly report and it seems that your
+      old cell neighbour Gerard was released just yesterday. Turns out he was innocent
+      all along!
+    - "You know, I could never picture him actually committing a crime; it\u2019s
+      a shame he was forced to spend 30 years of his life wallowing about in those
+      dungeons."
+    - ...
+    - "Nevermind, time\u2019s up. I feel the next wave approaching. We\u2019ll talk
+      later."
   dialogueStarted: 0
   canStartDialogue: 0
   conversationStartPrompt: {fileID: 1881121409}
@@ -21392,6 +21415,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1556187514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556187515}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1556187515
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556187514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1474664498842433657}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!43 &1562474960
 Mesh:
   m_ObjectHideFlags: 0
@@ -24465,7 +24524,7 @@ GameObject:
   - component: {fileID: 1888134734}
   - component: {fileID: 1888134735}
   m_Layer: 3
-  m_Name: ParoleOfficerSprite
+  m_Name: ParoleGuardSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27311,6 +27370,7 @@ RectTransform:
   - {fileID: 1157124310}
   - {fileID: 1069255122}
   - {fileID: 1305081513}
+  - {fileID: 1556187515}
   m_Father: {fileID: 1474664498635110579}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
