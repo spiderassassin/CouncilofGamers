@@ -26100,6 +26100,14 @@ MonoBehaviour:
       spawndelay: 0
       spawnPoint: 0
       count: 5
+    - enemyType: 2
+      spawndelay: 10
+      spawnPoint: 0
+      count: 10
+    - enemyType: 2
+      spawndelay: 20
+      spawnPoint: 0
+      count: 15
   wave2:
     enemies: []
   wave3:
