@@ -65,19 +65,22 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        /*
+        
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
         {
+            Debug.Log("current di");
             if (speakingBool)
             {
-                currentDialogueTrigger.dialogue.name = "You";
+                //currentDialogueTrigger.dialogue.name = "You";
+                nameText.text = "You";
             }
             else
             {
-                currentDialogueTrigger.dialogue.name = "ParoleGuard";
+                nameText.text = "Parole Officer";
+                //currentDialogueTrigger.dialogue.name = "ParoleGuard";
             }
-        }*/
+        }
         
         dialogueText.text = sentence;
     }
