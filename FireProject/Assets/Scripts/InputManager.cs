@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     private InputAction sprintAction;
     private InputAction snapAction;
     private InputAction fireballAction;
+    private InputAction startDialogueAction;
 
     public float mouseX = 0;
     public float mouseY = 0;
@@ -43,6 +44,9 @@ public class InputManager : MonoBehaviour
     public bool dialogue => jumpAction.WasPerformedThisFrame();
 
     public bool startwave = false;//this is for testing only, to start waves
+
+    public GameObject dialogueManager;
+    public GameObject dialogueTrigger;
 
     private void Awake()
     {
@@ -84,6 +88,12 @@ public class InputManager : MonoBehaviour
         sprintAction = playerInput.currentActionMap.FindAction("Sprint");
         sprintAction.performed += SprintAction_performed;
         sprintAction.canceled += SprintAction_canceled;
+
+        startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
+        startDialogueAction.performed += StartDialogueAction_performed;
+        startDialogueAction.canceled += StartDialogueAction_canceled;
+
+
     }
 
     private void SprintAction_canceled(InputAction.CallbackContext obj)
@@ -127,7 +137,10 @@ public class InputManager : MonoBehaviour
 
     private void MoveAction_performed(InputAction.CallbackContext obj)
     {
-        if (LockPlayerGameplayInput) return;
+        if (LockPlayerGameplayInput)
+        {
+            return;
+        }
         moveX = obj.ReadValue<Vector2>().x;
         moveY = obj.ReadValue<Vector2>().y;
     }
@@ -156,8 +169,34 @@ public class InputManager : MonoBehaviour
     }
     private void JumpAction_performed(InputAction.CallbackContext obj)
     {
-        if (LockPlayerGameplayInput) return;
+        if (LockPlayerGameplayInput && GameManager.Instance.dialogueState)
+        {
+            dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+            return;
+        }
+
         jump = obj.ReadValueAsButton();
+        //Debug.Log("dialogue " + dialouge);
+
+    }
+
+    private void StartDialogueAction_performed(InputAction.CallbackContext obj)
+    {
+        if (LockPlayerGameplayInput) return;
+        if (dialogueTrigger.GetComponent<DialogueTrigger>().canStartDialogue)
+        {
+            dialogueManager.GetComponent<DialogueManager>().conversationStartPrompt.SetActive(false);
+            dialogueTrigger.GetComponent<DialogueTrigger>().TriggerDialogue();
+            
+        }
+        
+
+
+    }
+
+    private void StartDialogueAction_canceled(InputAction.CallbackContext obj)
+    {
+        if (LockPlayerGameplayInput) return;
     }
 
     void Start()
@@ -169,5 +208,22 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         startwave = Input.GetKeyDown(KeyCode.M)&&!LockPlayerGameplayInput;
+        if (GameManager.Instance.dialogueState)
+        {
+            LockPlayerGameplayInput = true;
+        }
+        else
+        {
+            LockPlayerGameplayInput = false;
+        }
+
+        if (LockPlayerGameplayInput )
+        {
+            moveX = 0;
+            moveY = 0;
+            mouseX = 0;
+            mouseY = 0;
+            //add more things here - sprint, jump, fire, etc
+        }
     }
 }

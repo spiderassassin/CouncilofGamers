@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
     // Use this variable to notify the game manager that a successful snap occurred.
     public bool snapped = false;
+    public bool dialogueState;
 
     private float adrenaline = 0;
     private float interpolant => Time.deltaTime * 2;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     private float threshold => GetMaxAdrenaline() * 0.1f;
     // When this is true, we're waiting for the adrenaline to reach 0 before it starts to recharge.
     private bool recentlySnapped = false;
-    
+
     private void UpdateAdrenaline() // Adjustable as needed.
     {
         if (recentlySnapped)

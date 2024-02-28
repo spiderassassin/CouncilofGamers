@@ -27,6 +27,9 @@ public class WaveManager : MonoBehaviour
 
     public int TotalLivingEnemies => livingEnemies.Count;
 
+    public GameObject paroleGuardSprite;
+    public Dialogue preWave1Dialogue;
+
     private void Awake()
     {
         if (Instance == null)
@@ -45,6 +48,12 @@ public class WaveManager : MonoBehaviour
         livingEnemies = new List<Enemy>();
     }
 
+    private void startPreWave1Dialogue()
+    {
+        paroleGuardSprite.SetActive(true);
+        FindObjectOfType<DialogueManager>().StartDialogue(preWave1Dialogue);
+    }
+
     private void Update()
     {
         if (InputManager.Instance.startwave)
@@ -57,7 +66,13 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 print("Wave Over");
+                
                 GameManager.Instance.gameStage++;
+                if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1 )
+                {
+                    startPreWave1Dialogue();
+                }
+                //Debug.Log(GameManager.Instance.gameStage);
             }
         }
     }
