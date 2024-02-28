@@ -197,6 +197,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
   body: {fileID: 8745785091267799906}
+  deathSound: {fileID: 8300000, guid: 409c24aac91b1f14fadfa7ba3146e7aa, type: 3}
   speed: 8
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:

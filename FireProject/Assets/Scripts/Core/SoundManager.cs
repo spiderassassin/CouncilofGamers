@@ -51,6 +51,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundOnce(AudioClip clip, Transform parent)
     {
+        if (clip == null) return;
         GameObject obj = Instantiate(audioSource);
         obj.transform.position = parent.position;
         obj.transform.SetParent(parent);
@@ -59,9 +60,19 @@ public class SoundManager : MonoBehaviour
         obj.GetComponent<AudioSource>().Play();
         StartCoroutine(Buffer(obj, clip.length));
     }
+    public void PlaySoundOnce(AudioClip clip, Vector3 position)
+    {
+        if (clip == null) return;
+        GameObject obj = Instantiate(audioSource);
+        obj.transform.position = position;
+        obj.GetComponent<AudioSource>().loop = false;
+        obj.GetComponent<AudioSource>().clip = clip;
+        obj.GetComponent<AudioSource>().Play();
+        StartCoroutine(Buffer(obj, clip.length));
+    }
 
 
-   
+
     public IEnumerator Buffer(GameObject obj, float len)
     {
         yield return new WaitForSeconds(len);

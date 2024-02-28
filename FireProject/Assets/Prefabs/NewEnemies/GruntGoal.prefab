@@ -144,6 +144,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
   body: {fileID: 37018340930786909}
+  deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
   speed: 8
   attackRange: 5
   followRange: 10

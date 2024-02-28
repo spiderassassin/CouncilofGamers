@@ -43092,6 +43092,7 @@ MonoBehaviour:
     sentences:
     - Hey! Over here, near the exit!
     playerSpeaking: 00
+  enemySpawn: {fileID: 0}
 --- !u!4 &2027314005
 Transform:
   m_ObjectHideFlags: 0
@@ -45841,6 +45842,7 @@ MonoBehaviour:
   activeDamageProbability: 1
   tick: 0
   damageOnEnter: 0
+  damagedClip: {fileID: 0}
 --- !u!224 &1474664497185114144
 RectTransform:
   m_ObjectHideFlags: 0
