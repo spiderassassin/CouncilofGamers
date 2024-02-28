@@ -10,6 +10,8 @@ public class GruntGoal: Enemy {
     protected override void Start()
     {
         base.Start();
+
+
     }
 
     protected override void Update() {

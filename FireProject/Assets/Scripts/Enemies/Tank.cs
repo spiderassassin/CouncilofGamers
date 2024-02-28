@@ -26,7 +26,7 @@ public class Tank: Enemy {
                 origin.y += 1;
                 Instantiate(projectile, origin, Quaternion.identity);
                 // Resume movement.
-                agent.isStopped = false;
+                if(agent.enabled)agent.isStopped = false;
                 state = EnemyState.Moving;
                 // Set cooldown on long range attack.
                 waitingCooldown = new Task(5);
@@ -47,7 +47,7 @@ public class Tank: Enemy {
             waitingShortRange = new Task(1);
         } else if (state == EnemyState.LongRangeAttacking) {
             // Stop moving and long range attack.
-            agent.isStopped = true;
+            if(agent.enabled)agent.isStopped = true;
             waitingLongRange = new Task(3);
         }
     }
