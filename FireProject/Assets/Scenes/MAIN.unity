@@ -2914,7 +2914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234037096}
   - component: {fileID: 234037097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6075,7 +6075,7 @@ GameObject:
   - component: {fileID: 549289023}
   - component: {fileID: 549289025}
   - component: {fileID: 549289024}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cone Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11841,7 +11841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687505791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13864,7 +13864,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
   m_PrefabInstance: {fileID: 1247728066}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1695216028}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bc39dc59dd58834fbeb2e8373282d67, type: 3}
@@ -14167,7 +14167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
-  mouseSensitivity: {x: 0.5, y: 2}
+  mouseSensitivity: {x: 0.75, y: 0.5}
   toggleSprint: 0
   mouseX: 0
   mouseY: 0
@@ -17925,7 +17925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: activeDamage.pushBack
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
@@ -17977,7 +17977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_IsActive
@@ -21114,7 +21114,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -23190,7 +23190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665238772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fireball origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23212,6 +23212,73 @@ Transform:
   m_Father: {fileID: 3751368657875494216}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -4.77, y: -1.9, z: 0}
+--- !u!1 &1695216028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+  m_PrefabInstance: {fileID: 1247728066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1695216032
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695216028}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.73520577, b: 0.6264151, a: 1}
+  m_Intensity: 5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1705153577
 GameObject:
   m_ObjectHideFlags: 0
@@ -23959,6 +24026,18 @@ PrefabInstance:
     - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Name
       value: FlameThrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911702664702, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819868529388052, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4584431484625042, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_RootOrder
@@ -26008,18 +26087,6 @@ MonoBehaviour:
       spawndelay: 0
       spawnPoint: 0
       count: 10
-    - enemyType: 1
-      spawndelay: 0
-      spawnPoint: 1
-      count: 10
-    - enemyType: 1
-      spawndelay: 0
-      spawnPoint: 2
-      count: 10
-    - enemyType: 1
-      spawndelay: 0
-      spawnPoint: 3
-      count: 10
   wave2:
     enemies: []
   wave3:
@@ -27089,7 +27156,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   activeDamage:
     damage: 5
-    pushBack: 10
+    pushBack: 5
     type: 1
   baseLifespan: Infinity
   tickRate: 0.1
@@ -27632,7 +27699,7 @@ Transform:
   m_GameObject: {fileID: 6673714596204913250}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.3}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3751368657875494216}
@@ -27662,7 +27729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2097011987813106789}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27697,7 +27764,7 @@ GameObject:
   - component: {fileID: 6826831017468422568}
   - component: {fileID: 65598318473974830}
   - component: {fileID: 2849156207920790277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -27844,7 +27911,7 @@ GameObject:
   - component: {fileID: 5291564108030127892}
   - component: {fileID: 4844155856543257523}
   - component: {fileID: 1891961206751239790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27864,7 +27931,7 @@ GameObject:
   - component: {fileID: 5773853081804593948}
   - component: {fileID: 248797618891268832}
   - component: {fileID: 248797618891268833}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: punchVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28040,7 +28107,7 @@ GameObject:
   - component: {fileID: 7095554248486665563}
   - component: {fileID: 5559043419296238751}
   - component: {fileID: 7063474021897978380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

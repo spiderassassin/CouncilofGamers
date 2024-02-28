@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6172997561852378155}
   - component: {fileID: 4579902582922021047}
   - component: {fileID: 4826436336809672534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483647
   activeDamage:
-    damage: 10
+    damage: 30
     pushBack: 0.5
     type: 2
   baseLifespan: Infinity
@@ -150,12 +150,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 2155484461902226255}
     m_Modifications:
     - target: {fileID: 1866692896978666, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866692896978666, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
       propertyPath: m_Name
       value: FireBallParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947871717301538, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4209731392266258, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
       propertyPath: m_RootOrder

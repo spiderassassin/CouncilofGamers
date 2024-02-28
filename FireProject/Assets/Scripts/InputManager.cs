@@ -152,7 +152,7 @@ public class InputManager : MonoBehaviour
     }
     private void LookAction_canceled(InputAction.CallbackContext obj)
     {
-        if (LockPlayerGameplayInput) return;
+        // if (LockPlayerGameplayInput) return;
         mouseX = 0;
         mouseY = 0;
     }
@@ -223,6 +223,9 @@ public class InputManager : MonoBehaviour
             moveY = 0;
             fire = false;
             stopfire = true;
+            jump = false;
+            sprintOn = false;
+            sprintOff = true;
             //mouseX = 0;
             //mouseY = 0;
             //add more things here - sprint, jump, fire, etc
