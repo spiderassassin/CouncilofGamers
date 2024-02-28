@@ -30,7 +30,9 @@ public class Controller : Entity
     public AudioClip fire;
     public AudioClip snap, failedSnap;
     public AudioClip playerDamage;
+    public AudioClip enemyDamage;
     public AudioClip fireBall;
+
 
     GameObject obj;
     GameObject fireAudio;
@@ -209,6 +211,7 @@ public class Controller : Entity
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
         armAnimator.SetTrigger("punch");// animator trigger
+        SoundManager.Instance.PlaySoundOnce(enemyDamage, transform);
 
         //punchSource.SetActive(false);
 
