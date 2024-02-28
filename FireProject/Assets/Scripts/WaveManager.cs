@@ -11,6 +11,7 @@ public class WaveManager : MonoBehaviour
     public Transform spawnPoint2;
     public Transform spawnPoint3;
     public Transform spawnPoint4;
+    public Transform goalPoint;
     public Transform playerTransform;
     public GruntPlayer gruntPlayer;
     public GruntGoal gruntgoal;
@@ -132,7 +133,7 @@ public class WaveManager : MonoBehaviour
 
             enemy1.transform.position = spawnPoint.position;
             enemy1.GetComponent<Enemy>().player = playerTransform;
-
+            enemy1.GetComponent<Enemy>().goal = goalPoint;
 
 
         }

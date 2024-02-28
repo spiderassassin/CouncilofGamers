@@ -237,22 +237,29 @@ public class Controller : Entity
         g.Launch(fireballOrigin.forward);
     }
 
+    bool canSnap()
+    {
+        return GameManager.Instance.AdrenalinePercent >= 1f;
+    }
+
     void Snap()
     {
         
 
         armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
-        if (GameManager.Instance.AdrenalinePercent >= 1f)
+        if (canSnap())
         {
             SoundManager.Instance.MusicStop();
         }
     }
     public IEnumerator SnapLogic()
     {
-        if (GameManager.Instance.AdrenalinePercent >= 1f)
+        if (canSnap())
         {
             CombatUI.Instance.snap();
             SoundManager.Instance.PlaySoundOnce(snap, transform);
+            // Indicate that a snap occurred in the game manager.
+            GameManager.Instance.snapped = true;
             
             yield return new WaitForSeconds(1f);
             FireManager.manager.StepFireLevel();
@@ -312,13 +319,16 @@ public class Controller : Entity
             //GameObject.Find("GameManager").GetComponent<GameManager>().adrenaline += 10;
         }
     }
-    IEnumerator Die()
+    public IEnumerator Die(bool playerDeath = true)
     {
-        
-        GetComponentInChildren<CameraBehavior>().Die();
+        if (playerDeath)
+        {
+            GetComponentInChildren<CameraBehavior>().Die();
+            yield return new WaitForSeconds(5);
+        }
 
         Debug.Log("Game Over");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         SoundManager.Instance.MusicStop();
         Cursor.lockState = CursorLockMode.None;
         Destroy(CombatUI.Instance);

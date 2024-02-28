@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
     public bool fire = false;
     public bool stopfire = false;//called when user releases input
     public bool snap =>snapAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
-    public bool dialouge => jumpAction.WasPerformedThisFrame();
+    public bool dialogue => jumpAction.WasPerformedThisFrame();
 
     public bool startwave = false;//this is for testing only, to start waves
 

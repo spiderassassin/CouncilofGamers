@@ -21,7 +21,7 @@ public enum EnemyState
 
 public abstract class Enemy : FlammableEntity
 {
-    public Vector3 goal;
+    public Transform goal;
     public Transform player;
     public Animator animator;
 
