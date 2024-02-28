@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public bool dialogueState;
 
     private float adrenaline = 0;
-    private float interpolant => Time.deltaTime * 2;
+    private float interpolant => Time.deltaTime * 1;
     // Use 1/10 of the possible range to add on to the interpolation so we reach the target faster.
     private float threshold => GetMaxAdrenaline() * 0.1f;
     // When this is true, we're waiting for the adrenaline to reach 0 before it starts to recharge.
