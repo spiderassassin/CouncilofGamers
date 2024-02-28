@@ -6,6 +6,7 @@ public class Fireball : FireSource
 {
     public Rigidbody body;
     public float speed = 10f;
+    public GameObject enable;
 
     public void Launch(Vector3 direction)
     {
@@ -19,6 +20,8 @@ public class Fireball : FireSource
 
         if (other.isTrigger) return;
 
+        enable.SetActive(true);
+        enable.transform.SetParent(null);
         Destroy(gameObject);
     }
 }

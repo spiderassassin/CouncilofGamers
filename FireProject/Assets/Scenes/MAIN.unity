@@ -451,7 +451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 39654988}
   m_Layer: 0
-  m_Name: SpawnPoint2
+  m_Name: SpawnPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,7 +4359,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-23636
+  m_Name: pb_Mesh75126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8152,7 +8152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 470871825}
   m_Layer: 0
-  m_Name: SpawnPoint1
+  m_Name: SpawnPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23861,7 +23861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
   mouseSensitivity: {x: 0.75, y: 0.5}
-  toggleSprint: 0
+  toggleSprint: 1
   mouseX: 0
   mouseY: 0
   moveX: 0
@@ -28189,6 +28189,14 @@ PrefabInstance:
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40917,7 +40925,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27076
+  m_Name: pb_Mesh74516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42989,8 +42997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4f5a18d2f5747a68df7a621a0c550b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint1: {fileID: 470871825}
-  spawnPoint2: {fileID: 39654988}
+  spawnPoint1: {fileID: 39654988}
+  spawnPoint2: {fileID: 470871825}
   spawnPoint3: {fileID: 147919075}
   spawnPoint4: {fileID: 700508467}
   goalPoint: {fileID: 752916606}
@@ -43002,10 +43010,76 @@ MonoBehaviour:
   wavemode: 0
   wave1:
     enemies:
-    - enemyType: 3
+    - enemyType: 2
       spawndelay: 0
       spawnPoint: 0
       count: 1
+      waitUntilPreviousDead: 0
+    - enemyType: 2
+      spawndelay: 60
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 1
+    - enemyType: 2
+      spawndelay: 60
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 1
+    - enemyType: 1
+      spawndelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - enemyType: 0
+      spawndelay: 60
+      spawnPoint: 0
+      count: 0
+      waitUntilPreviousDead: 1
+    - enemyType: 0
+      spawndelay: 10
+      spawnPoint: 1
+      count: 0
+      waitUntilPreviousDead: 0
+    - enemyType: 2
+      spawndelay: 0
+      spawnPoint: 1
+      count: 5
+      waitUntilPreviousDead: 0
+    - enemyType: 2
+      spawndelay: 90
+      spawnPoint: 1
+      count: 5
+      waitUntilPreviousDead: 1
+    - enemyType: 1
+      spawndelay: 0
+      spawnPoint: 0
+      count: 5
+      waitUntilPreviousDead: 0
+    - enemyType: 2
+      spawndelay: 120
+      spawnPoint: 0
+      count: 10
+      waitUntilPreviousDead: 1
+    - enemyType: 1
+      spawndelay: 20
+      spawnPoint: 1
+      count: 5
+      waitUntilPreviousDead: 0
+    - enemyType: 3
+      spawndelay: 100
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 1
+    - enemyType: 4
+      spawndelay: 1
+      spawnPoint: 0
+      count: 10
+      waitUntilPreviousDead: 0
+    - enemyType: 4
+      spawndelay: 45
+      spawnPoint: 0
+      count: 10
+      waitUntilPreviousDead: 0
   wave2:
     enemies: []
   wave3:
@@ -43764,7 +43838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573795275052819349, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 747.56
+      value: 744
       objectReference: {fileID: 0}
     - target: {fileID: 3573795275052819349, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46437,7 +46511,7 @@ MonoBehaviour:
   health: 100
   characterController: {fileID: 7095554248486665563}
   speed: 10
-  sprintspeed: 35
+  sprintspeed: 20
   velocity: {x: 0, y: 0, z: 0}
   gravity: -40
   groundMask:
@@ -46800,7 +46874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8771123490044458905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 176.6, y: -553.61, z: 113}
+  m_LocalPosition: {x: 135.74, y: -537.5, z: -4.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

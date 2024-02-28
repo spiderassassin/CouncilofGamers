@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.57
       objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -185,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 8745785091267799905}
-  health: 2500
+  health: 1000
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
