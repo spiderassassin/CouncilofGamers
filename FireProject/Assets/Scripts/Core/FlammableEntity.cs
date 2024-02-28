@@ -68,7 +68,7 @@ public abstract class FlammableEntity : Entity, IFlammable
             SetFire(dmg.type);
 
         if (text)
-            text.text = Health.ToString();
+            text.text = string.Format("{0:F1}", Health);
         else
             print("Health is: " + Health.ToString());
     }
