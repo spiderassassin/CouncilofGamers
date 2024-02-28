@@ -69,7 +69,6 @@ public class DialogueManager : MonoBehaviour
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
         {
-            Debug.Log("current di");
             if (speakingBool)
             {
                 //currentDialogueTrigger.dialogue.name = "You";

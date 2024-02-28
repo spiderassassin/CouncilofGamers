@@ -24,7 +24,6 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
             dialogueStarted = true;
         }*/
-        Debug.Log(GameManager.Instance.gameStage);
         if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1)
         {
             conversationStartPrompt.SetActive(true);
