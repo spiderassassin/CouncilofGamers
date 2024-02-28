@@ -5,14 +5,19 @@ using UnityEngine;
 public class Projectile : MonoBehaviour, IAttacker
 {
     [SerializeField] private float speed = 10f;
-    private Vector3 dest;
+    private Transform dest;
 
     public Vector3 Position => transform.position;
 
     // Start is called before the first frame update
     void Start()
     {
-        dest = Controller.Instance.Position;
+        dest = Controller.Instance.transform;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Attack();
     }
 
     public void Attack() {
@@ -37,16 +42,7 @@ public class Projectile : MonoBehaviour, IAttacker
     void Update()
     {
         // Move the projectile toward the player's position at the time of firing.
-        transform.position = Vector3.MoveTowards(transform.position, dest, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, dest.position+Vector3.up, speed * Time.deltaTime);
 
-        // Destroy it if it hits a wall.
-        if (Physics.Raycast(Position, dest, 1)) {
-            Destroy(gameObject);
-        }
-
-        // If the projectile reaches the destination, deal damage and destroy it.
-        if (transform.position == dest) {
-            Attack();
-        }
     }
 }

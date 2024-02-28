@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 2
     agentHeight: 50
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.6666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -10025,7 +10025,7 @@ GameObject:
   - component: {fileID: 549289023}
   - component: {fileID: 549289025}
   - component: {fileID: 549289024}
-  m_Layer: 6
+  m_Layer: 1
   m_Name: Cone Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28236,7 +28236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_IsActive
@@ -37129,7 +37129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665238772}
-  m_Layer: 6
+  m_Layer: 1
   m_Name: fireball origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38816,15 +38816,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1685911702664702, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1819868529388052, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4584431484625042, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_RootOrder
@@ -43002,30 +43002,10 @@ MonoBehaviour:
   wavemode: 0
   wave1:
     enemies:
-    - enemyType: 1
-      spawndelay: 0
-      spawnPoint: 0
-      count: 5
-    - enemyType: 2
-      spawndelay: 0
-      spawnPoint: 0
-      count: 5
     - enemyType: 3
-      spawndelay: 5
+      spawndelay: 0
       spawnPoint: 0
       count: 1
-    - enemyType: 4
-      spawndelay: 0
-      spawnPoint: 0
-      count: 5
-    - enemyType: 2
-      spawndelay: 10
-      spawnPoint: 0
-      count: 10
-    - enemyType: 2
-      spawndelay: 20
-      spawnPoint: 0
-      count: 15
   wave2:
     enemies: []
   wave3:
@@ -43762,6 +43742,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 752916606, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 752916606, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 752916606, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -88.82
+      objectReference: {fileID: 0}
     - target: {fileID: 3573795275052819348, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: m_Name
       value: Goal
@@ -43772,7 +43764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573795275052819349, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 747.1
+      value: 747.56
       objectReference: {fileID: 0}
     - target: {fileID: 3573795275052819349, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -46377,7 +46369,7 @@ GameObject:
   - component: {fileID: 65598318473974830}
   - component: {fileID: 2849156207920790277}
   - component: {fileID: 6826831017468422569}
-  m_Layer: 6
+  m_Layer: 1
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -46549,7 +46541,7 @@ GameObject:
   - component: {fileID: 5773853081804593948}
   - component: {fileID: 248797618891268832}
   - component: {fileID: 248797618891268833}
-  m_Layer: 6
+  m_Layer: 1
   m_Name: punchVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}

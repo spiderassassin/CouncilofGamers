@@ -195,4 +195,9 @@ MonoBehaviour:
   body: {fileID: 8745785091267799906}
   speed: 8
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+  playerDirectHitDmg:
+    damage: 20
+    pushBack: 0
+    type: 1
+  projectileAttackCooldown: 1
   attackRange: 10
