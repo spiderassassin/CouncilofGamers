@@ -145,6 +145,11 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
   m_PrefabInstance: {fileID: 7138727324291411444}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &8745785091267799906 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 7138727324291411444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8745785091267799909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1895627975973340817, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -171,6 +176,7 @@ MonoBehaviour:
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
+  body: {fileID: 8745785091267799906}
   speed: 3
   projectile: {fileID: 0}
   attackRange: 6

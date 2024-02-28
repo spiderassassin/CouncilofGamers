@@ -143,9 +143,15 @@ MonoBehaviour:
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
+  body: {fileID: 37018340930786909}
   speed: 5
   attackRange: 5
   followRange: 15
+--- !u!54 &37018340930786909 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 1931231039145218251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &37018340930786910 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

@@ -24,12 +24,14 @@ public abstract class Enemy : FlammableEntity
     public Transform goal;
     public Transform player;
     public Animator animator;
+    public Rigidbody body;
 
     protected UnityEngine.AI.NavMeshAgent agent;
     public float speed = 5f;
     protected EnemyState state = EnemyState.Moving;
 
     private Camera mainCamera;
+    private Coroutine pushback;
 
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
@@ -84,15 +86,28 @@ public abstract class Enemy : FlammableEntity
         {
             Vector3 knockbackDirection = (transform.position - Controller.Instance.transform.position);
             knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
-            //print(knockbackDirection);
-            Rigidbody enemyRigidbody = gameObject.GetComponent<Rigidbody>();
-            //print(enemyRigidbody.drag);
-            agent.enabled = false;
-            transform.position += Controller.Instance.transform.forward * Time.deltaTime * 100;
-            enemyRigidbody.AddForce(knockbackDirection * 100, ForceMode.Impulse);
-            agent.enabled = true;
+            if (pushback != null)
+            {
+                StopCoroutine(pushback);
+            }
+            pushback = StartCoroutine(Pushback(knockbackDirection*100f));
         }
     }
+    IEnumerator Pushback(Vector3 impulse)
+    {
+        agent.enabled = false;
+        body.AddForce(impulse, ForceMode.Impulse);
+        int m = 0;
+        while (true)
+        {
+            yield return new WaitForSeconds(.25f);
+            if (body.velocity.magnitude <= .1f) break;
+            ++m;
+            if (m >= 4) break;
+        }
+        agent.enabled = true;
+    }
+
     public override void Death()
     {
         base.Death();
@@ -115,6 +130,7 @@ public abstract class Enemy : FlammableEntity
 
     public bool SetDestination(Vector3 p)
     {
+        if (!agent.enabled) return false;
         if (agent.pathPending) return true;
         return agent.SetDestination(p);
     }
