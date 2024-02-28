@@ -90,12 +90,13 @@ public abstract class Enemy : FlammableEntity
             {
                 StopCoroutine(pushback);
             }
-            pushback = StartCoroutine(Pushback(knockbackDirection*100f));
+            pushback = StartCoroutine(Pushback(knockbackDirection*dmg.pushBack));
         }
     }
     IEnumerator Pushback(Vector3 impulse)
     {
         agent.enabled = false;
+        body.isKinematic = false;
         body.AddForce(impulse, ForceMode.Impulse);
         int m = 0;
         while (true)
@@ -105,6 +106,7 @@ public abstract class Enemy : FlammableEntity
             ++m;
             if (m >= 4) break;
         }
+        body.isKinematic = true;
         agent.enabled = true;
     }
 

@@ -117,7 +117,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   activeDamage:
     damage: 10
-    pushBack: 5
+    pushBack: 0.5
     type: 2
   baseLifespan: Infinity
   tickRate: 0.25
