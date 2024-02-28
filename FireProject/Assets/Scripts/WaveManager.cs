@@ -95,45 +95,51 @@ public class WaveManager : MonoBehaviour
         {
             yield return new WaitForSeconds(waveChunk.enemies[i].spawndelay);
             Enemy e = null;
-            switch (waveChunk.enemies[i].enemyType)
+            for(int j = 0; j < waveChunk.enemies[i].count; ++j)
             {
-                case Wave.EnemyType.None:
-                    break;
-                case Wave.EnemyType.GruntGoal:
-                    e = gruntgoal;
-                    break;
-                case Wave.EnemyType.GruntPlayer:
-                    e = gruntPlayer;
-                    break;
-                case Wave.EnemyType.Tank:
-                    e = tank;
-                    break;
-                    
+                switch (waveChunk.enemies[i].enemyType)
+                {
+                    case Wave.EnemyType.None:
+                        break;
+                    case Wave.EnemyType.GruntGoal:
+                        e = gruntgoal;
+                        break;
+                    case Wave.EnemyType.GruntPlayer:
+                        e = gruntPlayer;
+                        break;
+                    case Wave.EnemyType.Tank:
+                        e = tank;
+                        break;
+
+                }
+                GameObject enemy1 = Instantiate(e.gameObject);
+                livingEnemies.Add(enemy1.GetComponent<Enemy>());
+
+                Transform spawnPoint = null;
+                switch (waveChunk.enemies[i].spawnPoint)
+                {
+                    case Wave.SpawnPoint.SpawnPoint1:
+                        spawnPoint = spawnPoint1;
+                        break;
+                    case Wave.SpawnPoint.SpawnPoint2:
+                        spawnPoint = spawnPoint2;
+                        break;
+                    case Wave.SpawnPoint.SpawnPoint3:
+                        spawnPoint = spawnPoint3;
+                        break;
+                    case Wave.SpawnPoint.SpawnPoint4:
+                        spawnPoint = spawnPoint4;
+                        break;
+
+                }
+
+                enemy1.SetActive(false);
+                enemy1.transform.position = spawnPoint.position;
+                enemy1.GetComponent<Enemy>().player = playerTransform;
+                enemy1.GetComponent<Enemy>().goal = goalPoint;
+                enemy1.SetActive(true);
             }
-            GameObject enemy1 = Instantiate(e.gameObject);
-            livingEnemies.Add(enemy1.GetComponent<Enemy>());
-
-            Transform spawnPoint = null;
-            switch (waveChunk.enemies[i].spawnPoint)
-            {
-                case Wave.SpawnPoint.SpawnPoint1:
-                    spawnPoint = spawnPoint1;
-                    break;
-                case Wave.SpawnPoint.SpawnPoint2:
-                    spawnPoint = spawnPoint2;
-                    break;
-                case Wave.SpawnPoint.SpawnPoint3:
-                    spawnPoint = spawnPoint3;
-                    break;
-                case Wave.SpawnPoint.SpawnPoint4:
-                    spawnPoint = spawnPoint4;
-                    break;
-
-            }
-
-            enemy1.transform.position = spawnPoint.position;
-            enemy1.GetComponent<Enemy>().player = playerTransform;
-            enemy1.GetComponent<Enemy>().goal = goalPoint;
+            
 
 
         }

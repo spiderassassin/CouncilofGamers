@@ -230,6 +230,7 @@ public class Controller : Entity
     void Fireball()
     {
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+        g.gameObject.SetActive(false);
         armAnimator.SetTrigger("isThrow"); // animator trigger
         SoundManager.Instance.PlaySoundOnce(fireBall, transform);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);

@@ -11,7 +11,7 @@ public class Wave
         public EnemyType enemyType;
         public float spawndelay = 1f;
         public SpawnPoint spawnPoint;
-
+        public int count = 1;
     }
 
     public enum EnemyType { None, GruntGoal, GruntPlayer, Tank };

@@ -9,6 +9,7 @@ public class Fireball : FireSource
 
     public void Launch(Vector3 direction)
     {
+        if (!gameObject.activeSelf) SetActive(true);
         body.AddForce(direction * speed, ForceMode.VelocityChange);
     }
 
