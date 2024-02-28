@@ -4558,7 +4558,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234037095}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2f2fdbe7f26ce4c408b1c5001d76df36, type: 2}
   m_CullingMode: 0
@@ -43092,6 +43092,7 @@ MonoBehaviour:
     sentences:
     - Hey! Over here, near the exit!
     playerSpeaking: 00
+  enemySpawn: {fileID: 8300000, guid: b386cd19ecb3547329b3203d60f22d48, type: 3}
 --- !u!4 &2027314005
 Transform:
   m_ObjectHideFlags: 0
@@ -46533,6 +46534,7 @@ MonoBehaviour:
   snap: {fileID: 8300000, guid: 41c1264dfb80a40dcb0971c5385e7b74, type: 3}
   failedSnap: {fileID: 8300000, guid: 41c1264dfb80a40dcb0971c5385e7b74, type: 3}
   playerDamage: {fileID: 8300000, guid: 533c3d77af9944865af1b65876f6cef1, type: 3}
+  enemyDamage: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
   fireBall: {fileID: 8300000, guid: f66b4fe19de784bcb9c093588f020109, type: 3}
   firesource: {fileID: 986645692}
   coneFireSystem: {fileID: 143384189}

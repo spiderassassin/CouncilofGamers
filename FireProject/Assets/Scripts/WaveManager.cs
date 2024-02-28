@@ -31,6 +31,8 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public Dialogue preWave1Dialogue;
 
+    public AudioClip enemySpawn;
+
     private void Awake()
     {
         if (Instance == null)
@@ -67,6 +69,7 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 print("Wave Over");
+                SoundManager.Instance.MusicStop();
                 
                 GameManager.Instance.gameStage++;
                 if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1 )
@@ -150,6 +153,12 @@ public class WaveManager : MonoBehaviour
                 enemy1.GetComponent<Enemy>().player = playerTransform;
                 enemy1.GetComponent<Enemy>().goal = goalPoint;
                 enemy1.SetActive(true);
+                if((waveChunk.enemies[i].spawndelay == 0 && i>0) == false)
+                {
+                    SoundManager.Instance.PlaySoundOnce(enemySpawn, spawnPoint);
+                }
+
+                
             }
             
 
