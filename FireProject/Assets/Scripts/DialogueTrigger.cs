@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -24,9 +24,13 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
             dialogueStarted = true;
         }*/
-
-        conversationStartPrompt.SetActive(true);
-        canStartDialogue = true;
+        Debug.Log(GameManager.Instance.gameStage);
+        if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1)
+        {
+            conversationStartPrompt.SetActive(true);
+            canStartDialogue = true;
+        }
+        
     }
 
     public void OnTriggerExit(Collider other)

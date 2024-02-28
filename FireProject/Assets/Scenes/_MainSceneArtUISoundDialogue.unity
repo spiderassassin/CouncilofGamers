@@ -164,7 +164,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66428
+  m_Name: pb_Mesh119264
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -2393,7 +2393,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66650
+  m_Name: pb_Mesh119486
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2557,7 +2557,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66602
+  m_Name: pb_Mesh119438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2721,7 +2721,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66584
+  m_Name: pb_Mesh119420
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3062,7 +3062,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66896
+  m_Name: pb_Mesh119744
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3901,7 +3901,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66276
+  m_Name: pb_Mesh119112
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4221,7 +4221,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66680
+  m_Name: pb_Mesh119516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4385,7 +4385,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66480
+  m_Name: pb_Mesh119316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4549,7 +4549,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66786
+  m_Name: pb_Mesh119622
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4713,7 +4713,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66962
+  m_Name: pb_Mesh119810
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -11157,7 +11157,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66980
+  m_Name: pb_Mesh119842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11555,7 +11555,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66452
+  m_Name: pb_Mesh119288
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12014,7 +12014,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66298
+  m_Name: pb_Mesh119134
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13856,7 +13856,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66466
+  m_Name: pb_Mesh119302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15288,7 +15288,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66326
+  m_Name: pb_Mesh119162
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16254,7 +16254,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67050
+  m_Name: pb_Mesh119916
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17070,7 +17070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66388
+  m_Name: pb_Mesh119224
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17568,7 +17568,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66842
+  m_Name: pb_Mesh119686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17933,7 +17933,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66930
+  m_Name: pb_Mesh119778
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18097,7 +18097,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66570
+  m_Name: pb_Mesh119406
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20740,7 +20740,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66312
+  m_Name: pb_Mesh119148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21016,19 +21016,19 @@ MonoBehaviour:
     sentences:
     - Wow, you're having a good time, aren't you? Makes sense they'd only send a
       sicko down here. Someone who really likes getting their hands...on fire.
-    - '[You]Who are you?'
+    - '[You] Who are you?'
     - Well, you're still technically a prisoner of the Realm, so someone's gotta
       keep an eye on you. But you can just think of me as your slightly armed cheerleader.
     - "Speaking of which, still think you\u2019re up for the task? The whole Defender
       thing, that is."
-    - '[You]I''m stoked, these demons aren''t gonna stand a chance.'
+    - '[You] I''m stoked, these demons aren''t gonna stand a chance.'
     - "Cool\u2026 or should I say\u2026 hot. I\u2019ll give you a tip, try to kill
       the demons before they kill you, the last guy wasn\u2019t so good at that."
     - "Or don\u2019t. I get an emotional compensation silver piece every time someone
       dies down here, so I\u2019m a fan of high turnover."
-    - '[You]...'
+    - '[You] ...'
     - ...kidding
-    - '[You]Any updates from the outside?'
+    - '[You] Any updates from the outside?'
     - Actually, yeah, I took a look through the weekly report and it seems that your
       old cell neighbour Gerard was released just yesterday. Turns out he was innocent
       all along!
@@ -21038,6 +21038,7 @@ MonoBehaviour:
     - ...
     - "Nevermind, time\u2019s up. I feel the next wave approaching. We\u2019ll talk
       later."
+    playerSpeaking: 0001000001000001000100000000
   dialogueStarted: 0
   canStartDialogue: 0
   conversationStartPrompt: {fileID: 1881121409}
@@ -21457,7 +21458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67070
+  m_Name: pb_Mesh119936
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22775,7 +22776,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66870
+  m_Name: pb_Mesh119714
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23079,7 +23080,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66994
+  m_Name: pb_Mesh119860
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23847,7 +23848,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66812
+  m_Name: pb_Mesh119648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24163,7 +24164,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66664
+  m_Name: pb_Mesh119500
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24529,7 +24530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1888134734
 Transform:
   m_ObjectHideFlags: 0
@@ -25696,6 +25697,7 @@ MonoBehaviour:
   dialogue:
     name: 
     sentences: []
+    playerSpeaking: 
   dialogueStarted: 0
   canStartDialogue: 0
   conversationStartPrompt: {fileID: 0}
@@ -25799,7 +25801,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh66704
+  m_Name: pb_Mesh119540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26033,6 +26035,12 @@ MonoBehaviour:
     enemies: []
   isSpawning: 0
   livingEnemies: []
+  paroleGuardSprite: {fileID: 1888134733}
+  preWave1Dialogue:
+    name: ?????
+    sentences:
+    - Hey! Over here, near the exit!
+    playerSpeaking: 00
 --- !u!4 &2027314005
 Transform:
   m_ObjectHideFlags: 0

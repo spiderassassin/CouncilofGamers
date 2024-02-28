@@ -18,17 +18,21 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     private Queue<string> sentences;
+    private Queue<bool> playerSpeaking;
+
+    private DialogueTrigger currentDialogueTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        playerSpeaking = new Queue<bool>();
         
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null)
     {
-        
+        currentDialogueTrigger = dialogueTrigger;
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
@@ -39,6 +43,12 @@ public class DialogueManager : MonoBehaviour
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+
+        playerSpeaking.Clear();
+        foreach (bool speakingBool in dialogue.playerSpeaking)
+        {
+            playerSpeaking.Enqueue(speakingBool);
         }
 
         DisplayNextSentence();
@@ -55,6 +65,20 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
+        /*
+        bool speakingBool = playerSpeaking.Dequeue();
+        if (currentDialogueTrigger != null)
+        {
+            if (speakingBool)
+            {
+                currentDialogueTrigger.dialogue.name = "You";
+            }
+            else
+            {
+                currentDialogueTrigger.dialogue.name = "ParoleGuard";
+            }
+        }*/
+        
         dialogueText.text = sentence;
     }
 
@@ -63,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         actionPromptsHUD.SetActive(false);
         GameManager.Instance.dialogueState = false;
+        
     }
 
     
