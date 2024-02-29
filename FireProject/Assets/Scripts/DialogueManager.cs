@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<bool> playerSpeaking;
 
     private DialogueTrigger currentDialogueTrigger;
+    public AudioClip dialoguesound;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
+            SoundManager.Instance.PlaySoundOnce(dialoguesound, transform);
         {
             if (speakingBool)
             {
