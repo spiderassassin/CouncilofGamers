@@ -6390,10 +6390,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e2040bd90d42a49a5aae036fcaa69304, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -16222,6 +16222,7 @@ MonoBehaviour:
   NPCSprite: {fileID: 1888134733}
   conversationStartPrompt: {fileID: 1881121409}
   animator: {fileID: 188248927}
+  dialoguesound: {fileID: 8300000, guid: 63f426e9dd16d49b48f91cf17bce1fce, type: 3}
 --- !u!4 &645014638
 Transform:
   m_ObjectHideFlags: 0
