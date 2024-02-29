@@ -65,6 +65,8 @@ public class Controller : Entity
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        //TEMP FIX CHANGE IT LATER
+        SoundManager.Instance.MusicPlay();
     }
 
     private float GetDamageMultiplier(float adrenalinePercent)
@@ -74,7 +76,9 @@ public class Controller : Entity
 
     void Update()
 
+
     {
+
         if (dead == false)
         {
             if (health < 100)

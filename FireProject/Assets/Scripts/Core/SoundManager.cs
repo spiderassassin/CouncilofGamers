@@ -95,12 +95,13 @@ public class SoundManager : MonoBehaviour
 
     public void MusicStop()
     {
-        music.Pause(); 
+        music.Stop(); 
     }
     public void MusicPlay()
     {
         music.Play();
     }
+   
 
 
 
