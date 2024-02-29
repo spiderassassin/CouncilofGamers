@@ -32,6 +32,8 @@ public class WaveManager : MonoBehaviour
     public Dialogue preWave1Dialogue;
 
     public AudioClip enemySpawn;
+    public AudioClip TankSpawn;
+    public AudioClip paroleHello;
 
     private void Awake()
     {
@@ -55,6 +57,7 @@ public class WaveManager : MonoBehaviour
     {
         paroleGuardSprite.SetActive(true);
         FindObjectOfType<DialogueManager>().StartDialogue(preWave1Dialogue);
+        //SoundManager.Instance.PlaySoundloop(paroleHello, paroleGuardSprite.transform);
     }
 
     private void Update()
@@ -147,6 +150,11 @@ public class WaveManager : MonoBehaviour
                         break;
 
                 }
+                AudioClip clip = enemySpawn;
+                if(waveChunk.enemies[i].enemyType == Wave.EnemyType.Tank)
+                {
+                    clip = TankSpawn;
+                }
 
                 enemy1.SetActive(false);
                 enemy1.transform.position = spawnPoint.position;
@@ -155,7 +163,7 @@ public class WaveManager : MonoBehaviour
                 enemy1.SetActive(true);
                 if((waveChunk.enemies[i].spawndelay == 0 && i>0) == false)
                 {
-                    SoundManager.Instance.PlaySoundOnce(enemySpawn, spawnPoint);
+                    SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
                 }
 
                 
