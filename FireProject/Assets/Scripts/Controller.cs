@@ -273,7 +273,7 @@ public class Controller : Entity
             
             yield return new WaitForSeconds(.3f);
             FireManager.manager.StepFireLevel(this, snapDamage);
-            SoundManager.Instance.MusicPlay();
+            //SoundManager.Instance.MusicPlay();
 
 
         }

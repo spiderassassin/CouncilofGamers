@@ -8,11 +8,14 @@ public class DialogueTrigger : MonoBehaviour
     public bool dialogueStarted;
     public bool canStartDialogue;
     public GameObject conversationStartPrompt;
+    public AudioSource parole;
 
 
     public void TriggerDialogue()
     {
+
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
+        parole.Stop();
     }
 
     public void OnTriggerEnter(Collider other)
