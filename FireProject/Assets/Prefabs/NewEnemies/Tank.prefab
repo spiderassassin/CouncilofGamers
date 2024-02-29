@@ -37,11 +37,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.60754716
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.86339253
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340817, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Name
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Center.y
       value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Mass
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_RootOrder
@@ -185,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 8745785091267799905}
-  health: 2500
+  health: 750
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
@@ -193,6 +197,12 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
   body: {fileID: 8745785091267799906}
+  deathSound: {fileID: 8300000, guid: 409c24aac91b1f14fadfa7ba3146e7aa, type: 3}
   speed: 8
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+  playerDirectHitDmg:
+    damage: 20
+    pushBack: 0
+    type: 1
+  projectileAttackCooldown: 1
   attackRange: 10

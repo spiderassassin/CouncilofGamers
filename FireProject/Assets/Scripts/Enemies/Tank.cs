@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class Tank: Enemy {
     [SerializeField] private GameObject projectile;
+    public DamageInformation playerDirectHitDmg;
+    public int projectileAttackCooldown = 3;
     private Task waitingShortRange;
     private Task waitingLongRange;
     private Task waitingCooldown;
     public float attackRange = 6;
+
+    float timeHit;
     
     protected override void Update() {
+        
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
             if (!waitingShortRange.Running) {
@@ -48,7 +53,16 @@ public class Tank: Enemy {
         } else if (state == EnemyState.LongRangeAttacking) {
             // Stop moving and long range attack.
             if(agent.enabled)agent.isStopped = true;
-            waitingLongRange = new Task(3);
+            waitingLongRange = new Task(projectileAttackCooldown);
+        }
+
+        if(Vector3.Distance(transform.position,player.position)< 4f)
+        {
+            if (Time.timeSinceLevelLoad - timeHit >= 2f)
+            {
+                Controller.Instance.OnDamaged(this, playerDirectHitDmg);
+                timeHit = Time.timeSinceLevelLoad;
+            }
         }
     }
 }

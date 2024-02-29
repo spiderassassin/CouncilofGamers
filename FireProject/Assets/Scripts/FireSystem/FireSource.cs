@@ -25,6 +25,7 @@ public class FireSource : MonoBehaviour
     public float activeDamageProbability = .1f; // DO NOT RENAME
     public bool tick = true;
     public bool damageOnEnter = false;
+    public AudioClip damagedClip;
 
     public float DamageMultiplier { get; set; }
 
@@ -65,6 +66,7 @@ public class FireSource : MonoBehaviour
         if (damageOnEnter)
         {
             FireManager.manager.FireDamageOnCollider(source, other, activeDamage);
+            SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
         }
     }
     protected virtual void OnTriggerExit(Collider other)
@@ -104,11 +106,19 @@ public class FireSource : MonoBehaviour
     {
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
+        bool damaged = false;
 
         foreach (var c in inRange)
         {
             if (Random.Range(0f, 1f) <= activeDamageProbability)
+            {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
+                damaged = true;
+            }
+        }
+        if (damaged)
+        {
+            SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
         }
     }
 

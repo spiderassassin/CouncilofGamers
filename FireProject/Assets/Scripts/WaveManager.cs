@@ -97,7 +97,15 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < waveChunk.enemies.Count; i++)
         {
-            yield return new WaitForSeconds(waveChunk.enemies[i].spawndelay);
+            float t = 0;
+            while( true)
+            {
+                if (t >= waveChunk.enemies[i].spawndelay) break;
+                if (waveChunk.enemies[i].waitUntilPreviousDead && t > .1f && TotalLivingEnemies == 0) break;
+                    yield return new WaitForEndOfFrame();
+                t += Time.deltaTime;
+            }
+
             Enemy e = null;
             for(int j = 0; j < waveChunk.enemies[i].count; ++j)
             {

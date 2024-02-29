@@ -12,7 +12,21 @@ public class Projectile : MonoBehaviour, IAttacker
     // Start is called before the first frame update
     void Start()
     {
-        dest = Controller.Instance.Position;
+        dest = Controller.Instance.transform.position;
+        StartCoroutine(Loop());
+    }
+    IEnumerator Loop()
+    {
+        while( true)
+        {
+            yield return new WaitForSeconds(2f);
+            dest = Controller.Instance.transform.position;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Attack();
     }
 
     public void Attack() {
@@ -37,16 +51,7 @@ public class Projectile : MonoBehaviour, IAttacker
     void Update()
     {
         // Move the projectile toward the player's position at the time of firing.
-        transform.position = Vector3.MoveTowards(transform.position, dest, speed * Time.deltaTime);
-
-        // Destroy it if it hits a wall.
-        if (Physics.Raycast(Position, dest, 1)) {
-            Destroy(gameObject);
-        }
-
-        // If the projectile reaches the destination, deal damage and destroy it.
-        if (transform.position == dest) {
-            Attack();
-        }
+        transform.position = Vector3.MoveTowards(transform.position, dest+Vector3.up, speed * Time.deltaTime);
+        transform.position += Vector3.down * Time.deltaTime*.2f;
     }
 }

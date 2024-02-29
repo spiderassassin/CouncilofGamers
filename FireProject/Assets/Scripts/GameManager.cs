@@ -44,10 +44,10 @@ public class GameManager : MonoBehaviour
             recentlySnapped = false;
         }
     }
-    public float GetMaxAdrenaline() // Adjustable as needed.
+    public float GetMaxAdrenaline() // Adjustable as needed
     {
         //return Mathf.Max(1, WaveManager.Instance.TotalLivingEnemies);
-        return 10;
+        return 4;
     }
 
     private void Awake()

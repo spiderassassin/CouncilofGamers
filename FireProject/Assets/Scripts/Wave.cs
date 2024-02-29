@@ -12,6 +12,7 @@ public class Wave
         public float spawndelay = 1f;
         public SpawnPoint spawnPoint;
         public int count = 1;
+        public bool waitUntilPreviousDead = false;
     }
 
     public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntGoalWithTank };
