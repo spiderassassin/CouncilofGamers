@@ -44,6 +44,8 @@ public class FireManager : MonoBehaviour
     /// <param name="activeFire">The damage to inflict.</param>
     public void FireDamageOnCollider(IAttacker attacker, Collider c, DamageInformation activeFire)
     {
+        if (c == null) { return; }
+        
         IFlammable f = Lookup(c);
         if (f == null) return;
         f.Damageable.OnDamaged(attacker, activeFire);

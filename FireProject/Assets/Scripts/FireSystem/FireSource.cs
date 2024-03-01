@@ -26,6 +26,7 @@ public class FireSource : MonoBehaviour
     public bool tick = true;
     public bool damageOnEnter = false;
     public AudioClip damagedClip;
+    public bool hitOnce = false;
 
     public float DamageMultiplier { get; set; }
 
@@ -107,15 +108,44 @@ public class FireSource : MonoBehaviour
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
         bool damaged = false;
-
-        foreach (var c in inRange)
+        if (hitOnce)
         {
-            if (Random.Range(0f, 1f) <= activeDamageProbability)
+            Collider temptarget = null;
+            float distance = Mathf.Infinity;
+            foreach (var c in inRange)
             {
-                FireManager.manager.FireDamageOnCollider(source, c, d);
-                damaged = true;
+                if (c != null)
+                {
+                    float temp = Vector3.Distance(transform.position, c.transform.position);
+                    if (temp < distance)
+                    {
+                        distance = temp;
+                        temptarget = c;
+
+                    }
+
+                }
+                
+
+            }
+            FireManager.manager.FireDamageOnCollider(source, temptarget, d);
+
+
+
+        }
+        else
+        {
+            foreach (var c in inRange)
+            {
+                if (Random.Range(0f, 1f) <= activeDamageProbability)
+                {
+                    FireManager.manager.FireDamageOnCollider(source, c, d);
+                    damaged = true;
+                }
             }
         }
+
+        
         if (damaged)
         {
             SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
