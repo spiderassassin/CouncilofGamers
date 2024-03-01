@@ -10,6 +10,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 {
     public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
     public float health = 100;
+    
 
     public float Health => health;
 
