@@ -21,7 +21,9 @@ public class Controller : Entity
     public AudioSource source;
     public DamageInformation snapDamage;
 
-  
+    
+
+
     public bool isMoving = false;
 
     public AudioClip playerwalk;
@@ -43,10 +45,14 @@ public class Controller : Entity
     public float fireballCooldown = .5f;
     public float healthIncreaseRate = 1;
     bool dead = false;
-
+    
     public Animator armAnimator;
 
     private float lastFireballTime;
+
+    public bool invincibility;
+    float invincibilityDurationTimer = 0;
+    public float invincibilityDuration = 0.25f;
 
     private void Awake()
     {
@@ -76,8 +82,17 @@ public class Controller : Entity
 
     void Update()
 
-
     {
+        if(invincibility == true) {
+            invincibilityDurationTimer += Time.deltaTime;
+            if (invincibilityDurationTimer > invincibilityDuration)
+            {
+                invincibilityDurationTimer = 0;
+                invincibility = false;
+
+            }
+        }
+
 
         if (dead == false)
         {
@@ -353,8 +368,9 @@ public class Controller : Entity
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        if (dead == false)
+        if (dead == false && invincibility == false)
         {
+            invincibility = true;
             CombatUI.Instance.DamageOverlay();
             SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
             health -= 10;

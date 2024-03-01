@@ -46703,6 +46703,8 @@ MonoBehaviour:
   fireballCooldown: 0.5
   healthIncreaseRate: 5
   armAnimator: {fileID: 1474664498842433659}
+  invincibility: 0
+  invincibilityDuration: 0.25
 --- !u!23 &5773853081804593948
 MeshRenderer:
   m_ObjectHideFlags: 0
