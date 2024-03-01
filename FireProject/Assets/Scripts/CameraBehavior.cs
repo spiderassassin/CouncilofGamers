@@ -9,7 +9,7 @@ public class CameraBehavior : MonoBehaviour
     public Animator animator;
     float xrotation = 0f;
     public GameObject hands;
-    public GameObject damageoverlay;
+    
     Vector3 handposition;
 
     //for vertical rotation of the camera

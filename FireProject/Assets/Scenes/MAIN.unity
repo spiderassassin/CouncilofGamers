@@ -4526,7 +4526,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234037096}
-  - component: {fileID: 234037097}
   m_Layer: 6
   m_Name: CameraSystem
   m_TagString: Untagged
@@ -4550,26 +4549,6 @@ Transform:
   m_Father: {fileID: 8913934894348048307}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &234037097
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234037095}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2f2fdbe7f26ce4c408b1c5001d76df36, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &240601728
 GameObject:
   m_ObjectHideFlags: 0
@@ -17416,6 +17395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687505791}
+  - component: {fileID: 687505792}
   m_Layer: 6
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -17439,6 +17419,26 @@ Transform:
   m_Father: {fileID: 234037096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &687505792
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687505790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f2fdbe7f26ce4c408b1c5001d76df36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &695852044
 GameObject:
   m_ObjectHideFlags: 0
@@ -46589,9 +46589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 8913934894348048307}
-  animator: {fileID: 234037097}
+  animator: {fileID: 687505792}
   hands: {fileID: 1157124309}
-  damageoverlay: {fileID: 0}
 --- !u!1 &3647895813602803294
 GameObject:
   m_ObjectHideFlags: 0
