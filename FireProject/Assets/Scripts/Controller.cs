@@ -18,6 +18,7 @@ public class Controller : Entity
     public float jumpHeight = 3f;
     public bool sprint = false;
     public bool isFiring = false;
+    public bool isSnapping = false;
     public AudioSource source;
     public DamageInformation snapDamage;
 
@@ -33,6 +34,7 @@ public class Controller : Entity
     public AudioClip snap, failedSnap;
     public AudioClip playerDamage;
     public AudioClip fireBall;
+    public AudioClip slowmotion;
 
 
     GameObject obj;
@@ -214,8 +216,8 @@ public class Controller : Entity
 
             if (InputManager.Instance.snap)
             {
-                // StartCoroutine(Snap());
-                Snap();
+                 StartCoroutine(Snap());
+                //Snap();
             }
 
 
@@ -271,14 +273,27 @@ public class Controller : Entity
         return GameManager.Instance.AdrenalinePercent >= 1f;
     }
 
-    void Snap()
+    IEnumerator Snap()
     {
         
 
-        armAnimator.SetTrigger("snap"); // animator trigger; you snap even if it does nothing (for now)
+        
+        
+
         if (canSnap())
         {
-            // SoundManager.Instance.MusicStop();
+            isSnapping = true;
+            GetComponentInChildren<CameraBehavior>().Snap();
+            SoundManager.Instance.MusicStop();
+            SoundManager.Instance.PlaySoundOnce(slowmotion, transform);
+            yield return new WaitForSeconds(1f);
+            armAnimator.SetTrigger("snap");
+            
+        }
+        else
+        {
+            armAnimator.SetTrigger("snap");// animator trigger; you snap even if it does nothing (for now)
+            yield return new WaitForSeconds(0f);
         }
     }
     public IEnumerator SnapLogic()
@@ -290,9 +305,11 @@ public class Controller : Entity
             // Indicate that a snap occurred in the game manager.
             GameManager.Instance.snapped = true;
             
-            yield return new WaitForSeconds(.3f);
+            
             FireManager.manager.StepFireLevel(this, snapDamage);
-            //SoundManager.Instance.MusicPlay();
+            yield return new WaitForSeconds(2f);
+            SoundManager.Instance.MusicPlay();
+            isSnapping = false;
 
 
         }
@@ -368,7 +385,7 @@ public class Controller : Entity
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        if (dead == false && invincibility == false)
+        if ((dead == false && invincibility == false) && (isSnapping = false))
         {
             invincibility = true;
             CombatUI.Instance.DamageOverlay();

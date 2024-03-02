@@ -38,6 +38,11 @@ public class CameraBehavior : MonoBehaviour
         animator.SetBool("isDead", true);
     }
 
+    public void Snap()
+    {
+        animator.SetTrigger("snap");
+    }
+
 
 
 
