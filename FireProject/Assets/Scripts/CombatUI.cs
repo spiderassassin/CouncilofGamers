@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class CombatUI : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class CombatUI : MonoBehaviour
     public float duration;
     public float fadespeed;
     float durationTimer;
+    public PostProcessVolume postProcessVolume;
+    private ColorGrading colorGrading;
+    private bool grey = false;
     // Start is called before the first frame update
 
     private void Awake()
@@ -31,12 +35,21 @@ public class CombatUI : MonoBehaviour
     {
         overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 0);
         snapOverlay.color = new Color(snapOverlay.color.r, snapOverlay.color.g, snapOverlay.color.b, 0);
+        
+        postProcessVolume.profile.TryGetSettings(out colorGrading);//for saturation effect on snap
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
+
+
+
+
         if (overlay.color.a > 0)
         {
             durationTimer += Time.deltaTime;
@@ -71,6 +84,18 @@ public class CombatUI : MonoBehaviour
     {
         durationTimer = 0;
         snapOverlay.color = new Color(snapOverlay.color.r, snapOverlay.color.g, snapOverlay.color.b, 1f);
+    }
+    public void lerptogrey()
+    {
+
+        colorGrading.saturation.value = -100;
+        grey = true;
+
+    }
+    public void lerptocolor()
+    {
+        colorGrading.saturation.value = 0;
+        grey = false;
     }
 
 }

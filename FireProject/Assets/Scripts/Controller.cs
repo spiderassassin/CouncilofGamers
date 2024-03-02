@@ -22,6 +22,8 @@ public class Controller : Entity
     public AudioSource source;
     public DamageInformation snapDamage;
 
+
+
     
 
 
@@ -286,6 +288,7 @@ public class Controller : Entity
             GetComponentInChildren<CameraBehavior>().Snap();
             SoundManager.Instance.MusicStop();
             SoundManager.Instance.PlaySoundOnce(slowmotion, transform);
+            CombatUI.Instance.lerptogrey();
             yield return new WaitForSeconds(1f);
             armAnimator.SetTrigger("snap");
             
@@ -307,6 +310,7 @@ public class Controller : Entity
             
             
             FireManager.manager.StepFireLevel(this, snapDamage);
+            CombatUI.Instance.lerptocolor();
             yield return new WaitForSeconds(2f);
             SoundManager.Instance.MusicPlay();
             isSnapping = false;
