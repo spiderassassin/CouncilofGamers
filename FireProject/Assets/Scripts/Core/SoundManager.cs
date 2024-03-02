@@ -95,7 +95,7 @@ public class SoundManager : MonoBehaviour
 
     public void MusicStop()
     {
-        music.Stop(); 
+        music.Pause(); 
     }
     public void MusicPlay()
     {
