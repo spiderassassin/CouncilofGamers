@@ -12,12 +12,23 @@ public class GameManager : MonoBehaviour
     public bool snapped = false;
     public bool dialogueState;
 
-    private float adrenaline = 0;
+    public float adrenaline = 0;
     private float interpolant => Time.deltaTime * 1;
-    // Use 1/10 of the possible range to add on to the interpolation so we reach the target faster.
-    private float threshold => GetMaxAdrenaline() * 0.1f;
+    
+    private float adrenalineUnit => GetMaxAdrenaline() * 0.01f; // 1/100 of the possible range
     // When this is true, we're waiting for the adrenaline to reach 0 before it starts to recharge.
     private bool recentlySnapped = false;
+
+    private float maxHealth = 100;
+
+    private float intensity = 0; // amount of adrenaline gained per second
+    public float gainAdrenalineThreshold = 10; // the value intensity must be at before adrenaline increases (might wanna change?)
+    public float enemiesOnFireFactor = 0.1f; // how much effect the number of enemies on fire has on intensity
+    public float playerHealthFactor = 0.1f; // how much effect player health loss has on intensity
+    public float decayAdrenalineThreshold = 0; // the value intensity will decrease if its at or below
+    public float decayAmount = 0.1f; // how fast adrenaline is lost when intensity is low enough
+    private float enemiesOnFire = 0;
+    private float playerHealthLoss;
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {
@@ -26,13 +37,28 @@ public class GameManager : MonoBehaviour
             // If the player has snapped, use linear interpolation to smoothly decrease the
             // adrenaline value to 0. Aim for a little bit past 0 to ensure the interpolation
             // reaches 0, since it slows down on the edges.
-            adrenaline = Mathf.Lerp(adrenaline, 0 - threshold, interpolant);
+            adrenaline = adrenaline - 0.5f;
         } else {
             // If the player has not snapped, use linear interpolation to smoothly increase the
             // adrenaline value to the number of enemies on fire. Aim for a little bit past the max
             // to ensure the interpolation reaches 0, since it slows down on the edges.
-            float incThreshold = FireManager.manager.EntitiesOnFire > 0 ? threshold :  0;
-            adrenaline = Mathf.Lerp(adrenaline, FireManager.manager.EntitiesOnFire + incThreshold, interpolant);
+            enemiesOnFire = FireManager.manager.EntitiesOnFire;
+            playerHealthLoss = maxHealth-Controller.Instance.Health; 
+            intensity = Mathf.Pow(enemiesOnFire, 2)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
+            intensity = Mathf.Clamp(intensity, 0, 5); // max intensity of 5
+            intensity = intensity*Time.deltaTime;
+
+            adrenaline = adrenaline + intensity;
+            if (intensity >= gainAdrenalineThreshold)
+            {
+                adrenaline = adrenaline + intensity;
+            }
+            else if (intensity <= decayAdrenalineThreshold)
+            {
+                adrenaline = adrenaline - adrenalineUnit*decayAmount;
+            }
+            // if (enemy has died) {gain some adrenaline}
+            //adrenaline = Mathf.Lerp(adrenaline, FireManager.manager.EntitiesOnFire + incThreshold, interpolant);
         }
 
         // Clamp the adrenaline value to the range [0, maxAdrenaline].
@@ -47,7 +73,7 @@ public class GameManager : MonoBehaviour
     public float GetMaxAdrenaline() // Adjustable as needed
     {
         //return Mathf.Max(1, WaveManager.Instance.TotalLivingEnemies);
-        return 4;
+        return 100;
     }
 
     private void Awake()

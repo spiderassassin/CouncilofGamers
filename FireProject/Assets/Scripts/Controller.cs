@@ -389,7 +389,7 @@ public class Controller : Entity
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        if ((dead == false && invincibility == false) && (isSnapping = false))
+        if ((dead == false && invincibility == false) && (isSnapping == false))
         {
             invincibility = true;
             CombatUI.Instance.DamageOverlay();
