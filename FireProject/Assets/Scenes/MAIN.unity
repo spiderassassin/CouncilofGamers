@@ -4353,6 +4353,13 @@ MonoBehaviour:
   gameStage: 0
   snapped: 0
   dialogueState: 0
+  adrenaline: 0
+  intensity: 10
+  gainAdrenalineThreshold: 1
+  enemiesOnFireFactor: 0.1
+  playerHealthFactor: 0.1
+  decayAdrenalineThreshold: 0
+  decayAmount: 0.1
 --- !u!43 &223302807
 Mesh:
   m_ObjectHideFlags: 0
