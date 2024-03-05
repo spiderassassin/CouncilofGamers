@@ -32902,7 +32902,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27232
+  m_Name: pb_Mesh28320
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46673,8 +46673,8 @@ MonoBehaviour:
   - {fileID: 7095554248486665563}
   health: 100
   characterController: {fileID: 7095554248486665563}
-  speed: 12
-  sprintspeed: 20
+  speed: 16
+  sprintspeed: 24
   velocity: {x: 0, y: 0, z: 0}
   gravity: -40
   groundMask:
