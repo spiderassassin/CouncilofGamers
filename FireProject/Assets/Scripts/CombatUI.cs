@@ -88,13 +88,15 @@ public class CombatUI : MonoBehaviour
     public void lerptogrey()
     {
 
-        colorGrading.saturation.value = -100;
+        colorGrading.saturation.value = 50;
+        colorGrading.contrast.value = 100;
         grey = true;
 
     }
     public void lerptocolor()
     {
         colorGrading.saturation.value = 0;
+        colorGrading.contrast.value = 0;
         grey = false;
     }
 
