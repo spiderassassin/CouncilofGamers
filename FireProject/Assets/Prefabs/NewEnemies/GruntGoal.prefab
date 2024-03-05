@@ -149,6 +149,10 @@ MonoBehaviour:
   animator: {fileID: 1864330007992911458}
   body: {fileID: 37018340930786909}
   deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
+  attackDamage:
+    damage: 10
+    pushBack: 0
+    type: 1
   speed: 16
   attackRange: 4
   followRange: 5

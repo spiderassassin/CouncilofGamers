@@ -101,6 +101,10 @@ MonoBehaviour:
   animator: {fileID: 4436281028067464520}
   body: {fileID: 2651559876208772471}
   deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
+  attackDamage:
+    damage: 15
+    pushBack: 0
+    type: 1
   speed: 22
   attackRange: 5
 --- !u!136 &2651559876208772468 stripped
