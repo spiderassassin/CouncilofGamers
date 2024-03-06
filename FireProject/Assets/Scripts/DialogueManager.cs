@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<bool> playerSpeaking;
 
     private DialogueTrigger currentDialogueTrigger;
+    private bool advanceGameStageOnEnd;
     public AudioClip dialoguesound;
 
     // Start is called before the first frame update
@@ -31,14 +32,14 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
     {
         currentDialogueTrigger = dialogueTrigger;
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
         GameManager.Instance.dialogueState = true;
-        
+        advanceGameStageOnEnd = advanceGameStage;
 
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -91,7 +92,12 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         actionPromptsHUD.SetActive(false);
         GameManager.Instance.dialogueState = false;
-        
+        if (advanceGameStageOnEnd) {
+            // Set next game stage.
+            GameManager.Instance.gameStage++;
+            // Hide the parole guard sprite.
+            WaveManager.Instance.paroleGuardSprite.SetActive(false);
+        }
     }
 
     

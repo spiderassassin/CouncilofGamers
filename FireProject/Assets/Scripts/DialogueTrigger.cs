@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public Dialogue downtime1Dialogue;
+    public Dialogue downtime2Dialogue;
+    public Dialogue downtime3Dialogue;
     public bool dialogueStarted;
     public bool canStartDialogue;
     public GameObject conversationStartPrompt;
@@ -14,8 +16,22 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
+        // Trigger the corresponding dialogue based on the current game stage.
+        Dialogue downtimeDialogue = null;
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtimeDialogue = downtime1Dialogue;
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtimeDialogue = downtime2Dialogue;
+                break;
+            case GameManager.GameStage.Downtime3:
+                downtimeDialogue = downtime3Dialogue;
+                break;
+        }
+        // Set flag so that at the end of the dialogue, the game stage will advance.
+        FindObjectOfType<DialogueManager>().StartDialogue(downtimeDialogue, this, true);
         parole.Stop();
         
     }
@@ -29,7 +45,12 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
             dialogueStarted = true;
         }*/
-        if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1)
+        List<GameManager.GameStage> downtimeStages = new List<GameManager.GameStage> {
+            GameManager.GameStage.Downtime1,
+            GameManager.GameStage.Downtime2,
+            GameManager.GameStage.Downtime3
+        };
+        if (downtimeStages.Contains(GameManager.Instance.gameStage))
         {
             conversationStartPrompt.SetActive(true);
             canStartDialogue = true;

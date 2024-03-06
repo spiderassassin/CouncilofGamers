@@ -15024,7 +15024,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh96902
+  m_Name: pb_Mesh51438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33181,55 +33181,17 @@ MonoBehaviour:
   downtime1Dialogue:
     name: Parole Guard
     sentences:
-    - "Wow, you\u2019re having a good time, aren\u2019t you? Makes sense they\u2019d
-      only send a sicko down here. Someone who really likes getting their hands\u2026
-      on fire."
-    - Who are you?
-    - "Well, you\u2019re still technically a prisoner of the Realm, so someone\u2019s
-      gotta keep an eye on you. But you can just think of me as your slightly armed
-      cheerleader."
-    - "Speaking of which, still think you\u2019re up for the task? The whole Defender
-      thing, that is."
-    - "I\u2019m stoked, these demons aren\u2019t gonna stand a chance."
-    - "Cool\u2026 or should I say\u2026 hot. I\u2019ll give you a tip, try to kill
-      the demons before they kill you, the last guy wasn\u2019t so good at that.
-      Or don\u2019t. I get an emotional compensation silver piece every time someone
-      dies down here, so I\u2019m a fan of high turnover."
-    - ...
-    - ... kidding.
-    - I never did get a chance to read the report on why you were locked up in the
-      first place, care to share?
-    - "Nevermind, time\u2019s up. I feel the next wave approaching. We\u2019ll talk
-      later."
-    playerSpeaking: 00010000010001000000
+    - Hehe
+    playerSpeaking: 00
   downtime2Dialogue:
     name: Parole Guard
     sentences:
-    - Ever considered picking up knitting?
-    - Everyone loves a hand-made blanket.
-    - I heard about some of the stuff that got you locked down here. Were you <i>selling</i>
-      your <i>blood</i>?
-    - Something like that.
-    - "So you\u2019ve got fire magic in your blood\u2026"
-    - "Hm\u2026"
-    - That explains your fighting style. Is that actually illegal though? What could
-      you possibly use that blood for?
-    - "Ah, wait\u2026 Surely that wasn\u2019t the key ingredient for manufacturing
-      those devastating fire bombs? The ones that were used in that military coup
-      some years ago\u2026"
-    - "\u2026Well on the plus side, I also sold fireworks."
-    - "\u2026I see. Oh, hold on, I just received a pigeon."
-    - '*coo* *coo*'
-    - "Oh\u2026 hm."
-    - "A bit of bad news, it seems the Demonlords have caught wind of you; their
-      vanguard will be here any second, and when their main force reaches the portals\u2026"
-    - "I hope you don\u2019t start running out of fire. Our conversation ends here,
-      good luck."
-    playerSpeaking: 0001000100000000010000000000
+    - Oops
+    playerSpeaking: 00
   downtime3Dialogue:
     name: Parole Guard
     sentences:
-    - TODO
+    - gottem
     playerSpeaking: 00
   dialogueStarted: 0
   canStartDialogue: 0
@@ -36210,7 +36172,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh104348
+  m_Name: pb_Mesh51186
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43040,76 +43002,6 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 2
-      spawndelay: 120
-      spawnPoint: 0
-      count: 3
-      waitUntilPreviousDead: 1
-    - enemyType: 2
-      spawndelay: 120
-      spawnPoint: 0
-      count: 2
-      waitUntilPreviousDead: 1
-    - enemyType: 1
-      spawndelay: 0
-      spawnPoint: 0
-      count: 3
-      waitUntilPreviousDead: 0
-    - enemyType: 0
-      spawndelay: 120
-      spawnPoint: 0
-      count: 0
-      waitUntilPreviousDead: 1
-    - enemyType: 0
-      spawndelay: 10
-      spawnPoint: 1
-      count: 0
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      spawndelay: 0
-      spawnPoint: 1
-      count: 1
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      spawndelay: 10
-      spawnPoint: 1
-      count: 2
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      spawndelay: 90
-      spawnPoint: 1
-      count: 3
-      waitUntilPreviousDead: 1
-    - enemyType: 1
-      spawndelay: 20
-      spawnPoint: 0
-      count: 5
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      spawndelay: 120
-      spawnPoint: 0
-      count: 3
-      waitUntilPreviousDead: 1
-    - enemyType: 1
-      spawndelay: 20
-      spawnPoint: 0
-      count: 6
-      waitUntilPreviousDead: 0
-    - enemyType: 3
-      spawndelay: 100
-      spawnPoint: 0
-      count: 1
-      waitUntilPreviousDead: 1
-    - enemyType: 4
-      spawndelay: 1
-      spawnPoint: 0
-      count: 10
-      waitUntilPreviousDead: 0
-    - enemyType: 4
-      spawndelay: 25
-      spawnPoint: 0
-      count: 10
-      waitUntilPreviousDead: 0
   wave2:
     enemies:
     - enemyType: 1
@@ -43130,7 +43022,7 @@ MonoBehaviour:
   downtime1Dialogue:
     name: ???
     sentences:
-    - Hey! Over here, near the exit!
+    - Hey! Over here!
     playerSpeaking: 00
   downtime2Dialogue:
     name: 
