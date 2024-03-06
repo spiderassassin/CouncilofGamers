@@ -97,7 +97,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                nameText.text = "Parole Officer";
+                nameText.text = "Parole Guard";
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
             }
         }
