@@ -94,7 +94,7 @@ public class ScreenText : MonoBehaviour
         yield return new WaitForSeconds(fadeDelay);
         // ...then load the next scene...
         // ...but if it's the last one, quit the game instead.
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings) {
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1) {
             Application.Quit();
         } else {
             // Make sure the next scene is positioned after the current one in the build settings!
