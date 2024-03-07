@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     // Use this variable to notify the game manager that a successful snap occurred.
     public bool snapped = false;
     public bool dialogueState;
+    public bool nextSentenceReady;
 
     public float adrenaline = 0;
     private float interpolant => Time.deltaTime * 1;
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.TutorialWave;
+        gameStage = GameStage.Downtime1;
     }
 
     void Update()

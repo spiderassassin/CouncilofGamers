@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -171,8 +172,20 @@ public class InputManager : MonoBehaviour
     {
         if (LockPlayerGameplayInput && GameManager.Instance.dialogueState)
         {
-            dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
-            return;
+            if (GameManager.Instance.nextSentenceReady)
+            {
+                dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+                return;
+            }
+
+            else //if player hits space before text finishes scrolling, go to next sentence and dump current text
+            {
+                dialogueManager.GetComponent<DialogueManager>().dialogueText.text = "";
+                dialogueManager.GetComponent<DialogueManager>().sentence = "";
+                dialogueManager.GetComponent<DialogueManager>().StopAllCoroutines();
+                dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+            }
+            
         }
 
         jump = obj.ReadValueAsButton();
