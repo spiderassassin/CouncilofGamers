@@ -12,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject conversationStartPrompt;
     public AudioSource parole;
     
+    
 
 
     public void TriggerDialogue()
@@ -33,6 +34,7 @@ public class DialogueTrigger : MonoBehaviour
         // Set flag so that at the end of the dialogue, the game stage will advance.
         FindObjectOfType<DialogueManager>().StartDialogue(downtimeDialogue, this, true);
         parole.Stop();
+        SoundManager.Instance.MusicChange(SoundManager.Instance.paroleDialogue);
         
     }
 
