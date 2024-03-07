@@ -10,6 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject conversationStartPrompt;
     public AudioSource parole;
     
+    
 
 
     public void TriggerDialogue()
@@ -17,6 +18,7 @@ public class DialogueTrigger : MonoBehaviour
 
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
         parole.Stop();
+        SoundManager.Instance.MusicChange(SoundManager.Instance.paroleDialogue);
         
     }
 

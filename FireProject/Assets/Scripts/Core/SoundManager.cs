@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip jump;
 
     public AudioSource music;
+    public AudioClip paroleDialogue;
 
     public AudioClip playerwalk;
     public AudioClip playerrun;
