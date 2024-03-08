@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397010, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Controller
       value: 
@@ -154,7 +150,7 @@ MonoBehaviour:
     pushBack: 0
     type: 1
   speed: 16
-  attackRange: 4
+  attackRange: 3
   followRange: 5
 --- !u!54 &37018340930786909 stripped
 Rigidbody:

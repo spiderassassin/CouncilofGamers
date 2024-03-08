@@ -106,7 +106,7 @@ MonoBehaviour:
     pushBack: 0
     type: 1
   speed: 22
-  attackRange: 5
+  attackRange: 4
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
