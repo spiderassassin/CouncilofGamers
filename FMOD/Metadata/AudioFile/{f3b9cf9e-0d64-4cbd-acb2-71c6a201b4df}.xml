@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f3b9cf9e-0d64-4cbd-acb2-71c6a201b4df}">
+		<property name="assetPath">
+			<value>music/paroledialogue.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>43.384625850340136</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{63ee91e4-8b13-406f-9ec6-7ab6eb08ef32}</destination>
+		</relationship>
+	</object>
+</objects>

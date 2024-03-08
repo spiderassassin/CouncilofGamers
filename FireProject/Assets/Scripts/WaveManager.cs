@@ -185,10 +185,10 @@ public class WaveManager : MonoBehaviour
                         break;
 
                 }
-                AudioClip clip = enemySpawn;
+                //AudioClip clip = enemySpawn;
                 if(waveChunk.enemies[i].enemyType == Wave.EnemyType.Tank)
                 {
-                    clip = TankSpawn;
+                    //clip = TankSpawn;
                 }
 
                 enemy1.SetActive(false);
@@ -198,7 +198,8 @@ public class WaveManager : MonoBehaviour
                 enemy1.SetActive(true);
                 if((waveChunk.enemies[i].spawndelay == 0 && i>0) == false)
                 {
-                    SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
+                    //SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
+                    SoundManager.Instance.PlayOneShot(FMODEvents.Instance.enemySpawn, spawnPoint.position);
                 }
 
                 

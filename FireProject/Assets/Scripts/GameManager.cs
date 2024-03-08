@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.Downtime1;
+        //gameStage = GameStage.TutorialWave;
     }
 
     void Update()
