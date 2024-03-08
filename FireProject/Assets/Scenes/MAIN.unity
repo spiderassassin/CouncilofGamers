@@ -28023,6 +28023,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3751368657875494216}
     m_Modifications:
     - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+      propertyPath: maximumTargets
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: activeDamage.type
       value: 2
       objectReference: {fileID: 0}
@@ -45901,7 +45905,7 @@ MonoBehaviour:
   tick: 0
   damageOnEnter: 0
   damagedClip: {fileID: 0}
-  hitOnce: 1
+  maximumTargets: 1
 --- !u!224 &1474664497185114144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46679,7 +46683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364346961889380291, guid: 734aa72d77ef15944917e43ccf2e0bc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5364346961889380291, guid: 734aa72d77ef15944917e43ccf2e0bc8, type: 3}
       propertyPath: m_LocalPosition.z

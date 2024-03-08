@@ -26,7 +26,7 @@ public class FireSource : MonoBehaviour
     public bool tick = true;
     public bool damageOnEnter = false;
     public AudioClip damagedClip;
-    public bool hitOnce = false;
+    public int maximumTargets = -1; // use -1 for infinite
 
     public float DamageMultiplier { get; set; }
 
@@ -103,49 +103,31 @@ public class FireSource : MonoBehaviour
         
     }
 
+    int SortColliderByDistance(Collider c1, Collider c2)
+    {
+        return Vector3.Distance(c1.transform.position, transform.position).CompareTo(Vector3.Distance(c2.transform.position, transform.position));
+    }
+
     protected virtual void DamageTick()
     {
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
         bool damaged = false;
-        if (hitOnce)
+
+        inRange.Sort(SortColliderByDistance);
+
+        int i = maximumTargets;
+        foreach (var c in inRange)
         {
-            Collider temptarget = null;
-            float distance = Mathf.Infinity;
-            foreach (var c in inRange)
+            if (maximumTargets!=-1 && i <= 0) break;
+            if (Random.Range(0f, 1f) <= activeDamageProbability)
             {
-                if (c != null)
-                {
-                    float temp = Vector3.Distance(transform.position, c.transform.position);
-                    if (temp < distance)
-                    {
-                        distance = temp;
-                        temptarget = c;
-
-                    }
-
-                }
-                
-
+                FireManager.manager.FireDamageOnCollider(source, c, d);
+                damaged = true;
             }
-            FireManager.manager.FireDamageOnCollider(source, temptarget, d);
-
-
-
-        }
-        else
-        {
-            foreach (var c in inRange)
-            {
-                if (Random.Range(0f, 1f) <= activeDamageProbability)
-                {
-                    FireManager.manager.FireDamageOnCollider(source, c, d);
-                    damaged = true;
-                }
-            }
+            --i;
         }
 
-        
         if (damaged)
         {
             SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
