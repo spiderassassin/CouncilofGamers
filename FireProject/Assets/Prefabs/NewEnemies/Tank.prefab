@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397010, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Controller
@@ -54,6 +54,10 @@ PrefabInstance:
     - target: {fileID: 1895627975973340820, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Radius
       value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340820, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Acceleration
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Height
@@ -198,7 +202,11 @@ MonoBehaviour:
   animator: {fileID: 6918558770028280669}
   body: {fileID: 8745785091267799906}
   deathSound: {fileID: 8300000, guid: 409c24aac91b1f14fadfa7ba3146e7aa, type: 3}
-  speed: 8
+  attackDamage:
+    damage: 15
+    pushBack: 0
+    type: 1
+  speed: 10
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:
     damage: 20

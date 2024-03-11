@@ -26,6 +26,7 @@ public abstract class Enemy : FlammableEntity
     public Animator animator;
     public Rigidbody body;
     public AudioClip deathSound;
+    public DamageInformation attackDamage;
 
     protected UnityEngine.AI.NavMeshAgent agent;
     public float speed = 5f;
@@ -127,7 +128,7 @@ public abstract class Enemy : FlammableEntity
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.ClearFire));
+                damageable.OnDamaged(this, attackDamage);
             }
         }
     }

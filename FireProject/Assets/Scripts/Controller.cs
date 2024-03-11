@@ -401,7 +401,7 @@ public class Controller : Entity
             invincibility = true;
             CombatUI.Instance.DamageOverlay();
             SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
-            health -= 10;
+            health -= dmg.damage;
 
             if (health <= 0)
             {
