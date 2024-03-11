@@ -348,6 +348,8 @@ MonoBehaviour:
   fire: 0
   stopfire: 0
   startwave: 0
+  dialogueManager: {fileID: 0}
+  dialogueTrigger: {fileID: 0}
 --- !u!4 &133673892
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,7 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d942c19e1ef7d449a08b4e005501a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introText:
+  mainText:
   - {fileID: 918489501}
   - {fileID: 1931490793}
   - {fileID: 663706057}

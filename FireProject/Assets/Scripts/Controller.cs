@@ -285,17 +285,21 @@ public class Controller : Entity
         if (canSnap())
         {
             isSnapping = true;
+            //Time.timeScale = 0.1f;
+            //Time.fixedDeltaTime = 0.1f * 0.02f;
             GetComponentInChildren<CameraBehavior>().Snap();
             SoundManager.Instance.MusicStop();
             SoundManager.Instance.PlaySoundOnce(slowmotion, transform);
             CombatUI.Instance.lerptogrey();
-            yield return new WaitForSeconds(1f);
+            
+            yield return new WaitForSeconds(0.5f);
+            
             armAnimator.SetTrigger("snap");
             
         }
         else
         {
-            armAnimator.SetTrigger("snap");// animator trigger; you snap even if it does nothing (for now)
+            //armAnimator.SetTrigger("snap");// animator trigger; you snap even if it does nothing (for now)
             yield return new WaitForSeconds(0f);
         }
     }
@@ -303,6 +307,8 @@ public class Controller : Entity
     {
         if (canSnap())
         {
+            //Time.timeScale = 1;
+            //Time.fixedDeltaTime = 0.02f;
             CombatUI.Instance.snap();
             SoundManager.Instance.PlaySoundOnce(snap, transform);
             // Indicate that a snap occurred in the game manager.
@@ -311,8 +317,9 @@ public class Controller : Entity
             
             FireManager.manager.StepFireLevel(this, snapDamage);
             CombatUI.Instance.lerptocolor();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             SoundManager.Instance.MusicPlay();
+            
             isSnapping = false;
 
 

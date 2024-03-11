@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManager : MonoBehaviour
 {
@@ -29,7 +30,9 @@ public class WaveManager : MonoBehaviour
     public int TotalLivingEnemies => livingEnemies.Count;
 
     public GameObject paroleGuardSprite;
-    public Dialogue preWave1Dialogue;
+    public Dialogue downtime1Dialogue;
+    public Dialogue downtime2Dialogue;
+    public Dialogue downtime3Dialogue;
 
     public AudioClip enemySpawn;
     public AudioClip TankSpawn;
@@ -53,10 +56,24 @@ public class WaveManager : MonoBehaviour
         livingEnemies = new List<Enemy>();
     }
 
-    private void startPreWave1Dialogue()
+    private void startDowntimeDialogue()
     {
         paroleGuardSprite.SetActive(true);
-        FindObjectOfType<DialogueManager>().StartDialogue(preWave1Dialogue);
+        // Start the downtime dialogue corresponding to the current GameStage.
+        Dialogue downtimeDialogue = null;
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtimeDialogue = downtime1Dialogue;
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtimeDialogue = downtime2Dialogue;
+                break;
+            case GameManager.GameStage.Downtime3:
+                downtimeDialogue = downtime3Dialogue;
+                break;
+        }
+        FindObjectOfType<DialogueManager>().StartDialogue(downtimeDialogue);
         //SoundManager.Instance.PlaySoundloop(paroleHello, paroleGuardSprite.transform);
     }
 
@@ -64,7 +81,23 @@ public class WaveManager : MonoBehaviour
     {
         if (InputManager.Instance.startwave)
         {
-            StartWave(wave1);
+            // Start the wave corresponding to the current GameStage.
+            switch (GameManager.Instance.gameStage)
+            {
+                case GameManager.GameStage.TutorialWave:
+                    // For now, start wave 1, but this should be changed when the tutorial is implemented.
+                    StartWave(wave1);
+                    break;
+                case GameManager.GameStage.Wave1:
+                    StartWave(wave1);
+                    break;
+                case GameManager.GameStage.Wave2:
+                    StartWave(wave2);
+                    break;
+                case GameManager.GameStage.Wave3:
+                    StartWave(wave3);
+                    break;
+            }
         }
 
         if ((wavemode == true) && (isSpawning == false) ) {
@@ -73,11 +106,13 @@ public class WaveManager : MonoBehaviour
                 wavemode = false;
                 print("Wave Over");
                 SoundManager.Instance.MusicStop();
-                
+
                 GameManager.Instance.gameStage++;
-                if (GameManager.Instance.gameStage == GameManager.GameStage.PreWave1 )
-                {
-                    startPreWave1Dialogue();
+                if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
+                    // Go to the ending scene. Make sure it is positioned after the current one in the build settings!
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                } else {
+                    startDowntimeDialogue();
                 }
                 //Debug.Log(GameManager.Instance.gameStage);
             }

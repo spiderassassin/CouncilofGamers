@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
 public class DialogueManager : MonoBehaviour
@@ -21,24 +22,26 @@ public class DialogueManager : MonoBehaviour
     private Queue<bool> playerSpeaking;
 
     private DialogueTrigger currentDialogueTrigger;
+    private bool advanceGameStageOnEnd;
     public AudioClip dialoguesound;
+
+    public string sentence;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
         playerSpeaking = new Queue<bool>();
-        
     }
 
-    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null)
+    public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
     {
         currentDialogueTrigger = dialogueTrigger;
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
         GameManager.Instance.dialogueState = true;
-        
+        advanceGameStageOnEnd = advanceGameStage;
 
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -51,21 +54,37 @@ public class DialogueManager : MonoBehaviour
         {
             playerSpeaking.Enqueue(speakingBool);
         }
-
+        Debug.Log("starting planning");
+        
         DisplayNextSentence();
 
 
 
     }
 
+    public IEnumerator ShowOneLetterAtATime(string sentence)
+    {
+        //dialogueText.text = sentence;
+        dialogueText.text = "";
+        for (int i = 0; i < sentence.Length; i++)
+        {
+            dialogueText.text += sentence[i];
+            yield return new WaitForSeconds(0.001f);
+        }
+
+        GameManager.Instance.nextSentenceReady = true;
+    }
+
     public void DisplayNextSentence()
     {
+        GameManager.Instance.nextSentenceReady = false;
         if (sentences.Count == 0)
         {
+            
             EndDialogue();
-            return;
+            return ;
         }
-        string sentence = sentences.Dequeue();
+        sentence = sentences.Dequeue();
         
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
@@ -78,12 +97,13 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                nameText.text = "Parole Officer";
+                nameText.text = "Parole Guard";
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
             }
         }
+
+        StartCoroutine(ShowOneLetterAtATime(sentence));
         
-        dialogueText.text = sentence;
     }
 
     public void EndDialogue()
@@ -91,7 +111,12 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         actionPromptsHUD.SetActive(false);
         GameManager.Instance.dialogueState = false;
-        
+        if (advanceGameStageOnEnd) {
+            // Set next game stage.
+            GameManager.Instance.gameStage++;
+            // Hide the parole guard sprite.
+            WaveManager.Instance.paroleGuardSprite.SetActive(false);
+        }
     }
 
     
