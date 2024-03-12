@@ -15,7 +15,7 @@ public class Wave
         public bool waitUntilPreviousDead = false;
     }
 
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntGoalWithTank };
+    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntGoalWithTank, Explosive };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<EnemyInstance> enemies;
 
