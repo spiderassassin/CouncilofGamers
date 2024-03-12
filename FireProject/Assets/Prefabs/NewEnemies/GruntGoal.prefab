@@ -150,8 +150,9 @@ MonoBehaviour:
     pushBack: 0
     type: 1
   speed: 16
-  attackRange: 3
-  followRange: 5
+  projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+  projectileAttackCooldown: 3
+  attackRange: 15
 --- !u!54 &37018340930786909 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
