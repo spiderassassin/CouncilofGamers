@@ -34,7 +34,7 @@ public class Tank: Enemy {
                 if(agent.enabled)agent.isStopped = false;
                 state = EnemyState.Moving;
                 // Set cooldown on long range attack.
-                waitingCooldown = new Task(5);
+                waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
             SetDestination(goal.position);
@@ -49,11 +49,13 @@ public class Tank: Enemy {
             // Stop moving and short range attack.
             SetDestination(transform.position);
             Attack();
+            // Wait for attack animation.
             waitingShortRange = new Task(1);
         } else if (state == EnemyState.LongRangeAttacking) {
             // Stop moving and long range attack.
             if(agent.enabled)agent.isStopped = true;
-            waitingLongRange = new Task(projectileAttackCooldown);
+            // Wait for attack animation.
+            waitingLongRange = new Task(3);
         }
 
         if(Vector3.Distance(transform.position,player.position)< 4f)
