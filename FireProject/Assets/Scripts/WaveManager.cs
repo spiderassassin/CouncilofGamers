@@ -18,6 +18,7 @@ public class WaveManager : MonoBehaviour
     public GruntGoal gruntgoal;
     public GruntGoal gruntStayWithTank;
     public Tank tank;
+    public Explosive explosive;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave wave1;
@@ -162,6 +163,9 @@ public class WaveManager : MonoBehaviour
                         break;
                     case Wave.EnemyType.GruntGoalWithTank:
                         e = gruntStayWithTank;
+                        break;
+                    case Wave.EnemyType.Explosive:
+                        e = explosive;
                         break;
 
                 }
