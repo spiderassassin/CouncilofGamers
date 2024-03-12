@@ -5,14 +5,19 @@ using UnityEngine;
 public class Projectile : MonoBehaviour, IAttacker
 {
     [SerializeField] private float speed = 10f;
-    private Vector3 dest;
+    public Vector3 dest;
+    public bool targetPlayer = true;
 
     public Vector3 Position => transform.position;
 
     // Start is called before the first frame update
     void Start()
     {
-        dest = Controller.Instance.transform.position;
+        if (targetPlayer) {
+            // Automatically set the destination to the player's position.
+            dest = Controller.Instance.transform.position;
+        }
+        // Otherwise assume dest has been set externally.
         StartCoroutine(Loop());
     }
     IEnumerator Loop()
@@ -20,7 +25,7 @@ public class Projectile : MonoBehaviour, IAttacker
         while( true)
         {
             yield return new WaitForSeconds(2f);
-            dest = Controller.Instance.transform.position;
+            if (targetPlayer) dest = Controller.Instance.transform.position;
         }
     }
 

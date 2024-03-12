@@ -1,54 +1,65 @@
 using UnityEngine;
 
+// Ranged only.
+// Always moves toward the goal.
+// If the player is within a certain range, and the goal is too far away, attacks the player.
+// Otherwise, attacks the goal.
 public class GruntGoal: Enemy {
-    private Task waiting;
+    [SerializeField] private GameObject projectile;
+    public int projectileAttackCooldown = 3;
+    private Task waitingLongRange;
+    private Task waitingCooldown;
     private Vector3 dest;
-    public float attackRange = 5;
-    public float followRange = 15;
+    private bool attackingGoal = false;
+    public float attackRange = 15;
 
 
     protected override void Start()
     {
         base.Start();
-
-
     }
 
     protected override void Update() {
         base.Update();
 
-        // Handle the waiting if it's currently being used.
-        if (waiting != null) {
-            if (!waiting.Running) {
+        // Handle the long range attack animation delay if it's currently being used.
+        if (waitingLongRange != null) {
+            if (!waitingLongRange.Running) {
                 // Reset task.
-                waiting = null;
-                // If player moves out of range, start moving again.
-                if (Vector3.Distance(transform.position, player.position) > attackRange) {
-                    state = EnemyState.Moving;
-                } else {
-                    // If we're still in range, attack again.
-                    state = EnemyState.Attacking;
+                waitingLongRange = null;
+                // Attack!
+                Vector3 origin = transform.position;
+                origin.y += 1;
+                // Instantiate the projectile with specific destination.
+                GameObject proj = Instantiate(projectile, origin, Quaternion.identity);
+                if (attackingGoal) {
+                    proj.GetComponent<Projectile>().dest = goal.position;
+                    proj.GetComponent<Projectile>().targetPlayer = false;
                 }
+                // Resume movement.
+                if (agent.enabled) agent.isStopped = false;
+                state = EnemyState.Moving;
+                // Set cooldown on attack.
+                waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
-            // If the player gets within a certain range, start moving towards them instead.
-            if (Vector3.Distance(transform.position, player.position) < followRange) {
-                dest = player.position;
-            } else {
-                dest = goal.position;
-            }
-            SetDestination(dest);
+            SetDestination(goal.position);
 
-            // Stop within 5 units of the destination and attack it.
-            if (Vector3.Distance(transform.position, dest) < attackRange) {
+            // Stop within attack range of the goal and attack it.
+            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
+                attackingGoal = true;
                 state = EnemyState.Attacking;
 
+            } else if (Vector3.Distance(transform.position, player.position) < attackRange) {
+                // If the player is within range, attack the player.
+                attackingGoal = false;
+                state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
-            SetDestination(transform.position);
-            Attack();
-            waiting = new Task(1);
+            if (agent.enabled) agent.isStopped = true;
+            // Wait for attack animation.
+            waitingLongRange = new Task(1);
         }
     }
 }
