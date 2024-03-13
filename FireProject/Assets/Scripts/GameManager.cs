@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private float enemiesOnFire = 0;
     private float playerHealthLoss;
 
+    public bool gamePaused;
+
     private void UpdateAdrenaline() // Adjustable as needed.
     {
         if (recentlySnapped)
