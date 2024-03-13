@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
     private InputAction snapAction;
     private InputAction fireballAction;
     private InputAction startDialogueAction;
+    private InputAction pauseAction;
 
     public float mouseX = 0;
     public float mouseY = 0;
@@ -48,6 +49,8 @@ public class InputManager : MonoBehaviour
 
     public GameObject dialogueManager;
     public GameObject dialogueTrigger;
+
+    public GameObject pauseMenu;
 
     private void Awake()
     {
@@ -93,6 +96,10 @@ public class InputManager : MonoBehaviour
         startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
         startDialogueAction.performed += StartDialogueAction_performed;
         startDialogueAction.canceled += StartDialogueAction_canceled;
+
+        pauseAction = playerInput.currentActionMap.FindAction("Pause");
+        pauseAction.performed += PauseAction_performed;
+        pauseAction.canceled += PauseAction_canceled;
 
 
     }
@@ -168,6 +175,8 @@ public class InputManager : MonoBehaviour
         mouseX = obj.ReadValue<Vector2>().x*mouseSensitivity.x;
         mouseY = obj.ReadValue<Vector2>().y*mouseSensitivity.y;
     }
+
+    
     private void JumpAction_performed(InputAction.CallbackContext obj)
     {
         if (LockPlayerGameplayInput && GameManager.Instance.dialogueState)
@@ -212,6 +221,29 @@ public class InputManager : MonoBehaviour
         if (LockPlayerGameplayInput) return;
     }
 
+    private void PauseAction_performed(InputAction.CallbackContext obj)
+    {
+        if (GameManager.Instance.gamePaused)
+        {
+            pauseMenu.SetActive(false);
+            GameManager.Instance.gamePaused = false;
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            //LockPlayerGameplayInput = false;
+            return;
+        }
+
+        pauseMenu.SetActive(true);
+        GameManager.Instance.gamePaused = true;
+        Time.timeScale = 0f;
+        //LockPlayerGameplayInput = true;
+        //Debug.Log("lock: " + LockPlayerGameplayInput);
+    }
+    private void PauseAction_canceled(InputAction.CallbackContext obj)
+    {
+        if (LockPlayerGameplayInput) return;
+    }
+
     void Start()
     {
          
@@ -221,7 +253,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         startwave = Input.GetKeyDown(KeyCode.M)&&!LockPlayerGameplayInput;
-        if (GameManager.Instance.dialogueState)
+        if (GameManager.Instance.dialogueState || GameManager.Instance.gamePaused)
         {
             LockPlayerGameplayInput = true;
         }

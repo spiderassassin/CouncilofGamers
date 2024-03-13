@@ -87,6 +87,12 @@ public class Controller : Entity
     void Update()
 
     {
+
+        if (GameManager.Instance.gamePaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            return;
+        }
         if(invincibility == true) {
             invincibilityDurationTimer += Time.deltaTime;
             if (invincibilityDurationTimer > invincibilityDuration)
