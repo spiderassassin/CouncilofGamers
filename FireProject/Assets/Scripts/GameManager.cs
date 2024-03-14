@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool snapped = false;
     public bool dialogueState;
     public bool nextSentenceReady;
-
+    // ADRENALINE VARIABLES
     public float adrenaline = 0;
     private float interpolant => Time.deltaTime * 1;
     
@@ -31,7 +31,13 @@ public class GameManager : MonoBehaviour
     private float enemiesOnFire = 0;
     private float playerHealthLoss;
 
+    // FUEL SYSTEM
+    public float fuel = 0;
+    public float flamethrowerCost = 0.001f;
+    public float fireballCost = 5;
+
     public bool gamePaused;
+
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {
@@ -73,6 +79,24 @@ public class GameManager : MonoBehaviour
             recentlySnapped = false;
         }
     }
+
+    public void UpdateFuel(bool isFiring, bool isFireball)
+    {
+        if (isFiring)
+        {
+            fuel -= flamethrowerCost*Time.deltaTime;
+            Debug.Log(fuel);
+
+        }
+        if (isFireball)
+        {
+            fuel -= fireballCost;
+            Debug.Log(fuel);
+        }
+        fuel = Mathf.Clamp(fuel, 0, 100);
+    }
+
+
     public float GetMaxAdrenaline() // Adjustable as needed
     {
         //return Mathf.Max(1, WaveManager.Instance.TotalLivingEnemies);
@@ -96,6 +120,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameStage = GameStage.Downtime1;
+        fuel = 100f;
     }
 
     void Update()

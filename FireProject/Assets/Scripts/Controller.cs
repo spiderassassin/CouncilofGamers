@@ -47,12 +47,14 @@ public class Controller : Entity
     public Fireball fireballPrefab;
     public Transform fireballOrigin;
     public float fireballCooldown = .5f;
+    public float punchCooldown = .2f;
     public float healthIncreaseRate = 1;
     bool dead = false;
     
     public Animator armAnimator;
 
     private float lastFireballTime;
+    private float lastPunchTime;
 
     public bool invincibility;
     float invincibilityDurationTimer = 0;
@@ -87,7 +89,6 @@ public class Controller : Entity
     void Update()
 
     {
-
         if (GameManager.Instance.gamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -184,7 +185,7 @@ public class Controller : Entity
                 //OnDamaged();
             }
 
-            if (InputManager.Instance.fireball)
+            if (InputManager.Instance.fireball && GameManager.Instance.fuel > 0)
             {
                 Fireball();
             }
@@ -194,21 +195,21 @@ public class Controller : Entity
                 Punch();
             }
 
-            if (InputManager.Instance.fire)
+            if (InputManager.Instance.fire && GameManager.Instance.fuel > 0)
             {
-
+                GameManager.Instance.UpdateFuel(isFiring, false); // decrease the fuel
                 if (isFiring == false)
                 {
                     armAnimator.SetBool("isFlamethrowing", true); // animator trigger
 
                     Fire(true);
                     isFiring = true;
-
+                    
                     fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
                 }
 
             }
-            if (InputManager.Instance.stopfire)
+            if (InputManager.Instance.stopfire || GameManager.Instance.fuel <= 0)
             {
                 armAnimator.SetBool("isFlamethrowing", false); // animator un-trigger
 
@@ -233,15 +234,18 @@ public class Controller : Entity
             simulateGravity();
         }
 
-
     }
 
     void Punch()
     {
+        if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) return;
+        lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         SoundManager.Instance.PlaySoundOnce(punch, transform);
         armAnimator.SetTrigger("punch");// animator trigger
+        GameManager.Instance.fuel += 10; // NOT FINAL
+        GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
         
 
         //punchSource.SetActive(false);
@@ -256,17 +260,20 @@ public class Controller : Entity
 
         firesource.SetActive(active);
         if (!active)
+        {
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-
+        }
         else
+        {
             coneFireSystem.Play(true);
+        }
     }
 
     void Fireball()
     {
         if (Time.timeSinceLevelLoad - lastFireballTime < fireballCooldown) return;
-
         lastFireballTime = Time.timeSinceLevelLoad;
+        GameManager.Instance.UpdateFuel(isFiring, true); // decrease the fuel
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
         g.gameObject.SetActive(false);
         armAnimator.SetTrigger("isThrow"); // animator trigger
