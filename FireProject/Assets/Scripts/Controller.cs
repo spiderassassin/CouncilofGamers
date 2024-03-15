@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
 public class Controller : Entity
 {
     public static Controller Instance;
@@ -38,9 +39,11 @@ public class Controller : Entity
     public AudioClip fireBall;
     public AudioClip slowmotion;
 
+    private EventInstance flame;
+    private EventInstance footsteps;
 
-    GameObject obj;
-    GameObject fireAudio;
+
+    
     public FireSource firesource;
     public ParticleSystem coneFireSystem;
     public FireSource punchSource;
@@ -60,6 +63,8 @@ public class Controller : Entity
     float invincibilityDurationTimer = 0;
     public float invincibilityDuration = 0.25f;
 
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -78,8 +83,9 @@ public class Controller : Entity
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //TEMP FIX CHANGE IT LATER
-        SoundManager.Instance.MusicPlay();
+        footsteps = SoundManager.Instance.CreateInstance(FMODEvents.Instance.footsteps);
+        flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+
     }
 
     private float GetDamageMultiplier(float adrenalinePercent)
@@ -123,7 +129,7 @@ public class Controller : Entity
                 if (isMoving == false)
                 {
                     isMoving = true;
-                    obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                    footsteps.start();
 
                 }
 
@@ -134,8 +140,8 @@ public class Controller : Entity
                     if (sprint == false)
                     {
                         sprint = true;
-                        SoundManager.Instance.StopSoundEffect(obj);
-                        obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
+                        //SoundManager.Instance.StopSoundEffect(obj);
+                        //obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
 
                         GetComponentInChildren<CameraBehavior>().Sprint();
                     }
@@ -147,8 +153,8 @@ public class Controller : Entity
                     {
 
                         sprint = false;
-                        SoundManager.Instance.StopSoundEffect(obj);
-                        obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
+                        //SoundManager.Instance.StopSoundEffect(obj);
+                        //obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
                         GetComponentInChildren<CameraBehavior>().Sprint();
                     }
 
@@ -160,7 +166,7 @@ public class Controller : Entity
                 if (isMoving == true)
                 {
                     isMoving = false;
-                    SoundManager.Instance.StopSoundEffect(obj);
+                    footsteps.stop(STOP_MODE.ALLOWFADEOUT);
 
                 }
 
@@ -206,7 +212,7 @@ public class Controller : Entity
                     Fire(true);
                     isFiring = true;
                     
-                    fireAudio = SoundManager.Instance.PlaySoundloop(fire, transform);
+                    
                 }
 
             }
@@ -218,7 +224,7 @@ public class Controller : Entity
                 isFiring = false;
 
 
-                SoundManager.Instance.StopSoundEffect(fireAudio);
+               
 
 
             }
@@ -264,11 +270,13 @@ public class Controller : Entity
         if (!active)
         {
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            flame.stop(STOP_MODE.ALLOWFADEOUT);
 
         }
         else
         {
             coneFireSystem.Play(true);
+            flame.start();
         }
     }
 
