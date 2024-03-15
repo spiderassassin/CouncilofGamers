@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{96004c40-4aa6-4ca9-a8eb-d98743164265}">
+		<property name="assetPath">
+			<value>sfx/slowmotionv2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{63ee91e4-8b13-406f-9ec6-7ab6eb08ef32}</destination>
+		</relationship>
+	</object>
+</objects>
