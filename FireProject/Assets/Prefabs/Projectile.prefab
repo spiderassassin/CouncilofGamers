@@ -116,7 +116,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 6001993289011212056}
   health: 1
-  speed: 22
+  speed: 15
   dest: {x: 0, y: 0, z: 0}
   targetPlayer: 1
   body: {fileID: -4350436504653605415}
