@@ -28,13 +28,18 @@ public class PassiveFireSource : FireSource
         }
     }
 
-    protected override void DamageTick()
+    protected override void DamageTick(float overrideProbability = -1)
     {
-        base.DamageTick();
+        base.DamageTick(overrideProbability);
 
         if (self != null)
         {
             self.Damageable.OnDamaged(source, selfDamage);
         }
+    }
+
+    public void Spread()
+    {
+        DamageTick(); // analogous to applying active damage
     }
 }

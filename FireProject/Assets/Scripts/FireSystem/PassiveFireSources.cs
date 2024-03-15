@@ -10,6 +10,9 @@ using UnityEngine;
 public class PassiveFireSources : MonoBehaviour
 {
     public FireSource passiveLevel1, passiveLevel2, passiveLevel3;
+    public Transform rescaleTransform;
+    public Vector3 unlitScale = Vector3.one;
+    public Vector3 litScale = Vector3.one;
 
     public DamageType CurrentState { get; private set; }
 
@@ -54,5 +57,33 @@ public class PassiveFireSources : MonoBehaviour
             passiveLevel3.SetActive(true);
         }
         CurrentState = type;
+    }
+
+    public void Rescale(float t)
+    {
+        rescaleTransform.localScale = Vector3.LerpUnclamped(unlitScale, litScale, t);
+    }
+
+    /// <summary>
+    /// Spreads the active fire.
+    /// </summary>
+    public void Spread()
+    {
+        DamageType type = CurrentState;
+
+        if (!Utilities.IsFireType(type)) return;
+
+        if (type == DamageType.FirePassive_Lvl1)
+        {
+            passiveLevel1.Damage(1);
+        }
+        else if (type == DamageType.FirePassive_Lvl2)
+        {
+            passiveLevel2.Damage(1);
+        }
+        else if (type == DamageType.FirePassive_Lvl3)
+        {
+            passiveLevel3.Damage(1);
+        }
     }
 }

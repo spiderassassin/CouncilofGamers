@@ -11,7 +11,12 @@ public abstract class FlammableEntity : Entity, IFlammable
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;
     public bool onFire = false;
+    public float fireCounterRequired = 3;
+    public float counterDecayTime = 2;
 
+    float decayCounterTimer;
+    float currentFireCounter = 0;
+    float lastIncrementTime;
     bool IFlammable.IsOnFire { get => onFire; }
     DamageType CurrentType => passiveFireSources.CurrentState;
     public Collider[] Colliders => colliders;
@@ -24,6 +29,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     }
     protected virtual void OnEnable()
     {
+        currentFireCounter = 0;
         ((IFlammable)this).SubscribeToManager();
     }
     protected virtual void OnDisable()
@@ -33,9 +39,23 @@ public abstract class FlammableEntity : Entity, IFlammable
 
     protected virtual void Update()
     {
+        if (PassiveFireSources.CurrentState== DamageType.ClearFire)
+        {
+            currentFireCounter = 0;
+        }
 
+        if (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl1 
+            && (Time.timeSinceLevelLoad-lastIncrementTime)>1f // forgiveness of one second before decrementing
+            && currentFireCounter > 0)
+        {
+            decayCounterTimer += Time.deltaTime;
+            if (decayCounterTimer > counterDecayTime)
+            {
+                SetFireCounter(currentFireCounter - 1);
+                decayCounterTimer = 0;
+            }
+        }
     }
-
 
     public void SetFire(DamageType type)
     {
@@ -62,10 +82,27 @@ public abstract class FlammableEntity : Entity, IFlammable
             dmg.type = DamageType.AdditiveDamage;
         }
 
-        if (attacker == null)
-            SetFire(dmg.type);
-        else if (!attacker.Equals(this))
-            SetFire(dmg.type);
+        // Level one is now the transitionary state between not being on fire and being on fire.
+        if (dmg.type == DamageType.FirePassive_Lvl1)
+        {
+            if (attacker == null)
+                SetFire(dmg.type);
+            else if (!attacker.Equals(this))
+                SetFire(dmg.type);
+
+            SetFireCounter(currentFireCounter+dmg.fireCounter);
+            lastIncrementTime = Time.timeSinceLevelLoad;
+
+            if (currentFireCounter >= fireCounterRequired&& PassiveFireSources.CurrentState < DamageType.FirePassive_Lvl2)
+            {
+                if (attacker == null)
+                    SetFire(DamageType.FirePassive_Lvl2);
+                else if (!attacker.Equals(this))
+                    SetFire(DamageType.FirePassive_Lvl2);
+
+                PassiveFireSources.Spread();
+            }
+        }
 
         if (text)
             text.text = string.Format("{0:F1}", Health);
@@ -73,9 +110,22 @@ public abstract class FlammableEntity : Entity, IFlammable
             print("Health is: " + Health.ToString());
     }
 
+    protected void SetFireCounter(float newValue)
+    {
+        currentFireCounter = Mathf.Clamp(newValue, 0, fireCounterRequired);
+
+        if (currentFireCounter == 0)
+        {
+            SetFire(DamageType.ClearFire);
+        }
+
+        float t = Mathf.InverseLerp(0, fireCounterRequired, currentFireCounter);
+        PassiveFireSources.Rescale(t);
+    }
+
     public void StepUpFire()
     {
-        DamageType next = Utilities.GetNextFireStep(CurrentType);
+        DamageType next = (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl2 ? DamageType.FirePassive_Lvl3 : DamageType.ClearFire);
         if (next == DamageType.ClearFire) return;
         SetFire(next);
     }

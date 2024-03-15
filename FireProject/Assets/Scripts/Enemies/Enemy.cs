@@ -86,7 +86,7 @@ public abstract class Enemy : FlammableEntity
 
         if (dmg.pushBack != 0)
         {
-            Vector3 knockbackDirection = (transform.position - Controller.Instance.transform.position);
+            Vector3 knockbackDirection = (transform.position - attacker.Position);
             knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
             if (pushback != null)
             {

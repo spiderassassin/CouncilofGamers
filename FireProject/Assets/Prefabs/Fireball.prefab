@@ -215,13 +215,14 @@ MonoBehaviour:
     damage: 30
     pushBack: 0.1
     type: 2
+    fireCounter: 1
   baseLifespan: Infinity
   tickRate: 0.25
   activeDamageProbability: 0.1
   tick: 0
   damageOnEnter: 1
   damagedClip: {fileID: 0}
-  hitOnce: 0
+  maximumTargets: -1
   body: {fileID: 4826436336809672534}
   speed: 30
   enable: {fileID: 366658955797396828}

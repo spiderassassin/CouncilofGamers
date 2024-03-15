@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4328296067596558655}
   - component: {fileID: -4350436504653605415}
   - component: {fileID: 4845806285084521394}
+  - component: {fileID: 3328436700861399423}
   m_Layer: 8
   m_Name: Projectile
   m_TagString: Untagged
@@ -112,7 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a28d58cc2aebd4cb2b7a5716767f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  colliders:
+  - {fileID: 6001993289011212056}
+  health: 1
+  speed: 22
+  dest: {x: 0, y: 0, z: 0}
+  targetPlayer: 1
+  body: {fileID: -4350436504653605415}
 --- !u!54 &-4350436504653605415
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,3 +149,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!75 &3328436700861399423
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997031753317357129}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: -5, y: 30, z: 2}
