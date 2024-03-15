@@ -243,7 +243,8 @@ public class Controller : Entity
         lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
-        SoundManager.Instance.PlaySoundOnce(punch, transform);
+        //SoundManager.Instance.PlaySoundOnce(punch, transform);
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         armAnimator.SetTrigger("punch");// animator trigger
         GameManager.Instance.fuel += 10; // NOT FINAL
         GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
@@ -263,6 +264,7 @@ public class Controller : Entity
         if (!active)
         {
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
         }
         else
         {
@@ -279,7 +281,8 @@ public class Controller : Entity
         g.Initialize(this, null);
         g.gameObject.SetActive(false);
         armAnimator.SetTrigger("isThrow"); // animator trigger
-        SoundManager.Instance.PlaySoundOnce(fireBall, transform);
+        //SoundManager.Instance.PlaySoundOnce(fireBall, transform);
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.fireball, transform.position);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
         g.Launch(fireballOrigin.forward);
@@ -303,8 +306,9 @@ public class Controller : Entity
             //Time.timeScale = 0.1f;
             //Time.fixedDeltaTime = 0.1f * 0.02f;
             GetComponentInChildren<CameraBehavior>().Snap();
-            SoundManager.Instance.MusicStop();
-            SoundManager.Instance.PlaySoundOnce(slowmotion, transform);
+            //SoundManager.Instance.MusicStop();
+            //SoundManager.Instance.PlaySoundOnce(slowmotion, transform);
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.slowmotion, transform.position);
             CombatUI.Instance.lerptogrey();
             
             yield return new WaitForSeconds(0.5f);
@@ -325,7 +329,8 @@ public class Controller : Entity
             //Time.timeScale = 1;
             //Time.fixedDeltaTime = 0.02f;
             CombatUI.Instance.snap();
-            SoundManager.Instance.PlaySoundOnce(snap, transform);
+            //SoundManager.Instance.PlaySoundOnce(snap, transform);
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.snap, transform.position);
             // Indicate that a snap occurred in the game manager.
             GameManager.Instance.snapped = true;
             
@@ -333,7 +338,7 @@ public class Controller : Entity
             FireManager.manager.StepFireLevel(this, snapDamage);
             CombatUI.Instance.lerptocolor();
             yield return new WaitForSeconds(1f);
-            SoundManager.Instance.MusicPlay();
+            //SoundManager.Instance.MusicPlay();
             
             isSnapping = false;
 
@@ -401,7 +406,7 @@ public class Controller : Entity
 
         Debug.Log("Game Over");
         yield return new WaitForSeconds(2);
-        SoundManager.Instance.MusicStop();
+        //SoundManager.Instance.MusicStop();
         Cursor.lockState = CursorLockMode.None;
         Destroy(CombatUI.Instance);
 
@@ -415,7 +420,8 @@ public class Controller : Entity
         {
             invincibility = true;
             CombatUI.Instance.DamageOverlay();
-            SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
+            //SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.playerDamage, transform.position);
             health -= dmg.damage;
 
             if (health <= 0)

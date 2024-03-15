@@ -3565,7 +3565,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204876918
 GameObject:
@@ -3976,7 +3976,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &206151886
 Mesh:
@@ -16710,7 +16710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636872326
 GameObject:
@@ -28949,7 +28949,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -30745,7 +30745,7 @@ Transform:
   - {fileID: 745321234}
   - {fileID: 1664109933}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364780134
 GameObject:
@@ -35424,7 +35424,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534851042
 GameObject:
@@ -36661,7 +36661,7 @@ Transform:
   - {fileID: 1999057783}
   - {fileID: 1367472776}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576164588
 GameObject:
@@ -36696,7 +36696,7 @@ Transform:
   - {fileID: 147919075}
   - {fileID: 700508467}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1578109618 stripped
 Transform:
@@ -38079,7 +38079,7 @@ Transform:
   - {fileID: 1555294754}
   - {fileID: 700390379}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660307661
 GameObject:
@@ -40693,7 +40693,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810495262
 GameObject:
@@ -40773,6 +40773,99 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &1825526966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825526968}
+  - component: {fileID: 1825526967}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1825526967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825526966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e641f599d3b74df494483ab17783ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punch:
+    Guid:
+      Data1: -1384355855
+      Data2: 1254344761
+      Data3: -1362233706
+      Data4: -257980313
+    Path: event:/Punch
+  fireball:
+    Guid:
+      Data1: 1506276195
+      Data2: 1235746767
+      Data3: -778260578
+      Data4: -377106021
+    Path: event:/Fireball
+  enemySpawn:
+    Guid:
+      Data1: 1455774553
+      Data2: 1271852406
+      Data3: -79975779
+      Data4: 1517643810
+    Path: event:/EnemySpawn
+  enemyDamage:
+    Guid:
+      Data1: -1670804552
+      Data2: 1250392693
+      Data3: -1353218684
+      Data4: 1326390463
+    Path: event:/EnemyDamage
+  playerDamage:
+    Guid:
+      Data1: 1399049037
+      Data2: 1146949980
+      Data3: 1402588070
+      Data4: -1714204701
+    Path: event:/PlayerDamage
+  snap:
+    Guid:
+      Data1: 715639366
+      Data2: 1262016697
+      Data3: -1950157906
+      Data4: 279213941
+    Path: event:/Snap
+  slowmotion:
+    Guid:
+      Data1: 1871578198
+      Data2: 1334692406
+      Data3: -418321767
+      Data4: 982259802
+    Path: event:/SlowMotion
+--- !u!4 &1825526968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825526966}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 795.3743, y: -644.6769, z: 170.4714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1839200989
 Mesh:
   m_ObjectHideFlags: 0
@@ -48216,14 +48309,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!81 &65598318473974830
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3647895813602803294}
-  m_Enabled: 1
 --- !u!64 &248797618891268832
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48864,9 +48949,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3751368657875494216}
   - component: {fileID: 6826831017468422568}
-  - component: {fileID: 65598318473974830}
   - component: {fileID: 2849156207920790277}
   - component: {fileID: 6826831017468422569}
+  - component: {fileID: 6826831017468422570}
   m_Layer: 1
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -49155,6 +49240,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &6826831017468422570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647895813602803294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 8771123490044458905}
 --- !u!82 &7063474021897978380
 AudioSource:
   m_ObjectHideFlags: 0
