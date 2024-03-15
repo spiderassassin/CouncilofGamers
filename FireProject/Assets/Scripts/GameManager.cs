@@ -85,13 +85,11 @@ public class GameManager : MonoBehaviour
         if (isFiring)
         {
             fuel -= flamethrowerCost*Time.deltaTime;
-            Debug.Log(fuel);
 
         }
         if (isFireball)
         {
             fuel -= fireballCost;
-            Debug.Log(fuel);
         }
         fuel = Mathf.Clamp(fuel, 0, 100);
     }

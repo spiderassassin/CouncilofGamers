@@ -72,7 +72,8 @@ public class Controller : Entity
             Destroy(gameObject);
         }
 
-
+        punchSource.Initialize(this, null);
+        firesource.Initialize(this, null);
     }
     private void Start()
     {
@@ -275,6 +276,7 @@ public class Controller : Entity
         lastFireballTime = Time.timeSinceLevelLoad;
         GameManager.Instance.UpdateFuel(isFiring, true); // decrease the fuel
         Fireball g = Instantiate(fireballPrefab.gameObject).GetComponent<Fireball>();
+        g.Initialize(this, null);
         g.gameObject.SetActive(false);
         armAnimator.SetTrigger("isThrow"); // animator trigger
         SoundManager.Instance.PlaySoundOnce(fireBall, transform);

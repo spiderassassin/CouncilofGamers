@@ -89,6 +89,9 @@ public class WaveManager : MonoBehaviour
                     // For now, start wave 1, but this should be changed when the tutorial is implemented.
                     StartWave(wave1);
                     break;
+                case GameManager.GameStage.Downtime1: // ? added to work
+                    StartWave(wave1);
+                    break;
                 case GameManager.GameStage.Wave1:
                     StartWave(wave1);
                     break;

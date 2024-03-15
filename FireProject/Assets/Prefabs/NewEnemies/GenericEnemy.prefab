@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4024264099096536702, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4024264099154266145, guid: af422b545f004f243bec32015693b411, type: 3}
       propertyPath: m_Name
       value: PassiveFireSources
@@ -511,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4189009074424477786, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6174015342280184843, guid: af422b545f004f243bec32015693b411, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -526,18 +534,6 @@ PrefabInstance:
     - target: {fileID: 6920114043749627242, guid: af422b545f004f243bec32015693b411, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178833057483234874, guid: af422b545f004f243bec32015693b411, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178833057483234874, guid: af422b545f004f243bec32015693b411, type: 3}
-      propertyPath: m_Color.g
-      value: 0.726841
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178833057483234874, guid: af422b545f004f243bec32015693b411, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8824820779127225008, guid: af422b545f004f243bec32015693b411, type: 3}
       propertyPath: m_Layer

@@ -75,9 +75,9 @@ public class FireSource : MonoBehaviour
         inRange.Remove(other);
     }
 
-    public void Damage()
+    public void Damage(float overrideProbability = -1)
     {
-        DamageTick();
+        DamageTick(overrideProbability);
     }
 
     private void Update()
@@ -108,11 +108,17 @@ public class FireSource : MonoBehaviour
         return Vector3.Distance(c1.transform.position, transform.position).CompareTo(Vector3.Distance(c2.transform.position, transform.position));
     }
 
-    protected virtual void DamageTick()
+    protected virtual void DamageTick(float overrideProbability = -1)
     {
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
         bool damaged = false;
+
+        // inefficient patch for null references
+        for(int a = inRange.Count-1; a >= 0; --a)
+        {
+            if (inRange[a] == null) inRange.RemoveAt(a);
+        }
 
         inRange.Sort(SortColliderByDistance);
 
@@ -120,7 +126,7 @@ public class FireSource : MonoBehaviour
         foreach (var c in inRange)
         {
             if (maximumTargets!=-1 && i <= 0) break;
-            if (Random.Range(0f, 1f) <= activeDamageProbability)
+            if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
                 damaged = true;
