@@ -91,6 +91,11 @@ public class WaveManager : MonoBehaviour
                     break;
                 case GameManager.GameStage.Downtime1: // ? added to work
                     StartWave(wave1);
+                    print("wave one");
+                    break;
+                case GameManager.GameStage.Downtime2: // ? added to work
+                    StartWave(wave2);
+                    print("wave 2");
                     break;
                 case GameManager.GameStage.Wave1:
                     StartWave(wave1);
@@ -133,25 +138,32 @@ public class WaveManager : MonoBehaviour
         
     }
 
-    IEnumerator Spawn(Wave waveChunk)
+    IEnumerator Spawn(Wave wave)
     {
         isSpawning = true;
 
-        for (int i = 0; i < waveChunk.enemies.Count; i++)
+        for (int i = 0; i < wave.chunks.Count; i++)
         {
-            float t = 0;
-            while( true)
+            if(wave.chunks[i].spawnDelay>0) yield return new WaitForSeconds(wave.chunks[i].spawnDelay);
+            float t = 0; // time in chunk
+            while (true)
             {
-                if (t >= waveChunk.enemies[i].spawndelay) break;
-                if (waveChunk.enemies[i].waitUntilPreviousDead && t > .1f && TotalLivingEnemies == 0) break;
-                    yield return new WaitForEndOfFrame();
+                if (wave.chunks[i].maxWait != -1 &&
+                    t >= wave.chunks[i].maxWait) break;
+
+                if (wave.chunks[i].waitUntilPreviousDead && 
+                    (t > .1f && TotalLivingEnemies == 0)) break;
+
+                if (!wave.chunks[i].waitUntilPreviousDead) break;
+
+                yield return new WaitForEndOfFrame();
                 t += Time.deltaTime;
             }
 
             Enemy e = null;
-            for(int j = 0; j < waveChunk.enemies[i].count; ++j)
+            for(int j = 0; j < wave.chunks[i].count; ++j)
             {
-                switch (waveChunk.enemies[i].enemyType)
+                switch (wave.chunks[i].enemyType)
                 {
                     case Wave.EnemyType.None:
                         break;
@@ -176,7 +188,7 @@ public class WaveManager : MonoBehaviour
                 livingEnemies.Add(enemy1.GetComponent<Enemy>());
 
                 Transform spawnPoint = null;
-                switch (waveChunk.enemies[i].spawnPoint)
+                switch (wave.chunks[i].spawnPoint)
                 {
                     case Wave.SpawnPoint.SpawnPoint1:
                         spawnPoint = spawnPoint1;
@@ -193,7 +205,7 @@ public class WaveManager : MonoBehaviour
 
                 }
                 //AudioClip clip = enemySpawn;
-                if(waveChunk.enemies[i].enemyType == Wave.EnemyType.Tank)
+                if(wave.chunks[i].enemyType == Wave.EnemyType.Tank)
                 {
                     //clip = TankSpawn;
                 }
@@ -203,7 +215,7 @@ public class WaveManager : MonoBehaviour
                 enemy1.GetComponent<Enemy>().player = playerTransform;
                 enemy1.GetComponent<Enemy>().goal = goalPoint;
                 enemy1.SetActive(true);
-                if((waveChunk.enemies[i].spawndelay == 0 && i>0) == false)
+                if((wave.chunks[i].maxWait == 0 && i>0) == false)
                 {
                     //SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
                     SoundManager.Instance.PlayOneShot(FMODEvents.Instance.enemySpawn, spawnPoint.position);
