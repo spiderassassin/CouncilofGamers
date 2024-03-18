@@ -38,6 +38,8 @@ public class FireSource : MonoBehaviour
     private List<Collider> inRange;
     private float timer;
 
+    public bool isPunch = false;
+
     public void Initialize(IAttacker a, IFlammable d)
     {
         source = a;
@@ -130,6 +132,10 @@ public class FireSource : MonoBehaviour
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
                 damaged = true;
+                if (isPunch)
+                {
+                    GameManager.Instance.UpdateFuel(false, false, true);
+                }
             }
             --i;
         }

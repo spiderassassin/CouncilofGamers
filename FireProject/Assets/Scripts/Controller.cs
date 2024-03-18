@@ -252,8 +252,8 @@ public class Controller : Entity
         //SoundManager.Instance.PlaySoundOnce(punch, transform);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         armAnimator.SetTrigger("punch");// animator trigger
-        GameManager.Instance.fuel += 10; // NOT FINAL
-        GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
+        //GameManager.Instance.fuel += 10; // NOT FINAL
+        //GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
         
 
         //punchSource.SetActive(false);
