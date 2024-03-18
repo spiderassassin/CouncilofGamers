@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.Downtime2;
+        gameStage = GameStage.Downtime1;
         fuel = GetMaxFuel();
     }
 
