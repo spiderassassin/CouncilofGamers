@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Base : Entity
 {
     // Start is called before the first frame update
+
+    public TextMeshProUGUI baseHealthText;
     void Start()
     {
         
@@ -13,6 +17,10 @@ public class Base : Entity
     // Update is called once per frame
     void Update()
     {
+        if (baseHealthText != null)
+        {
+            baseHealthText.text = "Base Health\n"+base.Health.ToString()+"%";
+        }
         
     }
 
