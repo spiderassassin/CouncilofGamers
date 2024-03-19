@@ -4431,10 +4431,12 @@ MonoBehaviour:
   dialogueState: 0
   nextSentenceReady: 0
   adrenaline: 0
+  intensity: 0
+  maxIntensity: 5
   gainAdrenalineThreshold: 0
-  enemiesOnFireFactor: 2
+  enemiesOnFireFactor: 10
   playerHealthFactor: 0.1
-  decayAdrenalineThreshold: 0
+  decayAdrenalineThreshold: 0.1
   decayAmount: 0.1
   fuel: 0
   flamethrowerCost: 4
@@ -29025,7 +29027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: activeDamage.fireCounter
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
@@ -45371,13 +45373,13 @@ MonoBehaviour:
       maxWait: -1
       spawnDelay: 0.5
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: -1
       spawnDelay: 3
       spawnPoint: 0
-      count: 2
+      count: 1
       waitUntilPreviousDead: 0
     - enemyType: 1
       maxWait: -1
@@ -45407,13 +45409,13 @@ MonoBehaviour:
       maxWait: 0
       spawnDelay: 0
       spawnPoint: 0
-      count: 5
+      count: 3
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: 15
       spawnDelay: 0
       spawnPoint: 0
-      count: 7
+      count: 5
       waitUntilPreviousDead: 1
     - enemyType: 0
       maxWait: 0
@@ -45431,19 +45433,19 @@ MonoBehaviour:
       maxWait: 0
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 0
     - enemyType: 2
       maxWait: 5
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: 5
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
   wave2:
     chunks:

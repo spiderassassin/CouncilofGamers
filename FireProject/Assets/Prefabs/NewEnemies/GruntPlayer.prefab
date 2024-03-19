@@ -96,6 +96,8 @@ MonoBehaviour:
   text: {fileID: 3313630595976187514}
   passiveFireSources: {fileID: 7173092607548225344}
   onFire: 0
+  fireCounterRequired: 3
+  counterDecayTime: 2
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
@@ -105,7 +107,8 @@ MonoBehaviour:
     damage: 15
     pushBack: 0
     type: 1
-  speed: 22
+    fireCounter: 0
+  speed: 12
   attackRange: 4
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
