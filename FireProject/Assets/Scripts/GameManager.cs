@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     private float maxHealth = 100;
 
-    private float intensity = 0; // amount of adrenaline gained per second
+    public float intensity = 0; // amount of adrenaline gained per second
+    public float maxIntensity;
     public float gainAdrenalineThreshold = 10; // the value intensity must be at before adrenaline increases (might wanna change?)
     public float enemiesOnFireFactor = 0.1f; // how much effect the number of enemies on fire has on intensity
     public float playerHealthFactor = 0.1f; // how much effect player health loss has on intensity
@@ -56,17 +57,18 @@ public class GameManager : MonoBehaviour
             enemiesOnFire = FireManager.manager.EntitiesOnFire;
             playerHealthLoss = maxHealth-Controller.Instance.Health; 
             intensity = Mathf.Pow(enemiesOnFire, 2)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
-            intensity = Mathf.Clamp(intensity, 0, 5); // max intensity of 5
+            intensity = Mathf.Clamp(intensity, 0, maxIntensity); // max intensity of 5
             intensity = intensity*Time.deltaTime;
 
             adrenaline = adrenaline + intensity;
-            if (intensity >= gainAdrenalineThreshold)
+            if (intensity <= decayAdrenalineThreshold)
+            {
+                adrenaline = adrenaline - adrenalineUnit * decayAmount;
+                
+            }
+            else
             {
                 adrenaline = adrenaline + intensity;
-            }
-            else if (intensity <= decayAdrenalineThreshold)
-            {
-                adrenaline = adrenaline - adrenalineUnit*decayAmount;
             }
             // if (enemy has died) {gain some adrenaline}
             //adrenaline = Mathf.Lerp(adrenaline, FireManager.manager.EntitiesOnFire + incThreshold, interpolant);
