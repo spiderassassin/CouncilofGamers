@@ -4631,7 +4631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &201394545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4665,6 +4665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Base: {fileID: 88471583}
+  Player: {fileID: 0}
 --- !u!114 &201394547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5499,6 +5500,7 @@ MonoBehaviour:
   fuel: 0
   flamethrowerCost: 0.001
   fireballCost: 5
+  punchRefuel: 10
   gamePaused: 0
 --- !u!4 &223697854 stripped
 Transform:
@@ -59750,6 +59752,7 @@ MonoBehaviour:
   damageOnEnter: 0
   damagedClip: {fileID: 0}
   maximumTargets: -1
+  isPunch: 0
 --- !u!224 &1474664497185114144
 RectTransform:
   m_ObjectHideFlags: 0
