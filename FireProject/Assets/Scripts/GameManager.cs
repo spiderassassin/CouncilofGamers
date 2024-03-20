@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public float fuel = 0;
     public float flamethrowerCost = 0.001f;
     public float fireballCost = 5;
+    public float FuelPercent => (float)fuel / GetMaxFuel();
+    public float punchRefuel = 10f;
 
     public bool gamePaused;
 
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateFuel(bool isFiring, bool isFireball)
+    public void UpdateFuel(bool isFiring, bool isFireball, bool isPunch = false)
     {
         if (isFiring)
         {
@@ -91,7 +93,17 @@ public class GameManager : MonoBehaviour
         {
             fuel -= fireballCost;
         }
-        fuel = Mathf.Clamp(fuel, 0, 100);
+        if (isPunch)
+        {
+            fuel += punchRefuel;
+        }
+        fuel = Mathf.Clamp(fuel, 0, GetMaxFuel());
+    }
+
+    public float GetMaxFuel() // Adjustable as needed
+    {
+        //return Mathf.Max(1, WaveManager.Instance.TotalLivingEnemies);
+        return 100f;
     }
 
 
@@ -118,7 +130,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameStage = GameStage.Downtime1;
-        fuel = 100f;
+        fuel = GetMaxFuel();
     }
 
     void Update()
