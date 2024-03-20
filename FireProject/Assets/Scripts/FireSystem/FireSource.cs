@@ -27,6 +27,8 @@ public class FireSource : MonoBehaviour
     public bool damageOnEnter = false;
     public AudioClip damagedClip;
     public int maximumTargets = -1; // use -1 for infinite
+    public bool requireVisibility = false;
+    public LayerMask visibilityCheckMask;
 
     public float DamageMultiplier { get; set; }
 
@@ -110,6 +112,7 @@ public class FireSource : MonoBehaviour
         return Vector3.Distance(c1.transform.position, transform.position).CompareTo(Vector3.Distance(c2.transform.position, transform.position));
     }
 
+    RaycastHit hit;
     protected virtual void DamageTick(float overrideProbability = -1)
     {
         DamageInformation d = activeDamage;
@@ -127,6 +130,18 @@ public class FireSource : MonoBehaviour
         int i = maximumTargets;
         foreach (var c in inRange)
         {
+            if (requireVisibility)
+            {
+                if (Physics.Raycast(transform.position, (c.bounds.center-transform.position).normalized, out hit, 100f,visibilityCheckMask, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.collider != c) continue;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
             if (maximumTargets!=-1 && i <= 0) break;
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {

@@ -67,7 +67,6 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-
         // Register inputs.
         moveAction = playerInput.currentActionMap.FindAction("Move");
         moveAction.canceled += MoveAction_canceled;
