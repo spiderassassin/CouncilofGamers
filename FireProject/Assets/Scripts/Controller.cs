@@ -453,8 +453,12 @@ public class Controller : Entity
         Cursor.lockState = CursorLockMode.None;
         Destroy(CombatUI.Instance);
 
-        SceneManager.LoadScene(0);
-
+        // Don't do anything if the game is in the ending stage.
+        if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
+            SceneManager.LoadScene(0);
+        } else {
+            ++GameManager.Instance.gameEndCompletion;
+        }
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)

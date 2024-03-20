@@ -33,6 +33,7 @@ public class WaveManager : MonoBehaviour
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
+    public Wave endingWave;
 
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
@@ -220,8 +221,11 @@ public class WaveManager : MonoBehaviour
 
                 GameManager.Instance.gameStage++;
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
-                    // Go to the ending scene. Make sure it is positioned after the current one in the build settings!
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    // Turn off the music.
+                    SoundManager.Instance.MusicStop();
+
+                    // Start the ending wave.
+                    StartWave(endingWave);
                 } else {
                     startDowntimeDialogue();
                 }
