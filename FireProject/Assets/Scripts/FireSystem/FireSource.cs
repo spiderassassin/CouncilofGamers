@@ -37,10 +37,14 @@ public class FireSource : MonoBehaviour
     /// </summary>
     public float LifeSpan { get; private set; }
 
-    private List<Collider> inRange;
+    public List<Collider> inRange;
     private float timer;
 
     public bool isPunch = false;
+
+    Collider col;
+    Collider[] colliders = new Collider[10];
+    RaycastHit hit;
 
     public void Initialize(IAttacker a, IFlammable d)
     {
@@ -48,12 +52,25 @@ public class FireSource : MonoBehaviour
         self = d;
     }
 
+    float max(Vector3 v)
+    {
+        return Mathf.Max(v.x, Mathf.Max(v.y, v.z));
+    }
+
     protected virtual void OnEnable()
     {
         inRange = new List<Collider>();
+        col = GetComponent<Collider>();
 
         timer = tickRate;
         LifeSpan = baseLifespan;
+
+        // patch to execution order causing bug
+        int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
+        for(int i = 0; i < c; ++i)
+        {
+            OnTriggerEnter(colliders[i]);
+        }
     }
     protected virtual void OnDisable()
     {
@@ -62,11 +79,14 @@ public class FireSource : MonoBehaviour
     }
     public void SetActive(bool active)
     {
-        gameObject.SetActive(active);
+        if(gameObject.activeInHierarchy!=active)
+            gameObject.SetActive(active);
     }
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (inRange.Contains(other)) return;
+
         inRange.Add(other);
         if (damageOnEnter)
         {
@@ -112,12 +132,19 @@ public class FireSource : MonoBehaviour
         return Vector3.Distance(c1.transform.position, transform.position).CompareTo(Vector3.Distance(c2.transform.position, transform.position));
     }
 
-    RaycastHit hit;
+    new void print(object o)
+    {
+        if (gameObject.name.Contains("2")) MonoBehaviour.print(o);
+    }
+
     protected virtual void DamageTick(float overrideProbability = -1)
     {
+
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
         bool damaged = false;
+
+        if (overrideProbability == 1) print(inRange.Count);
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
@@ -141,7 +168,6 @@ public class FireSource : MonoBehaviour
                     continue;
                 }
             }
-
             if (maximumTargets!=-1 && i <= 0) break;
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
