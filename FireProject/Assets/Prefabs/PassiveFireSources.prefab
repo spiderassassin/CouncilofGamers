@@ -345,6 +345,12 @@ MonoBehaviour:
   damageOnEnter: 0
   damagedClip: {fileID: 0}
   maximumTargets: -1
+  requireVisibility: 0
+  visibilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  inRange: []
+  isPunch: 0
   selfDamage:
     damage: 0
     pushBack: 0
@@ -399,8 +405,9 @@ MonoBehaviour:
   passiveLevel2: {fileID: 4663211707607296071}
   passiveLevel3: {fileID: 7647924662954760241}
   rescaleTransform: {fileID: 1382790177700937238}
-  unlitScale: {x: 1, y: 0.2, z: 1}
+  unlitScale: {x: 0.8, y: 0.2, z: 0.8}
   litScale: {x: 1, y: 1, z: 1}
+  overdriveAddition: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &4189009074424477786
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +534,12 @@ MonoBehaviour:
   damageOnEnter: 0
   damagedClip: {fileID: 0}
   maximumTargets: -1
+  requireVisibility: 0
+  visibilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  inRange: []
+  isPunch: 0
   selfDamage:
     damage: 5
     pushBack: 0.1
@@ -648,7 +661,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   activeDamage:
     damage: 0
-    pushBack: -5
+    pushBack: -1
     type: 2
     fireCounter: 1
   baseLifespan: 30
@@ -658,6 +671,12 @@ MonoBehaviour:
   damageOnEnter: 0
   damagedClip: {fileID: 0}
   maximumTargets: -1
+  requireVisibility: 0
+  visibilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  inRange: []
+  isPunch: 0
   selfDamage:
     damage: 1
     pushBack: 0

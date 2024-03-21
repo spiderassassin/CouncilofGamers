@@ -101,6 +101,7 @@ public abstract class FlammableEntity : Entity, IFlammable
                     SetFire(DamageType.FirePassive_Lvl2);
 
                 PassiveFireSources.Spread();
+                PassiveFireSources.SpreadScale(1f);
             }
         }
 

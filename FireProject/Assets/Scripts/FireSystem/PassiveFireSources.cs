@@ -13,8 +13,13 @@ public class PassiveFireSources : MonoBehaviour
     public Transform rescaleTransform;
     public Vector3 unlitScale = Vector3.one;
     public Vector3 litScale = Vector3.one;
+    public Vector3 overdriveAddition = Vector3.one;
 
     public DamageType CurrentState { get; private set; }
+
+    private float targetT;
+    private float currentT;
+    private float overdrive;
 
     public void Initialize(IAttacker attacker, IFlammable damagable)
     {
@@ -27,6 +32,16 @@ public class PassiveFireSources : MonoBehaviour
         passiveLevel1.SetActive(false);
         passiveLevel2.SetActive(false);
         passiveLevel3.SetActive(false);
+    }
+
+    private void Update()
+    {
+        currentT = Mathf.Lerp(currentT, targetT, Time.deltaTime * (targetT>currentT? 3f: 1f));
+        overdrive = Mathf.Lerp(overdrive, 0, Time.deltaTime * 1f);
+
+        Vector3 overdriveContribution = Vector3.Lerp(Vector3.zero, overdriveAddition, overdrive);
+
+        rescaleTransform.localScale = Vector3.LerpUnclamped(unlitScale, litScale, currentT) +overdriveContribution;
     }
 
     /// <summary>
@@ -61,7 +76,12 @@ public class PassiveFireSources : MonoBehaviour
 
     public void Rescale(float t)
     {
-        rescaleTransform.localScale = Vector3.LerpUnclamped(unlitScale, litScale, t);
+        targetT = t;
+    }
+    public void SpreadScale(float additionalT)
+    {
+        currentT += additionalT;
+        overdrive = 1;
     }
 
     /// <summary>
