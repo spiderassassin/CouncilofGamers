@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameStage { TutorialWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
+    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
     public GameStage gameStage;
+
+    public List<GameStage> tutorialGameStages;
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
     // Use this variable to notify the game manager that a successful snap occurred.
     public bool snapped = false;
@@ -131,8 +133,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.Downtime1;
+        gameStage = GameStage.TutorialIntro;
         fuel = GetMaxFuel();
+        tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }
 
     void Update()
