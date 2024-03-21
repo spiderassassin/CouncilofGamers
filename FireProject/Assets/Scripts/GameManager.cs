@@ -68,6 +68,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                if (adrenaline > 90f)
+                {
+                    Debug.Log("is decaying");
+                }
                 adrenaline = adrenaline + intensity;
             }
             // if (enemy has died) {gain some adrenaline}
