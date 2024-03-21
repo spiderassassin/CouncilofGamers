@@ -65,11 +65,13 @@ public class FireSource : MonoBehaviour
         timer = tickRate;
         LifeSpan = baseLifespan;
 
-        // patch to execution order causing bug
-        int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
-        for(int i = 0; i < c; ++i)
-        {
-            OnTriggerEnter(colliders[i]);
+        if (!isPunch) {
+            // patch to execution order causing bug
+            int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
+            for(int i = 0; i < c; ++i)
+            {
+                OnTriggerEnter(colliders[i]);
+            }
         }
     }
     protected virtual void OnDisable()
