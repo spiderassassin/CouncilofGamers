@@ -48559,7 +48559,12 @@ MonoBehaviour:
   tick: 0
   damageOnEnter: 0
   damagedClip: {fileID: 0}
-  maximumTargets: 1
+  maximumTargets: -1
+  requireVisibility: 0
+  visibilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  inRange: []
   isPunch: 1
 --- !u!224 &1474664497185114144
 RectTransform:

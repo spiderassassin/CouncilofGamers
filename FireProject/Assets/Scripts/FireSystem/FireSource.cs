@@ -69,7 +69,7 @@ public class FireSource : MonoBehaviour
         int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
         for(int i = 0; i < c; ++i)
         {
-            OnTriggerEnter(colliders[i]);
+            //OnTriggerEnter(colliders[i]);
         }
     }
     protected virtual void OnDisable()

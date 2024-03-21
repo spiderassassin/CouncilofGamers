@@ -68,6 +68,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                if (adrenaline > 90)
+                {
+                    Debug.Log("is decaying");
+                }
                 adrenaline = adrenaline + intensity;
             }
             // if (enemy has died) {gain some adrenaline}
@@ -131,7 +135,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.Downtime1;
+        gameStage = GameStage.Wave1;
         fuel = GetMaxFuel();
     }
 
