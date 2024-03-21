@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class WaveManager : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class WaveManager : MonoBehaviour
     public Explosive explosive;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
+    public Wave tutorialFireballWave;
+    public Wave tutorialPunchWave;
+
+
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
@@ -31,6 +37,35 @@ public class WaveManager : MonoBehaviour
     public int TotalLivingEnemies => livingEnemies.Count;
 
     public GameObject paroleGuardSprite;
+    public GameObject baseUI;
+
+
+    //public GameObject tutorialManager;
+
+    public Dialogue tutorialIntroDialogue;
+    public Dialogue tutorialPlayerSeesExitDialogue;
+    public Dialogue tutorialTeachFireballDialogue;
+    public Dialogue tutorialTeachPunchDialogue;
+    public Dialogue tutorialPunchSkullsDialogue;
+    public Dialogue tutorialGPWaveDialogue;
+    public Dialogue tutorialGGWaveDialogue;
+    public Dialogue tutorialEndDialogue;
+
+    public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, PunchSkulls, GPWave, GGWave, End };
+    public TutorialStage tutorialStage;
+
+    public bool tutorialExitSeen; //make this into trigger?
+    public bool tutorialExitDialogueGiven;
+    public bool tutorialFireballExplained;
+    public bool tutorialFireballEnemyReleasedStart;  //becuase this is on a timer, can have a start and end
+    public bool tutorialFireballEnemyReleasedEnd;
+    public bool tutorialFireballKill;
+    public bool tutorialPunchExplained;
+
+    public bool tutorialIntroDialogueSeen;
+
+    
+
     public Dialogue downtime1Dialogue;
     public Dialogue downtime2Dialogue;
     public Dialogue downtime3Dialogue;
@@ -45,6 +80,7 @@ public class WaveManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("Game stage on awake: " + GameManager.Instance.gameStage);
         }
         else
         {
@@ -78,17 +114,54 @@ public class WaveManager : MonoBehaviour
         //SoundManager.Instance.PlaySoundloop(paroleHello, paroleGuardSprite.transform);
     }
 
+    private void startTutorialDialogue()
+    {
+        Dialogue tutorialDialogue = null;
+        switch (tutorialStage)
+        {
+            case TutorialStage.IntroDialogue:
+                tutorialDialogue = tutorialIntroDialogue;
+                break;
+            case TutorialStage.PlayerSeesExit:
+                tutorialDialogue = tutorialPlayerSeesExitDialogue;
+                break;
+            case TutorialStage.TeachFireball:
+                tutorialDialogue = tutorialTeachFireballDialogue;
+                break;
+            case TutorialStage.TeachPunch:
+                tutorialDialogue = tutorialTeachPunchDialogue;
+                break;
+            case TutorialStage.PunchSkulls:
+
+                break;
+            case TutorialStage.GPWave:
+                break;
+            case TutorialStage.GGWave:
+                break;
+            case TutorialStage.End:
+                break;
+            default:
+                break;
+
+        }
+
+        FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
+    }
+
+
     private void Update()
     {
+
+        if (GameManager.Instance.tutorialGameStages.Contains(GameManager.Instance.gameStage))
+        {
+            Tutorial();
+            
+        }
         if (InputManager.Instance.startwave)
         {
             // Start the wave corresponding to the current GameStage.
             switch (GameManager.Instance.gameStage)
             {
-                case GameManager.GameStage.TutorialWave:
-                    // For now, start wave 1, but this should be changed when the tutorial is implemented.
-                    StartWave(wave1);
-                    break;
                 case GameManager.GameStage.Downtime1: // ? added to work
                     StartWave(wave1);
                     print("wave one");
@@ -140,6 +213,7 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator Spawn(Wave wave)
     {
+        Debug.Log("spawning");
         isSpawning = true;
 
         for (int i = 0; i < wave.chunks.Count; i++)
@@ -228,6 +302,83 @@ public class WaveManager : MonoBehaviour
 
         }
         isSpawning = false;
+        if (!tutorialFireballEnemyReleasedEnd)
+        {
+            tutorialFireballEnemyReleasedEnd = true;
+        }
+    }
+
+    private IEnumerator WaitAndSpawnWave(float num_seconds, Wave wave)
+    {
+        yield return new WaitForSeconds(num_seconds);
+        StartCoroutine(Spawn(wave));
+
+    }
+
+
+    public void Tutorial()
+    {
+        Debug.Log("on update, stage = " + tutorialStage.ToString());
+        
+        switch (tutorialStage)
+        {
+            
+            case TutorialStage.IntroDialogue:
+               if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
+                {
+                    startTutorialDialogue();
+                    tutorialIntroDialogueSeen = true;
+                }
+                if (tutorialExitSeen)
+                {
+                    baseUI.SetActive(true);
+                    tutorialStage = TutorialStage.PlayerSeesExit;
+                }
+                break;
+            case TutorialStage.PlayerSeesExit:
+                if (!tutorialExitDialogueGiven)
+                {
+                    startTutorialDialogue();
+                    tutorialExitDialogueGiven = true;
+                }
+                break;
+            case TutorialStage.TeachFireball:
+                if (!tutorialFireballExplained)
+                {
+                    startTutorialDialogue();
+                    tutorialFireballExplained = true;
+                }
+                else if (!tutorialFireballEnemyReleasedStart)
+                {
+                    //release enemy
+                   StartCoroutine(WaitAndSpawnWave(5.0f, tutorialFireballWave));
+                   tutorialFireballEnemyReleasedStart = true;
+                }
+                else if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count == 0)
+                {
+                    tutorialFireballKill = true;
+                    tutorialStage = TutorialStage.TeachPunch;
+                }
+                break;
+            case TutorialStage.TeachPunch:
+                if (!tutorialPunchExplained)
+                {
+                    startTutorialDialogue();
+                    tutorialPunchExplained = true;
+                }
+                break;
+            case TutorialStage.PunchSkulls:
+                break;
+            case TutorialStage.GPWave:
+                break;
+            case TutorialStage.GGWave:
+                break;
+            case TutorialStage.End:
+                break;
+            default:
+                break;
+
+        }
     }
 }
 
