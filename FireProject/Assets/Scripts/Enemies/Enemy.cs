@@ -44,7 +44,6 @@ public abstract class Enemy : FlammableEntity
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
-        agent.stoppingDistance = 5;
 
         mainCamera = Camera.main;
     }
