@@ -5544,14 +5544,14 @@ MonoBehaviour:
   nextSentenceReady: 0
   adrenaline: 0
   intensity: 0
-  maxIntensity: 0
+  maxIntensity: 5
   gainAdrenalineThreshold: 0
-  enemiesOnFireFactor: 2
+  enemiesOnFireFactor: 10
   playerHealthFactor: 0.1
-  decayAdrenalineThreshold: 0
+  decayAdrenalineThreshold: 0.1
   decayAmount: 0.1
   fuel: 0
-  flamethrowerCost: 0.001
+  flamethrowerCost: 4
   fireballCost: 5
   punchRefuel: 10
   gamePaused: 0
@@ -55748,19 +55748,19 @@ MonoBehaviour:
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
-      count: 10
+      count: 1
       waitUntilPreviousDead: 0
     - enemyType: 2
       maxWait: -1
       spawnDelay: 0.5
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: -1
       spawnDelay: 3
       spawnPoint: 0
-      count: 2
+      count: 1
       waitUntilPreviousDead: 0
     - enemyType: 1
       maxWait: -1
@@ -55790,13 +55790,13 @@ MonoBehaviour:
       maxWait: 0
       spawnDelay: 0
       spawnPoint: 0
-      count: 5
+      count: 3
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: 15
       spawnDelay: 0
       spawnPoint: 0
-      count: 7
+      count: 5
       waitUntilPreviousDead: 1
     - enemyType: 0
       maxWait: 0
@@ -55814,19 +55814,19 @@ MonoBehaviour:
       maxWait: 0
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 0
     - enemyType: 2
       maxWait: 5
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
     - enemyType: 2
       maxWait: 5
       spawnDelay: 0
       spawnPoint: 0
-      count: 3
+      count: 2
       waitUntilPreviousDead: 1
   wave2:
     chunks:
@@ -59771,6 +59771,7 @@ MonoBehaviour:
   visibilityCheckMask:
     serializedVersion: 2
     m_Bits: 0
+  inRange: []
   isPunch: 0
 --- !u!224 &1474664497185114144
 RectTransform:
