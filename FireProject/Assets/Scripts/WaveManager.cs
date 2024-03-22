@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
     public Transform playerTransform;
     public GruntPlayer gruntPlayer;
     public GruntGoal gruntgoal;
-    public GruntGoal gruntStayWithTank;
+    public GruntPlayer gruntStayWithTank;
     public Tank tank;
     public Explosive explosive;
 
@@ -205,6 +205,10 @@ public class WaveManager : MonoBehaviour
                     StartWave(wave2);
                     print("wave 2");
                     break;
+                case GameManager.GameStage.Downtime3: // ? added to work
+                    StartWave(wave3);
+                    print("wave 3");
+                    break;
                 case GameManager.GameStage.Wave1:
                     StartWave(wave1);
                     break;
@@ -288,7 +292,7 @@ public class WaveManager : MonoBehaviour
                     case Wave.EnemyType.Tank:
                         e = tank;
                         break;
-                    case Wave.EnemyType.GruntGoalWithTank:
+                    case Wave.EnemyType.GruntPlayerWithTank:
                         e = gruntStayWithTank;
                         break;
                     case Wave.EnemyType.Explosive:
@@ -367,7 +371,7 @@ public class WaveManager : MonoBehaviour
     public void Tutorial()
     {
 
-        Debug.Log("on update, stage = " + tutorialStage.ToString());
+        // Debug.Log("on update, stage = " + tutorialStage.ToString());
 
         if (SnapPromptHidden)
         {

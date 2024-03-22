@@ -202,7 +202,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70196
+  m_Name: pb_Mesh32302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -366,7 +366,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68998
+  m_Name: pb_Mesh31064
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -3635,7 +3635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147919074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 90.9, y: 0, z: 61.5}
+  m_LocalPosition: {x: 79.8, y: 0, z: 120.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4373,7 +4373,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45480
+  m_Name: pb_Mesh29372
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5233,7 +5233,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69470
+  m_Name: pb_Mesh31550
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5397,7 +5397,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70148
+  m_Name: pb_Mesh32254
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5600,6 +5600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -5634,7 +5635,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69620
+  m_Name: pb_Mesh31704
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8312,7 +8313,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70006
+  m_Name: pb_Mesh32102
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9597,7 +9598,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69168
+  m_Name: pb_Mesh31244
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10331,7 +10332,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69844
+  m_Name: pb_Mesh31932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11158,7 +11159,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70518
+  m_Name: pb_Mesh32626
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -11379,7 +11380,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70656
+  m_Name: pb_Mesh32764
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11965,7 +11966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515339495
 GameObject:
@@ -20217,7 +20218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &636872328
 MeshCollider:
@@ -22129,7 +22130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &700390380
 MeshCollider:
@@ -22657,7 +22658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700508466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -105, y: 0, z: 3.41}
+  m_LocalPosition: {x: -105, y: 0, z: 128.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22671,7 +22672,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68772
+  m_Name: pb_Mesh30838
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22829,6 +22830,103 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &720955086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720955087}
+  - component: {fileID: 720955090}
+  - component: {fileID: 720955089}
+  - component: {fileID: 720955088}
+  m_Layer: 0
+  m_Name: hehehe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &720955087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -411.94244, y: 747.8096, z: -31.645966}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1605373328}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &720955088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &720955089
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &720955090
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &722077464
 GameObject:
   m_ObjectHideFlags: 0
@@ -28079,7 +28177,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69390
+  m_Name: pb_Mesh31470
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28435,7 +28533,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &944885459
 MeshCollider:
@@ -29466,7 +29564,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69502
+  m_Name: pb_Mesh31582
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29992,7 +30090,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69154
+  m_Name: pb_Mesh31230
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30156,7 +30254,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69140
+  m_Name: pb_Mesh31216
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30324,7 +30422,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
   m_PrefabInstance: {fileID: 1247728066}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695216028}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bc39dc59dd58834fbeb2e8373282d67, type: 3}
@@ -32231,7 +32329,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68808
+  m_Name: pb_Mesh30874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33714,7 +33812,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70468
+  m_Name: pb_Mesh32576
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35224,7 +35322,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68916
+  m_Name: pb_Mesh30982
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36551,33 +36649,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3751368657875494216}
     m_Modifications:
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: hitProjectiles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.pushBack
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.fireCounter
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36622,18 +36696,6 @@ PrefabInstance:
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_Name
       value: ConeFireVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_Layer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718736401944137689, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
@@ -36820,7 +36882,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70418
+  m_Name: pb_Mesh32526
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37276,7 +37338,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69446
+  m_Name: pb_Mesh31526
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42800,7 +42862,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &1464624881
 MeshCollider:
@@ -43876,7 +43938,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27538
+  m_Name: pb_Mesh30852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45041,7 +45103,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69590
+  m_Name: pb_Mesh31674
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45683,7 +45745,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1555294755
 MeshCollider:
@@ -46459,7 +46521,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69734
+  m_Name: pb_Mesh31822
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48034,7 +48096,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36252
+  m_Name: pb_Mesh32336
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48312,6 +48374,7 @@ Transform:
   - {fileID: 746683538}
   - {fileID: 1144987164}
   - {fileID: 1048840410}
+  - {fileID: 720955087}
   - {fileID: 636872327}
   - {fileID: 512009183}
   - {fileID: 1555294754}
@@ -49226,73 +49289,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4956255927207046, guid: c04be9f92ebf58b46b2204ac3aaa8785, type: 3}
   m_PrefabInstance: {fileID: 1668206047}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1695216028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-  m_PrefabInstance: {fileID: 1247728066}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1695216032
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695216028}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.73520577, b: 0.6264151, a: 1}
-  m_Intensity: 5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &1705153577
 GameObject:
   m_ObjectHideFlags: 0
@@ -50191,7 +50187,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70296
+  m_Name: pb_Mesh32408
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51635,7 +51631,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70050
+  m_Name: pb_Mesh32148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52108,13 +52104,20 @@ MonoBehaviour:
       Data3: 1855518119
       Data4: -1213712326
     Path: event:/FlameThrower
-  footsteps:
+  walk:
     Guid:
-      Data1: 167368601
-      Data2: 1292286559
-      Data3: 251342752
-      Data4: -1159995372
-    Path: event:/walk
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  run:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &1825526968
 Transform:
   m_ObjectHideFlags: 0
@@ -52193,7 +52196,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70872
+  m_Name: pb_Mesh32988
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53090,7 +53093,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!64 &1868046708
 MeshCollider:
@@ -54237,7 +54240,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68758
+  m_Name: pb_Mesh30824
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54763,7 +54766,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69720
+  m_Name: pb_Mesh31808
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54927,7 +54930,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70748
+  m_Name: pb_Mesh32864
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56684,7 +56687,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70818
+  m_Name: pb_Mesh32934
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57779,13 +57782,14 @@ MonoBehaviour:
   playerTransform: {fileID: 8913934894348048307}
   gruntPlayer: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
   gruntgoal: {fileID: 8585091701780571999, guid: 1b7d89867921fca4eb74f311b4dd08d6, type: 3}
-  gruntStayWithTank: {fileID: 2837535890813382126, guid: 9d412c4803130784e8d7ac24f98388de, type: 3}
+  gruntStayWithTank: {fileID: 2280141811665783939, guid: 7ece2692c691e994daea06709217c0d5, type: 3}
   tank: {fileID: 7232616195353922584, guid: ef883b31c8a5e5e47a92eeacf42822f5, type: 3}
   explosive: {fileID: 4724302519650232320, guid: 4719033e36ebaf949b33c1118d4989c3, type: 3}
   wavemode: 0
   tutorialFireballWave:
     chunks:
-    - enemyType: 2
+    - note: 
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
@@ -57793,7 +57797,8 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
   tutorialPunchWave:
     chunks:
-    - enemyType: 2
+    - note: 
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
@@ -57801,13 +57806,15 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
   tutorialGruntPlayerWave:
     chunks:
-    - enemyType: 2
+    - note: 
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 2
+    - note: 
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
@@ -57815,13 +57822,15 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
   tutorialGruntGoalWave:
     chunks:
-    - enemyType: 1
+    - note: 
+      enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 1
+    - note: 
+      enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
@@ -57829,169 +57838,308 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
   wave1:
     chunks:
-    - enemyType: 2
+    - note: 1 gp
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 2
+    - note: 3 gp after previous
+      enemyType: 2
       maxWait: -1
-      spawnDelay: 0.5
+      spawnDelay: 0
       spawnPoint: 0
       count: 3
       waitUntilPreviousDead: 1
-    - enemyType: 2
+    - note: 1 gg after previous
+      enemyType: 1
       maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 2
-      waitUntilPreviousDead: 0
-    - enemyType: 1
-      maxWait: -1
-      spawnDelay: 1
+      spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 1
-    - enemyType: 1
+    - note: 2 gg after previous
+      enemyType: 1
       maxWait: -1
-      spawnDelay: 3
+      spawnDelay: 0
       spawnPoint: 0
       count: 2
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      maxWait: 0
-      spawnDelay: 3
+      waitUntilPreviousDead: 1
+    - note: 3 gp after 5s
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 5
       spawnPoint: 0
       count: 3
       waitUntilPreviousDead: 0
-    - enemyType: 0
-      maxWait: 0
-      spawnDelay: 5
+    - note: 3 gg after previous
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 0
       spawnPoint: 0
-      count: 0
+      count: 3
       waitUntilPreviousDead: 1
-    - enemyType: 1
-      maxWait: 0
+    - note: 5 gp after previous
+      enemyType: 2
+      maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 5
       waitUntilPreviousDead: 1
-    - enemyType: 2
-      maxWait: 15
+    - note: 1 gp from point 2 after previous
+      enemyType: 2
+      maxWait: -1
       spawnDelay: 0
-      spawnPoint: 0
-      count: 7
+      spawnPoint: 1
+      count: 1
       waitUntilPreviousDead: 1
-    - enemyType: 0
-      maxWait: 0
-      spawnDelay: 5
-      spawnPoint: 0
-      count: 0
-      waitUntilPreviousDead: 1
-    - enemyType: 3
-      maxWait: 0
+    - note: 1 tank
+      enemyType: 3
+      maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      maxWait: 0
-      spawnDelay: 0
-      spawnPoint: 0
-      count: 3
-      waitUntilPreviousDead: 0
-    - enemyType: 2
-      maxWait: 5
-      spawnDelay: 0
-      spawnPoint: 0
-      count: 3
       waitUntilPreviousDead: 1
-    - enemyType: 2
-      maxWait: 5
-      spawnDelay: 0
+    - note: 5 gpt
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 10
       spawnPoint: 0
-      count: 3
-      waitUntilPreviousDead: 1
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 2 gp
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 15
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
   wave2:
     chunks:
-    - enemyType: 5
+    - note: 1 e from point 1
+      enemyType: 5
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 5
+    - note: 3 gp from point 2
+      enemyType: 2
       maxWait: -1
       spawnDelay: 0
-      spawnPoint: 0
-      count: 1
+      spawnPoint: 1
+      count: 3
       waitUntilPreviousDead: 1
-    - enemyType: 2
+    - note: 3 gg from point 1
+      enemyType: 1
       maxWait: -1
       spawnDelay: 1
       spawnPoint: 0
       count: 3
-      waitUntilPreviousDead: 0
-    - enemyType: 1
-      maxWait: -1
-      spawnDelay: 1
-      spawnPoint: 0
-      count: 10
       waitUntilPreviousDead: 1
-    - enemyType: 5
+    - note: 1 e from point 2
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 4 gp from point 2
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 1
+      count: 4
+      waitUntilPreviousDead: 0
+    - note: 5 gp from point 1
+      enemyType: 2
       maxWait: -1
       spawnDelay: 1
       spawnPoint: 0
-      count: 1
+      count: 5
       waitUntilPreviousDead: 0
-    - enemyType: 5
+    - note: 3 gg from point 2
+      enemyType: 1
       maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 1
-      waitUntilPreviousDead: 0
-    - enemyType: 5
+      spawnDelay: 1
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 2 e from point 3
+      enemyType: 5
       maxWait: -1
       spawnDelay: 5
-      spawnPoint: 0
-      count: 1
+      spawnPoint: 2
+      count: 3
       waitUntilPreviousDead: 0
-    - enemyType: 2
+    - note: 1 tank from point 3
+      enemyType: 3
       maxWait: -1
       spawnDelay: 0
-      spawnPoint: 0
+      spawnPoint: 2
       count: 1
+      waitUntilPreviousDead: 1
+    - note: 5 gpt from point 3
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
       waitUntilPreviousDead: 0
-    - enemyType: 5
+    - note: 3 gpt from point 2
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 2 gpt from point 1
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 2 gg from point 3
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 2
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 1e p3
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 3e p2
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3e p1
+      enemyType: 5
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 3
-      waitUntilPreviousDead: 1
-    - enemyType: 3
-      maxWait: -1
-      spawnDelay: 0
-      spawnPoint: 0
-      count: 1
       waitUntilPreviousDead: 0
-    - enemyType: 5
-      maxWait: -1
-      spawnDelay: 0
-      spawnPoint: 0
-      count: 10
-      waitUntilPreviousDead: 1
   wave3:
     chunks:
-    - enemyType: 2
+    - note: 1t p4
+      enemyType: 3
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p1
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p2
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p3
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 4 gg p4
+      enemyType: 1
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 3 gg p3
+      enemyType: 2
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 1 gg p1
+      enemyType: 1
       maxWait: 0
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
+    - note: 1 e p1
+      enemyType: 5
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 1 e p1
+      enemyType: 5
+      maxWait: 0
+      spawnDelay: 10
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 2t p1
+      enemyType: 3
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p1
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p2
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p3
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p4
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 10e p4
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 15
+      spawnPoint: 3
+      count: 10
+      waitUntilPreviousDead: 1
   endingWave:
     chunks:
-    - enemyType: 2
+    - note: 
+      enemyType: 2
       maxWait: 0
       spawnDelay: 5
       spawnPoint: 0
@@ -58258,7 +58406,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69754
+  m_Name: pb_Mesh31842
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58450,7 +58598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!64 &2044324842
 MeshCollider:
@@ -58944,7 +59092,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2046377724
 MeshCollider:
@@ -61826,7 +61974,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70348
+  m_Name: pb_Mesh32460
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62024,11 +62172,11 @@ MonoBehaviour:
   tick: 0
   damageOnEnter: 0
   damagedClip: {fileID: 0}
-  maximumTargets: -1
-  requireVisibility: 0
+  maximumTargets: 1
+  requireVisibility: 1
   visibilityCheckMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 521
   inRange: []
   isPunch: 1
 --- !u!224 &1474664497185114144

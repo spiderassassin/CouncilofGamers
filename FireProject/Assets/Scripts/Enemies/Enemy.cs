@@ -35,6 +35,8 @@ public abstract class Enemy : FlammableEntity
     private Camera mainCamera;
     private Coroutine pushback;
 
+    protected Transform currentTarget;
+
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
     }
@@ -46,6 +48,8 @@ public abstract class Enemy : FlammableEntity
         agent.speed = speed;
 
         mainCamera = Camera.main;
+
+        currentTarget = player;
     }
 
     protected override void Update()

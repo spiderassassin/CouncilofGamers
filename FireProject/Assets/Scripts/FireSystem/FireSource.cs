@@ -87,6 +87,7 @@ public class FireSource : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
         if (inRange.Contains(other)) return;
 
         inRange.Add(other);
@@ -98,6 +99,7 @@ public class FireSource : MonoBehaviour
     }
     protected virtual void OnTriggerExit(Collider other)
     {
+        if (other.isTrigger) return;
         inRange.Remove(other);
     }
 
@@ -144,9 +146,6 @@ public class FireSource : MonoBehaviour
 
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
-        bool damaged = false;
-
-        if (overrideProbability == 1) print(inRange.Count);
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
@@ -174,7 +173,6 @@ public class FireSource : MonoBehaviour
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
-                damaged = true;
                 if (isPunch)
                 {
                     GameManager.Instance.UpdateFuel(false, false, true);

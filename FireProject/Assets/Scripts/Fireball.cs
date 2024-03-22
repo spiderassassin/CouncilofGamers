@@ -8,17 +8,20 @@ public class Fireball : FireSource
     public float speed = 10f;
     public GameObject enable;
 
-    public void Launch(Vector3 direction)
+    public void Launch(Vector3 direction, Vector3 initialVelocity)
     {
+        initialVelocity.y = 0;// giving it jump contribution plays weird
         if (!gameObject.activeSelf) SetActive(true);
-        body.AddForce(direction * speed, ForceMode.VelocityChange);
+        body.AddForce(direction * speed +initialVelocity, ForceMode.VelocityChange);
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
-
         if (other.isTrigger) return;
+
+        print("Fireball Collision: "+other.gameObject.name);
+
+        base.OnTriggerEnter(other);
 
         enable.SetActive(true);
         enable.transform.SetParent(null);

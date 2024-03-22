@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.b
-      value: 0.37169808
+      value: 0.6593601
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.g
-      value: 0.37169808
+      value: 0.6436454
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.754717
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340817, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Name
@@ -102,7 +102,6 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
   body: {fileID: 2651559876208772471}
-  deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
   attackDamage:
     damage: 15
     pushBack: 0
@@ -110,6 +109,7 @@ MonoBehaviour:
     fireCounter: 0
   speed: 12
   attackRange: 4
+  stickWithTank: 0
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

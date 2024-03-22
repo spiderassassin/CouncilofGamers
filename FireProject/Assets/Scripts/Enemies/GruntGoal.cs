@@ -33,7 +33,7 @@ public class GruntGoal: Enemy {
                 // Instantiate the projectile with specific destination.
                 GameObject proj = Instantiate(projectile, origin, Quaternion.identity);
                 if (attackingGoal) {
-                    proj.GetComponent<Projectile>().dest = goal.position;
+                    proj.GetComponent<Projectile>().dest = currentTarget.position;
                     proj.GetComponent<Projectile>().targetPlayer = false;
                 }
                 // Resume movement.
@@ -43,14 +43,14 @@ public class GruntGoal: Enemy {
                 waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(goal.position);
+            SetDestination(currentTarget.position);
 
             // Stop within attack range of the goal and attack it.
-            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
+            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 attackingGoal = true;
                 state = EnemyState.Attacking;
 
-            } else if (Vector3.Distance(transform.position, player.position) < attackRange) {
+            } else if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 // If the player is within range, attack the player.
                 attackingGoal = false;
                 state = EnemyState.Attacking;

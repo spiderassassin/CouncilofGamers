@@ -8,6 +8,8 @@ public class Wave
     [System.Serializable]
     public class WaveChunk
     {
+        [Multiline]
+        public string note;
         public EnemyType enemyType;
         public float maxWait = -1f; // maximum to wait before spawning this chunk (irrespective of if the previous chunk is completed), -1 -> no max.
         public float spawnDelay = 0; // how long to wait before spawning the chunk when it is first spawnable
@@ -16,7 +18,7 @@ public class Wave
         public bool waitUntilPreviousDead = false; // if true wait for the previous enemies to die before beginning this chunk
     }
 
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntGoalWithTank, Explosive };
+    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<WaveChunk> chunks;
 
