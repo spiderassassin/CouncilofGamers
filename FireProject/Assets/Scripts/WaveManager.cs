@@ -205,6 +205,10 @@ public class WaveManager : MonoBehaviour
                     StartWave(wave2);
                     print("wave 2");
                     break;
+                case GameManager.GameStage.Downtime3: // ? added to work
+                    StartWave(wave3);
+                    print("wave 3");
+                    break;
                 case GameManager.GameStage.Wave1:
                     StartWave(wave1);
                     break;
