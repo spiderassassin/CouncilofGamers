@@ -30,6 +30,7 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{bff0b7b8-4821-4738-a8cb-d0e905b5c928}</destination>
+			<destination>{87a45bc4-0ee3-4b34-928a-dc0dc92a2814}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{46ffbaba-5152-44d0-a40b-59887c59478e}</destination>
@@ -71,6 +72,11 @@
 			<destination>{d0d91fff-6b98-45cf-a2a2-d5c263d866c0}</destination>
 		</relationship>
 	</object>
+	<object class="ParameterProxy" id="{87a45bc4-0ee3-4b34-928a-dc0dc92a2814}">
+		<relationship name="preset">
+			<destination>{b86f15c3-7221-454e-ae41-97f434caff18}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerMaster" id="{567d2ef9-74a7-460f-8fe5-ce40e567eba2}">
 		<relationship name="effectChain">
 			<destination>{8a5a3918-c0db-4308-8b14-164dc238a211}</destination>
@@ -83,6 +89,9 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{d0d91fff-6b98-45cf-a2a2-d5c263d866c0}">
+		<property name="playbackMode">
+			<value>1</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{ee1abab8-640b-4e19-9a7c-d8458d015fad}</destination>
 		</relationship>

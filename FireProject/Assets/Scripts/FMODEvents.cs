@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class FMODEvents : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class FMODEvents : MonoBehaviour
 
     //loop sounds
     public EventReference flamethrower;
-    public EventReference footsteps;
+    public EventReference walk;
+    public EventReference run;
+
+    public EventInstance punchInstance;
 
 
 

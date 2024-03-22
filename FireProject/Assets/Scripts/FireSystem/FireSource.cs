@@ -13,7 +13,7 @@ public class FireSource : MonoBehaviour
      * If spreadProbability is satisfied during tick (evaluated per collider inside the fire source): 
      *      inflict activeDamage
      */
-
+    
     public IAttacker source; // Unity doesn't serialize interfaces :(
     public IFlammable self; 
     public LayerMask detectionMask; 
@@ -183,11 +183,11 @@ public class FireSource : MonoBehaviour
             --i;
         }
 
-        if (damaged)
-        {
-            SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
-        }
+        
     }
+        
+
+
 
     public void Attack()
     {

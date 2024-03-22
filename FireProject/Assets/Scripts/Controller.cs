@@ -40,10 +40,11 @@ public class Controller : Entity
     public AudioClip slowmotion;
 
     private EventInstance flame;
-    private EventInstance footsteps;
+    private EventInstance walk;
+    private EventInstance run;
 
 
-    
+
     public FireSource firesource;
     public ParticleSystem coneFireSystem;
     public FireSource punchSource;
@@ -83,8 +84,14 @@ public class Controller : Entity
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        footsteps = SoundManager.Instance.CreateInstance(FMODEvents.Instance.footsteps);
-        flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+        //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+        //run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
+        
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform, GetComponent<Rigidbody>());
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(run, transform);
+
 
     }
 
@@ -96,6 +103,7 @@ public class Controller : Entity
     void Update()
 
     {
+        //print(flame.get3DAttributes())
         if (GameManager.Instance.gamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -129,7 +137,11 @@ public class Controller : Entity
                 if (isMoving == false)
                 {
                     isMoving = true;
-                    footsteps.start();
+                    //audio logic for walk sound effect
+                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+                    walk.start();
+                    walk.release();
 
                 }
 
@@ -140,6 +152,12 @@ public class Controller : Entity
                     if (sprint == false)
                     {
                         sprint = true;
+                        walk.stop(STOP_MODE.ALLOWFADEOUT);
+                        run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
+                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(run, transform);
+                        run.start();
+                        run.release();
+
                         //SoundManager.Instance.StopSoundEffect(obj);
                         //obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
 
@@ -153,6 +171,12 @@ public class Controller : Entity
                     {
 
                         sprint = false;
+                        run.stop(STOP_MODE.ALLOWFADEOUT);
+                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+                        walk.start();
+                        walk.release();
+
                         //SoundManager.Instance.StopSoundEffect(obj);
                         //obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
                         GetComponentInChildren<CameraBehavior>().Sprint();
@@ -166,7 +190,7 @@ public class Controller : Entity
                 if (isMoving == true)
                 {
                     isMoving = false;
-                    footsteps.stop(STOP_MODE.ALLOWFADEOUT);
+                    
 
                 }
 
@@ -175,7 +199,13 @@ public class Controller : Entity
 
                     sprint = false;
                     GetComponentInChildren<CameraBehavior>().Sprint();
+                    run.stop(STOP_MODE.ALLOWFADEOUT);
 
+                }
+
+                else
+                {
+                    walk.stop(STOP_MODE.ALLOWFADEOUT);
                 }
 
 
@@ -271,12 +301,17 @@ public class Controller : Entity
         {
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             flame.stop(STOP_MODE.ALLOWFADEOUT);
+            
+            //NEED TO FIX FADES
 
         }
         else
         {
             coneFireSystem.Play(true);
+            flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform);
             flame.start();
+            flame.release();
         }
     }
 
