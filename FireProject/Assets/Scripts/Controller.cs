@@ -328,7 +328,7 @@ public class Controller : Entity
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.fireball, transform.position);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
-        g.Launch(fireballOrigin.forward);
+        g.Launch(fireballOrigin.forward, velocity);
     }
 
     bool canSnap()

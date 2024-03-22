@@ -367,7 +367,7 @@ public class WaveManager : MonoBehaviour
     public void Tutorial()
     {
 
-        Debug.Log("on update, stage = " + tutorialStage.ToString());
+        // Debug.Log("on update, stage = " + tutorialStage.ToString());
 
         if (SnapPromptHidden)
         {
