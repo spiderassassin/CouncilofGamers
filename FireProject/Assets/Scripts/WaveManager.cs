@@ -25,6 +25,9 @@ public class WaveManager : MonoBehaviour
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave tutorialFireballWave;
     public Wave tutorialPunchWave;
+    public Wave tutorialGruntPlayerWave;
+    public Wave tutorialGruntGoalWave;
+    
 
 
     public Wave wave1;
@@ -38,6 +41,7 @@ public class WaveManager : MonoBehaviour
 
     public GameObject paroleGuardSprite;
     public GameObject baseUI;
+    public GameObject actionPrompts;
 
 
     //public GameObject tutorialManager;
@@ -46,23 +50,50 @@ public class WaveManager : MonoBehaviour
     public Dialogue tutorialPlayerSeesExitDialogue;
     public Dialogue tutorialTeachFireballDialogue;
     public Dialogue tutorialTeachPunchDialogue;
-    public Dialogue tutorialPunchSkullsDialogue;
     public Dialogue tutorialGPWaveDialogue;
     public Dialogue tutorialGGWaveDialogue;
+    public Dialogue tutorialFindParoleGuardDialogue;
     public Dialogue tutorialEndDialogue;
 
-    public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, PunchSkulls, GPWave, GGWave, End };
+    public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
     public TutorialStage tutorialStage;
 
+    public bool tutorialIntroDialogueSeen;
     public bool tutorialExitSeen; //make this into trigger?
     public bool tutorialExitDialogueGiven;
     public bool tutorialFireballExplained;
-    public bool tutorialFireballEnemyReleasedStart;  //becuase this is on a timer, can have a start and end
+    public bool tutorialFireballEnemyReleasedStart;
     public bool tutorialFireballEnemyReleasedEnd;
     public bool tutorialFireballKill;
     public bool tutorialPunchExplained;
+    public bool tutorialPunchEnemyReleasedStart;
+    public bool tutorialPunchEnemyReleasedEnd;
+    public bool tutorialPunchKill;
 
-    public bool tutorialIntroDialogueSeen;
+    public bool tutorialGPEnemiesReleasedStart;
+    public bool tutorialGPEnemiesReleasedEnd;
+    public bool tutorialGGEnemiesReleasedStart;
+    public bool tutorialGGEnemiesReleasedEnd;
+
+    public bool tutorialFindParoleGuardDialogueSeen;
+
+    public bool tutorialSkullPunchExplained;
+    public bool tutorialSkullPunched;
+
+
+    public bool SnapPromptHidden;
+    public GameObject SnapPrompt;
+
+    public bool PunchPromptHidden;
+    public GameObject PunchPrompt;
+
+    public bool FlameAttackPromptHidden;
+    public GameObject FlameAttackPrompt;
+
+    public bool FireballPromptHidden;
+    public GameObject FireballPrompt;
+
+    
 
     
 
@@ -131,14 +162,12 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.TeachPunch:
                 tutorialDialogue = tutorialTeachPunchDialogue;
                 break;
-            case TutorialStage.PunchSkulls:
-
-                break;
             case TutorialStage.GPWave:
                 break;
             case TutorialStage.GGWave:
                 break;
-            case TutorialStage.End:
+            case TutorialStage.PunchSkulls:
+                tutorialDialogue = tutorialFindParoleGuardDialogue;
                 break;
             default:
                 break;
@@ -157,7 +186,7 @@ public class WaveManager : MonoBehaviour
             Tutorial();
             
         }
-        if (InputManager.Instance.startwave)
+        else if (InputManager.Instance.startwave)
         {
             // Start the wave corresponding to the current GameStage.
             switch (GameManager.Instance.gameStage)
@@ -305,6 +334,15 @@ public class WaveManager : MonoBehaviour
         if (!tutorialFireballEnemyReleasedEnd)
         {
             tutorialFireballEnemyReleasedEnd = true;
+        } else if (!tutorialPunchEnemyReleasedEnd)
+        {
+            tutorialPunchEnemyReleasedEnd = true;
+        } else if (!tutorialGPEnemiesReleasedEnd)
+        {
+            tutorialGPEnemiesReleasedEnd = true;
+        } else if (!tutorialGGEnemiesReleasedEnd)
+        {
+            tutorialGGEnemiesReleasedEnd = true;
         }
     }
 
@@ -319,11 +357,53 @@ public class WaveManager : MonoBehaviour
     public void Tutorial()
     {
         Debug.Log("on update, stage = " + tutorialStage.ToString());
+
+        if (SnapPromptHidden)
+        {
+            SnapPrompt.SetActive(false);
+        }
+        else
+        {
+            SnapPrompt.SetActive(true);
+        }
+
+        if (PunchPromptHidden)
+        {
+            PunchPrompt.SetActive(false);
+        }
+        else
+        {
+            PunchPrompt.SetActive(true);
+        }
+
+        if (FlameAttackPromptHidden)
+        {
+            FlameAttackPrompt.SetActive(false);
+        }
+        else
+        {
+            FlameAttackPrompt.SetActive(true);
+        }
+
+        if (FireballPromptHidden)
+        {
+            FireballPrompt.SetActive(false);
+        }
+        else
+        {
+            FireballPrompt.SetActive(true);
+        }
+
+        if (tutorialExitDialogueGiven)
+        {
+            baseUI.SetActive(true);
+        }
         
         switch (tutorialStage)
         {
             
             case TutorialStage.IntroDialogue:
+                //actionPrompts.SetActive(true);
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
                     startTutorialDialogue();
@@ -348,6 +428,7 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialFireballExplained = true;
                 }
+                /*
                 else if (!tutorialFireballEnemyReleasedStart)
                 {
                     //release enemy
@@ -358,7 +439,22 @@ public class WaveManager : MonoBehaviour
                 {
                     tutorialFireballKill = true;
                     tutorialStage = TutorialStage.TeachPunch;
+                }*/
+                else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
+                {
+                    FireballPromptHidden = false;
+                    StartCoroutine(Spawn(tutorialFireballWave));
+                    tutorialFireballEnemyReleasedStart = true;
                 }
+                if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count == 0)
+                {
+                    tutorialFireballKill = true;
+                    tutorialStage = TutorialStage.TeachPunch;
+                }
+                {
+
+                }
+                
                 break;
             case TutorialStage.TeachPunch:
                 if (!tutorialPunchExplained)
@@ -366,14 +462,52 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialPunchExplained = true;
                 }
+                
+                
+                else if (!tutorialPunchEnemyReleasedStart && tutorialTeachPunchDialogue.dialogueOver)
+                {
+                    FireballPromptHidden = true;
+                    PunchPromptHidden = false;
+                    StartCoroutine(Spawn(tutorialPunchWave));
+                    tutorialPunchEnemyReleasedStart = true;
+                }
+                else if (tutorialPunchEnemyReleasedEnd && livingEnemies.Count == 0)
+                {
+                    tutorialPunchKill = true;
+                    tutorialStage = TutorialStage.GPWave;
+                }
                 break;
-            case TutorialStage.PunchSkulls:
-                break;
+
             case TutorialStage.GPWave:
+                if (!tutorialGPEnemiesReleasedStart)
+                {
+                    FireballPromptHidden = false;
+                    StartCoroutine(Spawn(tutorialGruntPlayerWave));
+                    tutorialGPEnemiesReleasedStart = true;
+                }
+                else if (tutorialGPEnemiesReleasedEnd && livingEnemies.Count == 0)
+                {
+                    tutorialStage = TutorialStage.GGWave;
+                }
                 break;
             case TutorialStage.GGWave:
+                if (!tutorialGGEnemiesReleasedStart)
+                {
+                    StartCoroutine(Spawn(tutorialGruntGoalWave));
+                    tutorialGGEnemiesReleasedStart=true;
+                }
+                else if (tutorialGGEnemiesReleasedEnd && livingEnemies.Count == 0)
+                {
+                    tutorialStage = TutorialStage.PunchSkulls;
+                }
                 break;
-            case TutorialStage.End:
+            case TutorialStage.PunchSkulls:
+                if (!tutorialFindParoleGuardDialogueSeen)
+                {
+                    startTutorialDialogue();
+                    tutorialFindParoleGuardDialogueSeen = true;
+                }
+
                 break;
             default:
                 break;

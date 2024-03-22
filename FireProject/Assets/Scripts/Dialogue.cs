@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
+    public bool dialogueOver;
     public string name;
 
     [TextArea(1,3)]
