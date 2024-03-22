@@ -33,6 +33,7 @@ public class WaveManager : MonoBehaviour
     public Wave wave1;
     public Wave wave2;
     public Wave wave3;
+    public Wave endingWave;
 
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
@@ -174,7 +175,12 @@ public class WaveManager : MonoBehaviour
 
         }
 
-        FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
+        // If we're done the tutorial, start the downtime dialogue instead of tutorial dialogue.
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1) {
+            startDowntimeDialogue();
+        } else {
+            FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
+        }
     }
 
 
@@ -220,8 +226,11 @@ public class WaveManager : MonoBehaviour
 
                 GameManager.Instance.gameStage++;
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
-                    // Go to the ending scene. Make sure it is positioned after the current one in the build settings!
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    // Turn off the music.
+                    SoundManager.Instance.MusicStop();
+
+                    // Start the ending wave.
+                    StartWave(endingWave);
                 } else {
                     startDowntimeDialogue();
                 }
@@ -507,6 +516,9 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PunchSkulls:
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
+                    // End of tutorial, set the game stage to downtime1.
+                    GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
+                    
                     startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
                 }

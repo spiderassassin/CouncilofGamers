@@ -350,6 +350,7 @@ MonoBehaviour:
   startwave: 0
   dialogueManager: {fileID: 0}
   dialogueTrigger: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!4 &133673892
 Transform:
   m_ObjectHideFlags: 0
@@ -515,7 +516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The fate of The Realm rests in your hands.\r"
+  m_text: The time had come for a new Defender of the Realm.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -642,14 +643,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A hundred years ago, the plains in the south split open. From portals
+  m_text: 'A hundred years ago, the plains in the south split apart. From portals
     opened within the earth, like blood from a wound, demonic armies spilled out.
     Cities in the south fell to the onslaught, and the Realm suffered decades of
-    bloodshed known as the Infernal War. But we persevered, and great tacticians
-    and heroic soldiers would come to see many victories.\r\n\r\nA decade ago, the
-    demons were beaten back to the southern plains, now a disfigured wasteland. Yet
-    the portals remained. Though the demons could be struck down, they would always
-    return: they were endless. The bleeding of the world was stemmed, but not healed.\r"
+    bloodshed known as the Infernal War. But the Realm persevered.
+
+    
+
+    The
+    demons were beaten back to the southern plains, now a disfigured wasteland. But
+    the portals remained, and the demons would endlessly return, regenerating at
+    the portals.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -784,7 +788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <press spacebar to continue>
+  m_text: '[Space] to Continue'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1175,14 +1179,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A few days ago, with little explanation, you were dragged out of your
-    cell up to the dungeon overseer\u2019s post. Waiting with him was a weathered
-    elder who told you, with some gravity, that the world needed you. They promised
-    a complete annulment of your prison sentence, on the condition that you lend
-    The Realm your strength for just a few days.\r\n\r\nThey spoke to you about the
-    Infernal War. They revealed that unbeknownst to you, the Realm had been fighting
-    tirelessly to hold off the remnants of the demonic forces long after the war.
-    The time had come, and a new Defender of the Realm was needed.\r"
+  m_text: "A few days ago, with little explanation, you were dragged out of the dungeon
+    to the overseer\u2019s post. They promised to release you, on the condition that
+    you lend The Realm your strength for just a few days.\n\r\nUnbeknownst to you,
+    the Realm had been fighting tirelessly to hold off the remnants of the demonic
+    forces long after the war. At the site of the portals, a protector was assigned
+    to stem the flow of demons."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

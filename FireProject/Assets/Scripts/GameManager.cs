@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,6 +43,14 @@ public class GameManager : MonoBehaviour
     public float punchRefuel = 10f;
 
     public bool gamePaused;
+    public int gameEndCompletion;  // Number of completed requirements before we return to the main menu.
+    public int gameEndCompletionTarget = 2; // Number of requirements before we return to the main menu.
+
+    public CanvasGroup creditsCanvasGroup;
+    public CanvasGroup endCanvasGroup;
+    public float fadeDuration = 5f;
+    public float creditsAlpha = 0.3f;
+    private bool isFading = false;
 
 
     private void UpdateAdrenaline() // Adjustable as needed.
@@ -150,6 +159,49 @@ public class GameManager : MonoBehaviour
             snapped = false;
         }
         UpdateAdrenaline();
+
+        // Darken the screen a bit for the credits section.
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Ending && gameEndCompletion < 2) {
+            if (!isFading)
+            {
+                StartCoroutine(FadeOutCanvas(creditsCanvasGroup, creditsAlpha));
+            }
+        }
+
+        // Increment this elsewhere when the player has completed a requirement for the ending.
+        // Currently, credits need to finish, and player meeds to die.
+        if (gameEndCompletion == 2)
+        {
+            // Fade out the entire canvas.
+            if (!isFading)
+            {
+                StartCoroutine(FadeOutCanvas(endCanvasGroup, 1f, true));
+            }
+        }
     }
 
+    private IEnumerator FadeOutCanvas(CanvasGroup canvasGroup, float targetAlpha, bool end = false)
+    {
+        isFading = true;
+
+        float elapsedTime = 0f;
+        float startAlpha = canvasGroup.alpha;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
+            canvasGroup.alpha = alpha;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        canvasGroup.alpha = targetAlpha;
+        isFading = false;
+
+        if (end) {
+            // Load the main menu.
+            SceneManager.LoadScene(0);
+        }
+    }
 }
