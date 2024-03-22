@@ -18504,7 +18504,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh57026
+  m_Name: pb_Mesh61508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44140,16 +44140,15 @@ MonoBehaviour:
     dialogueOver: 0
     name: Parole Guard
     sentences:
-    - "Wow, you\u2019re having a good time, aren\u2019t you? Makes sense they\u2019d
-      only send a sicko down here. Someone who really likes getting their hands\u2026
-      on fire."
+    - "Looks like you had fun out there. Makes sense they\u2019d only send a sicko
+      down here."
     - Who are you?
     - "Well, you\u2019re still technically a prisoner of the Realm, so someone\u2019s
       gotta keep an eye on you. But you can just think of me as your slightly armed
       cheerleader."
     - "Speaking of which, still think you\u2019re up for the task? The whole Defender
       thing, that is."
-    - "I\u2019m stoked, these demons aren\u2019t gonna stand a chance."
+    - "These demons won\u2019t stand a chance."
     - "Cool\u2026 or should I say\u2026 hot. I\u2019ll give you a tip, try to kill
       the demons before they kill you, the last guy wasn\u2019t so good at that.
       Or don\u2019t. I get an emotional compensation silver piece every time someone
@@ -44167,10 +44166,13 @@ MonoBehaviour:
     sentences:
     - Ever considered picking up knitting?
     - Everyone loves a hand-made blanket.
-    - I heard about some of the stuff that got you locked down here. Were you <i>selling</i>
-      your <i>blood</i>?
+    - "You know who probably loved to knit? That old man you shared a cell with,
+      Genderen. He was released shortly after you took this post. Free to live out
+      what\u2019s left of his little life."
+    - "Y\u2019know I heard about some of the stuff that got you locked down here.
+      Were you <i>selling</i> your <i>blood</i>?"
     - Something like that.
-    - "So you\u2019ve got fire magic in your blood\u2026"
+    - "So you\u2019ve got fire in your blood\u2026"
     - "Hm\u2026"
     - That explains your fighting style. Is that actually illegal though? What could
       you possibly use that blood for?
@@ -44183,15 +44185,36 @@ MonoBehaviour:
     - "Oh\u2026 hm."
     - "A bit of bad news, it seems the Demonlords have caught wind of you; their
       vanguard will be here any second, and when their main force reaches the portals\u2026"
-    - "I hope you don\u2019t start running out of fire. Our conversation ends here,
-      good luck."
+    - "I hope you don\u2019t run out of fire. Our conversation ends here, good luck."
     playerSpeaking: 0001000100000000010000000000
   downtime3Dialogue:
     dialogueOver: 0
     name: Parole Guard
     sentences:
-    - TODO
-    playerSpeaking: 00
+    - "Still alive? You sure are risking a lot down here, just to get out of prison.
+      What\u2019s in it for you? Got a family waiting?"
+    - "Only an apprentice. But they\u2019ve probably chosen a better vocation by
+      now."
+    - You know as well as anyone that no one cares if you survive this place. You
+      should just go home.
+    - "Won\u2019t you stop me?"
+    - "Between you and me, I\u2019d prefer that they stop sending anyone down here.
+      I wouldn\u2019t get in your way."
+    - "\u2026 I'm not going back now."
+    - "I thought you were just a smuggler, you know. I didn\u2019t know what you
+      were capable of."
+    - At this point, I wish I had gotten Genderen sent down here instead of you.
+      He would've died easily.
+    - What do you mean? You've been doing this?
+    - Don't you get it?
+    - The Realm used to care. But now they think we're not a threat. That any prisoner
+      can handle it.
+    - "\u2026"
+    - But here you are. You're getting in our way. And we're so close. But it's fine.
+    - "I\u2019ll watch you die. I\u2019ll savour every moment while you\u2019re torn
+      apart. And I\u2019ll bring your skull back to Hell myself."
+    - <i>You're one of them.</i>
+    playerSpeaking: 000100010001000001000001000001
   dialogueStarted: 0
   canStartDialogue: 0
   conversationStartPrompt: {fileID: 1881121409}
@@ -48006,7 +48029,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh70230
+  m_Name: pb_Mesh61118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58056,6 +58079,13 @@ MonoBehaviour:
     name: 
     sentences: []
     playerSpeaking: 
+  endingDialogue:
+    dialogueOver: 0
+    name: 
+    sentences:
+    - You've stood your ground as a Defender of the Realm...
+    - ...but the demons will keep coming.
+    playerSpeaking: 0000
   enemySpawn: {fileID: 8300000, guid: b386cd19ecb3547329b3203d60f22d48, type: 3}
   TankSpawn: {fileID: 0}
   paroleHello: {fileID: 8300000, guid: 49564c488a5ae435b88e1ecc01ed5005, type: 3}
