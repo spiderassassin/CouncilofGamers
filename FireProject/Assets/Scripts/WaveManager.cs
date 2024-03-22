@@ -54,6 +54,10 @@ public class WaveManager : MonoBehaviour
     public Dialogue tutorialGPWaveDialogue;
     public Dialogue tutorialGGWaveDialogue;
     public Dialogue tutorialFindParoleGuardDialogue;
+
+    public Dialogue tutorialFlameAttackDialogue;
+    public Dialogue tutorialSnapDialogue;
+
     public Dialogue tutorialEndDialogue;
 
     public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
