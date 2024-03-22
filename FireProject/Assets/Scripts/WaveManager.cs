@@ -175,7 +175,12 @@ public class WaveManager : MonoBehaviour
 
         }
 
-        FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
+        // If we're done the tutorial, start the downtime dialogue instead of tutorial dialogue.
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1) {
+            startDowntimeDialogue();
+        } else {
+            FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
+        }
     }
 
 
@@ -511,6 +516,9 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PunchSkulls:
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
+                    // End of tutorial, set the game stage to downtime1.
+                    GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
+                    
                     startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
                 }
