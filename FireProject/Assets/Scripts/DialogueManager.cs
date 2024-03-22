@@ -61,7 +61,7 @@ public class DialogueManager : MonoBehaviour
         {
             playerSpeaking.Enqueue(speakingBool);
         }
-        Debug.Log("starting planning");
+        //Debug.Log("starting planning");
         
         DisplayNextSentence();
 

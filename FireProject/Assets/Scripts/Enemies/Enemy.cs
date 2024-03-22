@@ -25,7 +25,7 @@ public abstract class Enemy : FlammableEntity
     public Transform player;
     public Animator animator;
     public Rigidbody body;
-    public AudioClip deathSound;
+    //public AudioClip deathSound;
     public DamageInformation attackDamage;
 
     protected UnityEngine.AI.NavMeshAgent agent;
@@ -115,7 +115,8 @@ public abstract class Enemy : FlammableEntity
     {
         base.Death();
         WaveManager.Instance.livingEnemies.Remove(this);
-        SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
+        //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
+        
         Destroy(gameObject);
     }
 

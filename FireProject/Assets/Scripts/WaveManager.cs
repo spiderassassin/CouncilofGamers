@@ -318,9 +318,10 @@ public class WaveManager : MonoBehaviour
                 enemy1.GetComponent<Enemy>().player = playerTransform;
                 enemy1.GetComponent<Enemy>().goal = goalPoint;
                 enemy1.SetActive(true);
-                if((wave.chunks[i].maxWait == 0 && i>0) == false)
+                if((wave.chunks[i].spawnDelay == 0 && i>0) == false)
                 {
                     //SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
+                    Debug.Log("oo");
                     SoundManager.Instance.PlayOneShot(FMODEvents.Instance.enemySpawn, spawnPoint.position);
                 }
 
@@ -356,6 +357,7 @@ public class WaveManager : MonoBehaviour
 
     public void Tutorial()
     {
+
         Debug.Log("on update, stage = " + tutorialStage.ToString());
 
         if (SnapPromptHidden)
@@ -398,6 +400,7 @@ public class WaveManager : MonoBehaviour
         {
             baseUI.SetActive(true);
         }
+
         
         switch (tutorialStage)
         {

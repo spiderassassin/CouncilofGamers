@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{992a2a7a-c238-40d5-9b36-657b7cd7d2f1}">
+	<object class="AudioFile" id="{6271d862-9e31-47ae-bd0c-5bcbf5945129}">
 		<property name="assetPath">
-			<value>sfx/walk.wav</value>
+			<value>walkold.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
