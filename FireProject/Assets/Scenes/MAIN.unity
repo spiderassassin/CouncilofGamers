@@ -3635,7 +3635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147919074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 90.9, y: 0, z: 61.5}
+  m_LocalPosition: {x: 79.8, y: 0, z: 120.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5599,7 +5599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 3
+  gameStage: 0
+  debugGameStage: 5
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -11965,7 +11966,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515339495
 GameObject:
@@ -20217,7 +20218,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &636872328
 MeshCollider:
@@ -22129,7 +22130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &700390380
 MeshCollider:
@@ -22657,7 +22658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700508466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -105, y: 0, z: 3.41}
+  m_LocalPosition: {x: -105, y: 0, z: 128.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22829,6 +22830,103 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &720955086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720955087}
+  - component: {fileID: 720955090}
+  - component: {fileID: 720955089}
+  - component: {fileID: 720955088}
+  m_Layer: 0
+  m_Name: hehehe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &720955087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -411.94244, y: 747.8096, z: -31.645966}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1605373328}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &720955088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &720955089
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &720955090
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720955086}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &722077464
 GameObject:
   m_ObjectHideFlags: 0
@@ -28435,7 +28533,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &944885459
 MeshCollider:
@@ -42764,7 +42862,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &1464624881
 MeshCollider:
@@ -45647,7 +45745,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1555294755
 MeshCollider:
@@ -48276,6 +48374,7 @@ Transform:
   - {fileID: 746683538}
   - {fileID: 1144987164}
   - {fileID: 1048840410}
+  - {fileID: 720955087}
   - {fileID: 636872327}
   - {fileID: 512009183}
   - {fileID: 1555294754}
@@ -52994,7 +53093,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!64 &1868046708
 MeshCollider:
@@ -57802,17 +57901,241 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 1
-    - note: 5 grunt player with stick to tank
+    - note: 5 gpt
       enemyType: 4
       maxWait: -1
-      spawnDelay: 3
+      spawnDelay: 10
       spawnPoint: 0
       count: 5
       waitUntilPreviousDead: 0
+    - note: 2 gp
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 15
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
   wave2:
-    chunks: []
+    chunks:
+    - note: 1 e from point 1
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 3 gp from point 2
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 3 gg from point 1
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 1 e from point 2
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 4 gp from point 2
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 1
+      count: 4
+      waitUntilPreviousDead: 0
+    - note: 5 gp from point 1
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 0
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 3 gg from point 2
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 2 e from point 3
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 1 tank from point 3
+      enemyType: 3
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 5 gpt from point 3
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 3 gpt from point 2
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 2 gpt from point 1
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 1
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 2 gg from point 3
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 2
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 1e p3
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 3e p2
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3e p1
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
   wave3:
-    chunks: []
+    chunks:
+    - note: 1t p4
+      enemyType: 3
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p1
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p2
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p3
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 4 gg p4
+      enemyType: 1
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 3 gg p3
+      enemyType: 2
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 1 gg p1
+      enemyType: 1
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 1 e p1
+      enemyType: 5
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 1 e p1
+      enemyType: 5
+      maxWait: 0
+      spawnDelay: 10
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 2t p1
+      enemyType: 3
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p1
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p2
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p3
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 3 gpt p4
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 10e p4
+      enemyType: 4
+      maxWait: 0
+      spawnDelay: 15
+      spawnPoint: 3
+      count: 10
+      waitUntilPreviousDead: 1
   endingWave:
     chunks:
     - note: 
@@ -58275,7 +58598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 31
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!64 &2044324842
 MeshCollider:
@@ -58769,7 +59092,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1605373328}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2046377724
 MeshCollider:

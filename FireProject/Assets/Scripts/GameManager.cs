@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
     public GameStage gameStage;
+    public GameStage debugGameStage;
 
     public List<GameStage> tutorialGameStages;
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
@@ -143,6 +144,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameStage = GameStage.TutorialIntro;
+        if(debugGameStage != gameStage)
+        {
+            gameStage = debugGameStage;
+        }
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }

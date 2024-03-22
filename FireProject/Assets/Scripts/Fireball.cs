@@ -19,6 +19,8 @@ public class Fireball : FireSource
     {
         if (other.isTrigger) return;
 
+        print("Fireball Collision: "+other.gameObject.name);
+
         base.OnTriggerEnter(other);
 
         enable.SetActive(true);

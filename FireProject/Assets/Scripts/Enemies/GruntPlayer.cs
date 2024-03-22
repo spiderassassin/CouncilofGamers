@@ -35,6 +35,7 @@ public class GruntPlayer: Enemy {
 
     protected override void Update() {
         base.Update();
+        if (stickWithTank && !associatedTank) currentTarget = player;
         if (!currentTarget) return;
 
         // Handle the waiting if it's currently being used.

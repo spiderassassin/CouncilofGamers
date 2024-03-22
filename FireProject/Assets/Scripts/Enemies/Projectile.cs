@@ -30,7 +30,8 @@ public class Projectile :FlammableEntity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         // base.OnDamaged(attacker, dmg);
-        Death();
+        health -= dmg.damage;
+        if (health <= 0) Death();
     }
 
     private void OnTriggerEnter(Collider other)
