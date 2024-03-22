@@ -55,18 +55,6 @@ PrefabInstance:
       propertyPath: m_Acceleration
       value: 99
       objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Height
-      value: 2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Radius
-      value: 0.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Center.y
-      value: -0.16
-      objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -146,7 +134,6 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
   body: {fileID: 37018340930786909}
-  deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
   attackDamage:
     damage: 10
     pushBack: 0
