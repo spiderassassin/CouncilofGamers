@@ -69,13 +69,15 @@ public class GameManager : MonoBehaviour
             enemiesOnFire = FireManager.manager.EntitiesOnFire;
             playerHealthLoss = maxHealth-Controller.Instance.Health; 
             intensity = Mathf.Pow(enemiesOnFire, 2)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
+
+
             intensity = Mathf.Clamp(intensity, 0, maxIntensity); // max intensity of 5
             intensity = intensity*Time.deltaTime;
 
-            adrenaline = adrenaline + intensity;
+            
             if (intensity <= decayAdrenalineThreshold)
             {
-                adrenaline = adrenaline - adrenalineUnit * decayAmount;
+                adrenaline = adrenaline - adrenalineUnit * decayAmount * Time.deltaTime;
                 
             }
             else

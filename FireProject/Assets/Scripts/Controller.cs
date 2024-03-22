@@ -333,7 +333,7 @@ public class Controller : Entity
 
     bool canSnap()
     {
-        return GameManager.Instance.AdrenalinePercent >= 1f;
+        return GameManager.Instance.AdrenalinePercent >= 0.98f;
     }
 
     IEnumerator Snap()

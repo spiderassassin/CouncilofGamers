@@ -5609,10 +5609,10 @@ MonoBehaviour:
   intensity: 0
   maxIntensity: 5
   gainAdrenalineThreshold: 10
-  enemiesOnFireFactor: 10
-  playerHealthFactor: 0.1
+  enemiesOnFireFactor: 1
+  playerHealthFactor: 0.01
   decayAdrenalineThreshold: 0.01
-  decayAmount: 0.1
+  decayAmount: 3
   fuel: 0
   flamethrowerCost: 4
   fireballCost: 5
@@ -36649,6 +36649,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3751368657875494216}
     m_Modifications:
+    - target: {fileID: 1695216032, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
       value: 1
