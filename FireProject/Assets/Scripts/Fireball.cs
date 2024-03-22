@@ -10,6 +10,7 @@ public class Fireball : FireSource
 
     public void Launch(Vector3 direction, Vector3 initialVelocity)
     {
+        initialVelocity.y = 0;// giving it jump contribution plays weird
         if (!gameObject.activeSelf) SetActive(true);
         body.AddForce(direction * speed +initialVelocity, ForceMode.VelocityChange);
     }
