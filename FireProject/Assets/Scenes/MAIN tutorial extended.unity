@@ -5619,8 +5619,8 @@ MonoBehaviour:
   gamePaused: 0
   gameEndCompletion: 0
   gameEndCompletionTarget: 2
-  creditsCanvasGroup: {fileID: 0}
-  endCanvasGroup: {fileID: 0}
+  creditsCanvasGroup: {fileID: 457489846}
+  endCanvasGroup: {fileID: 81300338}
   fadeDuration: 5
   creditsAlpha: 0.3
 --- !u!4 &223697854 stripped
@@ -35738,8 +35738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.659, y: 5.9}
-  m_SizeDelta: {x: 450.18, y: 50}
+  m_AnchoredPosition: {x: 24.228985, y: 5.9}
+  m_SizeDelta: {x: 650.82, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1181442862
 MonoBehaviour:
@@ -40717,8 +40717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.66, y: 61.1}
-  m_SizeDelta: {x: 450.1817, y: 50}
+  m_AnchoredPosition: {x: 24.229485, y: 61.1}
+  m_SizeDelta: {x: 650.823, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394320606
 MonoBehaviour:
@@ -43876,7 +43876,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68786
+  m_Name: pb_Mesh27538
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44186,7 +44186,7 @@ MonoBehaviour:
     - "A bit of bad news, it seems the Demonlords have caught wind of you; their
       vanguard will be here any second, and when their main force reaches the portals\u2026"
     - "I hope you don\u2019t run out of fire. Our conversation ends here, good luck."
-    playerSpeaking: 0001000100000000010000000000
+    playerSpeaking: 000100000100010000010000000000
   downtime3Dialogue:
     dialogueOver: 0
     name: Parole Guard
@@ -44769,6 +44769,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBlocks:
+  - role: 
+    names:
+    - "You\u2019ve stood your ground as a Defender of the Realm\u2026"
+    - "\u2026but the waves of demons will not stop "
   - role: Producer
     names:
     - Dave Goel
@@ -44811,6 +44815,7 @@ MonoBehaviour:
     names: []
   roleText: {fileID: 1394320606}
   nameText: {fileID: 1181442862}
+  introDelay: 2
   textDuration: 5
 --- !u!1 &1534851042
 GameObject:
@@ -48029,7 +48034,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61118
+  m_Name: pb_Mesh36252
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57977,9 +57982,21 @@ MonoBehaviour:
       count: 10
       waitUntilPreviousDead: 1
   wave3:
-    chunks: []
+    chunks:
+    - enemyType: 2
+      maxWait: 0
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
   endingWave:
-    chunks: []
+    chunks:
+    - enemyType: 2
+      maxWait: 0
+      spawnDelay: 5
+      spawnPoint: 0
+      count: 10
+      waitUntilPreviousDead: 0
   isSpawning: 0
   livingEnemies: []
   paroleGuardSprite: {fileID: 1888134733}
@@ -58079,13 +58096,6 @@ MonoBehaviour:
     name: 
     sentences: []
     playerSpeaking: 
-  endingDialogue:
-    dialogueOver: 0
-    name: 
-    sentences:
-    - You've stood your ground as a Defender of the Realm...
-    - ...but the demons will keep coming.
-    playerSpeaking: 0000
   enemySpawn: {fileID: 8300000, guid: b386cd19ecb3547329b3203d60f22d48, type: 3}
   TankSpawn: {fileID: 0}
   paroleHello: {fileID: 8300000, guid: 49564c488a5ae435b88e1ecc01ed5005, type: 3}

@@ -20,6 +20,7 @@ public class Ending : MonoBehaviour
     public TextBlock[] textBlocks;
     public TextMeshProUGUI roleText;
     public TextMeshProUGUI nameText;
+    public int introDelay = 2;
     public int textDuration = 5;
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class Ending : MonoBehaviour
             if (initialDelay) {
                 // First time, wait a bit before starting the credits.
                 waitingForText = true;
-                StartCoroutine(WaitForText(textDuration));
+                StartCoroutine(WaitForText(introDelay));
             } else if (textIndex != textBlocks.Length) {
                 waitingForText = true;
                 StartCoroutine(WaitAndLoadText(textIndex));
