@@ -18,7 +18,7 @@ public class Explosive: Enemy {
 
     protected override void Update() {
         base.Update();
-        if (!player) return;
+        if (!currentTarget) return;
 
         // Handle the explosion timer if it's currently being used.
         if (waitingToExplode != null) {
@@ -31,9 +31,9 @@ public class Explosive: Enemy {
                 Death();
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(player.position);
+            SetDestination(currentTarget.position);
             // If we get within attack range of the player, set detonation timer.
-            if (Vector3.Distance(transform.position, player.position) < attackRange) {
+            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {

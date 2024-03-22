@@ -37,8 +37,8 @@ public class Tank: Enemy {
                 waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(goal.position);
-            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
+            SetDestination(currentTarget.position);
+            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 // If within 6 units of the goal, attack it.
                 state = EnemyState.Attacking;
             } else if (waitingCooldown == null || !waitingCooldown.Running) {
@@ -58,7 +58,7 @@ public class Tank: Enemy {
             waitingLongRange = new Task(3);
         }
 
-        if(Vector3.Distance(transform.position,player.position)< 4f)
+        if(Vector3.Distance(transform.position,currentTarget.position)< 4f)
         {
             if (Time.timeSinceLevelLoad - timeHit >= 2f)
             {

@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
     public Transform playerTransform;
     public GruntPlayer gruntPlayer;
     public GruntGoal gruntgoal;
-    public GruntGoal gruntStayWithTank;
+    public GruntPlayer gruntStayWithTank;
     public Tank tank;
     public Explosive explosive;
 
@@ -288,7 +288,7 @@ public class WaveManager : MonoBehaviour
                     case Wave.EnemyType.Tank:
                         e = tank;
                         break;
-                    case Wave.EnemyType.GruntGoalWithTank:
+                    case Wave.EnemyType.GruntPlayerWithTank:
                         e = gruntStayWithTank;
                         break;
                     case Wave.EnemyType.Explosive:
