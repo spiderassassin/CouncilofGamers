@@ -27,6 +27,10 @@ public class DialogueManager : MonoBehaviour
 
     public string sentence;
 
+    private Dialogue currentDialogue;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
     {
+        currentDialogue = dialogue;
+        Debug.Log("current dialogue: " + currentDialogue + " " + currentDialogue.name);
+        currentDialogue.dialogueOver = false;
         currentDialogueTrigger = dialogueTrigger;
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
@@ -108,8 +115,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        currentDialogue.dialogueOver = true;
         animator.SetBool("isOpen", false);
-        actionPromptsHUD.SetActive(false);
+        actionPromptsHUD.SetActive(true);
         GameManager.Instance.dialogueState = false;
         if (advanceGameStageOnEnd) {
             // Set next game stage.

@@ -186,7 +186,12 @@ public class InputManager : MonoBehaviour
                 return;
             }
 
-            else //if player hits space before text finishes scrolling, go to next sentence and dump current text
+            else if (dialogueManager.GetComponent<DialogueManager>().dialogueText.text != dialogueManager.GetComponent<DialogueManager>().sentence)
+            {
+                dialogueManager.GetComponent<DialogueManager>().dialogueText.text = dialogueManager.GetComponent<DialogueManager>().sentence;
+                dialogueManager.GetComponent<DialogueManager>().StopAllCoroutines();
+            }
+            else
             {
                 dialogueManager.GetComponent<DialogueManager>().dialogueText.text = "";
                 dialogueManager.GetComponent<DialogueManager>().sentence = "";
