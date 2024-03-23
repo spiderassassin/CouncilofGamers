@@ -412,7 +412,7 @@ public class WaveManager : MonoBehaviour
         {
             PunchPrompt.GetComponent<Image>().color = inactiveColor;
             EPrompt.GetComponent<Image>().color = inactiveColor;
-            player.GetComponent<Controller>().punchAllowed = false;
+            //player.GetComponent<Controller>().punchAllowed = false;
         }
         else
         {
@@ -572,7 +572,10 @@ public class WaveManager : MonoBehaviour
                     SoundManager.Instance.hello.start();
                     // End of tutorial, set the game stage to downtime1.
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
-                    
+                    if (GameManager.Instance.fuel >= GameManager.Instance.GetMaxFuel() - GameManager.Instance.punchRefuel)
+                    {
+                        GameManager.Instance.fuel -= GameManager.Instance.punchRefuel * 4;
+                    }
                     startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
                 }
