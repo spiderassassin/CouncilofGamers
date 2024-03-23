@@ -45,6 +45,7 @@ public class WaveManager : MonoBehaviour
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
+    public GameObject player;
 
 
     //public GameObject tutorialManager;
@@ -90,15 +91,19 @@ public class WaveManager : MonoBehaviour
 
     public bool SnapPromptHidden;
     public GameObject SnapPrompt;
+    public GameObject QPrompt;
 
     public bool PunchPromptHidden;
     public GameObject PunchPrompt;
+    public GameObject EPrompt;
 
     public bool FlameAttackPromptHidden;
     public GameObject FlameAttackPrompt;
+    public GameObject LeftClickPrompt;
 
     public bool FireballPromptHidden;
     public GameObject FireballPrompt;
+    public GameObject RightClickPrompt;
 
     
 
@@ -380,45 +385,70 @@ public class WaveManager : MonoBehaviour
     public void Tutorial()
     {
 
+        Color32 inactiveColor = new Color32(0, 0, 0, 100);
+        Color32 activeColor = new Color32(255, 255, 255, 255);
+
         // Debug.Log("on update, stage = " + tutorialStage.ToString());
 
         if (SnapPromptHidden)
         {
-            SnapPrompt.SetActive(false);
+            //SnapPrompt.SetActive(false);
+            SnapPrompt.GetComponent<Image>().color = inactiveColor;
+            QPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().snapAllowed = false;
+
         }
         else
         {
-            SnapPrompt.SetActive(true);
+            SnapPrompt.GetComponent<Image>().color = activeColor;
+            QPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().snapAllowed = true;
         }
 
         if (PunchPromptHidden)
         {
-            PunchPrompt.SetActive(false);
+            PunchPrompt.GetComponent<Image>().color = inactiveColor;
+            EPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().punchAllowed = false;
         }
         else
         {
-            PunchPrompt.SetActive(true);
+            PunchPrompt.GetComponent<Image>().color = activeColor;
+            EPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().punchAllowed = true;
         }
 
         if (FlameAttackPromptHidden)
         {
-            FlameAttackPrompt.SetActive(false);
+            FlameAttackPrompt.GetComponent<Image>().color = inactiveColor;
+            LeftClickPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().flameAttackAllowed = false;
         }
         else
         {
-            FlameAttackPrompt.SetActive(true);
+            FlameAttackPrompt.GetComponent<Image>().color = activeColor;
+            LeftClickPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().flameAttackAllowed = true;
         }
 
         if (FireballPromptHidden)
         {
-            FireballPrompt.SetActive(false);
+            FireballPrompt.GetComponent<Image>().color = inactiveColor;
+            RightClickPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().fireballAllowed = false;
         }
         else
         {
-            FireballPrompt.SetActive(true);
+            FireballPrompt.GetComponent<Image>().color = activeColor;
+            RightClickPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().fireballAllowed = true;
         }
 
-        if (tutorialExitDialogueGiven)
+        if (!tutorialExitDialogueGiven)
+        {
+            baseUI.SetActive(false);
+        }
+        else
         {
             baseUI.SetActive(true);
         }

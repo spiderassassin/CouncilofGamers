@@ -23541,7 +23541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &618161590
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69831,6 +69831,7 @@ MonoBehaviour:
   baseUI: {fileID: 618161589}
   actionPrompts: {fileID: 657778508}
   gatePointLight: {fileID: 141531370}
+  player: {fileID: 8771123490044458905}
   tutorialIntroDialogue:
     dialogueOver: 0
     name: ' '
@@ -69899,13 +69900,17 @@ MonoBehaviour:
     playerSpeaking: 
   tutorialStage: 0
   SnapPromptHidden: 1
-  SnapPrompt: {fileID: 45877134}
+  SnapPrompt: {fileID: 473779148}
+  QPrompt: {fileID: 2056784514}
   PunchPromptHidden: 1
-  PunchPrompt: {fileID: 840248708}
+  PunchPrompt: {fileID: 833853135}
+  EPrompt: {fileID: 671820980}
   FlameAttackPromptHidden: 1
-  FlameAttackPrompt: {fileID: 1017945083}
+  FlameAttackPrompt: {fileID: 1276365397}
+  LeftClickPrompt: {fileID: 564505825}
   FireballPromptHidden: 1
-  FireballPrompt: {fileID: 540563315}
+  FireballPrompt: {fileID: 561167881}
+  RightClickPrompt: {fileID: 1471217392}
   downtime1Dialogue:
     dialogueOver: 0
     name: ???
@@ -75738,6 +75743,10 @@ MonoBehaviour:
     pushBack: 0.5
     type: 1
     fireCounter: 0
+  snapAllowed: 1
+  punchAllowed: 1
+  flameAttackAllowed: 1
+  fireballAllowed: 1
   isMoving: 0
   playerwalk: {fileID: 8300000, guid: 019bb0e8b264a4e28ba303cc69211e33, type: 3}
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}
