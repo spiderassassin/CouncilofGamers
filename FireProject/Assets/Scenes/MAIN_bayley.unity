@@ -69864,8 +69864,10 @@ MonoBehaviour:
   tutorialGPWaveDialogue:
     dialogueOver: 0
     name: ' '
-    sentences: []
-    playerSpeaking: 
+    sentences:
+    - Sounds like more enemies are approaching. I can easily dispatch them with fireballs
+      or by punching them.
+    playerSpeaking: 01
   tutorialGGWaveDialogue:
     dialogueOver: 0
     name: ' '

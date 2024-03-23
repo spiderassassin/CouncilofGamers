@@ -78,6 +78,8 @@ public class WaveManager : MonoBehaviour
     private bool tutorialPunchEnemyReleasedEnd;
     private bool tutorialPunchKill;
 
+    private bool tutorialGPWaveDialogueOver;
+
     private bool tutorialGPEnemiesReleasedStart;
     private bool tutorialGPEnemiesReleasedEnd;
     private bool tutorialGGEnemiesReleasedStart;
@@ -177,6 +179,7 @@ public class WaveManager : MonoBehaviour
                 tutorialDialogue = tutorialTeachPunchDialogue;
                 break;
             case TutorialStage.GPWave:
+                tutorialDialogue = tutorialGPWaveDialogue;
                 break;
             case TutorialStage.GGWave:
                 break;
@@ -493,18 +496,7 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialFireballExplained = true;
                 }
-                /*
-                else if (!tutorialFireballEnemyReleasedStart)
-                {
-                    //release enemy
-                   StartCoroutine(WaitAndSpawnWave(5.0f, tutorialFireballWave));
-                   tutorialFireballEnemyReleasedStart = true;
-                }
-                else if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count == 0)
-                {
-                    tutorialFireballKill = true;
-                    tutorialStage = TutorialStage.TeachPunch;
-                }*/
+
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
@@ -545,7 +537,12 @@ public class WaveManager : MonoBehaviour
                 break;
 
             case TutorialStage.GPWave:
-                if (!tutorialGPEnemiesReleasedStart)
+                if (!tutorialGPWaveDialogue.dialogueOver && !tutorialGPWaveDialogueOver)
+                {
+                    startTutorialDialogue();
+                    tutorialGPWaveDialogueOver = true;
+                }
+                else if (!tutorialGPEnemiesReleasedStart && tutorialGPWaveDialogue.dialogueOver)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     FireballPromptHidden = false;
