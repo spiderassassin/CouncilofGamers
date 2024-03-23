@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMOD.Studio;
 
 
 public class WaveManager : MonoBehaviour
@@ -109,6 +110,7 @@ public class WaveManager : MonoBehaviour
     public AudioClip enemySpawn;
     public AudioClip TankSpawn;
     public AudioClip paroleHello;
+    
 
     private void Awake()
     {
@@ -131,6 +133,7 @@ public class WaveManager : MonoBehaviour
 
     private void startDowntimeDialogue()
     {
+
         paroleGuardSprite.SetActive(true);
         // Start the downtime dialogue corresponding to the current GameStage.
         Dialogue downtimeDialogue = null;
@@ -230,12 +233,12 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 print("Wave Over");
-                SoundManager.Instance.MusicStop();
-
+                //SoundManager.Instance.MusicStop();
+                SoundManager.Instance.WaveMusicStop();
                 GameManager.Instance.gameStage++;
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
                     // Turn off the music.
-                    SoundManager.Instance.MusicStop();
+                    //SoundManager.Instance.MusicStop();
 
                     // Start the ending wave.
                     StartWave(endingWave);
@@ -248,6 +251,7 @@ public class WaveManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
+        SoundManager.Instance.WaveMusicPlay();
         wavemode = true;
         if (isSpawning == false)
         {
@@ -426,11 +430,14 @@ public class WaveManager : MonoBehaviour
                 //actionPrompts.SetActive(true);
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
+                    SoundManager.Instance.wave0.start();
+                    
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
                 if (tutorialExitSeen)
                 {
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
                     baseUI.SetActive(true);
                     tutorialStage = TutorialStage.PlayerSeesExit;
                 }
@@ -438,6 +445,7 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PlayerSeesExit:
                 if (!tutorialExitDialogueGiven)
                 {
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 2);
                     startTutorialDialogue();
                     tutorialExitDialogueGiven = true;
                 }
@@ -445,6 +453,7 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.TeachFireball:
                 if (!tutorialFireballExplained)
                 {
+                    
                     startTutorialDialogue();
                     tutorialFireballExplained = true;
                 }
@@ -462,6 +471,7 @@ public class WaveManager : MonoBehaviour
                 }*/
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
                     FireballPromptHidden = false;
                     StartCoroutine(Spawn(tutorialFireballWave));
                     tutorialFireballEnemyReleasedStart = true;
@@ -501,6 +511,7 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.GPWave:
                 if (!tutorialGPEnemiesReleasedStart)
                 {
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     FireballPromptHidden = false;
                     StartCoroutine(Spawn(tutorialGruntPlayerWave));
                     tutorialGPEnemiesReleasedStart = true;
@@ -524,6 +535,8 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PunchSkulls:
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
+                    SoundManager.Instance.wave0.stop(STOP_MODE.ALLOWFADEOUT);
+                    SoundManager.Instance.hello.start();
                     // End of tutorial, set the game stage to downtime1.
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
                     

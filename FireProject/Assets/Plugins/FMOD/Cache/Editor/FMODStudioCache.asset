@@ -69,10 +69,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638467225426757727
+  lastModified: 638467539937160623
   FileSizes:
   - Name: Desktop
-    Value: 1296
+    Value: 1588
   Exists: 1
 --- !u!114 &-5605620034295668842
 MonoBehaviour:
@@ -102,6 +102,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5320885001721779578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/wave0
+  m_EditorClassIdentifier: 
+  Path: event:/wave0
+  Guid:
+    Data1: -1627489188
+    Data2: 1301751963
+    Data3: 1545876650
+    Data4: 1916371309
+  Banks:
+  - {fileID: 5668833124344360071}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4345299502771191628}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 78545
+--- !u!114 &-5241481115837813880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/hello
+  m_EditorClassIdentifier: 
+  Path: event:/hello
+  Guid:
+    Data1: -507254665
+    Data2: 1122835684
+    Data3: 1842175656
+    Data4: -1189987344
+  Banks:
+  - {fileID: -4688879709587118948}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5000
 --- !u!114 &-4688879709587118948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,10 +172,34 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638467225426873368
+  lastModified: 638467483467753618
   FileSizes:
   - Name: Desktop
-    Value: 915424
+    Value: 934976
+  Exists: 1
+--- !u!114 &-4345299502771191628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/wave0/wave0looping
+  m_EditorClassIdentifier: 
+  Name: wave0looping
+  StudioPath: 
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 2865002665
+    data2: 533364083
+  Type: 1
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-4118693024877021720
 MonoBehaviour:
@@ -203,6 +282,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1755317050725327827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/wave2
+  m_EditorClassIdentifier: 
+  Path: event:/wave2
+  Guid:
+    Data1: -1630367646
+    Data2: 1216906039
+    Data3: -1927676771
+    Data4: -2001821382
+  Banks:
+  - {fileID: 5668833124344360071}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 150857
 --- !u!114 &-1070364242072922313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +377,7 @@ MonoBehaviour:
   - {fileID: -8776507055608937084}
   - {fileID: 6237540375650625388}
   - {fileID: -4688879709587118948}
+  - {fileID: 5668833124344360071}
   EditorEvents:
   - {fileID: -8922790057488558342}
   - {fileID: -3508467108182035591}
@@ -283,12 +390,17 @@ MonoBehaviour:
   - {fileID: 4719621873891282368}
   - {fileID: -806668869568352695}
   - {fileID: -5605620034295668842}
+  - {fileID: -5241481115837813880}
+  - {fileID: -5320885001721779578}
+  - {fileID: -1755317050725327827}
+  - {fileID: 8762668403644502488}
+  - {fileID: 1835114698788246023}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6237540375650625388}
   StringsBanks:
   - {fileID: -8776507055608937084}
-  cacheTime: 638467225426873368
+  cacheTime: 638467539961040383
   cacheVersion: 131616
 --- !u!114 &1585291388542068596
 MonoBehaviour:
@@ -314,6 +426,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &1835114698788246023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/wave3
+  m_EditorClassIdentifier: 
+  Path: event:/wave3
+  Guid:
+    Data1: -39807854
+    Data2: 1239285788
+    Data3: 1307238069
+    Data4: 384963089
+  Banks:
+  - {fileID: 5668833124344360071}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2556187259421024375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +534,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5668833124344360071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MUSIC.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/Build/Desktop/MUSIC.bank
+  Name: MUSIC
+  StudioPath: bank:/MUSIC
+  lastModified: 638467539961040383
+  FileSizes:
+  - Name: Desktop
+    Value: 4337984
+  Exists: 1
 --- !u!114 &6191827471145754169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,8 +596,35 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638466571927551133
+  lastModified: 638467539937148514
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &8762668403644502488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/wave1
+  m_EditorClassIdentifier: 
+  Path: event:/wave1
+  Guid:
+    Data1: 2030255986
+    Data2: 1317545347
+    Data3: 313837719
+    Data4: -363629505
+  Banks:
+  - {fileID: 5668833124344360071}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 103700

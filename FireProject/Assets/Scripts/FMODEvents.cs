@@ -20,6 +20,16 @@ public class FMODEvents : MonoBehaviour
     public EventReference flamethrower;
     public EventReference walk;
     public EventReference run;
+    public EventReference hello;
+    public EventReference hhhh;
+
+    //music
+    public EventReference wave0;
+    public EventReference wave1;
+    public EventReference wave2;
+    public EventReference wave3;
+
+
 
     public EventInstance punchInstance;
 
