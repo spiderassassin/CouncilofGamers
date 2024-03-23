@@ -44,6 +44,7 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public GameObject baseUI;
     public GameObject actionPrompts;
+    public GameObject gatePointLight;
 
 
     //public GameObject tutorialManager;
@@ -435,6 +436,10 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
+               if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
+                {
+                    gatePointLight.SetActive(true);
+                }
                 if (tutorialExitSeen)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
@@ -445,6 +450,7 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PlayerSeesExit:
                 if (!tutorialExitDialogueGiven)
                 {
+                    gatePointLight.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 2);
                     startTutorialDialogue();
                     tutorialExitDialogueGiven = true;

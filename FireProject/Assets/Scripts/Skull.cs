@@ -22,5 +22,6 @@ public class Skull : FlammableEntity
     {
         base.Death();
         GameManager.Instance.UpdateFuel(false, false, true);
+        Destroy(gameObject);
     }
 }
