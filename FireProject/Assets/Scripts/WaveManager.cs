@@ -64,27 +64,27 @@ public class WaveManager : MonoBehaviour
     public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
     public TutorialStage tutorialStage;
 
-    public bool tutorialIntroDialogueSeen;
-    public bool tutorialExitSeen; //make this into trigger?
-    public bool tutorialExitDialogueGiven;
-    public bool tutorialFireballExplained;
-    public bool tutorialFireballEnemyReleasedStart;
-    public bool tutorialFireballEnemyReleasedEnd;
-    public bool tutorialFireballKill;
-    public bool tutorialPunchExplained;
-    public bool tutorialPunchEnemyReleasedStart;
-    public bool tutorialPunchEnemyReleasedEnd;
-    public bool tutorialPunchKill;
+    private bool tutorialIntroDialogueSeen;
+    private bool tutorialExitSeen; //make this into trigger?
+    private bool tutorialExitDialogueGiven;
+    private bool tutorialFireballExplained;
+    private bool tutorialFireballEnemyReleasedStart;
+    private bool tutorialFireballEnemyReleasedEnd;
+    private bool tutorialFireballKill;
+    private bool tutorialPunchExplained;
+    private bool tutorialPunchEnemyReleasedStart;
+    private bool tutorialPunchEnemyReleasedEnd;
+    private bool tutorialPunchKill;
 
-    public bool tutorialGPEnemiesReleasedStart;
-    public bool tutorialGPEnemiesReleasedEnd;
-    public bool tutorialGGEnemiesReleasedStart;
-    public bool tutorialGGEnemiesReleasedEnd;
+    private bool tutorialGPEnemiesReleasedStart;
+    private bool tutorialGPEnemiesReleasedEnd;
+    private bool tutorialGGEnemiesReleasedStart;
+    private bool tutorialGGEnemiesReleasedEnd;
 
-    public bool tutorialFindParoleGuardDialogueSeen;
+    private bool tutorialFindParoleGuardDialogueSeen;
 
-    public bool tutorialSkullPunchExplained;
-    public bool tutorialSkullPunched;
+    private bool tutorialSkullPunchExplained;
+    private bool tutorialSkullPunched;
 
 
     public bool SnapPromptHidden;
