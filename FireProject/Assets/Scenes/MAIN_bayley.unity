@@ -52756,7 +52756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318851488116788, guid: dbaf68191bab69546985647875561946, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4318851488116788, guid: dbaf68191bab69546985647875561946, type: 3}
       propertyPath: m_LocalScale.x
@@ -57253,7 +57253,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh76044
+  m_Name: pb_Mesh69000
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -69518,7 +69518,7 @@ MonoBehaviour:
   actionPrompts: {fileID: 657778508}
   tutorialIntroDialogue:
     dialogueOver: 0
-    name: You
+    name: ' '
     sentences:
     - Intro dialogue
     - The Gate prevent demons from breaching into the Realm. Visit the Gate down
@@ -69529,7 +69529,7 @@ MonoBehaviour:
     name: ' '
     sentences:
     - The Gate can withstand demonic incursion for a time, but watch its health carefully.
-    playerSpeaking: 01
+    playerSpeaking: 00
   tutorialTeachFireballDialogue:
     dialogueOver: 0
     name: ' '
@@ -69583,24 +69583,6 @@ MonoBehaviour:
     sentences: []
     playerSpeaking: 
   tutorialStage: 0
-  tutorialIntroDialogueSeen: 0
-  tutorialExitSeen: 0
-  tutorialExitDialogueGiven: 0
-  tutorialFireballExplained: 0
-  tutorialFireballEnemyReleasedStart: 0
-  tutorialFireballEnemyReleasedEnd: 0
-  tutorialFireballKill: 0
-  tutorialPunchExplained: 0
-  tutorialPunchEnemyReleasedStart: 0
-  tutorialPunchEnemyReleasedEnd: 0
-  tutorialPunchKill: 0
-  tutorialGPEnemiesReleasedStart: 0
-  tutorialGPEnemiesReleasedEnd: 0
-  tutorialGGEnemiesReleasedStart: 0
-  tutorialGGEnemiesReleasedEnd: 0
-  tutorialFindParoleGuardDialogueSeen: 0
-  tutorialSkullPunchExplained: 0
-  tutorialSkullPunched: 0
   SnapPromptHidden: 1
   SnapPrompt: {fileID: 45877134}
   PunchPromptHidden: 1

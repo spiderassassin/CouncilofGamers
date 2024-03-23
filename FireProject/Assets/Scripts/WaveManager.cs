@@ -431,7 +431,7 @@ public class WaveManager : MonoBehaviour
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
                     SoundManager.Instance.wave0.start();
-                    
+                    GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }

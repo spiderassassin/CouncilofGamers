@@ -101,12 +101,12 @@ public class DialogueManager : MonoBehaviour
             {
                 //currentDialogueTrigger.dialogue.name = "You";
                 nameText.text = "You";
-            }
+            }/*
             else
             {
                 nameText.text = "Parole Guard";
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
-            }
+            }*/
         }
 
         StartCoroutine(ShowOneLetterAtATime(sentence));

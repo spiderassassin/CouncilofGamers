@@ -146,10 +146,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameStage = GameStage.TutorialIntro;
-        if(debugGameStage != gameStage)
+        /*if(debugGameStage != gameStage)
         {
             gameStage = debugGameStage;
-        }
+        }*/
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }
