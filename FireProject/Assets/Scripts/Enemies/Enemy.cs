@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Define the type of enemy
 public enum EnemyType
@@ -33,15 +34,17 @@ public abstract class Enemy : FlammableEntity
 
     private Camera mainCamera;
     private Coroutine pushback;
-
+    private float maxHealth;
     protected Transform currentTarget;
 
+    public Image healthbar;
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
     }
 
     protected override void Start()
     {
+        maxHealth = Health;
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         agent.speed = speed;
@@ -49,10 +52,12 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
 
         currentTarget = player;
+        healthbar.fillAmount = Health / maxHealth;
     }
 
     protected override void Update()
     {
+        healthbar.fillAmount = Health / maxHealth;
         base.Update();
         // Scale speed based on adrenaline.
         agent.speed = speed + (GameManager.Instance.AdrenalinePercent*3);
