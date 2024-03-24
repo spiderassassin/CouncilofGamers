@@ -412,7 +412,7 @@ public class WaveManager : MonoBehaviour
         {
             PunchPrompt.GetComponent<Image>().color = inactiveColor;
             EPrompt.GetComponent<Image>().color = inactiveColor;
-            //player.GetComponent<Controller>().punchAllowed = false;
+            player.GetComponent<Controller>().punchAllowed = false;
         }
         else
         {
