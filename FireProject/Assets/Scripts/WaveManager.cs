@@ -158,7 +158,7 @@ public class WaveManager : MonoBehaviour
                 break;
         }
         FindObjectOfType<DialogueManager>().StartDialogue(downtimeDialogue);
-        //SoundManager.Instance.PlaySoundloop(paroleHello, paroleGuardSprite.transform);
+        
     }
 
     private void startTutorialDialogue()
@@ -242,7 +242,7 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 print("Wave Over");
-                //SoundManager.Instance.MusicStop();
+                
                 SoundManager.Instance.WaveMusicStop();
                 GameManager.Instance.gameStage++;
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
@@ -252,7 +252,12 @@ public class WaveManager : MonoBehaviour
                     // Start the ending wave.
                     StartWave(endingWave);
                 } else {
+                    SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
+                    SoundManager.Instance.hello.start();
+                    SoundManager.Instance.hello.release();
                     startDowntimeDialogue();
+
                 }
                 //Debug.Log(GameManager.Instance.gameStage);
             }
@@ -469,13 +474,23 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
+
+
+                if (tutorialIntroDialogueSeen)
+                 {
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
+                }
+
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
                 {
                     gatePointLight.SetActive(true);
                 }
+
+               
                 if (tutorialExitSeen)
                 {
-                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
+                   
+                    
                     baseUI.SetActive(true);
                     tutorialStage = TutorialStage.PlayerSeesExit;
                 }
@@ -526,6 +541,7 @@ public class WaveManager : MonoBehaviour
                 {
                     FireballPromptHidden = true;
                     PunchPromptHidden = false;
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     StartCoroutine(Spawn(tutorialPunchWave));
                     tutorialPunchEnemyReleasedStart = true;
                 }
@@ -544,7 +560,7 @@ public class WaveManager : MonoBehaviour
                 }
                 else if (!tutorialGPEnemiesReleasedStart && tutorialGPWaveDialogue.dialogueOver)
                 {
-                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 5);
                     FireballPromptHidden = false;
                     StartCoroutine(Spawn(tutorialGruntPlayerWave));
                     tutorialGPEnemiesReleasedStart = true;
@@ -568,8 +584,11 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PunchSkulls:
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
-                    SoundManager.Instance.wave0.stop(STOP_MODE.ALLOWFADEOUT);
+                    SoundManager.Instance.wave0.setParameterByName("wave0looping", 6);
+
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
                     SoundManager.Instance.hello.start();
+                    SoundManager.Instance.hello.release();
                     // End of tutorial, set the game stage to downtime1.
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
                     if (GameManager.Instance.fuel >= GameManager.Instance.GetMaxFuel() - GameManager.Instance.punchRefuel)

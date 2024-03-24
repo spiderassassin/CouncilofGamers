@@ -28,6 +28,9 @@ public class FMODEvents : MonoBehaviour
     public EventReference wave1;
     public EventReference wave2;
     public EventReference wave3;
+    public EventReference downtime1;
+    public EventReference downtime2;
+    public EventReference betrayal;
 
 
 
