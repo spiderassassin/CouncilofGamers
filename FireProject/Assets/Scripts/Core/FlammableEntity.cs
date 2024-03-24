@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public abstract class FlammableEntity : Entity, IFlammable
 {
+    public Rigidbody body;
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;
     public bool onFire = false;
@@ -23,6 +24,16 @@ public abstract class FlammableEntity : Entity, IFlammable
     public IDamageable Damageable => this;
     public PassiveFireSources PassiveFireSources => passiveFireSources;
 
+    private void OnValidate()
+    {
+        if (!enabled) return;
+
+        if (!body) body = GetComponent<Rigidbody>();
+        if (!body)
+        {
+            Debug.LogError(gameObject.name+ " - Flammable Entities must have a rigid body attached (isKinematic is fine).");
+        }
+    }
     protected virtual void Start()
     {
         passiveFireSources.Initialize(this, this);
@@ -107,8 +118,6 @@ public abstract class FlammableEntity : Entity, IFlammable
 
         if (text)
             text.text = string.Format("{0:F1}", Health);
-        else
-            print("Health is: " + Health.ToString());
     }
 
     protected void SetFireCounter(float newValue)

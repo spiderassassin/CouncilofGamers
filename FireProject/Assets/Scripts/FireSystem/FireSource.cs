@@ -85,9 +85,16 @@ public class FireSource : MonoBehaviour
             gameObject.SetActive(active);
     }
 
+    protected virtual bool TriggerValid(Collider other)
+    {
+        if (!(detectionMask == (detectionMask | (1 << other.gameObject.layer)))) return false;
+        if (other.isTrigger) return false;
+
+        return true;
+    }
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger) return;
+        if (!TriggerValid(other)) return;
         if (inRange.Contains(other)) return;
 
         inRange.Add(other);
@@ -99,7 +106,7 @@ public class FireSource : MonoBehaviour
     }
     protected virtual void OnTriggerExit(Collider other)
     {
-        if (other.isTrigger) return;
+        if (!TriggerValid(other)) return;
         inRange.Remove(other);
     }
 

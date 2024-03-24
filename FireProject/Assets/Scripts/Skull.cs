@@ -6,24 +6,19 @@ public class Skull : FlammableEntity
 {
     protected override void Update()
     {
-        base.Update();
+        // base.Update();
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        Debug.Log("skull dmaaged 1");
-        
-        if (dmg.type == DamageType.AdditiveDamage && attacker == Controller.Instance)
+        if (dmg.type == DamageType.AdditiveDamage && attacker is Controller)
         {
-            Debug.Log("skull damaged 2")
 ;           base.OnDamaged(attacker, dmg);
         }
     }
 
     public override void Death()
     {
-        Debug.Log("skull die");
-        base.Death();
         GameManager.Instance.UpdateFuel(false, false, true);
         Destroy(gameObject);
     }

@@ -214,7 +214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 53
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -272,7 +272,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &26583559
 Mesh:
@@ -280,7 +289,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68962
+  m_Name: pb_Mesh42718
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -444,7 +453,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67442
+  m_Name: pb_Mesh41154
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -1084,7 +1093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -1142,7 +1151,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (23)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &55255909
 GameObject:
@@ -1881,7 +1899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -1939,7 +1957,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (44)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &85728153 stripped
 Transform:
@@ -2794,7 +2821,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -2852,7 +2879,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (37)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &120465937
 PrefabInstance:
@@ -2863,7 +2899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -2921,7 +2957,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &123845748
 GameObject:
@@ -6366,7 +6411,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -6424,7 +6469,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (58)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &172755154
 PrefabInstance:
@@ -7101,7 +7155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -7159,7 +7213,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (25)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &205569471
 GameObject:
@@ -7216,7 +7279,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68032
+  m_Name: pb_Mesh41762
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7383,7 +7446,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -7441,7 +7504,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &217139681
 Mesh:
@@ -7449,7 +7521,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68912
+  m_Name: pb_Mesh42666
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7687,7 +7759,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68228
+  m_Name: pb_Mesh41964
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8103,7 +8175,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67214
+  m_Name: pb_Mesh40922
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10021,7 +10093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -10079,7 +10151,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (38)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &273315337
 PrefabInstance:
@@ -10366,7 +10447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -10424,7 +10505,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (57)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &281058814
 PrefabInstance:
@@ -10580,7 +10670,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -10638,7 +10728,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (46)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &296909797
 PrefabInstance:
@@ -11084,7 +11183,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68722
+  m_Name: pb_Mesh42472
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11787,7 +11886,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -11845,7 +11944,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (26)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &364993654
 PrefabInstance:
@@ -12715,7 +12823,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -12773,7 +12881,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (51)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &429489915
 GameObject:
@@ -12997,7 +13114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -13055,7 +13172,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (29)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &441831314
 Mesh:
@@ -13063,7 +13189,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67662
+  m_Name: pb_Mesh41380
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13797,7 +13923,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68520
+  m_Name: pb_Mesh42266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14761,7 +14887,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69360
+  m_Name: pb_Mesh43118
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -14918,7 +15044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -14976,7 +15102,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (11)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &498446157 stripped
 Transform:
@@ -15117,7 +15252,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69530
+  m_Name: pb_Mesh43290
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16482,7 +16617,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 58
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -16540,7 +16675,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &522529967
 Mesh:
@@ -16786,7 +16930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -16844,7 +16988,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (47)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &531588348
 GameObject:
@@ -22035,7 +22188,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -22093,7 +22246,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (16)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &561167881
 GameObject:
@@ -23463,7 +23625,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -23521,7 +23683,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (31)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &618161589
 GameObject:
@@ -24720,7 +24891,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -24778,7 +24949,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (32)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &657778508
 GameObject:
@@ -25776,7 +25956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5364346961889380291, guid: 734aa72d77ef15944917e43ccf2e0bc8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5364346961889380291, guid: 734aa72d77ef15944917e43ccf2e0bc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26085,7 +26265,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -26143,7 +26323,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (18)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &683082939 stripped
 Transform:
@@ -26335,7 +26524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -26393,7 +26582,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &698013834
 PrefabInstance:
@@ -27535,7 +27733,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67162
+  m_Name: pb_Mesh40870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27969,6 +28167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 734056529}
   - component: {fileID: 734056530}
+  - component: {fileID: 734056531}
+  - component: {fileID: 734056532}
   m_Layer: 0
   m_Name: ParolePileofSkulls
   m_TagString: Untagged
@@ -27988,6 +28188,7 @@ Transform:
   m_LocalScale: {x: 12.500001, y: 12.499999, z: 12.499999}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 810102345}
   - {fileID: 1984534545}
   - {fileID: 458907169}
   - {fileID: 1570111740}
@@ -28063,13 +28264,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliders:
-  - {fileID: 0}
+  - {fileID: 734056531}
   health: 1
+  body: {fileID: 734056532}
   text: {fileID: 0}
-  passiveFireSources: {fileID: 0}
+  passiveFireSources: {fileID: 810102346}
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+--- !u!135 &734056531
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734056528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &734056532
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734056528}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &734560527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29720,7 +29951,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -29778,7 +30009,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (33)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &773952156 stripped
 Transform:
@@ -31738,6 +31978,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4856522368811236, guid: b2199aadf1bb8c4449f3edfc84a39f78, type: 3}
   m_PrefabInstance: {fileID: 806101717}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &810102345 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+  m_PrefabInstance: {fileID: 1223948153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &810102346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4024264099154266144, guid: af422b545f004f243bec32015693b411, type: 3}
+  m_PrefabInstance: {fileID: 1223948153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &812756757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32403,7 +32659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -32461,7 +32717,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (41)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &833853135
 GameObject:
@@ -32614,7 +32879,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -32672,7 +32937,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (48)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &836499829 stripped
 Transform:
@@ -32721,7 +32995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -32779,7 +33053,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (10)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &851439710 stripped
 Transform:
@@ -32938,7 +33221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -32996,7 +33279,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &870958035 stripped
 Transform:
@@ -33956,7 +34248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67930
+  m_Name: pb_Mesh41656
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35782,7 +36074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68068
+  m_Name: pb_Mesh41800
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36365,7 +36657,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67648
+  m_Name: pb_Mesh41366
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36539,7 +36831,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67634
+  m_Name: pb_Mesh41352
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36707,7 +36999,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
   m_PrefabInstance: {fileID: 1247728066}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695216028}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bc39dc59dd58834fbeb2e8373282d67, type: 3}
@@ -36722,7 +37014,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -36780,7 +37072,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &991769896 stripped
 Transform:
@@ -37472,7 +37773,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 52
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -37530,7 +37831,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &1038596254 stripped
 Transform:
@@ -38150,7 +38460,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -38208,7 +38518,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (42)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1048840409
 GameObject:
@@ -38864,7 +39183,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67200
+  m_Name: pb_Mesh40908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40664,7 +40983,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -40722,7 +41041,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1096331112
 PrefabInstance:
@@ -40833,7 +41161,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69304
+  m_Name: pb_Mesh43062
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41088,7 +41416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -41146,7 +41474,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &1109929021 stripped
 Transform:
@@ -41400,7 +41737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -41458,7 +41795,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (40)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1127032279
 GameObject:
@@ -42899,7 +43245,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67340
+  m_Name: pb_Mesh41050
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44222,7 +44568,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -44280,7 +44626,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (45)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1218751312
 PrefabInstance:
@@ -44291,7 +44646,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -44349,8 +44704,74 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+--- !u!1001 &1223948153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 734056529}
+    m_Modifications:
+    - target: {fileID: 4024264099154266145, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_Name
+      value: PassiveFireSources
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af422b545f004f243bec32015693b411, type: 3}
 --- !u!43 &1234462663
 Mesh:
   m_ObjectHideFlags: 0
@@ -44522,33 +44943,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3751368657875494216}
     m_Modifications:
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: hitProjectiles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.pushBack
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146921320300557860, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: activeDamage.fireCounter
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3790555953840665362, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44593,18 +44990,6 @@ PrefabInstance:
     - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
       propertyPath: m_Name
       value: ConeFireVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_Layer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8718736401944137689, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
@@ -44791,7 +45176,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69248
+  m_Name: pb_Mesh43006
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44963,7 +45348,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -45021,7 +45406,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (56)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1274187298
 GameObject:
@@ -45069,7 +45463,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -45127,7 +45521,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (30)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1276365397
 GameObject:
@@ -45219,7 +45622,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -45277,7 +45680,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (49)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1287301931
 PrefabInstance:
@@ -45464,7 +45876,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68000
+  m_Name: pb_Mesh41730
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45631,7 +46043,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -45689,7 +46101,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (39)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1305081512
 GameObject:
@@ -49343,7 +49764,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -49401,7 +49822,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1393000401
 PrefabInstance:
@@ -50142,7 +50572,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -50200,7 +50630,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (19)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &1430147209 stripped
 Transform:
@@ -52755,7 +53194,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67176
+  m_Name: pb_Mesh40884
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52927,7 +53366,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 55
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -52985,7 +53424,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1487768125
 PrefabInstance:
@@ -53704,7 +54152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -53762,7 +54210,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (53)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1521784792
 PrefabInstance:
@@ -54001,7 +54458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -54059,7 +54516,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (34)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &1534630823 stripped
 Transform:
@@ -54231,7 +54697,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -54289,7 +54755,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (55)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1539374303
 PrefabInstance:
@@ -54363,7 +54838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68186
+  m_Name: pb_Mesh41920
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55037,7 +55512,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -55095,7 +55570,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (28)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &1555294753
 GameObject:
@@ -55911,7 +56395,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68382
+  m_Name: pb_Mesh42124
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57565,7 +58049,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29564
+  m_Name: pb_Mesh42758
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57798,7 +58282,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -57856,7 +58340,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (20)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &1600232439 stripped
 Transform:
@@ -59416,73 +59909,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 36c31fd4fd4bb7946a3dd23fd38eac40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbaf68191bab69546985647875561946, type: 3}
---- !u!1 &1695216028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
-  m_PrefabInstance: {fileID: 1247728066}
-  m_PrefabAsset: {fileID: 0}
---- !u!108 &1695216032
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695216028}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.73520577, b: 0.6264151, a: 1}
-  m_Intensity: 5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!4 &1703787090 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
@@ -60413,7 +60839,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69088
+  m_Name: pb_Mesh42846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -61872,7 +62298,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68794
+  m_Name: pb_Mesh42544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62529,7 +62955,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -62587,7 +63013,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &1830434439
 PrefabInstance:
@@ -62793,7 +63228,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -62851,7 +63286,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (54)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &1855500950
 Mesh:
@@ -62859,7 +63303,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69828
+  m_Name: pb_Mesh43596
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -65179,7 +65623,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67146
+  m_Name: pb_Mesh40846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -65710,7 +66154,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68366
+  m_Name: pb_Mesh42108
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -65874,7 +66318,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69670
+  m_Name: pb_Mesh43432
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68027,7 +68471,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69756
+  m_Name: pb_Mesh43520
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68940,7 +69384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -68998,7 +69442,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &2010177889
 PrefabInstance:
@@ -69075,7 +69528,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -69133,7 +69586,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (35)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!43 &2014678272
 Mesh:
@@ -69384,7 +69846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -69442,7 +69904,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &2022100702
 PrefabInstance:
@@ -69453,7 +69924,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -69511,7 +69982,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (50)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &2026828806
 PrefabInstance:
@@ -69522,7 +70002,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -69580,7 +70060,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (36)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &2027314003
 GameObject:
@@ -70353,7 +70842,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68402
+  m_Name: pb_Mesh42144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -71882,7 +72371,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -71940,7 +72429,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (52)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &2061262338
 PrefabInstance:
@@ -72342,7 +72840,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -72400,7 +72898,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (22)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &2065255210
 GameObject:
@@ -72727,7 +73234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -72785,7 +73292,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (15)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1 &2069373139
 GameObject:
@@ -74316,7 +74832,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -74374,7 +74890,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!1001 &2117038560
 PrefabInstance:
@@ -74451,7 +74976,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalScale.x
@@ -74509,7 +75034,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punchable Skull (43)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7845380004154290155, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845380004154290158, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 348744271561791075, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
 --- !u!4 &2132510615 stripped
 Transform:
@@ -74889,7 +75423,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69146
+  m_Name: pb_Mesh42904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -75080,7 +75614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 831
   activeDamage:
     damage: 15
     pushBack: 3
@@ -75092,7 +75626,7 @@ MonoBehaviour:
   tick: 0
   damageOnEnter: 0
   damagedClip: {fileID: 0}
-  maximumTargets: -1
+  maximumTargets: 1
   requireVisibility: 0
   visibilityCheckMask:
     serializedVersion: 2

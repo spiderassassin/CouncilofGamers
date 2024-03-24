@@ -114,12 +114,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 831
   activeDamage:
     damage: 5
     pushBack: -0.3
     type: 2
-    fireCounter: 1
+    fireCounter: 0.5
   baseLifespan: Infinity
   tickRate: 0.25
   activeDamageProbability: 1
@@ -140,7 +140,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8377320146423133863}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0

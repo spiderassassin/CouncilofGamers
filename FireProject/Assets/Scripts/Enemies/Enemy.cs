@@ -24,7 +24,6 @@ public abstract class Enemy : FlammableEntity
     public Transform goal;
     public Transform player;
     public Animator animator;
-    public Rigidbody body;
     //public AudioClip deathSound;
     public DamageInformation attackDamage;
 
