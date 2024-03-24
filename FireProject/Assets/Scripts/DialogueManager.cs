@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialogueBox;
     public GameObject player;
+    public int hhhcounter;
 
 
 
@@ -93,7 +94,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        GameManager.Instance.nextSentenceReady = false;
+        
         if (sentences.Count == 0)
         {
             
@@ -105,6 +106,8 @@ public class DialogueManager : MonoBehaviour
         if(sentence == "At this point, I wish I had gotten Genderen sent down here instead of you. He would've died easily.")
         {
             SoundManager.Instance.betrayal.start();
+            NPCSprite.GetComponent<paroleAnimations>().betray();
+
         }
 
         if (sentence == "By the way, I could tell you were holding back out there. ")
@@ -114,6 +117,32 @@ public class DialogueManager : MonoBehaviour
             player.GetComponent<Controller>().flameAttackAllowed = true;
 
         }
+        if (sentence == "Y’know I heard about some of the stuff that got you locked down here. Were you <i>selling</i> your <i>blood</i>?")
+        {
+
+            NPCSprite.GetComponent<paroleAnimations>().inquisitive();
+
+        }
+
+        if (sentence == "…Well on the plus side, I also sold fireworks.")
+        {
+
+            NPCSprite.GetComponent<paroleAnimations>().notinquisitive();
+
+        }
+        if (sentence == "*coo* *coo*")
+        {
+            print("cococo");
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.pigeons, player.transform.position);
+
+        }
+
+        
+
+
+
+
+
 
 
 
@@ -138,10 +167,17 @@ public class DialogueManager : MonoBehaviour
             else if (currentDialogue.name.Contains("Parole"))
             {
                 nameText.text = "Parole Guard";
-                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
-                RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
-                SoundManager.Instance.hhhh.start();
-                SoundManager.Instance.hhhh.release();
+                
+                
+                    RuntimeManager.DetachInstanceFromGameObject(SoundManager.Instance.hhhh);
+                    SoundManager.Instance.hhhh.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
+                    RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
+                    
+                    SoundManager.Instance.hhhh.start();
+                    SoundManager.Instance.hhhh.release();
+                
+                
                 dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
             }
             else if (currentDialogue.name.Contains("?"))
@@ -155,6 +191,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueBox.GetComponent<Image>().color = new Color32(0, 0, 0, 141);
             }
         }
+        GameManager.Instance.nextSentenceReady = false;
 
         StartCoroutine(ShowOneLetterAtATime(sentence));
         
@@ -171,8 +208,9 @@ public class DialogueManager : MonoBehaviour
             // Set next game stage.
             GameManager.Instance.gameStage++;
             // Hide the parole guard sprite.
-            WaveManager.Instance.paroleGuardSprite.SetActive(false);
-            
+            //WaveManager.Instance.paroleGuardSprite.SetActive(false);
+            NPCSprite.GetComponent<paroleAnimations>().hide();
+
         }
     }
 

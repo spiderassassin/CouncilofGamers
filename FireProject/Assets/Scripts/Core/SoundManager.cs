@@ -58,6 +58,7 @@ public class SoundManager : MonoBehaviour
         downtime1 = CreateInstance(FMODEvents.Instance.downtime1);
         downtime2 = CreateInstance(FMODEvents.Instance.downtime2);
         betrayal = CreateInstance(FMODEvents.Instance.betrayal);
+        
 
     }
 
@@ -75,7 +76,7 @@ public class SoundManager : MonoBehaviour
                 downtime1.start();
                 break;
             case GameManager.GameStage.Downtime2:
-                downtime2.start();
+                downtime1.start();
                 break;
 
         }
@@ -89,7 +90,7 @@ public class SoundManager : MonoBehaviour
                 downtime1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
             case GameManager.GameStage.Downtime2:
-                downtime2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                downtime1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
 
         }
@@ -170,6 +171,10 @@ public class SoundManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
+
+    
+
+
 
     public EventInstance CreateInstance(EventReference eventReference)
     {
