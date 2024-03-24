@@ -46,66 +46,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave:
     chunks:
-    - note: 1gp
+    - note: 1[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - note: then 2gp after 3s from p2
+    - note: then 2[GruntPlayer] after 3s from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
       spawnDelay: 3
       spawnPoint: 1
       count: 2
       waitUntilPreviousDead: 1
-    - note: 1gp from p1
+    - note: 1[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - note: then 1gg from p1
+    - note: then 1[GruntGoal] from [SpawnPoint1]
       enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 1
-    - note: 1gg from p2
+    - note: 1[GruntGoal] from [SpawnPoint2]
       enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 1
       count: 1
       waitUntilPreviousDead: 0
-    - note: 2gp from p2
+    - note: 3[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 1
       count: 3
       waitUntilPreviousDead: 0
-    - note: then 2gg from p1
+    - note: then 3[GruntGoal] from [SpawnPoint1]
       enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 3
       waitUntilPreviousDead: 1
-    - note: 2gg from p2
+    - note: 2[GruntGoal] from [SpawnPoint2]
       enemyType: 1
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 1
       count: 2
       waitUntilPreviousDead: 0
-    - note: then 5gp from p1
+    - note: then 5[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
       count: 5
       waitUntilPreviousDead: 1
+    - note: then 1[Tank] after 2s from [SpawnPoint2]
+      enemyType: 3
+      maxWait: -1
+      spawnDelay: 2
+      spawnPoint: 1
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 5[GruntPlayerWithTank] after 5s from [SpawnPoint1]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 0
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 3[GruntPlayer] after 10s from [SpawnPoint1]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 10
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
