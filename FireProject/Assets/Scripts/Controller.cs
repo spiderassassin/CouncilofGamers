@@ -24,8 +24,14 @@ public class Controller : Entity
     public DamageInformation snapDamage;
 
 
+    public bool snapAllowed;
+    public bool punchAllowed;
+    public bool flameAttackAllowed;
+    public bool fireballAllowed;
 
-    
+
+
+
 
 
     public bool isMoving = false;
@@ -222,7 +228,7 @@ public class Controller : Entity
                 //OnDamaged();
             }
 
-            if (InputManager.Instance.fireball && GameManager.Instance.fuel > 0)
+            if (InputManager.Instance.fireball && GameManager.Instance.fuel > 0 && fireballAllowed)
             {
                 Fireball();
             }
@@ -232,7 +238,7 @@ public class Controller : Entity
                 Punch();
             }
 
-            if (InputManager.Instance.fire && GameManager.Instance.fuel > 0)
+            if (InputManager.Instance.fire && GameManager.Instance.fuel > 0 && flameAttackAllowed)
             {
                 GameManager.Instance.UpdateFuel(isFiring, false); // decrease the fuel
                 if (isFiring == false)
@@ -260,7 +266,7 @@ public class Controller : Entity
             }
 
 
-            if (InputManager.Instance.snap)
+            if (InputManager.Instance.snap && snapAllowed)
             {
                  StartCoroutine(Snap());
                 //Snap();
@@ -276,6 +282,7 @@ public class Controller : Entity
     void Punch()
     {
         if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) return;
+        if (!punchAllowed) return;
         lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();

@@ -145,11 +145,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.TutorialIntro;
-        if(debugGameStage != gameStage)
+        gameStage = GameStage.Wave1;
+        /*if(debugGameStage != gameStage)
         {
             gameStage = debugGameStage;
-        }
+        }*/
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }

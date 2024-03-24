@@ -49,6 +49,8 @@ public class FireManager : MonoBehaviour
         IFlammable f = Lookup(c);
         if (f == null) return;
         f.Damageable.OnDamaged(attacker, activeFire);
+
+        Debug.Log(Lookup(c));
         
     }
     public void StepFireLevel(IAttacker attacker, DamageInformation immediateDamage)

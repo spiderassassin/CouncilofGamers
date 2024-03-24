@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEditor.Experimental.GraphView;
 
 
 public class DialogueManager : MonoBehaviour
@@ -28,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     public string sentence;
 
     private Dialogue currentDialogue;
+
+    public GameObject dialogueBox;
 
     
 
@@ -111,7 +114,8 @@ public class DialogueManager : MonoBehaviour
             {
                 //currentDialogueTrigger.dialogue.name = "You";
                 nameText.text = "You";
-            }
+                dialogueBox.GetComponent<Image>().color = new Color32(0, 0, 0, 141);
+            }/*
             else
             {
                 nameText.text = "Parole Guard";
@@ -122,6 +126,21 @@ public class DialogueManager : MonoBehaviour
                 SoundManager.Instance.hhhh.release();
 
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
+            }*/
+            else if (currentDialogue.name.Contains("Parole"))
+            {
+                nameText.text = "Parole Guard";
+                dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
+            }
+            else if (currentDialogue.name.Contains("?"))
+            {
+                nameText.text = "???";
+                dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
+            }
+            else
+            {
+                nameText.text = " ";
+                dialogueBox.GetComponent<Image>().color = new Color32(0, 0, 0, 141);
             }
         }
 
