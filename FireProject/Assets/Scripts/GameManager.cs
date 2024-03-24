@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.TutorialIntro;
+        gameStage = GameStage.Downtime1;
         /*if(debugGameStage != gameStage)
         {
             gameStage = debugGameStage;
