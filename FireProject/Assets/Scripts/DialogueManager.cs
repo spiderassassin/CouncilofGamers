@@ -120,16 +120,17 @@ public class DialogueManager : MonoBehaviour
             {
                 nameText.text = "Parole Guard";
                 //for the hhhh dialogue soundF
-                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
-                FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
-                SoundManager.Instance.hhhh.start();
-                SoundManager.Instance.hhhh.release();
+                
 
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
             }*/
             else if (currentDialogue.name.Contains("Parole"))
             {
                 nameText.text = "Parole Guard";
+                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
+                SoundManager.Instance.hhhh.start();
+                SoundManager.Instance.hhhh.release();
                 dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
             }
             else if (currentDialogue.name.Contains("?"))
