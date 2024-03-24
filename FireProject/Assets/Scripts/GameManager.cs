@@ -145,11 +145,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //gameStage = GameStage.Wave1;
-        /*if(debugGameStage != gameStage)
+        if(debugGameStage != gameStage)
         {
+            Debug.LogError("WARNING: game stage is being overrided by GameManager.debugGameStage. Set to gameStage for expected behaviour.");
             gameStage = debugGameStage;
-        }*/
+        }
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }

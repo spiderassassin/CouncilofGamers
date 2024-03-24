@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ParolePileofSkulls : FlammableEntity
 {
+    protected override void Update()
+    {
+        // base.Update();
+    }
+
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
 
-        if (dmg.type == DamageType.AdditiveDamage && attacker == Controller.Instance)
+        if (dmg.type == DamageType.AdditiveDamage && attacker is Controller)
         {
             base.OnDamaged(attacker, dmg);
         }

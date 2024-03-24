@@ -9,6 +9,8 @@ public class Tank: Enemy {
     private Task waitingLongRange;
     private Task waitingCooldown;
     public float attackRange = 6;
+    public int longAttackCooldown = 2;
+    public int closeAttackCooldown = 1;
 
     float timeHit;
     
@@ -50,12 +52,12 @@ public class Tank: Enemy {
             SetDestination(transform.position);
             Attack();
             // Wait for attack animation.
-            waitingShortRange = new Task(1);
+            waitingShortRange = new Task(closeAttackCooldown);
         } else if (state == EnemyState.LongRangeAttacking) {
             // Stop moving and long range attack.
             if(agent.enabled)agent.isStopped = true;
             // Wait for attack animation.
-            waitingLongRange = new Task(3);
+            waitingLongRange = new Task(longAttackCooldown);
         }
 
         if(Vector3.Distance(transform.position,currentTarget.position)< 4f)

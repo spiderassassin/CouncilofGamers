@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8377320146423133863
+--- !u!1 &7603319072953106712
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3790555953840665362}
-  - component: {fileID: 6022259767465279942}
-  - component: {fileID: 8718736401944137689}
-  - component: {fileID: 3146921320300557861}
-  - component: {fileID: 3146921320300557860}
-  - component: {fileID: 1695216032}
+  - component: {fileID: 2980416134336906413}
+  - component: {fileID: 5644434722641786489}
+  - component: {fileID: 7294000366691121254}
+  - component: {fileID: 3921032620884525466}
+  - component: {fileID: 3921032620884525467}
   m_Layer: 1
-  m_Name: ConeFireVolume
+  m_Name: punchVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3790555953840665362
+--- !u!4 &2980416134336906413
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_GameObject: {fileID: 7603319072953106712}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.3}
-  m_LocalScale: {x: 2, y: 15, z: 2}
+  m_LocalScale: {x: 4, y: 6, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &6022259767465279942
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5644434722641786489
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
+  m_GameObject: {fileID: 7603319072953106712}
   m_Mesh: {fileID: 8863554505948472493, guid: 0a8d56866de08da4f9c9ac7ff29c007f, type: 3}
---- !u!23 &8718736401944137689
+--- !u!23 &7294000366691121254
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
+  m_GameObject: {fileID: 7603319072953106712}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3146921320300557861
+--- !u!64 &3921032620884525466
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
+  m_GameObject: {fileID: 7603319072953106712}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -100,13 +99,13 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8863554505948472493, guid: 0a8d56866de08da4f9c9ac7ff29c007f, type: 3}
---- !u!114 &3146921320300557860
+--- !u!114 &3921032620884525467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
+  m_GameObject: {fileID: 7603319072953106712}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bc39dc59dd58834fbeb2e8373282d67, type: 3}
@@ -116,82 +115,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 831
   activeDamage:
-    damage: 5
-    pushBack: -0.3
-    type: 2
-    fireCounter: 0.5
+    damage: 15
+    pushBack: 3
+    type: 1
+    fireCounter: 0
   baseLifespan: Infinity
-  tickRate: 0.25
+  tickRate: 0.1
   activeDamageProbability: 1
-  tick: 1
+  tick: 0
   damageOnEnter: 0
   damagedClip: {fileID: 0}
-  maximumTargets: -1
+  maximumTargets: 1
   requireVisibility: 0
   visibilityCheckMask:
     serializedVersion: 2
     m_Bits: 0
   inRange: []
-  isPunch: 0
---- !u!108 &1695216032
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8377320146423133863}
-  m_Enabled: 0
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.73520577, b: 0.6264151, a: 1}
-  m_Intensity: 5
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 0
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  isPunch: 1

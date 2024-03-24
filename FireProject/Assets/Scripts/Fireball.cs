@@ -17,9 +17,7 @@ public class Fireball : FireSource
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger) return;
-
-        print("Fireball Collision: "+other.gameObject.name);
+        if (!TriggerValid(other)) return;
 
         base.OnTriggerEnter(other);
 

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 831
   activeDamage:
     damage: 30
     pushBack: 0.1
@@ -223,6 +223,11 @@ MonoBehaviour:
   damageOnEnter: 1
   damagedClip: {fileID: 0}
   maximumTargets: -1
+  requireVisibility: 0
+  visibilityCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
+  inRange: []
   isPunch: 0
   body: {fileID: 4826436336809672534}
   speed: 30

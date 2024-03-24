@@ -7,7 +7,6 @@ public class Projectile :FlammableEntity
     [SerializeField] private float speed = 10f;
     public Vector3 dest;
     public bool targetPlayer = true;
-    public Rigidbody body;
     public float damageRadius = 1;
 
     public new Vector3 Position => transform.position;
