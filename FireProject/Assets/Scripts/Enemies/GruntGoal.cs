@@ -33,7 +33,7 @@ public class GruntGoal: Enemy {
                 // Instantiate the projectile with specific destination.
                 GameObject proj = Instantiate(projectile, origin, Quaternion.identity);
                 if (attackingGoal) {
-                    proj.GetComponent<Projectile>().dest = currentTarget.position;
+                    proj.GetComponent<Projectile>().dest = currentTarget.position+Vector3.up;
                     proj.GetComponent<Projectile>().targetPlayer = false;
                 }
                 // Resume movement.

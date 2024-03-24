@@ -116,8 +116,8 @@ MonoBehaviour:
   animator: {fileID: 4436281028067464520}
   attackDamage:
     damage: 50
-    pushBack: 0
-    type: 0
+    pushBack: 8
+    type: 1
     fireCounter: 0
   speed: 50
   healthbar: {fileID: 7416629570677817420}

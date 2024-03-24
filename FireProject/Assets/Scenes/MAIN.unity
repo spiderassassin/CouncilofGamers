@@ -62299,7 +62299,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42544
+  m_Name: pb_Mesh30202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76403,6 +76403,7 @@ MonoBehaviour:
   armAnimator: {fileID: 1474664498842433659}
   invincibility: 0
   invincibilityDuration: 0.25
+  additive: {x: 0, y: 0, z: 0}
 --- !u!1 &6458678085241640785
 GameObject:
   m_ObjectHideFlags: 0
