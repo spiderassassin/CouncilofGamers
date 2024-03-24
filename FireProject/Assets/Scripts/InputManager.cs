@@ -188,8 +188,10 @@ public class InputManager : MonoBehaviour
 
             else if (dialogueManager.GetComponent<DialogueManager>().dialogueText.text != dialogueManager.GetComponent<DialogueManager>().sentence)
             {
-                dialogueManager.GetComponent<DialogueManager>().dialogueText.text = dialogueManager.GetComponent<DialogueManager>().sentence;
+                /*dialogueManager.GetComponent<DialogueManager>().dialogueText.text = dialogueManager.GetComponent<DialogueManager>().sentence;
                 dialogueManager.GetComponent<DialogueManager>().StopAllCoroutines();
+                SoundManager.Instance.hhhh.setParameterByName("isTalking", 1);
+                SoundManager.Instance.hhhh.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);*/
             }
             else
             {

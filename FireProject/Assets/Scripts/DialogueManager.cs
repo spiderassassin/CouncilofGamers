@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialogueBox;
     public GameObject player;
+    public int hhhcounter;
 
 
 
@@ -93,7 +94,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        GameManager.Instance.nextSentenceReady = false;
+        
         if (sentences.Count == 0)
         {
             
@@ -138,10 +139,17 @@ public class DialogueManager : MonoBehaviour
             else if (currentDialogue.name.Contains("Parole"))
             {
                 nameText.text = "Parole Guard";
-                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
-                RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
-                SoundManager.Instance.hhhh.start();
-                SoundManager.Instance.hhhh.release();
+                
+                
+                    RuntimeManager.DetachInstanceFromGameObject(SoundManager.Instance.hhhh);
+                    SoundManager.Instance.hhhh.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
+                    RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
+                    
+                    SoundManager.Instance.hhhh.start();
+                    SoundManager.Instance.hhhh.release();
+                
+                
                 dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
             }
             else if (currentDialogue.name.Contains("?"))
@@ -155,6 +163,7 @@ public class DialogueManager : MonoBehaviour
                 dialogueBox.GetComponent<Image>().color = new Color32(0, 0, 0, 141);
             }
         }
+        GameManager.Instance.nextSentenceReady = false;
 
         StartCoroutine(ShowOneLetterAtATime(sentence));
         
