@@ -245,6 +245,7 @@ public class WaveManager : MonoBehaviour
                 
                 SoundManager.Instance.WaveMusicStop();
                 GameManager.Instance.gameStage++;
+                paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
                     // Turn off the music.
                     //SoundManager.Instance.MusicStop();
