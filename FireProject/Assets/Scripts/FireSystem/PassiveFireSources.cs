@@ -14,6 +14,7 @@ public class PassiveFireSources : MonoBehaviour
     public Vector3 unlitScale = Vector3.one;
     public Vector3 litScale = Vector3.one;
     public Vector3 overdriveAddition = Vector3.one;
+    public BasicSpritePlayer splayer;
 
     public DamageType CurrentState { get; private set; }
 
@@ -36,8 +37,11 @@ public class PassiveFireSources : MonoBehaviour
 
     private void Update()
     {
-        currentT = Mathf.Lerp(currentT, targetT, Time.deltaTime * (targetT>currentT? 3f: 1f));
+        float t = Time.deltaTime * (targetT > currentT ? 3f : 1f);
+        currentT = Mathf.Lerp(currentT, targetT, t);
         overdrive = Mathf.Lerp(overdrive, 0, Time.deltaTime * 1f);
+
+        splayer.delay = Mathf.Lerp(0.075f, .3f, t);
 
         Vector3 overdriveContribution = Vector3.Lerp(Vector3.zero, overdriveAddition, overdrive);
 
