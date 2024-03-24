@@ -106,6 +106,8 @@ public class DialogueManager : MonoBehaviour
         if(sentence == "At this point, I wish I had gotten Genderen sent down here instead of you. He would've died easily.")
         {
             SoundManager.Instance.betrayal.start();
+            NPCSprite.GetComponent<paroleAnimations>().betray();
+
         }
 
         if (sentence == "By the way, I could tell you were holding back out there. ")
@@ -115,6 +117,32 @@ public class DialogueManager : MonoBehaviour
             player.GetComponent<Controller>().flameAttackAllowed = true;
 
         }
+        if (sentence == "Y’know I heard about some of the stuff that got you locked down here. Were you <i>selling</i> your <i>blood</i>?")
+        {
+
+            NPCSprite.GetComponent<paroleAnimations>().inquisitive();
+
+        }
+
+        if (sentence == "…Well on the plus side, I also sold fireworks.")
+        {
+
+            NPCSprite.GetComponent<paroleAnimations>().notinquisitive();
+
+        }
+        if (sentence == "*coo* *coo*")
+        {
+            print("cococo");
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.pigeons, player.transform.position);
+
+        }
+
+        
+
+
+
+
+
 
 
 
@@ -180,8 +208,9 @@ public class DialogueManager : MonoBehaviour
             // Set next game stage.
             GameManager.Instance.gameStage++;
             // Hide the parole guard sprite.
-            WaveManager.Instance.paroleGuardSprite.SetActive(false);
-            
+            //WaveManager.Instance.paroleGuardSprite.SetActive(false);
+            NPCSprite.GetComponent<paroleAnimations>().hide();
+
         }
     }
 

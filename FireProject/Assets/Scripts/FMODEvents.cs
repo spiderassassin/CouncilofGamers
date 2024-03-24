@@ -15,6 +15,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference playerDamage;
     public EventReference snap;
     public EventReference slowmotion;
+    public EventReference pigeons;
 
     //loop sounds
     public EventReference flamethrower;
@@ -31,6 +32,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference downtime1;
     public EventReference downtime2;
     public EventReference betrayal;
+
 
 
 
