@@ -7651,8 +7651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 0
-  debugGameStage: 3
+  gameStage: 7
+  debugGameStage: 8
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -22754,7 +22754,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69486
+  m_Name: pb_Mesh30052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24690,6 +24690,7 @@ MonoBehaviour:
   dialoguesound: {fileID: 8300000, guid: 63f426e9dd16d49b48f91cf17bce1fce, type: 3}
   sentence: 
   dialogueBox: {fileID: 188248925}
+  player: {fileID: 0}
 --- !u!4 &645014638
 Transform:
   m_ObjectHideFlags: 0
@@ -53148,7 +53149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1491700452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57564,7 +57565,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh69000
+  m_Name: pb_Mesh29564
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62450,11 +62451,11 @@ MonoBehaviour:
     Path: event:/hello
   hhhh:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1915641607
+      Data2: 1148166123
+      Data3: 595766975
+      Data4: 2036120107
+    Path: event:/hhhh
   wave0:
     Guid:
       Data1: -1627489188
@@ -62483,6 +62484,27 @@ MonoBehaviour:
       Data3: 1307238069
       Data4: 384963089
     Path: event:/wave3
+  downtime1:
+    Guid:
+      Data1: 404959848
+      Data2: 1284688871
+      Data3: 388155799
+      Data4: 1782358084
+    Path: event:/Parolemusic
+  downtime2:
+    Guid:
+      Data1: -553424200
+      Data2: 1201329377
+      Data3: -1556043648
+      Data4: 983965646
+    Path: event:/downtime2
+  betrayal:
+    Guid:
+      Data1: 1038864064
+      Data2: 1190951372
+      Data3: -1315893849
+      Data4: -599304060
+    Path: event:/Betrayal
 --- !u!4 &1825526968
 Transform:
   m_ObjectHideFlags: 0
