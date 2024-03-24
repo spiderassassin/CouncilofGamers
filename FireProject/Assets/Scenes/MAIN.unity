@@ -24862,6 +24862,7 @@ MonoBehaviour:
   sentence: 
   dialogueBox: {fileID: 188248925}
   player: {fileID: 0}
+  hhhcounter: 0
 --- !u!4 &645014638
 Transform:
   m_ObjectHideFlags: 0
@@ -53194,7 +53195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40884
+  m_Name: pb_Mesh45318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58049,7 +58050,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh42758
+  m_Name: pb_Mesh47202
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62847,6 +62848,13 @@ MonoBehaviour:
       Data3: -418321767
       Data4: 982259802
     Path: event:/SlowMotion
+  pigeons:
+    Guid:
+      Data1: -121355026
+      Data2: 1198467131
+      Data3: 800854163
+      Data4: 1196748429
+    Path: event:/Pigeons
   flamethrower:
     Guid:
       Data1: 606439428
@@ -65028,6 +65036,8 @@ GameObject:
   - component: {fileID: 1888134734}
   - component: {fileID: 1888134735}
   - component: {fileID: 1888134736}
+  - component: {fileID: 1888134738}
+  - component: {fileID: 1888134737}
   m_Layer: 3
   m_Name: ParoleGuardSprite
   m_TagString: Untagged
@@ -65243,6 +65253,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1888134737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888134733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5876a57fd11154dc583dd08cdf8ed234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!95 &1888134738
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888134733}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18ed2a00d73a94176bc226331df38410, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1889776084
 PrefabInstance:
   m_ObjectHideFlags: 0
