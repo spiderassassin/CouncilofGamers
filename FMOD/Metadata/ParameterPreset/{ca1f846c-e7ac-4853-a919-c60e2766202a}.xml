@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{ca1f846c-e7ac-4853-a919-c60e2766202a}">
+		<property name="name">
+			<value>wave3looping</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d0f27355-0d7e-4019-8a8c-5b637172cac7}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{245177b7-c4c3-487b-ae99-476bdf689b7c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{245177b7-c4c3-487b-ae99-476bdf689b7c}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="initialValue">
+			<value>2</value>
+		</property>
+	</object>
+</objects>

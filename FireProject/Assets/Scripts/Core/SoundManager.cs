@@ -24,6 +24,10 @@ public class SoundManager : MonoBehaviour
     public EventInstance wave3;
 
     public EventInstance hello;
+    public EventInstance hhhh;
+    public EventInstance downtime1;
+    public EventInstance downtime2;
+    public EventInstance betrayal;
 
 
 
@@ -49,6 +53,11 @@ public class SoundManager : MonoBehaviour
         wave3 = CreateInstance(FMODEvents.Instance.wave3);
 
         hello = CreateInstance(FMODEvents.Instance.hello);
+        hhhh  = CreateInstance(FMODEvents.Instance.hhhh);
+
+        downtime1 = CreateInstance(FMODEvents.Instance.downtime1);
+        downtime2 = CreateInstance(FMODEvents.Instance.downtime2);
+        betrayal = CreateInstance(FMODEvents.Instance.betrayal);
 
     }
 
@@ -57,6 +66,35 @@ public class SoundManager : MonoBehaviour
 
         
     }
+
+    public void DowntimeMusicPlay()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtime1.start();
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtime2.start();
+                break;
+
+        }
+    }
+
+    public void DowntimeMusicStop()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtime1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtime2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+
+        }
+    }
+
 
     public void WaveMusicPlay()
     {
@@ -69,9 +107,11 @@ public class SoundManager : MonoBehaviour
             case GameManager.GameStage.Wave2:
                 wave2.start();
                 break;
+
             case GameManager.GameStage.Wave3:
                 wave3.start();
                 break;
+
         }
     }
     public void WaveMusicStop()

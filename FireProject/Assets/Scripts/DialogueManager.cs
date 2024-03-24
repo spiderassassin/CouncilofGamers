@@ -78,6 +78,9 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += sentence[i];
             yield return new WaitForSeconds(0.001f);
         }
+        SoundManager.Instance.hhhh.setParameterByName("isTalking", 1);
+
+
 
         GameManager.Instance.nextSentenceReady = true;
     }
@@ -92,10 +95,17 @@ public class DialogueManager : MonoBehaviour
             return ;
         }
         sentence = sentences.Dequeue();
-        
+        print(sentence);
+        if(sentence == "At this point, I wish I had gotten Genderen sent down here instead of you. He would've died easily.")
+        {
+            SoundManager.Instance.betrayal.start();
+        }
+
+
+
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
-            SoundManager.Instance.PlaySoundOnce(dialoguesound, transform);
+            //SoundManager.Instance.PlaySoundOnce(dialoguesound, transform);
         {
             if (speakingBool)
             {
@@ -105,6 +115,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 nameText.text = "Parole Guard";
+                //for the hhhh dialogue soundF
+                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
+                SoundManager.Instance.hhhh.start();
+                SoundManager.Instance.hhhh.release();
+
                 //currentDialogueTrigger.dialogue.name = "ParoleGuard";
             }
         }
@@ -120,10 +136,12 @@ public class DialogueManager : MonoBehaviour
         actionPromptsHUD.SetActive(true);
         GameManager.Instance.dialogueState = false;
         if (advanceGameStageOnEnd) {
+            SoundManager.Instance.DowntimeMusicStop();
             // Set next game stage.
             GameManager.Instance.gameStage++;
             // Hide the parole guard sprite.
             WaveManager.Instance.paroleGuardSprite.SetActive(false);
+            
         }
     }
 
