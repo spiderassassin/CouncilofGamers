@@ -7723,8 +7723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 7
-  debugGameStage: 8
+  gameStage: 0
+  debugGameStage: 3
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -70165,7 +70165,7 @@ MonoBehaviour:
   wave1:
     chunks:
     - note: 
-      enemyType: 2
+      enemyType: 3
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0
