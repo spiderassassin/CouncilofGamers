@@ -19,7 +19,7 @@ public class Base : Entity
     {
         if (baseHealthText != null)
         {
-            baseHealthText.text = "Base Health\n"+base.Health.ToString()+"%";
+            baseHealthText.text = "Gate Health\n"+base.Health.ToString()+"%";
         }
         
     }

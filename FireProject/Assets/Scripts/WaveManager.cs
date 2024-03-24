@@ -44,6 +44,8 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public GameObject baseUI;
     public GameObject actionPrompts;
+    public GameObject gatePointLight;
+    public GameObject player;
 
 
     //public GameObject tutorialManager;
@@ -64,40 +66,46 @@ public class WaveManager : MonoBehaviour
     public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
     public TutorialStage tutorialStage;
 
-    public bool tutorialIntroDialogueSeen;
-    public bool tutorialExitSeen; //make this into trigger?
-    public bool tutorialExitDialogueGiven;
-    public bool tutorialFireballExplained;
-    public bool tutorialFireballEnemyReleasedStart;
-    public bool tutorialFireballEnemyReleasedEnd;
-    public bool tutorialFireballKill;
-    public bool tutorialPunchExplained;
-    public bool tutorialPunchEnemyReleasedStart;
-    public bool tutorialPunchEnemyReleasedEnd;
-    public bool tutorialPunchKill;
+    private bool tutorialIntroDialogueSeen;
+    private bool tutorialExitSeen; //make this into trigger?
+    private bool tutorialExitDialogueGiven;
+    private bool tutorialFireballExplained;
+    private bool tutorialFireballEnemyReleasedStart;
+    private bool tutorialFireballEnemyReleasedEnd;
+    private bool tutorialFireballKill;
+    private bool tutorialPunchExplained;
+    private bool tutorialPunchEnemyReleasedStart;
+    private bool tutorialPunchEnemyReleasedEnd;
+    private bool tutorialPunchKill;
 
-    public bool tutorialGPEnemiesReleasedStart;
-    public bool tutorialGPEnemiesReleasedEnd;
-    public bool tutorialGGEnemiesReleasedStart;
-    public bool tutorialGGEnemiesReleasedEnd;
+    private bool tutorialGPWaveDialogueOver;
 
-    public bool tutorialFindParoleGuardDialogueSeen;
+    private bool tutorialGPEnemiesReleasedStart;
+    private bool tutorialGPEnemiesReleasedEnd;
+    private bool tutorialGGEnemiesReleasedStart;
+    private bool tutorialGGEnemiesReleasedEnd;
 
-    public bool tutorialSkullPunchExplained;
-    public bool tutorialSkullPunched;
+    private bool tutorialFindParoleGuardDialogueSeen;
+
+    private bool tutorialSkullPunchExplained;
+    private bool tutorialSkullPunched;
 
 
     public bool SnapPromptHidden;
     public GameObject SnapPrompt;
+    public GameObject QPrompt;
 
     public bool PunchPromptHidden;
     public GameObject PunchPrompt;
+    public GameObject EPrompt;
 
     public bool FlameAttackPromptHidden;
     public GameObject FlameAttackPrompt;
+    public GameObject LeftClickPrompt;
 
     public bool FireballPromptHidden;
     public GameObject FireballPrompt;
+    public GameObject RightClickPrompt;
 
     
 
@@ -171,6 +179,7 @@ public class WaveManager : MonoBehaviour
                 tutorialDialogue = tutorialTeachPunchDialogue;
                 break;
             case TutorialStage.GPWave:
+                tutorialDialogue = tutorialGPWaveDialogue;
                 break;
             case TutorialStage.GGWave:
                 break;
@@ -379,45 +388,70 @@ public class WaveManager : MonoBehaviour
     public void Tutorial()
     {
 
+        Color32 inactiveColor = new Color32(0, 0, 0, 100);
+        Color32 activeColor = new Color32(255, 255, 255, 255);
+
         // Debug.Log("on update, stage = " + tutorialStage.ToString());
 
         if (SnapPromptHidden)
         {
-            SnapPrompt.SetActive(false);
+            //SnapPrompt.SetActive(false);
+            SnapPrompt.GetComponent<Image>().color = inactiveColor;
+            QPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().snapAllowed = false;
+
         }
         else
         {
-            SnapPrompt.SetActive(true);
+            SnapPrompt.GetComponent<Image>().color = activeColor;
+            QPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().snapAllowed = true;
         }
 
         if (PunchPromptHidden)
         {
-            PunchPrompt.SetActive(false);
+            PunchPrompt.GetComponent<Image>().color = inactiveColor;
+            EPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().punchAllowed = false;
         }
         else
         {
-            PunchPrompt.SetActive(true);
+            PunchPrompt.GetComponent<Image>().color = activeColor;
+            EPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().punchAllowed = true;
         }
 
         if (FlameAttackPromptHidden)
         {
-            FlameAttackPrompt.SetActive(false);
+            FlameAttackPrompt.GetComponent<Image>().color = inactiveColor;
+            LeftClickPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().flameAttackAllowed = false;
         }
         else
         {
-            FlameAttackPrompt.SetActive(true);
+            FlameAttackPrompt.GetComponent<Image>().color = activeColor;
+            LeftClickPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().flameAttackAllowed = true;
         }
 
         if (FireballPromptHidden)
         {
-            FireballPrompt.SetActive(false);
+            FireballPrompt.GetComponent<Image>().color = inactiveColor;
+            RightClickPrompt.GetComponent<Image>().color = inactiveColor;
+            player.GetComponent<Controller>().fireballAllowed = false;
         }
         else
         {
-            FireballPrompt.SetActive(true);
+            FireballPrompt.GetComponent<Image>().color = activeColor;
+            RightClickPrompt.GetComponent<Image>().color = activeColor;
+            player.GetComponent<Controller>().fireballAllowed = true;
         }
 
-        if (tutorialExitDialogueGiven)
+        if (!tutorialExitDialogueGiven)
+        {
+            baseUI.SetActive(false);
+        }
+        else
         {
             baseUI.SetActive(true);
         }
@@ -431,9 +465,13 @@ public class WaveManager : MonoBehaviour
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
                     SoundManager.Instance.wave0.start();
-                    
+                    GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
+                }
+               if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
+                {
+                    gatePointLight.SetActive(true);
                 }
                 if (tutorialExitSeen)
                 {
@@ -445,6 +483,7 @@ public class WaveManager : MonoBehaviour
             case TutorialStage.PlayerSeesExit:
                 if (!tutorialExitDialogueGiven)
                 {
+                    gatePointLight.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 2);
                     startTutorialDialogue();
                     tutorialExitDialogueGiven = true;
@@ -457,18 +496,7 @@ public class WaveManager : MonoBehaviour
                     startTutorialDialogue();
                     tutorialFireballExplained = true;
                 }
-                /*
-                else if (!tutorialFireballEnemyReleasedStart)
-                {
-                    //release enemy
-                   StartCoroutine(WaitAndSpawnWave(5.0f, tutorialFireballWave));
-                   tutorialFireballEnemyReleasedStart = true;
-                }
-                else if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count == 0)
-                {
-                    tutorialFireballKill = true;
-                    tutorialStage = TutorialStage.TeachPunch;
-                }*/
+
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
@@ -509,7 +537,12 @@ public class WaveManager : MonoBehaviour
                 break;
 
             case TutorialStage.GPWave:
-                if (!tutorialGPEnemiesReleasedStart)
+                if (!tutorialGPWaveDialogue.dialogueOver && !tutorialGPWaveDialogueOver)
+                {
+                    startTutorialDialogue();
+                    tutorialGPWaveDialogueOver = true;
+                }
+                else if (!tutorialGPEnemiesReleasedStart && tutorialGPWaveDialogue.dialogueOver)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     FireballPromptHidden = false;
@@ -539,7 +572,10 @@ public class WaveManager : MonoBehaviour
                     SoundManager.Instance.hello.start();
                     // End of tutorial, set the game stage to downtime1.
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
-                    
+                    if (GameManager.Instance.fuel >= GameManager.Instance.GetMaxFuel() - GameManager.Instance.punchRefuel)
+                    {
+                        GameManager.Instance.fuel -= GameManager.Instance.punchRefuel * 4;
+                    }
                     startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
                 }
