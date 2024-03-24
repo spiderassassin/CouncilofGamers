@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
+using FMOD.Studio;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using UnityEditor.Experimental.GraphView;
 
@@ -31,8 +33,9 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue;
 
     public GameObject dialogueBox;
+    public GameObject player;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,11 +107,19 @@ public class DialogueManager : MonoBehaviour
             SoundManager.Instance.betrayal.start();
         }
 
+        if (sentence == "By the way, I could tell you were holding back out there. ")
+        {
+            
+            player.GetComponent<Controller>().snapAllowed = true;
+            player.GetComponent<Controller>().flameAttackAllowed = true;
+
+        }
+
 
 
         bool speakingBool = playerSpeaking.Dequeue();
         if (currentDialogueTrigger != null)
-            //SoundManager.Instance.PlaySoundOnce(dialoguesound, transform);
+            
         {
             if (speakingBool)
             {
@@ -127,10 +138,10 @@ public class DialogueManager : MonoBehaviour
             else if (currentDialogue.name.Contains("Parole"))
             {
                 nameText.text = "Parole Guard";
-                SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
+                /*SoundManager.Instance.hhhh = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hhhh);
                 FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hhhh, NPCSprite.transform);
                 SoundManager.Instance.hhhh.start();
-                SoundManager.Instance.hhhh.release();
+                SoundManager.Instance.hhhh.release();*/
                 dialogueBox.GetComponent<Image>().color = new Color32(41, 8, 8, 141);
             }
             else if (currentDialogue.name.Contains("?"))
