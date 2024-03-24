@@ -81,10 +81,31 @@ MonoBehaviour:
       spawnPoint: 1
       count: 1
       waitUntilPreviousDead: 0
-    - note: 3gp after 5s from p2
+    - note: 2gp from p2
       enemyType: 2
       maxWait: -1
-      spawnDelay: 5
+      spawnDelay: 0
       spawnPoint: 1
       count: 3
       waitUntilPreviousDead: 0
+    - note: then 2gg from p1
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 2gg from p2
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: then 5gp from p1
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 5
+      waitUntilPreviousDead: 1
