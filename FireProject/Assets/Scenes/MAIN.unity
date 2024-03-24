@@ -5059,7 +5059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147919074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 90.9, y: 0, z: 61.5}
+  m_LocalPosition: {x: 90.9, y: 0, z: 120.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7724,7 +7724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 3
+  debugGameStage: 5
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -27567,7 +27567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700508466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -105, y: 0, z: 3.41}
+  m_LocalPosition: {x: -105, y: 0, z: 136.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70134,7 +70134,7 @@ MonoBehaviour:
   playerTransform: {fileID: 8913934894348048307}
   gruntPlayer: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
   gruntgoal: {fileID: 8585091701780571999, guid: 1b7d89867921fca4eb74f311b4dd08d6, type: 3}
-  gruntStayWithTank: {fileID: 0}
+  gruntStayWithTank: {fileID: 2280141811665783939, guid: 7ece2692c691e994daea06709217c0d5, type: 3}
   tank: {fileID: 7232616195353922584, guid: ef883b31c8a5e5e47a92eeacf42822f5, type: 3}
   explosive: {fileID: 4724302519650232320, guid: 4719033e36ebaf949b33c1118d4989c3, type: 3}
   wavemode: 0

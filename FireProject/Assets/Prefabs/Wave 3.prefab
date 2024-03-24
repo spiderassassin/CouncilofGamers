@@ -45,4 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave:
-    chunks: []
+    chunks:
+    - note: 0[None] from [SpawnPoint1]
+      enemyType: 0
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 0
+      waitUntilPreviousDead: 0

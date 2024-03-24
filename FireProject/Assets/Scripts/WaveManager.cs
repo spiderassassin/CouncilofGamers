@@ -291,7 +291,7 @@ public class WaveManager : MonoBehaviour
                     t >= wave.chunks[i].maxWait) break;
 
                 if (wave.chunks[i].waitUntilPreviousDead && 
-                    (t > .1f && TotalLivingEnemies == 0)) break;
+                    (t > 10f && TotalLivingEnemies == 0)) break;
 
                 if (!wave.chunks[i].waitUntilPreviousDead) break;
 
@@ -356,8 +356,6 @@ public class WaveManager : MonoBehaviour
                 enemy1.SetActive(true);
                 if((wave.chunks[i].spawnDelay == 0 && i>0) == false)
                 {
-                    //SoundManager.Instance.PlaySoundOnce(clip, spawnPoint);
-                    Debug.Log("oo");
                     SoundManager.Instance.PlayOneShot(FMODEvents.Instance.enemySpawn, spawnPoint.position);
                 }
 

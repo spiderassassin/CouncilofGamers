@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
+      propertyPath: speed
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584674559893368692, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
       propertyPath: stickWithTank
       value: 1
       objectReference: {fileID: 0}
