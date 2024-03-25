@@ -44,12 +44,20 @@ public class Explosive: Enemy {
     }
 
     public override void Attack() {
-    // Deal damage to any entities within a certain range.
-    Collider[] hitColliders = Physics.OverlapSphere(Position, explosionRadius);
-    foreach (Collider hit in hitColliders) {
-        // Deal damage if the object has class IDamageable (including enemies).
-        IDamageable damageable = hit.GetComponent<IDamageable>();
-        if (damageable != null) damageable.OnDamaged(this, attackDamage);
+        // Deal damage to any entities within a certain range.
+        Collider[] hitColliders = Physics.OverlapSphere(Position, explosionRadius);
+        foreach (Collider hit in hitColliders) {
+            // Deal damage if the object has class IDamageable (including enemies).
+            IDamageable damageable = hit.GetComponent<IDamageable>();
+            if (damageable != null) damageable.OnDamaged(this, attackDamage);
+        }
     }
-}
+
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+
+        // If we're damaged, start the attack.
+        state = EnemyState.Attacking;
+    }
 }
