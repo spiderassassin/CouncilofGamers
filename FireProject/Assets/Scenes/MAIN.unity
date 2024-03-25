@@ -6867,12 +6867,12 @@ MonoBehaviour:
   fuel: 0
   flamethrowerCost: 4
   fireballCost: 5
-  punchRefuel: 33
+  punchRefuel: 50
   gamePaused: 0
   gameEndCompletion: 0
   gameEndCompletionTarget: 2
-  creditsCanvasGroup: {fileID: 0}
-  endCanvasGroup: {fileID: 0}
+  creditsCanvasGroup: {fileID: 457489846}
+  endCanvasGroup: {fileID: 81300338}
   fadeDuration: 5
   creditsAlpha: 0.3
 --- !u!4 &223697854 stripped
@@ -51387,7 +51387,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31482
+  m_Name: pb_Mesh569264
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63482,7 +63482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5876a57fd11154dc583dd08cdf8ed234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1888134738}
 --- !u!95 &1888134738
 Animator:
   serializedVersion: 4

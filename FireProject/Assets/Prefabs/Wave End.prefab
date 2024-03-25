@@ -46,40 +46,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave:
     chunks:
-    - note: 3[GruntPlayer] from [SpawnPoint1]
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
-      spawnDelay: 0
+      spawnDelay: 5
       spawnPoint: 0
       count: 3
       waitUntilPreviousDead: 0
-    - note: 3[GruntPlayer] from [SpawnPoint2]
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
-      spawnDelay: 0
+      spawnDelay: 5
       spawnPoint: 1
       count: 3
       waitUntilPreviousDead: 0
-    - note: 3[GruntPlayer] from [SpawnPoint3]
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
-      spawnDelay: 0
+      spawnDelay: 5
       spawnPoint: 2
       count: 3
       waitUntilPreviousDead: 0
-    - note: 3[GruntPlayer] from [SpawnPoint4]
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
-      spawnDelay: 0
+      spawnDelay: 5
       spawnPoint: 3
       count: 3
-      waitUntilPreviousDead: 0
-    - note: break for 3s
-      enemyType: 0
-      maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 0
       waitUntilPreviousDead: 0
     - note: then 7[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
@@ -109,13 +102,6 @@ MonoBehaviour:
       spawnPoint: 3
       count: 7
       waitUntilPreviousDead: 0
-    - note: break for 3s
-      enemyType: 0
-      maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 0
-      waitUntilPreviousDead: 0
     - note: then 15[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -144,13 +130,6 @@ MonoBehaviour:
       spawnPoint: 3
       count: 15
       waitUntilPreviousDead: 0
-    - note: break for 3s
-      enemyType: 0
-      maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 0
-      waitUntilPreviousDead: 0
     - note: then 30[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -178,13 +157,6 @@ MonoBehaviour:
       spawnDelay: 0
       spawnPoint: 3
       count: 30
-      waitUntilPreviousDead: 0
-    - note: break for 3s
-      enemyType: 0
-      maxWait: -1
-      spawnDelay: 3
-      spawnPoint: 0
-      count: 0
       waitUntilPreviousDead: 0
     - note: then 50[Explosive] from [SpawnPoint1]
       enemyType: 5

@@ -208,23 +208,39 @@ public class WaveManager : MonoBehaviour
             Tutorial();
             
         }
-        else if (InputManager.Instance.startwave)
+        // else if (InputManager.Instance.startwave)
+        // {
+        //     // Start the wave corresponding to the current GameStage.
+        //     switch (GameManager.Instance.gameStage)
+        //     {
+        //         case GameManager.GameStage.Downtime1: // ? added to work
+        //             StartWave(wave1.wave);
+        //             print("wave one");
+        //             break;
+        //         case GameManager.GameStage.Downtime2: // ? added to work
+        //             StartWave(wave2.wave);
+        //             print("wave 2");
+        //             break;
+        //         case GameManager.GameStage.Downtime3: // ? added to work
+        //             StartWave(wave3.wave);
+        //             print("wave 3");
+        //             break;
+        //         case GameManager.GameStage.Wave1:
+        //             StartWave(wave1.wave);
+        //             break;
+        //         case GameManager.GameStage.Wave2:
+        //             StartWave(wave2.wave);
+        //             break;
+        //         case GameManager.GameStage.Wave3:
+        //             StartWave(wave3.wave);
+        //             break;
+        //     }
+        // }
+        else if (wavemode == false)
         {
             // Start the wave corresponding to the current GameStage.
             switch (GameManager.Instance.gameStage)
             {
-                case GameManager.GameStage.Downtime1: // ? added to work
-                    StartWave(wave1.wave);
-                    print("wave one");
-                    break;
-                case GameManager.GameStage.Downtime2: // ? added to work
-                    StartWave(wave2.wave);
-                    print("wave 2");
-                    break;
-                case GameManager.GameStage.Downtime3: // ? added to work
-                    StartWave(wave3.wave);
-                    print("wave 3");
-                    break;
                 case GameManager.GameStage.Wave1:
                     StartWave(wave1.wave);
                     break;
@@ -252,6 +268,7 @@ public class WaveManager : MonoBehaviour
 
                     // Start the ending wave.
                     StartWave(endingWave.wave);
+                    print("Ending Wave");
                 } else {
                     SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
