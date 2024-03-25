@@ -3159,7 +3159,7 @@ GameObject:
   - component: {fileID: 130589894}
   - component: {fileID: 130589893}
   - component: {fileID: 130589892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6860,7 +6860,7 @@ MonoBehaviour:
   intensity: 0
   maxIntensity: 5
   gainAdrenalineThreshold: 10
-  enemiesOnFireFactor: 1
+  enemiesOnFireFactor: 5
   playerHealthFactor: 0.01
   decayAdrenalineThreshold: 0.01
   decayAmount: 3
@@ -7376,7 +7376,7 @@ GameObject:
   - component: {fileID: 261480592}
   - component: {fileID: 261480591}
   - component: {fileID: 261480590}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14441,7 +14441,7 @@ GameObject:
   - component: {fileID: 515339498}
   - component: {fileID: 515339497}
   - component: {fileID: 515339496}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14759,7 +14759,7 @@ GameObject:
   - component: {fileID: 519209556}
   - component: {fileID: 519209555}
   - component: {fileID: 519209554}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27493,7 +27493,7 @@ GameObject:
   - component: {fileID: 746683541}
   - component: {fileID: 746683540}
   - component: {fileID: 746683539}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33159,7 +33159,7 @@ GameObject:
   - component: {fileID: 944885461}
   - component: {fileID: 944885460}
   - component: {fileID: 944885459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36803,7 +36803,7 @@ GameObject:
   - component: {fileID: 1048840413}
   - component: {fileID: 1048840412}
   - component: {fileID: 1048840411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37615,7 +37615,7 @@ GameObject:
   - component: {fileID: 1054524933}
   - component: {fileID: 1054524932}
   - component: {fileID: 1054524931}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39596,7 +39596,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37248
+  m_Name: pb_Mesh500016
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40347,7 +40347,7 @@ GameObject:
   - component: {fileID: 1144987167}
   - component: {fileID: 1144987166}
   - component: {fileID: 1144987165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50370,7 +50370,7 @@ GameObject:
   - component: {fileID: 1464624883}
   - component: {fileID: 1464624882}
   - component: {fileID: 1464624881}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65338,7 +65338,7 @@ GameObject:
   - component: {fileID: 1949502908}
   - component: {fileID: 1949502907}
   - component: {fileID: 1949502906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72776,7 +72776,7 @@ GameObject:
   - component: {fileID: 2135530110}
   - component: {fileID: 2135530109}
   - component: {fileID: 2135530108}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PolyShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}

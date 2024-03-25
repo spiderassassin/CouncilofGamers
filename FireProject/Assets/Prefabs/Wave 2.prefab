@@ -67,11 +67,11 @@ MonoBehaviour:
       spawnPoint: 1
       count: 3
       waitUntilPreviousDead: 0
-    - note: then 1[Explosive] from [SpawnPoint3]
+    - note: then 1[Explosive] from [SpawnPoint2]
       enemyType: 5
       maxWait: -1
       spawnDelay: 0
-      spawnPoint: 2
+      spawnPoint: 1
       count: 1
       waitUntilPreviousDead: 1
     - note: 4[GruntPlayer] from [SpawnPoint2]
@@ -88,3 +88,45 @@ MonoBehaviour:
       spawnPoint: 0
       count: 2
       waitUntilPreviousDead: 0
+    - note: break for 3s
+      enemyType: 0
+      maxWait: -1
+      spawnDelay: 3
+      spawnPoint: 0
+      count: 0
+      waitUntilPreviousDead: 0
+    - note: then 1[Tank] from [SpawnPoint3]
+      enemyType: 3
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 5[GruntPlayerWithTank] from [SpawnPoint3]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 3[GruntPlayerWithTank] from [SpawnPoint2]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 2[GruntPlayerWithTank] from [SpawnPoint1]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: then 5[Explosive] from [SpawnPoint3]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
+      waitUntilPreviousDead: 1

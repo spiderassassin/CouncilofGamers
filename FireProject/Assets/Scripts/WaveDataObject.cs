@@ -12,6 +12,13 @@ public class WaveDataObject : MonoBehaviour
         foreach(var c in wave.chunks)
         {
             string s = "";
+            if(c.enemyType== Wave.EnemyType.None)
+            {
+                s += "break for " + c.spawnDelay + "s";
+                c.note = s;
+                continue;
+            }
+
             if (c.waitUntilPreviousDead) s += "then ";
             s += c.count.ToString();
             s += "["+c.enemyType.ToString()+"] ";
