@@ -6833,8 +6833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 0
-  debugGameStage: 0
+  gameStage: 4
+  debugGameStage: 4
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -21139,7 +21139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalRotation.x
@@ -21151,19 +21151,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -137
+      value: -515
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 983
+      value: 1216
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778704, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778717, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: snapReadyPrompt
@@ -41046,7 +41046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1490.9995, y: 172.99997}
+  m_AnchoredPosition: {x: -1401, y: 172.99997}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160420871
@@ -42370,7 +42370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1527, y: 200}
+  m_AnchoredPosition: {x: -1434, y: 200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215607220
@@ -42946,7 +42946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -493, y: 1105}
+  m_AnchoredPosition: {x: -486, y: 1105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258272117
@@ -51622,7 +51622,7 @@ MonoBehaviour:
     - "Nevermind, time\u2019s up. I feel the next wave approaching. "
     - 'By the way, I could tell you were holding back out there. '
     - You can incinerate mutliple enemies at a time by using your flame attack. And
-      I wonder what happens if that middle bar fills all the way up?
+      I wonder what happens if that vertical bar fills all the way up?
     playerSpeaking: 00010000010000010000000000
   downtime2Dialogue:
     dialogueOver: 0
@@ -56030,7 +56030,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40554
+  m_Name: pb_Mesh348958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56592,7 +56592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136.99998, y: 964.4}
+  m_AnchoredPosition: {x: -136.99998, y: 983}
   m_SizeDelta: {x: 400, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624894937
