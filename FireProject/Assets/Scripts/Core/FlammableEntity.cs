@@ -110,7 +110,7 @@ public abstract class FlammableEntity : Entity, IFlammable
                     SetFire(DamageType.FirePassive_Lvl2);
                 else if (!attacker.Equals(this))
                     SetFire(DamageType.FirePassive_Lvl2);
-
+                SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
             }
