@@ -7659,7 +7659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 5
+  gameStage: 3
   debugGameStage: 8
   tutorialGameStages: 
   snapped: 0
@@ -28078,6 +28078,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 0}
   health: 1
+  body: {fileID: 0}
   text: {fileID: 0}
   passiveFireSources: {fileID: 0}
   onFire: 0
@@ -45482,7 +45483,19 @@ MonoBehaviour:
   m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293135702}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1293588735
 Mesh:
   m_ObjectHideFlags: 0
