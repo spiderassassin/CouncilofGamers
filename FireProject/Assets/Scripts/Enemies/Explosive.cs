@@ -18,7 +18,7 @@ public class Explosive: Enemy {
 
     protected override void Update() {
         base.Update();
-        if (!player) return;
+        if (!currentTarget) return;
 
         // Handle the explosion timer if it's currently being used.
         if (waitingToExplode != null) {
@@ -31,25 +31,35 @@ public class Explosive: Enemy {
                 Death();
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(player.position);
+            SetDestination(currentTarget.position);
             // If we get within attack range of the player, set detonation timer.
-            if (Vector3.Distance(transform.position, player.position) < attackRange) {
+            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
             SetDestination(transform.position);
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
             waitingToExplode = new Task(explosionDelay);
+            
         }
     }
 
     public override void Attack() {
-    // Deal damage to any entities within a certain range.
-    Collider[] hitColliders = Physics.OverlapSphere(Position, explosionRadius);
-    foreach (Collider hit in hitColliders) {
-        // Deal damage if the object has class IDamageable (including enemies).
-        IDamageable damageable = hit.GetComponent<IDamageable>();
-        if (damageable != null) damageable.OnDamaged(this, attackDamage);
+        // Deal damage to any entities within a certain range.
+        Collider[] hitColliders = Physics.OverlapSphere(Position, explosionRadius);
+        foreach (Collider hit in hitColliders) {
+            // Deal damage if the object has class IDamageable (including enemies).
+            IDamageable damageable = hit.GetComponent<IDamageable>();
+            if (damageable != null) damageable.OnDamaged(this, attackDamage);
+        }
     }
-}
+
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+
+        // If we're damaged, start the attack.
+        state = EnemyState.Attacking;
+    }
 }

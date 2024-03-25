@@ -13,7 +13,7 @@ public class FireSource : MonoBehaviour
      * If spreadProbability is satisfied during tick (evaluated per collider inside the fire source): 
      *      inflict activeDamage
      */
-
+    
     public IAttacker source; // Unity doesn't serialize interfaces :(
     public IFlammable self; 
     public LayerMask detectionMask; 
@@ -65,11 +65,13 @@ public class FireSource : MonoBehaviour
         timer = tickRate;
         LifeSpan = baseLifespan;
 
-        // patch to execution order causing bug
-        int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
-        for(int i = 0; i < c; ++i)
-        {
-            OnTriggerEnter(colliders[i]);
+        if (!isPunch) {
+            // patch to execution order causing bug
+            int c = Physics.OverlapSphereNonAlloc(transform.position, max(col.bounds.extents), colliders);
+            for(int i = 0; i < c; ++i)
+            {
+                OnTriggerEnter(colliders[i]);
+            }
         }
     }
     protected virtual void OnDisable()
@@ -83,8 +85,16 @@ public class FireSource : MonoBehaviour
             gameObject.SetActive(active);
     }
 
+    protected virtual bool TriggerValid(Collider other)
+    {
+        if (!(detectionMask == (detectionMask | (1 << other.gameObject.layer)))) return false;
+        if (other.isTrigger) return false;
+
+        return true;
+    }
     protected virtual void OnTriggerEnter(Collider other)
     {
+        if (!TriggerValid(other)) return;
         if (inRange.Contains(other)) return;
 
         inRange.Add(other);
@@ -96,6 +106,7 @@ public class FireSource : MonoBehaviour
     }
     protected virtual void OnTriggerExit(Collider other)
     {
+        if (!TriggerValid(other)) return;
         inRange.Remove(other);
     }
 
@@ -142,9 +153,6 @@ public class FireSource : MonoBehaviour
 
         DamageInformation d = activeDamage;
         d.damage *= DamageMultiplier;
-        bool damaged = false;
-
-        if (overrideProbability == 1) print(inRange.Count);
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
@@ -172,7 +180,6 @@ public class FireSource : MonoBehaviour
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
-                damaged = true;
                 if (isPunch)
                 {
                     GameManager.Instance.UpdateFuel(false, false, true);
@@ -181,11 +188,11 @@ public class FireSource : MonoBehaviour
             --i;
         }
 
-        if (damaged)
-        {
-            SoundManager.Instance.PlaySoundOnce(damagedClip, transform);
-        }
+        
     }
+        
+
+
 
     public void Attack()
     {

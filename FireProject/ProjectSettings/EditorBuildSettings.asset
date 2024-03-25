@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: 50f0382d3853a934b96a2dc0154018b4
-  - enabled: 1
-    path: Assets/Scenes/depreciated/MAIN_depreciated.unity
-    guid: 510d82cc8257ebc49a3a14855d85c725
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: a804584f1e6db804f96d0a0ffd9e56a4

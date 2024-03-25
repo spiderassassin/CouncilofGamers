@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7375530641203434577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4065873350908686455}
+  - component: {fileID: 8418132539410971719}
+  m_Layer: 0
+  m_Name: Wave 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4065873350908686455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375530641203434577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8418132539410971719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375530641203434577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5b98d60662500458930f8f051703a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wave:
+    chunks:
+    - note: 1[Explosive] from [SpawnPoint1]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: then 3[GruntPlayer] after 3s from [SpawnPoint1]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 3
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 1
+    - note: 3[GruntGoal] from [SpawnPoint2]
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: then 1[Explosive] from [SpawnPoint2]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 1
+      waitUntilPreviousDead: 1
+    - note: 4[GruntPlayer] from [SpawnPoint2]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 4
+      waitUntilPreviousDead: 0
+    - note: 2[GruntGoal] from [SpawnPoint1]
+      enemyType: 1
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: break for 3s
+      enemyType: 0
+      maxWait: -1
+      spawnDelay: 3
+      spawnPoint: 0
+      count: 0
+      waitUntilPreviousDead: 0
+    - note: then 2[Tank] from [SpawnPoint3]
+      enemyType: 3
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 2
+      waitUntilPreviousDead: 1
+    - note: 5[GruntPlayerWithTank] from [SpawnPoint3]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
+      waitUntilPreviousDead: 0
+    - note: 3[GruntPlayerWithTank] from [SpawnPoint2]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+    - note: 1[Explosive] after 5s from [SpawnPoint1]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 0
+      count: 1
+      waitUntilPreviousDead: 0
+    - note: 2[GruntPlayerWithTank] from [SpawnPoint1]
+      enemyType: 4
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 2
+      waitUntilPreviousDead: 0
+    - note: then 5[Explosive] from [SpawnPoint3]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 5
+      waitUntilPreviousDead: 1

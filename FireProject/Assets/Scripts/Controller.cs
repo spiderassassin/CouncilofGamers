@@ -24,8 +24,14 @@ public class Controller : Entity
     public DamageInformation snapDamage;
 
 
+    public bool snapAllowed;
+    public bool punchAllowed;
+    public bool flameAttackAllowed;
+    public bool fireballAllowed;
 
-    
+
+
+
 
 
     public bool isMoving = false;
@@ -40,10 +46,11 @@ public class Controller : Entity
     public AudioClip slowmotion;
 
     private EventInstance flame;
-    private EventInstance footsteps;
+    private EventInstance walk;
+    private EventInstance run;
 
 
-    
+
     public FireSource firesource;
     public ParticleSystem coneFireSystem;
     public FireSource punchSource;
@@ -53,6 +60,8 @@ public class Controller : Entity
     public float punchCooldown = .2f;
     public float healthIncreaseRate = 1;
     bool dead = false;
+    public Image rightArm;
+    public Color punchCooldownColour;
     
     public Animator armAnimator;
 
@@ -63,6 +72,7 @@ public class Controller : Entity
     float invincibilityDurationTimer = 0;
     public float invincibilityDuration = 0.25f;
 
+    public Vector3 additive;
 
 
     private void Awake()
@@ -83,8 +93,14 @@ public class Controller : Entity
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        footsteps = SoundManager.Instance.CreateInstance(FMODEvents.Instance.footsteps);
-        flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+        //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+        //run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
+        
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform, GetComponent<Rigidbody>());
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(run, transform);
+
 
     }
 
@@ -94,8 +110,8 @@ public class Controller : Entity
     }
 
     void Update()
-
     {
+        //print(flame.get3DAttributes())
         if (GameManager.Instance.gamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -129,7 +145,11 @@ public class Controller : Entity
                 if (isMoving == false)
                 {
                     isMoving = true;
-                    footsteps.start();
+                    //audio logic for walk sound effect
+                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+                    walk.start();
+                    walk.release();
 
                 }
 
@@ -140,6 +160,12 @@ public class Controller : Entity
                     if (sprint == false)
                     {
                         sprint = true;
+                        walk.stop(STOP_MODE.ALLOWFADEOUT);
+                        run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
+                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(run, transform);
+                        run.start();
+                        run.release();
+
                         //SoundManager.Instance.StopSoundEffect(obj);
                         //obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
 
@@ -153,6 +179,12 @@ public class Controller : Entity
                     {
 
                         sprint = false;
+                        run.stop(STOP_MODE.ALLOWFADEOUT);
+                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
+                        walk.start();
+                        walk.release();
+
                         //SoundManager.Instance.StopSoundEffect(obj);
                         //obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
                         GetComponentInChildren<CameraBehavior>().Sprint();
@@ -166,7 +198,7 @@ public class Controller : Entity
                 if (isMoving == true)
                 {
                     isMoving = false;
-                    footsteps.stop(STOP_MODE.ALLOWFADEOUT);
+                    
 
                 }
 
@@ -175,7 +207,13 @@ public class Controller : Entity
 
                     sprint = false;
                     GetComponentInChildren<CameraBehavior>().Sprint();
+                    run.stop(STOP_MODE.ALLOWFADEOUT);
 
+                }
+
+                else
+                {
+                    walk.stop(STOP_MODE.ALLOWFADEOUT);
                 }
 
 
@@ -192,7 +230,7 @@ public class Controller : Entity
                 //OnDamaged();
             }
 
-            if (InputManager.Instance.fireball && GameManager.Instance.fuel > 0)
+            if (InputManager.Instance.fireball && GameManager.Instance.fuel > 0 && fireballAllowed)
             {
                 Fireball();
             }
@@ -202,7 +240,7 @@ public class Controller : Entity
                 Punch();
             }
 
-            if (InputManager.Instance.fire && GameManager.Instance.fuel > 0)
+            if (InputManager.Instance.fire && GameManager.Instance.fuel > 0 && flameAttackAllowed)
             {
                 GameManager.Instance.UpdateFuel(isFiring, false); // decrease the fuel
                 if (isFiring == false)
@@ -230,10 +268,15 @@ public class Controller : Entity
             }
 
 
-            if (InputManager.Instance.snap)
+            if (InputManager.Instance.snap && snapAllowed)
             {
                  StartCoroutine(Snap());
                 //Snap();
+            }
+
+            // Reset right arm colour if punch off cooldown.
+            if (Time.timeSinceLevelLoad - lastPunchTime >= punchCooldown) {
+                rightArm.color = new Color(1, 1, 1, 1);
             }
 
 
@@ -241,17 +284,21 @@ public class Controller : Entity
             simulateGravity();
         }
 
+        characterController.Move(additive * Time.deltaTime);
     }
 
     void Punch()
     {
         if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) return;
+        if (!punchAllowed) return;
         lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         punchSource.Damage();
         //SoundManager.Instance.PlaySoundOnce(punch, transform);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         armAnimator.SetTrigger("punch");// animator trigger
+        // Recolour right arm if punch is on cooldown.
+        rightArm.color = punchCooldownColour;
         //GameManager.Instance.fuel += 10; // NOT FINAL
         //GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
         
@@ -271,12 +318,17 @@ public class Controller : Entity
         {
             coneFireSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             flame.stop(STOP_MODE.ALLOWFADEOUT);
+            
+            //NEED TO FIX FADES
 
         }
         else
         {
             coneFireSystem.Play(true);
+            flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform);
             flame.start();
+            flame.release();
         }
     }
 
@@ -293,12 +345,12 @@ public class Controller : Entity
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.fireball, transform.position);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
-        g.Launch(fireballOrigin.forward);
+        g.Launch(fireballOrigin.forward, velocity);
     }
 
     bool canSnap()
     {
-        return GameManager.Instance.AdrenalinePercent >= 1f;
+        return GameManager.Instance.AdrenalinePercent >= 0.98f;
     }
 
     IEnumerator Snap()
@@ -408,7 +460,13 @@ public class Controller : Entity
     {
         if (playerDeath)
         {
+            
             GetComponentInChildren<CameraBehavior>().Die();
+            if (isFiring)
+            {
+                isFiring = false;
+                Fire(false);
+            }
             yield return new WaitForSeconds(5);
         }
 
@@ -418,10 +476,27 @@ public class Controller : Entity
         Cursor.lockState = CursorLockMode.None;
         Destroy(CombatUI.Instance);
 
-        SceneManager.LoadScene(0);
-
+        // Don't do anything if the game is in the ending stage.
+        if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
+            // Stop all sounds.
+            FMODEvents.Instance.StopAllSounds();
+            // Destroy all singletons.
+            Destroy(SoundManager.Instance.gameObject);
+            Destroy(WaveManager.Instance.gameObject);
+            Destroy(InputManager.Instance.gameObject);
+            Destroy(FMODEvents.Instance.gameObject);
+            Destroy(Controller.Instance.gameObject);
+            Destroy(CombatUI.Instance.gameObject);
+            // Reset fuel amount;
+            GameManager.Instance.fuel = 100;
+            // Restart from the beginning of the current stage.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else {
+            ++GameManager.Instance.gameEndCompletion;
+        }
     }
 
+    Coroutine pushback=null;
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         if ((dead == false && invincibility == false) && (isSnapping == false))
@@ -438,8 +513,33 @@ public class Controller : Entity
 
                 StartCoroutine(Die());
             }
+            else
+            {
+                if (dmg.pushBack != 0)
+                {
+                    Vector3 knockbackDirection = (transform.position - attacker.Position).normalized;
+                    knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
+                    if (pushback != null)
+                    {
+                        StopCoroutine(pushback);
+                    }
+                    pushback = StartCoroutine(Pushback(knockbackDirection * dmg.pushBack));
+                }
+            }
         }
     }
+    IEnumerator Pushback(Vector3 impulse)
+    {
+        additive += impulse*7f;
+        while (true)
+        {
+            additive += -additive.normalized*Time.deltaTime*50f;
+            yield return new WaitForEndOfFrame();
 
-    
+            if (additive.magnitude <= .1f) break;
+        }
+        pushback = null;
+    }
+
+
 }

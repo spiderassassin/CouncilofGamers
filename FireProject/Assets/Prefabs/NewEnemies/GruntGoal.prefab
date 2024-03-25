@@ -55,18 +55,6 @@ PrefabInstance:
       propertyPath: m_Acceleration
       value: 99
       objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Height
-      value: 2.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Radius
-      value: 0.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_Center.y
-      value: -0.16
-      objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -136,7 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 37018340930786910}
-  health: 100
+  health: 150
+  body: {fileID: 37018340930786909}
   text: {fileID: 699141154222251344}
   passiveFireSources: {fileID: 5171339551207367786}
   onFire: 0
@@ -145,17 +134,18 @@ MonoBehaviour:
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
-  body: {fileID: 37018340930786909}
-  deathSound: {fileID: 8300000, guid: 5fae36cfa5bc3444b85805ff1336663e, type: 3}
   attackDamage:
     damage: 10
-    pushBack: 0
+    pushBack: 1
     type: 1
     fireCounter: 0
   speed: 8
+  maxHealth: 0
+  healthbar: {fileID: 7906835110228327669}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   projectileAttackCooldown: 7
   attackRange: 15
+  freshSpeed: 16
 --- !u!54 &37018340930786909 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -191,5 +181,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7906835110228327669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8608530383485234238, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 1931231039145218251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -19,9 +19,33 @@ public class Base : Entity
     {
         if (baseHealthText != null)
         {
-            baseHealthText.text = "Base Health\n"+base.Health.ToString()+"%";
+            baseHealthText.text = "Gate Health\n" + base.Health.ToString() + "%";
+            if (GameManager.Instance.baseDamage)
+            {
+                if (GameManager.Instance.baseFlashCount % 2 == 0)
+                {
+                    baseHealthText.color = Color.red;
+                }
+                else
+                {
+                    baseHealthText.color = Color.white;
+                }
+                GameManager.Instance.baseFlashCount++;
+                if (GameManager.Instance.baseFlashCount > 20)
+                {
+                    baseHealthText.color = Color.white;
+                    GameManager.Instance.baseFlashCount = 0;
+                    GameManager.Instance.baseDamage = false;
+                }
+            }
         }
         
+    }
+
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+        GameManager.Instance.baseDamage = true;
     }
 
     public override void Death()

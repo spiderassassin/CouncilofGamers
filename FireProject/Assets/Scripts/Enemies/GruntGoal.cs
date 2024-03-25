@@ -9,14 +9,21 @@ public class GruntGoal: Enemy {
     public int projectileAttackCooldown = 3;
     private Task waitingLongRange;
     private Task waitingCooldown;
-    private Vector3 dest;
     private bool attackingGoal = false;
     public float attackRange = 15;
-
+    public float freshSpeed = 15f;
 
     protected override void Start()
     {
         base.Start();
+        currentBaseSpeed = freshSpeed;
+        currentTarget = goal;
+    }
+
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+        currentBaseSpeed = speed;
     }
 
     protected override void Update() {
@@ -33,7 +40,7 @@ public class GruntGoal: Enemy {
                 // Instantiate the projectile with specific destination.
                 GameObject proj = Instantiate(projectile, origin, Quaternion.identity);
                 if (attackingGoal) {
-                    proj.GetComponent<Projectile>().dest = goal.position;
+                    proj.GetComponent<Projectile>().dest = currentTarget.position+Vector3.up;
                     proj.GetComponent<Projectile>().targetPlayer = false;
                 }
                 // Resume movement.
@@ -43,7 +50,7 @@ public class GruntGoal: Enemy {
                 waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(goal.position);
+            SetDestination(currentTarget.position);
 
             // Stop within attack range of the goal and attack it.
             if (Vector3.Distance(transform.position, goal.position) < attackRange) {
@@ -57,9 +64,15 @@ public class GruntGoal: Enemy {
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
-            if (agent.enabled) agent.isStopped = true;
+            if (agent.enabled)
+            {
+                agent.isStopped = true;
+            }
+
             // Wait for attack animation.
             waitingLongRange = new Task(1);
         }
     }
+
+    
 }

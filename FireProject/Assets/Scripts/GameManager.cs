@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameStage { TutorialWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
+    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
     public GameStage gameStage;
+    public GameStage debugGameStage;
+
+    public List<GameStage> tutorialGameStages;
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
     // Use this variable to notify the game manager that a successful snap occurred.
     public bool snapped = false;
@@ -40,6 +44,17 @@ public class GameManager : MonoBehaviour
     public float punchRefuel = 10f;
 
     public bool gamePaused;
+    public int gameEndCompletion;  // Number of completed requirements before we return to the main menu.
+    public int gameEndCompletionTarget = 2; // Number of requirements before we return to the main menu.
+
+    public CanvasGroup creditsCanvasGroup;
+    public CanvasGroup endCanvasGroup;
+    public float fadeDuration = 5f;
+    public float creditsAlpha = 0.3f;
+    private bool isFading = false;
+
+    public bool baseDamage;
+    public int baseFlashCount;
 
 
     private void UpdateAdrenaline() // Adjustable as needed.
@@ -57,21 +72,19 @@ public class GameManager : MonoBehaviour
             enemiesOnFire = FireManager.manager.EntitiesOnFire;
             playerHealthLoss = maxHealth-Controller.Instance.Health; 
             intensity = Mathf.Pow(enemiesOnFire, 2)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
+
+
             intensity = Mathf.Clamp(intensity, 0, maxIntensity); // max intensity of 5
             intensity = intensity*Time.deltaTime;
 
-            adrenaline = adrenaline + intensity;
+            
             if (intensity <= decayAdrenalineThreshold)
             {
-                adrenaline = adrenaline - adrenalineUnit * decayAmount;
+                adrenaline = adrenaline - adrenalineUnit * decayAmount * Time.deltaTime;
                 
             }
             else
             {
-                if (adrenaline > 90f)
-                {
-                    Debug.Log("is decaying");
-                }
                 adrenaline = adrenaline + intensity;
             }
             // if (enemy has died) {gain some adrenaline}
@@ -135,8 +148,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameStage = GameStage.Downtime1;
+        if(debugGameStage != gameStage)
+        {
+            Debug.LogError("WARNING: game stage is being overrided by GameManager.debugGameStage. Set to gameStage for expected behaviour.");
+            gameStage = debugGameStage;
+        }
         fuel = GetMaxFuel();
+        tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
     }
 
     void Update()
@@ -147,6 +165,49 @@ public class GameManager : MonoBehaviour
             snapped = false;
         }
         UpdateAdrenaline();
+
+        // Darken the screen a bit for the credits section.
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Ending && gameEndCompletion < 2) {
+            if (!isFading)
+            {
+                StartCoroutine(FadeOutCanvas(creditsCanvasGroup, creditsAlpha));
+            }
+        }
+
+        // Increment this elsewhere when the player has completed a requirement for the ending.
+        // Currently, credits need to finish, and player meeds to die.
+        if (gameEndCompletion == 2)
+        {
+            // Fade out the entire canvas.
+            if (!isFading)
+            {
+                StartCoroutine(FadeOutCanvas(endCanvasGroup, 1f, true));
+            }
+        }
     }
 
+    private IEnumerator FadeOutCanvas(CanvasGroup canvasGroup, float targetAlpha, bool end = false)
+    {
+        isFading = true;
+
+        float elapsedTime = 0f;
+        float startAlpha = canvasGroup.alpha;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
+            canvasGroup.alpha = alpha;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        canvasGroup.alpha = targetAlpha;
+        isFading = false;
+
+        if (end) {
+            // Quit the game.
+            Application.Quit();
+        }
+    }
 }

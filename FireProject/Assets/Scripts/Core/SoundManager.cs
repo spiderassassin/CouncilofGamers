@@ -17,6 +17,18 @@ public class SoundManager : MonoBehaviour
     public AudioClip playerrun;
     public GameObject audioSource;
 
+    //Event Instances
+    public EventInstance wave0;
+    public EventInstance wave1;
+    public EventInstance wave2;
+    public EventInstance wave3;
+
+    public EventInstance hello;
+    public EventInstance hhhh;
+    public EventInstance downtime1;
+    public EventInstance downtime2;
+    public EventInstance betrayal;
+
 
 
     private void Awake()
@@ -33,11 +45,92 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        wave0 = CreateInstance(FMODEvents.Instance.wave0);
+        wave1 = CreateInstance(FMODEvents.Instance.wave1);
+        wave2 = CreateInstance(FMODEvents.Instance.wave2);
+        wave3 = CreateInstance(FMODEvents.Instance.wave3);
+
+        hello = CreateInstance(FMODEvents.Instance.hello);
+        hhhh  = CreateInstance(FMODEvents.Instance.hhhh);
+
+        downtime1 = CreateInstance(FMODEvents.Instance.downtime1);
+        downtime2 = CreateInstance(FMODEvents.Instance.downtime2);
+        betrayal = CreateInstance(FMODEvents.Instance.betrayal);
+        
+
+    }
+
     private void Update()
     {
 
         
     }
+
+    public void DowntimeMusicPlay()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtime1.start();
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtime1.start();
+                break;
+
+        }
+    }
+
+    public void DowntimeMusicStop()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Downtime1:
+                downtime1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+            case GameManager.GameStage.Downtime2:
+                downtime1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+
+        }
+    }
+
+
+    public void WaveMusicPlay()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Wave1:
+                wave1.start();
+                break;
+
+            case GameManager.GameStage.Wave2:
+                wave2.start();
+                break;
+
+            case GameManager.GameStage.Wave3:
+                wave3.start();
+                break;
+
+        }
+    }
+    public void WaveMusicStop()
+    {
+        switch (GameManager.Instance.gameStage)
+        {
+            case GameManager.GameStage.Wave1:
+                wave1.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+            case GameManager.GameStage.Wave2:
+                wave2.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+            case GameManager.GameStage.Wave3:
+                wave3.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+        }
+    }
+
 
 
     public GameObject PlaySoundloop(AudioClip clip, Transform parent)
@@ -78,6 +171,10 @@ public class SoundManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
+
+    
+
+
 
     public EventInstance CreateInstance(EventReference eventReference)
     {

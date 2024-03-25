@@ -9,11 +9,15 @@ public class Tank: Enemy {
     private Task waitingLongRange;
     private Task waitingCooldown;
     public float attackRange = 6;
+    public int longAttackPause = 2;
+    public int closeAttackPause = 1;
+    public float closeAttackCooldown = 1;
+    public float closeAttackRange = 5;
 
     float timeHit;
     
     protected override void Update() {
-        
+        healthbar.fillAmount = Health / maxHealth;
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
             if (!waitingShortRange.Running) {
@@ -37,8 +41,8 @@ public class Tank: Enemy {
                 waitingCooldown = new Task(projectileAttackCooldown);
             }
         } else if (state == EnemyState.Moving) {
-            SetDestination(goal.position);
-            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
+            SetDestination(currentTarget.position);
+            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
                 // If within 6 units of the goal, attack it.
                 state = EnemyState.Attacking;
             } else if (waitingCooldown == null || !waitingCooldown.Running) {
@@ -50,17 +54,17 @@ public class Tank: Enemy {
             SetDestination(transform.position);
             Attack();
             // Wait for attack animation.
-            waitingShortRange = new Task(1);
+            waitingShortRange = new Task(closeAttackPause);
         } else if (state == EnemyState.LongRangeAttacking) {
             // Stop moving and long range attack.
             if(agent.enabled)agent.isStopped = true;
             // Wait for attack animation.
-            waitingLongRange = new Task(3);
+            waitingLongRange = new Task(longAttackPause);
         }
 
-        if(Vector3.Distance(transform.position,player.position)< 4f)
+        if(Vector3.Distance(transform.position,currentTarget.position)< closeAttackRange)
         {
-            if (Time.timeSinceLevelLoad - timeHit >= 2f)
+            if (Time.timeSinceLevelLoad - timeHit >= closeAttackCooldown)
             {
                 Controller.Instance.OnDamaged(this, playerDirectHitDmg);
                 timeHit = Time.timeSinceLevelLoad;

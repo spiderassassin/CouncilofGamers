@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -577728649, guid: 5f20aabb00332574daf00fd3809d496f, type: 3}
+  m_Sprite: {fileID: 184271828, guid: 8444eee5b5b6659458528056dc975d68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -405,9 +405,10 @@ MonoBehaviour:
   passiveLevel2: {fileID: 4663211707607296071}
   passiveLevel3: {fileID: 7647924662954760241}
   rescaleTransform: {fileID: 1382790177700937238}
-  unlitScale: {x: 0.8, y: 0.2, z: 0.8}
+  unlitScale: {x: 0.3, y: 0.3, z: 0.3}
   litScale: {x: 1, y: 1, z: 1}
   overdriveAddition: {x: 0.5, y: 0.5, z: 0.5}
+  splayer: {fileID: 8268115652716073788}
 --- !u!1 &4189009074424477786
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,14 +892,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824820779127225008}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a783929ced3764a9ca377fae2a93d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 3517033115295472882}
   sprites:
-  - {fileID: -577728649, guid: 5f20aabb00332574daf00fd3809d496f, type: 3}
-  - {fileID: -2059035624, guid: 5f20aabb00332574daf00fd3809d496f, type: 3}
-  - {fileID: -485871592, guid: 5f20aabb00332574daf00fd3809d496f, type: 3}
+  - {fileID: 184271828, guid: 8444eee5b5b6659458528056dc975d68, type: 3}
+  - {fileID: 592094164, guid: 8444eee5b5b6659458528056dc975d68, type: 3}
+  - {fileID: -1604180737, guid: 8444eee5b5b6659458528056dc975d68, type: 3}
+  - {fileID: 943757494, guid: 8444eee5b5b6659458528056dc975d68, type: 3}
   delay: 0.15

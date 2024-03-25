@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Define the type of enemy
 public enum EnemyType
@@ -24,8 +25,7 @@ public abstract class Enemy : FlammableEntity
     public Transform goal;
     public Transform player;
     public Animator animator;
-    public Rigidbody body;
-    public AudioClip deathSound;
+    //public AudioClip deathSound;
     public DamageInformation attackDamage;
 
     protected UnityEngine.AI.NavMeshAgent agent;
@@ -34,26 +34,36 @@ public abstract class Enemy : FlammableEntity
 
     private Camera mainCamera;
     private Coroutine pushback;
+    public float maxHealth;
+    protected Transform currentTarget;
 
+    protected float currentBaseSpeed;
+
+    public Image healthbar;
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
     }
 
     protected override void Start()
     {
+        maxHealth = Health;
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = speed;
-        agent.stoppingDistance = 5;
+        currentBaseSpeed = speed;
+        agent.speed = currentBaseSpeed;
 
         mainCamera = Camera.main;
+
+        currentTarget = player;
+        healthbar.fillAmount = Health / maxHealth;
     }
 
     protected override void Update()
     {
+        healthbar.fillAmount = Health / maxHealth;
         base.Update();
         // Scale speed based on adrenaline.
-        agent.speed = speed + (GameManager.Instance.AdrenalinePercent*3);
+        agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);
@@ -116,7 +126,8 @@ public abstract class Enemy : FlammableEntity
     {
         base.Death();
         WaveManager.Instance.livingEnemies.Remove(this);
-        SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
+        //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
+        
         Destroy(gameObject);
     }
 
