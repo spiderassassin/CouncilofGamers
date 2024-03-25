@@ -104,7 +104,7 @@ MonoBehaviour:
   animator: {fileID: 4436281028067464520}
   attackDamage:
     damage: 15
-    pushBack: 0
+    pushBack: 1
     type: 1
     fireCounter: 0
   speed: 12

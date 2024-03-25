@@ -8,6 +8,7 @@ public class Projectile :FlammableEntity
     public Vector3 dest;
     public bool targetPlayer = true;
     public float damageRadius = 1;
+    public DamageInformation dmg;
 
     public new Vector3 Position => transform.position;
 
@@ -47,7 +48,7 @@ public class Projectile :FlammableEntity
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && (!hit.GetComponent<Enemy>()||allowHitEnemy)) {
-                damageable.OnDamaged(this, new DamageInformation(10, 0, DamageType.AdditiveDamage,0));
+                damageable.OnDamaged(this, dmg);
             }
         }
         // Destroy the projectile after dealing damage.
