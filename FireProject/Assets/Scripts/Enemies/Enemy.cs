@@ -37,6 +37,8 @@ public abstract class Enemy : FlammableEntity
     private float maxHealth;
     protected Transform currentTarget;
 
+    protected float currentBaseSpeed;
+
     public Image healthbar;
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
@@ -47,7 +49,8 @@ public abstract class Enemy : FlammableEntity
         maxHealth = Health;
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.speed = speed;
+        currentBaseSpeed = speed;
+        agent.speed = currentBaseSpeed;
 
         mainCamera = Camera.main;
 
@@ -60,7 +63,7 @@ public abstract class Enemy : FlammableEntity
         healthbar.fillAmount = Health / maxHealth;
         base.Update();
         // Scale speed based on adrenaline.
-        agent.speed = speed + (GameManager.Instance.AdrenalinePercent*3);
+        agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);
         // Animation updates.
         if (state == EnemyState.Moving) {
             animator.SetBool("isMoving", true);

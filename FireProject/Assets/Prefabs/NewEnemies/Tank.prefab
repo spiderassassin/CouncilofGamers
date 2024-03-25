@@ -328,14 +328,16 @@ MonoBehaviour:
   healthbar: {fileID: 1811638902153509140}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:
-    damage: 20
-    pushBack: 0
+    damage: 40
+    pushBack: 8
     type: 1
     fireCounter: 0
   projectileAttackCooldown: 3
   attackRange: 10
-  longAttackCooldown: 1
+  longAttackPause: 1
+  closeAttackPause: 1
   closeAttackCooldown: 1
+  closeAttackRange: 5
 --- !u!4 &8745785091267799918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

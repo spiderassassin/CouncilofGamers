@@ -70,6 +70,7 @@ public class Controller : Entity
     float invincibilityDurationTimer = 0;
     public float invincibilityDuration = 0.25f;
 
+    public Vector3 additive;
 
 
     private void Awake()
@@ -107,7 +108,6 @@ public class Controller : Entity
     }
 
     void Update()
-
     {
         //print(flame.get3DAttributes())
         if (GameManager.Instance.gamePaused)
@@ -277,6 +277,7 @@ public class Controller : Entity
             simulateGravity();
         }
 
+        characterController.Move(additive * Time.deltaTime);
     }
 
     void Punch()
@@ -474,6 +475,7 @@ public class Controller : Entity
         }
     }
 
+    Coroutine pushback=null;
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         if ((dead == false && invincibility == false) && (isSnapping == false))
@@ -490,8 +492,33 @@ public class Controller : Entity
 
                 StartCoroutine(Die());
             }
+            else
+            {
+                if (dmg.pushBack != 0)
+                {
+                    Vector3 knockbackDirection = (transform.position - attacker.Position).normalized;
+                    knockbackDirection = new Vector3(knockbackDirection.x, 0, knockbackDirection.z);
+                    if (pushback != null)
+                    {
+                        StopCoroutine(pushback);
+                    }
+                    pushback = StartCoroutine(Pushback(knockbackDirection * dmg.pushBack));
+                }
+            }
         }
     }
+    IEnumerator Pushback(Vector3 impulse)
+    {
+        additive += impulse*7f;
+        while (true)
+        {
+            additive += -additive.normalized*Time.deltaTime*50f;
+            yield return new WaitForEndOfFrame();
 
-    
+            if (additive.magnitude <= .1f) break;
+        }
+        pushback = null;
+    }
+
+
 }

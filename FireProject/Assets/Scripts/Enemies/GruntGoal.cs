@@ -9,14 +9,21 @@ public class GruntGoal: Enemy {
     public int projectileAttackCooldown = 3;
     private Task waitingLongRange;
     private Task waitingCooldown;
-    private Vector3 dest;
     private bool attackingGoal = false;
     public float attackRange = 15;
-
+    public float freshSpeed = 15f;
 
     protected override void Start()
     {
         base.Start();
+        currentBaseSpeed = freshSpeed;
+        currentTarget = goal;
+    }
+
+    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    {
+        base.OnDamaged(attacker, dmg);
+        currentBaseSpeed = speed;
     }
 
     protected override void Update() {
@@ -33,7 +40,7 @@ public class GruntGoal: Enemy {
                 // Instantiate the projectile with specific destination.
                 GameObject proj = Instantiate(projectile, origin, Quaternion.identity);
                 if (attackingGoal) {
-                    proj.GetComponent<Projectile>().dest = currentTarget.position;
+                    proj.GetComponent<Projectile>().dest = currentTarget.position+Vector3.up;
                     proj.GetComponent<Projectile>().targetPlayer = false;
                 }
                 // Resume movement.
@@ -46,20 +53,26 @@ public class GruntGoal: Enemy {
             SetDestination(currentTarget.position);
 
             // Stop within attack range of the goal and attack it.
-            if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
+            if (Vector3.Distance(transform.position, goal.position) < attackRange) {
                 attackingGoal = true;
                 state = EnemyState.Attacking;
 
-            } else if (Vector3.Distance(transform.position, currentTarget.position) < attackRange) {
+            } else if (Vector3.Distance(transform.position, player.position) < attackRange) {
                 // If the player is within range, attack the player.
                 attackingGoal = false;
                 state = EnemyState.Attacking;
             }
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
-            if (agent.enabled) agent.isStopped = true;
+            if (agent.enabled)
+            {
+                agent.isStopped = true;
+            }
+
             // Wait for attack animation.
             waitingLongRange = new Task(1);
         }
     }
+
+    
 }
