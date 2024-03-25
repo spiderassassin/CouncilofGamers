@@ -478,7 +478,19 @@ public class Controller : Entity
 
         // Don't do anything if the game is in the ending stage.
         if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
-            SceneManager.LoadScene(0);
+            // Stop all sounds.
+            FMODEvents.Instance.StopAllSounds();
+            // Destroy all singletons.
+            Destroy(SoundManager.Instance.gameObject);
+            Destroy(WaveManager.Instance.gameObject);
+            Destroy(InputManager.Instance.gameObject);
+            Destroy(FMODEvents.Instance.gameObject);
+            Destroy(Controller.Instance.gameObject);
+            Destroy(CombatUI.Instance.gameObject);
+            // Reset fuel amount;
+            GameManager.Instance.fuel = 100;
+            // Restart from the beginning of the current stage.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
             ++GameManager.Instance.gameEndCompletion;
         }
