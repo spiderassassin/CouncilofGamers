@@ -203,8 +203,8 @@ public class GameManager : MonoBehaviour
         isFading = false;
 
         if (end) {
-            // Load the main menu.
-            SceneManager.LoadScene(0);
+            // Quit the game.
+            Application.Quit();
         }
     }
 }
