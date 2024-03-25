@@ -27,7 +27,34 @@ MonoBehaviour:
   - {fileID: 1695994050148402175}
   MinDistance: 1
   MaxDistance: 20
-  Length: 1000
+  Length: 500
+--- !u!114 &-8161359637659022530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/exploadingfireenemy
+  m_EditorClassIdentifier: 
+  Path: event:/exploadingfireenemy
+  Guid:
+    Data1: 1275373652
+    Data2: 1193339902
+    Data3: 1957183128
+    Data4: 43361933
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7870621024170119606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,7 +70,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638469098889508308
+  lastModified: 638469107390338368
   FileSizes:
   - Name: Desktop
     Value: 1340
@@ -102,6 +129,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 44307
+--- !u!114 &-7577059492197891039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/enemyDamage
+  m_EditorClassIdentifier: 
+  Path: event:/enemyDamage
+  Guid:
+    Data1: -1670804552
+    Data2: 1250392693
+    Data3: -1353218684
+    Data4: 1326390463
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7150815596088649992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +198,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/MUSIC.bank
   Name: MUSIC
   StudioPath: bank:/MUSIC
-  lastModified: 638469098889476727
+  lastModified: 638469107393780435
   FileSizes:
   - Name: Desktop
     Value: 7597504
@@ -324,10 +378,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638469098889510167
+  lastModified: 638469107390355760
   FileSizes:
   - Name: Desktop
-    Value: 1952
+    Value: 2062
   Exists: 1
 --- !u!114 &-3953322433612704857
 MonoBehaviour:
@@ -357,7 +411,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
---- !u!114 &-2641019119316872633
+--- !u!114 &-3936598113515807088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,14 +421,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/EnemyDamage
+  m_Name: event:/enemySpawn
   m_EditorClassIdentifier: 
-  Path: event:/EnemyDamage
+  Path: event:/enemySpawn
   Guid:
-    Data1: -1670804552
-    Data2: 1250392693
-    Data3: -1353218684
-    Data4: 1326390463
+    Data1: 1455774553
+    Data2: 1271852406
+    Data3: -79975779
+    Data4: 1517643810
   Banks:
   - {fileID: 5598420786009147276}
   IsStream: 0
@@ -469,21 +523,23 @@ MonoBehaviour:
   - {fileID: -4255175704697978898}
   - {fileID: -6557544339654928464}
   - {fileID: -4584505885488224375}
-  - {fileID: 899221038065100031}
   - {fileID: -729673011321474284}
   - {fileID: 4747386500587600446}
   - {fileID: 831036717453024154}
-  - {fileID: -2641019119316872633}
   - {fileID: -3953322433612704857}
   - {fileID: -5660849518791483074}
   - {fileID: 1787080077303724895}
   - {fileID: -9090928513865129302}
+  - {fileID: -8161359637659022530}
+  - {fileID: -3936598113515807088}
+  - {fileID: 7477812345106666569}
+  - {fileID: -7577059492197891039}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7870621024170119606}
   StringsBanks:
   - {fileID: -4192016114120372366}
-  cacheTime: 638469098889686063
+  cacheTime: 638469107396765302
   cacheVersion: 131616
 --- !u!114 &831036717453024154
 MonoBehaviour:
@@ -512,33 +568,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2860
---- !u!114 &899221038065100031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/EnemySpawn
-  m_EditorClassIdentifier: 
-  Path: event:/EnemySpawn
-  Guid:
-    Data1: 1455774553
-    Data2: 1271852406
-    Data3: -79975779
-    Data4: 1517643810
-  Banks:
-  - {fileID: 5598420786009147276}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &1457279423361496899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,10 +815,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638469098889686063
+  lastModified: 638469107396765302
   FileSizes:
   - Name: Desktop
-    Value: 965056
+    Value: 1070368
   Exists: 1
 --- !u!114 &6678876101128191863
 MonoBehaviour:
@@ -818,3 +847,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 11128
+--- !u!114 &7477812345106666569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Firespread
+  m_EditorClassIdentifier: 
+  Path: event:/Firespread
+  Guid:
+    Data1: -20834949
+    Data2: 1316538400
+    Data3: 511364761
+    Data4: 394709582
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

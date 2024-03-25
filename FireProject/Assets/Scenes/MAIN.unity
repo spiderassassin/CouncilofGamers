@@ -23435,7 +23435,7 @@ MonoBehaviour:
   dialoguesound: {fileID: 8300000, guid: 63f426e9dd16d49b48f91cf17bce1fce, type: 3}
   sentence: 
   dialogueBox: {fileID: 188248925}
-  player: {fileID: 0}
+  player: {fileID: 8771123490044458905}
   hhhcounter: 0
 --- !u!4 &645014638
 Transform:
@@ -44017,7 +44017,19 @@ MonoBehaviour:
   m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293135702}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1293588735
 Mesh:
   m_ObjectHideFlags: 0
@@ -61081,6 +61093,20 @@ MonoBehaviour:
       Data3: 595766975
       Data4: 2036120107
     Path: event:/hhhh
+  firespread:
+    Guid:
+      Data1: -20834949
+      Data2: 1316538400
+      Data3: 511364761
+      Data4: 394709582
+    Path: event:/Firespread
+  explosionscream:
+    Guid:
+      Data1: 1275373652
+      Data2: 1193339902
+      Data3: 1957183128
+      Data4: 43361933
+    Path: event:/exploadingfireenemy
   wave0:
     Guid:
       Data1: -1627489188

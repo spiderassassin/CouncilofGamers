@@ -23,6 +23,8 @@ public class FMODEvents : MonoBehaviour
     public EventReference run;
     public EventReference hello;
     public EventReference hhhh;
+    public EventReference firespread;
+    public EventReference explosionscream;
 
     //music
     public EventReference wave0;
