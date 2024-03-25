@@ -451,7 +451,13 @@ public class Controller : Entity
     {
         if (playerDeath)
         {
+            
             GetComponentInChildren<CameraBehavior>().Die();
+            if (isFiring)
+            {
+                isFiring = false;
+                Fire(false);
+            }
             yield return new WaitForSeconds(5);
         }
 

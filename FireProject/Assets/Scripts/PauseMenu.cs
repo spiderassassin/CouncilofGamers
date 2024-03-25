@@ -28,6 +28,13 @@ public class PauseMenu : MonoBehaviour
         inputManager.GetComponent<InputManager>().mouseSensitivity.y = slider.value;
     }
 
+    public void SetVolume()
+    {
+        FMODEvents.Instance.master.setVolume(slider.value);
+    }
+
+
+
     public void ResumeGame()
     {
         if (GameManager.Instance.gamePaused)

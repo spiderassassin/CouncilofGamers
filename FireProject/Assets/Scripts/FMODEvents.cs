@@ -33,8 +33,11 @@ public class FMODEvents : MonoBehaviour
     public EventReference downtime2;
     public EventReference betrayal;
 
+  
 
-
+    public Bus master;
+    public Bus music;
+    public Bus sfx;
 
     public EventInstance punchInstance;
 
@@ -52,5 +55,13 @@ public class FMODEvents : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    private void Start()
+    {
+        //for sound mixing
+        master = RuntimeManager.GetBus("bus:/");
+        music = RuntimeManager.GetBus("bus:/music");
+        sfx = RuntimeManager.GetBus("bus:/sfx");
     }
 }
