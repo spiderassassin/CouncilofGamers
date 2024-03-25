@@ -13,9 +13,12 @@ public class Tank: Enemy {
     public int closeAttackCooldown = 1;
 
     float timeHit;
+
+
     
     protected override void Update() {
-        
+        healthbar.fillAmount = Health / maxHealth;
+
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
             if (!waitingShortRange.Running) {

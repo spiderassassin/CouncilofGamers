@@ -16,6 +16,8 @@ public class FMODEvents : MonoBehaviour
     public EventReference snap;
     public EventReference slowmotion;
     public EventReference pigeons;
+    public EventReference firespread;
+    public EventReference enemyExplosion;
 
     //loop sounds
     public EventReference flamethrower;
@@ -32,6 +34,8 @@ public class FMODEvents : MonoBehaviour
     public EventReference downtime1;
     public EventReference downtime2;
     public EventReference betrayal;
+
+
 
   
 

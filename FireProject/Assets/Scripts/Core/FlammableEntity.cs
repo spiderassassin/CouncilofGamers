@@ -106,6 +106,7 @@ public abstract class FlammableEntity : Entity, IFlammable
 
             if (currentFireCounter >= fireCounterRequired&& PassiveFireSources.CurrentState < DamageType.FirePassive_Lvl2)
             {
+                SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
                 if (attacker == null)
                     SetFire(DamageType.FirePassive_Lvl2);
                 else if (!attacker.Equals(this))

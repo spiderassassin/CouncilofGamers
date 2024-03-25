@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1021169509773941956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021169509773941962}
+  - component: {fileID: 1021169509773941957}
+  m_Layer: 0
+  m_Name: FMOD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021169509773941962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021169509773941956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 543.8743, y: -208.92688, z: 120.471405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021169509773941957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021169509773941956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e641f599d3b74df494483ab17783ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punch:
+    Guid:
+      Data1: -1384355855
+      Data2: 1254344761
+      Data3: -1362233706
+      Data4: -257980313
+    Path: event:/Punch
+  fireball:
+    Guid:
+      Data1: 1506276195
+      Data2: 1235746767
+      Data3: -778260578
+      Data4: -377106021
+    Path: event:/Fireball
+  enemySpawn:
+    Guid:
+      Data1: 1455774553
+      Data2: 1271852406
+      Data3: -79975779
+      Data4: 1517643810
+    Path: event:/EnemySpawn
+  enemyDamage:
+    Guid:
+      Data1: -1670804552
+      Data2: 1250392693
+      Data3: -1353218684
+      Data4: 1326390463
+    Path: event:/EnemyDamage
+  playerDamage:
+    Guid:
+      Data1: 1399049037
+      Data2: 1146949980
+      Data3: 1402588070
+      Data4: -1714204701
+    Path: event:/PlayerDamage
+  snap:
+    Guid:
+      Data1: 715639366
+      Data2: 1262016697
+      Data3: -1950157906
+      Data4: 279213941
+    Path: event:/Snap
+  slowmotion:
+    Guid:
+      Data1: 1871578198
+      Data2: 1334692406
+      Data3: -418321767
+      Data4: 982259802
+    Path: event:/SlowMotion
+  pigeons:
+    Guid:
+      Data1: -121355026
+      Data2: 1198467131
+      Data3: 800854163
+      Data4: 1196748429
+    Path: event:/Pigeons
+  firespread:
+    Guid:
+      Data1: 62872477
+      Data2: 1238822038
+      Data3: -1700131964
+      Data4: -1729516879
+    Path: event:/Firespread
+  enemyExplosion:
+    Guid:
+      Data1: -594861712
+      Data2: 1158561116
+      Data3: -1410741881
+      Data4: 873155308
+    Path: event:/Exploadingenemy
+  flamethrower:
+    Guid:
+      Data1: 606439428
+      Data2: 1126035507
+      Data3: 1855518119
+      Data4: -1213712326
+    Path: event:/FlameThrower
+  walk:
+    Guid:
+      Data1: -308731570
+      Data2: 1126358672
+      Data3: 508811160
+      Data4: -442164664
+    Path: event:/walk
+  run:
+    Guid:
+      Data1: 1762009223
+      Data2: 1087846050
+      Data3: 1308343716
+      Data4: -1166997326
+    Path: event:/run
+  hello:
+    Guid:
+      Data1: -507254665
+      Data2: 1122835684
+      Data3: 1842175656
+      Data4: -1189987344
+    Path: event:/hello
+  hhhh:
+    Guid:
+      Data1: -1915641607
+      Data2: 1148166123
+      Data3: 595766975
+      Data4: 2036120107
+    Path: event:/hhhh
+  wave0:
+    Guid:
+      Data1: -1627489188
+      Data2: 1301751963
+      Data3: 1545876650
+      Data4: 1916371309
+    Path: event:/wave0
+  wave1:
+    Guid:
+      Data1: 2030255986
+      Data2: 1317545347
+      Data3: 313837719
+      Data4: -363629505
+    Path: event:/wave1
+  wave2:
+    Guid:
+      Data1: -1630367646
+      Data2: 1216906039
+      Data3: -1927676771
+      Data4: -2001821382
+    Path: event:/wave2
+  wave3:
+    Guid:
+      Data1: -39807854
+      Data2: 1239285788
+      Data3: 1307238069
+      Data4: 384963089
+    Path: event:/wave3
+  downtime1:
+    Guid:
+      Data1: 404959848
+      Data2: 1284688871
+      Data3: 388155799
+      Data4: 1782358084
+    Path: event:/Parolemusic
+  downtime2:
+    Guid:
+      Data1: -553424200
+      Data2: 1201329377
+      Data3: -1556043648
+      Data4: 983965646
+    Path: event:/downtime2
+  betrayal:
+    Guid:
+      Data1: 1038864064
+      Data2: 1190951372
+      Data3: -1315893849
+      Data4: -599304060
+    Path: event:/Betrayal

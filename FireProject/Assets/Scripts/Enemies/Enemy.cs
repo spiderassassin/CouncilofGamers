@@ -34,7 +34,7 @@ public abstract class Enemy : FlammableEntity
 
     private Camera mainCamera;
     private Coroutine pushback;
-    private float maxHealth;
+    public float maxHealth;
     protected Transform currentTarget;
 
     public Image healthbar;
