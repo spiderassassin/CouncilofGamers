@@ -66,4 +66,9 @@ public class FMODEvents : MonoBehaviour
         music = RuntimeManager.GetBus("bus:/music");
         sfx = RuntimeManager.GetBus("bus:/sfx");
     }
+
+    public void StopAllSounds()
+    {
+        master.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 }
