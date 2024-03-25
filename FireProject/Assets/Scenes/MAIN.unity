@@ -68251,15 +68251,7 @@ MonoBehaviour:
   wave1: {fileID: 3303653138007572062, guid: 92ddfba1ab0ec594caf2e7880d672bdf, type: 3}
   wave2: {fileID: 8418132539410971719, guid: c583deca89e2d4c4894c37a5ad25252d, type: 3}
   wave3: {fileID: 3624478538292695410, guid: e740a8ddaba5c634490ca1a46d6a9785, type: 3}
-  endingWave:
-    chunks:
-    - note: 
-      enemyType: 2
-      maxWait: 0
-      spawnDelay: 5
-      spawnPoint: 0
-      count: 10
-      waitUntilPreviousDead: 0
+  endingWave: {fileID: 3624478538292695410, guid: 5006c98c822971a4c946d1cd51b2b546, type: 3}
   isSpawning: 0
   livingEnemies: []
   paroleGuardSprite: {fileID: 1888134733}

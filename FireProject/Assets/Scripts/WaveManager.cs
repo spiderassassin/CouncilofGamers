@@ -34,7 +34,7 @@ public class WaveManager : MonoBehaviour
     public WaveDataObject wave1;
     public WaveDataObject wave2;
     public WaveDataObject wave3;
-    public Wave endingWave;
+    public WaveDataObject endingWave;
 
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
@@ -251,7 +251,7 @@ public class WaveManager : MonoBehaviour
                     //SoundManager.Instance.MusicStop();
 
                     // Start the ending wave.
-                    StartWave(endingWave);
+                    StartWave(endingWave.wave);
                 } else {
                     SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
