@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
     public float creditsAlpha = 0.3f;
     private bool isFading = false;
 
+    public bool baseDamage;
+    public int baseFlashCount;
+
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {

@@ -5,6 +5,7 @@ public class GruntPlayer: Enemy {
     private Task waiting;
     public float attackRange = 5;
     public bool stickWithTank = false;
+    public bool tutorialGrunt;
 
     Tank associatedTank;
     
@@ -19,6 +20,11 @@ public class GruntPlayer: Enemy {
             {
                 currentTarget = associatedTank.transform;
             }
+        }
+
+        if (tutorialGrunt)
+        {
+            health = 10f;
         }
     }
 

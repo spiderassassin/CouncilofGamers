@@ -18,7 +18,7 @@ public class Wave
         public bool waitUntilPreviousDead = false; // if true wait for the previous enemies to die before beginning this chunk
     }
 
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive };
+    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive, GruntPlayerTutorial };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<WaveChunk> chunks;
 

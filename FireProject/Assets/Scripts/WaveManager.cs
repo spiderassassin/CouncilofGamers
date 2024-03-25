@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
     public GruntPlayer gruntStayWithTank;
     public Tank tank;
     public Explosive explosive;
+    public GruntPlayer gruntPlayerTutorial;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave tutorialFireballWave;
@@ -43,6 +44,7 @@ public class WaveManager : MonoBehaviour
 
     public GameObject paroleGuardSprite;
     public GameObject triggerAreaForParoleDialogue;
+    public GameObject triggerAreaForSkullPromptDialogue;
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
@@ -310,15 +312,22 @@ public class WaveManager : MonoBehaviour
                         break;
                     case Wave.EnemyType.GruntPlayer:
                         e = gruntPlayer;
+                        e.GetComponent<GruntPlayer>().tutorialGrunt = false;
                         break;
                     case Wave.EnemyType.Tank:
                         e = tank;
                         break;
                     case Wave.EnemyType.GruntPlayerWithTank:
                         e = gruntStayWithTank;
+                        e.GetComponent<GruntPlayer>().tutorialGrunt = false;
                         break;
                     case Wave.EnemyType.Explosive:
                         e = explosive;
+                        break;
+                    case Wave.EnemyType.GruntPlayerTutorial:
+                        e = gruntPlayerTutorial;
+                        e.GetComponent<GruntPlayer>().tutorialGrunt = true;
+                        Debug.Log("spawnwd grunt player tutorial");
                         break;
 
                 }
@@ -468,6 +477,7 @@ public class WaveManager : MonoBehaviour
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
                     triggerAreaForParoleDialogue.SetActive(false);
+                    triggerAreaForSkullPromptDialogue.SetActive(false);
                     SoundManager.Instance.wave0.start();
                     GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
@@ -518,13 +528,14 @@ public class WaveManager : MonoBehaviour
                     StartCoroutine(Spawn(tutorialFireballWave));
                     tutorialFireballEnemyReleasedStart = true;
                 }
+                if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count != 0 && GameManager.Instance.fuel < GameManager.Instance.fireballCost)
+                {
+                    GameManager.Instance.fuel += GameManager.Instance.punchRefuel;
+                }
                 if (tutorialFireballEnemyReleasedEnd && livingEnemies.Count == 0)
                 {
                     tutorialFireballKill = true;
                     tutorialStage = TutorialStage.TeachPunch;
-                }
-                {
-
                 }
                 
                 break;
@@ -596,9 +607,10 @@ public class WaveManager : MonoBehaviour
                     {
                         GameManager.Instance.fuel -= GameManager.Instance.punchRefuel * 4;
                     }
-
-                    startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
+                    //triggerAreaForSkullPromptDialogue.SetActive(true);
+                    startTutorialDialogue();
+                    
                 } else if (tutorialSkullPilePunched)
                 {
                     Debug.Log("tutorialSkullPile Pucnhed");

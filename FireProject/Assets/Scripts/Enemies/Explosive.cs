@@ -39,7 +39,9 @@ public class Explosive: Enemy {
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
             SetDestination(transform.position);
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
             waitingToExplode = new Task(explosionDelay);
+            
         }
     }
 
