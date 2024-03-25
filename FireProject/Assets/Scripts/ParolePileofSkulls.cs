@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParolePileofSkulls : FlammableEntity
 {
+    public GameObject waveManager;
     protected override void Update()
     {
         // base.Update();
@@ -22,11 +23,14 @@ public class ParolePileofSkulls : FlammableEntity
     {
         base.Death();
 
+
         //fill fuel to full
         while (GameManager.Instance.fuel != GameManager.Instance.GetMaxFuel())
         {
             GameManager.Instance.UpdateFuel(false, false, true);
-        }    
+        }
+        waveManager.GetComponent<WaveManager>().tutorialSkullPilePunched = true;
+
         Destroy(gameObject);
     }
 }

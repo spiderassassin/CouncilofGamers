@@ -42,6 +42,7 @@ public class WaveManager : MonoBehaviour
     public int TotalLivingEnemies => livingEnemies.Count;
 
     public GameObject paroleGuardSprite;
+    public GameObject triggerAreaForParoleDialogue;
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
@@ -88,7 +89,7 @@ public class WaveManager : MonoBehaviour
     private bool tutorialFindParoleGuardDialogueSeen;
 
     private bool tutorialSkullPunchExplained;
-    private bool tutorialSkullPunched;
+    public bool tutorialSkullPilePunched;
 
 
     public bool SnapPromptHidden;
@@ -192,7 +193,7 @@ public class WaveManager : MonoBehaviour
         }
 
         // If we're done the tutorial, start the downtime dialogue instead of tutorial dialogue.
-        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1) {
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1 || tutorialStage == TutorialStage.PunchSkulls) {
             startDowntimeDialogue();
         } else {
             FindObjectOfType<DialogueManager>().StartDialogue(tutorialDialogue);
@@ -203,7 +204,7 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
 
-        if (GameManager.Instance.tutorialGameStages.Contains(GameManager.Instance.gameStage))
+        if (GameManager.Instance.tutorialGameStages.Contains(GameManager.Instance.gameStage) || GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
         {
             Tutorial();
             
@@ -214,6 +215,15 @@ public class WaveManager : MonoBehaviour
             switch (GameManager.Instance.gameStage)
             {
                 case GameManager.GameStage.Wave1:
+
+                    Color32 activeColor = new Color32(255, 255, 255, 255);
+                    SnapPrompt.GetComponent<Image>().color = activeColor;
+                    QPrompt.GetComponent<Image>().color = activeColor;
+                    player.GetComponent<Controller>().snapAllowed = true;
+                    FlameAttackPrompt.GetComponent<Image>().color = activeColor;
+                    LeftClickPrompt.GetComponent<Image>().color = activeColor;
+                    player.GetComponent<Controller>().flameAttackAllowed = true;
+
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
@@ -457,6 +467,7 @@ public class WaveManager : MonoBehaviour
                 //actionPrompts.SetActive(true);
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
+                    triggerAreaForParoleDialogue.SetActive(false);
                     SoundManager.Instance.wave0.start();
                     GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
@@ -570,6 +581,7 @@ public class WaveManager : MonoBehaviour
                 }
                 break;
             case TutorialStage.PunchSkulls:
+                Debug.Log("punching skulls stage");
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 6);
@@ -578,13 +590,19 @@ public class WaveManager : MonoBehaviour
                     SoundManager.Instance.hello.start();
                     SoundManager.Instance.hello.release();
                     // End of tutorial, set the game stage to downtime1.
+
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;
                     if (GameManager.Instance.fuel >= GameManager.Instance.GetMaxFuel() - GameManager.Instance.punchRefuel)
                     {
                         GameManager.Instance.fuel -= GameManager.Instance.punchRefuel * 4;
                     }
+
                     startTutorialDialogue();
                     tutorialFindParoleGuardDialogueSeen = true;
+                } else if (tutorialSkullPilePunched)
+                {
+                    Debug.Log("tutorialSkullPile Pucnhed");
+                    triggerAreaForParoleDialogue.SetActive(true);
                 }
 
                 break;
