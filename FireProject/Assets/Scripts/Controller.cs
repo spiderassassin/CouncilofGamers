@@ -60,6 +60,8 @@ public class Controller : Entity
     public float punchCooldown = .2f;
     public float healthIncreaseRate = 1;
     bool dead = false;
+    public Image rightArm;
+    public Color punchCooldownColour;
     
     public Animator armAnimator;
 
@@ -272,6 +274,11 @@ public class Controller : Entity
                 //Snap();
             }
 
+            // Reset right arm colour if punch off cooldown.
+            if (Time.timeSinceLevelLoad - lastPunchTime >= punchCooldown) {
+                rightArm.color = new Color(1, 1, 1, 1);
+            }
+
 
 
             simulateGravity();
@@ -290,6 +297,8 @@ public class Controller : Entity
         //SoundManager.Instance.PlaySoundOnce(punch, transform);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         armAnimator.SetTrigger("punch");// animator trigger
+        // Recolour right arm if punch is on cooldown.
+        rightArm.color = punchCooldownColour;
         //GameManager.Instance.fuel += 10; // NOT FINAL
         //GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
         
