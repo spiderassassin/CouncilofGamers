@@ -95,12 +95,12 @@ MonoBehaviour:
       spawnPoint: 0
       count: 0
       waitUntilPreviousDead: 0
-    - note: then 1[Tank] from [SpawnPoint3]
+    - note: then 2[Tank] from [SpawnPoint3]
       enemyType: 3
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 2
-      count: 1
+      count: 2
       waitUntilPreviousDead: 1
     - note: 5[GruntPlayerWithTank] from [SpawnPoint3]
       enemyType: 4
@@ -115,6 +115,13 @@ MonoBehaviour:
       spawnDelay: 0
       spawnPoint: 1
       count: 3
+      waitUntilPreviousDead: 0
+    - note: 1[Explosive] after 5s from [SpawnPoint1]
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 0
+      count: 1
       waitUntilPreviousDead: 0
     - note: 2[GruntPlayerWithTank] from [SpawnPoint1]
       enemyType: 4

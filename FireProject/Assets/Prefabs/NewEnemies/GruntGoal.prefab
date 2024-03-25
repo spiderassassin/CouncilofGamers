@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 37018340930786910}
-  health: 100
+  health: 150
   body: {fileID: 37018340930786909}
   text: {fileID: 699141154222251344}
   passiveFireSources: {fileID: 5171339551207367786}

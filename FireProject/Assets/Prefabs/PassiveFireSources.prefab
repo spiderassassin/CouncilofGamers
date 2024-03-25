@@ -665,7 +665,7 @@ MonoBehaviour:
     pushBack: -1
     type: 2
     fireCounter: 1
-  baseLifespan: 10
+  baseLifespan: 30
   tickRate: 0.2
   activeDamageProbability: 0
   tick: 1
