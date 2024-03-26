@@ -17,6 +17,12 @@ public class WaveNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waveNumberText.text = GameManager.Instance.gameStage.ToString();
+        string waveNumber = GameManager.Instance.gameStage.ToString();
+        if (waveNumber.Contains("Wave"))
+        {
+            // Add a space before the number.
+            waveNumber = waveNumber.Insert(4, " ");
+        }
+        waveNumberText.text = waveNumber;
     }
 }

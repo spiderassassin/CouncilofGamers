@@ -648,12 +648,12 @@ MonoBehaviour:
     Cities in the south fell to the onslaught, and the Realm suffered decades of
     bloodshed known as the Infernal War. But the Realm persevered.
 
-    
 
-    The
-    demons were beaten back to the southern plains, now a disfigured wasteland. But
-    the portals remained, and the demons would endlessly return, regenerating at
-    the portals.'
+
+    The demons
+    were beaten back to the southern plains, now a disfigured wasteland. But the
+    portals remained, and the demons would endlessly return, regenerating at the
+    portals.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

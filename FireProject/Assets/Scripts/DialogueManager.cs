@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using FMODUnity;
 using FMOD.Studio;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
-using UnityEditor.Experimental.GraphView;
 
 
 public class DialogueManager : MonoBehaviour
