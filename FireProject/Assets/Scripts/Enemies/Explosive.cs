@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 // Run toward the player.
@@ -30,7 +31,16 @@ public class Explosive: Enemy {
                 animator.SetBool("isexploding", true);
                 print("boom");
                 StartCoroutine(waitandexplode());
+
+             
                 
+            }
+            else
+            {
+                
+                // Increase scale of enemy to 2x.
+                transform.localScale = new Vector3(transform.localScale.x + Time.deltaTime * 0.5f, transform.localScale.y + Time.deltaTime * 0.5f, transform.localScale.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * 0.5f, transform.position.z);
                 
             }
         } else if (state == EnemyState.Moving) {

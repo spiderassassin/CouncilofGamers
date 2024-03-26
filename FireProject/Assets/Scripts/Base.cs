@@ -19,7 +19,7 @@ public class Base : Entity
     {
         if (baseHealthText != null && Health>=0)
         {
-            baseHealthText.text = "Gate Health\n" + base.Health.ToString() + "%";
+            baseHealthText.text = "Gate Health\n" + base.Health.ToString() + " HP";
             if (GameManager.Instance.baseDamage)
             {
                 if (GameManager.Instance.baseFlashCount % 2 == 0)

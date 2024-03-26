@@ -474,7 +474,7 @@ public class Controller : Entity
         }
 
         Debug.Log("Game Over");
-        GameOver.SetActive(true);
+        
         yield return new WaitForSeconds(2);
         //SoundManager.Instance.MusicStop();
         Cursor.lockState = CursorLockMode.None;
@@ -482,6 +482,7 @@ public class Controller : Entity
 
         // Don't do anything if the game is in the ending stage.
         if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
+            GameOver.SetActive(true);
             // Stop all sounds.
             FMODEvents.Instance.StopAllSounds();
             // Destroy all singletons.

@@ -143,7 +143,7 @@ MonoBehaviour:
   maxHealth: 0
   healthbar: {fileID: 7906835110228327669}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
-  projectileAttackCooldown: 7
+  projectileAttackCooldown: 10
   attackRange: 15
   freshSpeed: 16
 --- !u!54 &37018340930786909 stripped
