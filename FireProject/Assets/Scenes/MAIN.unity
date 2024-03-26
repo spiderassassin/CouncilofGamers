@@ -46046,6 +46046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConeFireVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 8377320146423133863, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c83b4cfa2ed469096555500393b21a, type: 3}
 --- !u!4 &1248121814 stripped
