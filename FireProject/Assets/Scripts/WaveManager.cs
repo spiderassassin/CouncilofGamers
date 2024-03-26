@@ -52,7 +52,7 @@ public class WaveManager : MonoBehaviour
     public GameObject blockade1;
     public GameObject blockade2;
     public GameObject waveNumberText;
-    public GameObject gateArrow;
+    public GameObject findGatePrompt;
 
 
     //public GameObject tutorialManager;
@@ -501,6 +501,7 @@ public class WaveManager : MonoBehaviour
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
                 {
                     gatePointLight.SetActive(true);
+                    findGatePrompt.SetActive(true);
                 }
 
                
@@ -516,6 +517,7 @@ public class WaveManager : MonoBehaviour
                 if (!tutorialExitDialogueGiven)
                 {
                     gatePointLight.SetActive(false);
+                    findGatePrompt.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 2);
                     startTutorialDialogue();
                     tutorialExitDialogueGiven = true;
