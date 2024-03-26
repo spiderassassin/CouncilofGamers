@@ -22,7 +22,7 @@ public class ParolePileofSkulls : FlammableEntity
     public override void Death()
     {
         base.Death();
-
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punchImpact, transform.position);
 
         //fill fuel to full
         while (GameManager.Instance.fuel != GameManager.Instance.GetMaxFuel())

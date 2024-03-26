@@ -93,6 +93,10 @@ public abstract class Enemy : FlammableEntity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker, dmg);
+        if (dmg.type == DamageType.AdditiveDamage && attacker is Controller)
+        {
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punchImpact, transform.position);
+        }
 
         if (dmg.pushBack != 0)
         {
