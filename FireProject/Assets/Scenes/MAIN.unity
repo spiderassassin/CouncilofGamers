@@ -59374,7 +59374,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh522956
+  m_Name: pb_Mesh29566
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -71884,6 +71884,7 @@ MonoBehaviour:
   blockade1: {fileID: 2046377722}
   blockade2: {fileID: 1868046706}
   waveNumberText: {fileID: 1440135461}
+  gateArrow: {fileID: 0}
   tutorialIntroDialogue:
     dialogueOver: 0
     name: ' '
@@ -73614,6 +73615,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3573795274524274716, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
+      propertyPath: health
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3573795274524274716, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
       propertyPath: baseHealthText
       value: 
@@ -77641,7 +77646,7 @@ MonoBehaviour:
   - {fileID: 7095554248486665563}
   health: 100
   characterController: {fileID: 7095554248486665563}
-  speed: 12
+  speed: 16
   sprintspeed: 20
   velocity: {x: 0, y: 0, z: 0}
   gravity: -40
@@ -77682,10 +77687,10 @@ MonoBehaviour:
   punchCooldown: 3
   healthIncreaseRate: 5
   rightArm: {fileID: 1474664498668837894}
-  punchCooldownColour: {r: 0.9150943, g: 0.293013, b: 0.15970986, a: 1}
+  punchCooldownColour: {r: 0.6509434, g: 0.11527123, b: 0, a: 1}
   armAnimator: {fileID: 1474664498842433659}
   invincibility: 0
-  invincibilityDuration: 0.25
+  invincibilityDuration: 0.5
   additive: {x: 0, y: 0, z: 0}
 --- !u!1 &6458678085241640785
 GameObject:

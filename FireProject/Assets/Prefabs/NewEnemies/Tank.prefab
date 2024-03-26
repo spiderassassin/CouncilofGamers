@@ -270,23 +270,32 @@ MonoBehaviour:
   colliders:
   - {fileID: 8745785091267799905}
   health: 750
+  body: {fileID: 8745785091267799906}
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
+  fireCounterRequired: 3
+  counterDecayTime: 2
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
-  body: {fileID: 8745785091267799906}
-  deathSound: {fileID: 8300000, guid: 409c24aac91b1f14fadfa7ba3146e7aa, type: 3}
   attackDamage:
     damage: 15
     pushBack: 0
     type: 1
+    fireCounter: 0
   speed: 10
+  maxHealth: 0
+  healthbar: {fileID: 1470001329916658122}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:
     damage: 20
     pushBack: 0
     type: 1
+    fireCounter: 0
   projectileAttackCooldown: 1
   attackRange: 10
+  longAttackPause: 2
+  closeAttackPause: 1
+  closeAttackCooldown: 1
+  closeAttackRange: 5

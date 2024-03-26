@@ -52,6 +52,7 @@ public class WaveManager : MonoBehaviour
     public GameObject blockade1;
     public GameObject blockade2;
     public GameObject waveNumberText;
+    public GameObject gateArrow;
 
 
     //public GameObject tutorialManager;
