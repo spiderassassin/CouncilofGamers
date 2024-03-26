@@ -16,12 +16,20 @@ PrefabInstance:
       value: ExplosiveSprite
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -24468400, guid: ef0edcb12bcb3e14788cbbea50f02ebf, type: 3}
+    - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.b
-      value: 0.37169808
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.g
-      value: 0.37169808
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.r

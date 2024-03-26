@@ -11,13 +11,21 @@ PrefabInstance:
       propertyPath: selfDamage.damage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 221364840804996777, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c7b713c6afffdc94f901bc77aefe2de3, type: 2}
+    - target: {fileID: 1895627975111397005, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Name
+      value: TankSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,18 +38,18 @@ PrefabInstance:
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6cd044db64a9d5b419b4bccb3789ff4a, type: 3}
+      objectReference: {fileID: -810822625, guid: b1feed125f3248342a7971c0f2901c2f, type: 3}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.g
-      value: 0.60754716
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.r
-      value: 0.86339253
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340817, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Name
@@ -61,15 +69,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Height
-      value: 7.0502734
+      value: 3.32
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Radius
-      value: 1.5
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Center.y
-      value: 2.3801367
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Mass
@@ -135,12 +143,65 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 5914239938790165374, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 6.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+--- !u!1 &652658202170767502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7646953290074264954, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 7138727324291411444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1599603993432212484
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652658202170767502}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!114 &1470001329916658122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8608530383485234238, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -209,32 +270,23 @@ MonoBehaviour:
   colliders:
   - {fileID: 8745785091267799905}
   health: 750
-  body: {fileID: 8745785091267799906}
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}
   onFire: 0
-  fireCounterRequired: 3
-  counterDecayTime: 2
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
+  body: {fileID: 8745785091267799906}
+  deathSound: {fileID: 8300000, guid: 409c24aac91b1f14fadfa7ba3146e7aa, type: 3}
   attackDamage:
     damage: 15
     pushBack: 0
     type: 1
-    fireCounter: 0
-  speed: 15
-  maxHealth: 0
-  healthbar: {fileID: 1470001329916658122}
+  speed: 10
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:
-    damage: 40
-    pushBack: 8
+    damage: 20
+    pushBack: 0
     type: 1
-    fireCounter: 0
-  projectileAttackCooldown: 3
+  projectileAttackCooldown: 1
   attackRange: 10
-  longAttackPause: 1
-  closeAttackPause: 1
-  closeAttackCooldown: 1
-  closeAttackRange: 5
