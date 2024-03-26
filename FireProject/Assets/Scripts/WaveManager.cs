@@ -49,6 +49,9 @@ public class WaveManager : MonoBehaviour
     public GameObject actionPrompts;
     public GameObject gatePointLight;
     public GameObject player;
+    public GameObject blockade1;
+    public GameObject blockade2;
+    public GameObject waveNumberText;
 
 
     //public GameObject tutorialManager;
@@ -229,10 +232,12 @@ public class WaveManager : MonoBehaviour
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
+                    blockade1.SetActive(false);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
                     StartWave(wave3.wave);
+                    blockade2.SetActive(false);
                     break;
             }
         }
@@ -241,6 +246,7 @@ public class WaveManager : MonoBehaviour
             if(livingEnemies.Count == 0)
             {
                 wavemode = false;
+                waveNumberText.SetActive(false);
                 print("Wave Over");
                 
                 SoundManager.Instance.WaveMusicStop();
@@ -267,6 +273,7 @@ public class WaveManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
+        waveNumberText.SetActive(true);
         SoundManager.Instance.WaveMusicPlay();
         wavemode = true;
         if (isSpawning == false)
