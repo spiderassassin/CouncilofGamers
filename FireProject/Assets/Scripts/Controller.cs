@@ -289,17 +289,18 @@ public class Controller : Entity
 
     IEnumerator Punch()
     {
-        if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) yield return null;
-        if (!punchAllowed) yield return null;
+        if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) yield break;
+        if (!punchAllowed) yield break;
         lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         
         //SoundManager.Instance.PlaySoundOnce(punch, transform);
-        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
+        
         armAnimator.SetTrigger("punch");// animator trigger
         // Recolour right arm if punch is on cooldown.
         yield return new WaitForSeconds(0.2f);
         punchSource.Damage();
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         rightArm.color = punchCooldownColour;
         //GameManager.Instance.fuel += 10; // NOT FINAL
         //GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
