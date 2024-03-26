@@ -12,6 +12,9 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetMouseSensitivity();
+        //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
+        //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
         
     }
 
@@ -24,8 +27,14 @@ public class PauseMenu : MonoBehaviour
 
     public void SetMouseSensitivity()
     {
-        inputManager.GetComponent<InputManager>().mouseSensitivity.x = slider.value;
-        inputManager.GetComponent<InputManager>().mouseSensitivity.y = slider.value;
+        //inputManager.GetComponent<InputManager>().mouseSensitivity.x = slider.value;
+        //inputManager.GetComponent<InputManager>().mouseSensitivity.y = slider.value;
+        if (slider)
+        {
+            InputManager.Instance.mouseSensitivity.x = slider.value;
+            InputManager.Instance.mouseSensitivity.y = slider.value;
+        }
+        
     }
 
     public void SetVolume()
