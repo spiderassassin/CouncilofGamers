@@ -37801,7 +37801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
   mouseSensitivity: {x: 0.2, y: 0.2}
-  toggleSprint: 1
+  toggleSprint: 0
   mouseX: 0
   mouseY: 0
   moveX: 0
