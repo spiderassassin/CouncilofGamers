@@ -36,6 +36,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     public int hhhcounter;
 
+    public GameObject prompt;
+    private TextMeshProUGUI promptText;
 
 
     // Start is called before the first frame update
@@ -43,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         playerSpeaking = new Queue<bool>();
+        promptText = prompt.GetComponent<TextMeshProUGUI>();
     }
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
@@ -211,6 +214,13 @@ public class DialogueManager : MonoBehaviour
             //WaveManager.Instance.paroleGuardSprite.SetActive(false);
             NPCSprite.GetComponent<paroleAnimations>().hide();
 
+        }
+
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
+        {
+            // Show prompt telling player to follow the voice.
+            prompt.SetActive(true);
+            promptText.text = "Find the source of the strange voice";
         }
     }
 

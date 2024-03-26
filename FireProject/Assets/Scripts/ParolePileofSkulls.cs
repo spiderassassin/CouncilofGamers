@@ -1,13 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ParolePileofSkulls : FlammableEntity
 {
     public GameObject waveManager;
+    public GameObject prompt;
+    private TextMeshProUGUI promptText;
+
+    protected override void Start()
+    {
+        base.Start();
+        promptText = prompt.GetComponent<TextMeshProUGUI>();
+    }
+
     protected override void Update()
     {
         // base.Update();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // If player gets close to the pile of skulls, show a prompt telling them to punch it.
+        // Only displayed if we're in the first downtime stage.
+        if (other.gameObject.GetComponent<Controller>() != null && GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
+        {
+            prompt.SetActive(true);
+            promptText.text = "Punch the pile of skulls";
+        }
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
@@ -30,6 +51,8 @@ public class ParolePileofSkulls : FlammableEntity
             GameManager.Instance.UpdateFuel(false, false, true);
         }
         waveManager.GetComponent<WaveManager>().tutorialSkullPilePunched = true;
+
+        prompt.SetActive(false);
 
         Destroy(gameObject);
     }
