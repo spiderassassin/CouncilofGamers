@@ -17,7 +17,7 @@ public class Base : Entity
     // Update is called once per frame
     void Update()
     {
-        if (baseHealthText != null)
+        if (baseHealthText != null && Health>=0)
         {
             baseHealthText.text = "Gate Health\n" + base.Health.ToString() + "%";
             if (GameManager.Instance.baseDamage)
@@ -46,6 +46,7 @@ public class Base : Entity
     {
         base.OnDamaged(attacker, dmg);
         GameManager.Instance.baseDamage = true;
+        
     }
 
     public override void Death()

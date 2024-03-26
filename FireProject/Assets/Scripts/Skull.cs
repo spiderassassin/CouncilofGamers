@@ -19,6 +19,7 @@ public class Skull : FlammableEntity
 
     public override void Death()
     {
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punchImpact, transform.position);
         GameManager.Instance.UpdateFuel(false, false, true);
         Destroy(gameObject);
     }

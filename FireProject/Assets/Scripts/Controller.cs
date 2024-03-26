@@ -32,7 +32,7 @@ public class Controller : Entity
 
 
 
-
+    public GameObject GameOver;
 
     public bool isMoving = false;
 
@@ -237,7 +237,7 @@ public class Controller : Entity
 
             if (InputManager.Instance.punch)
             {
-                Punch();
+                StartCoroutine(Punch());
             }
 
             if (InputManager.Instance.fire && GameManager.Instance.fuel > 0 && flameAttackAllowed)
@@ -287,17 +287,19 @@ public class Controller : Entity
         characterController.Move(additive * Time.deltaTime);
     }
 
-    void Punch()
+    IEnumerator Punch()
     {
-        if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) return;
-        if (!punchAllowed) return;
+        if (Time.timeSinceLevelLoad - lastPunchTime < punchCooldown) yield return null;
+        if (!punchAllowed) yield return null;
         lastPunchTime = Time.timeSinceLevelLoad;
         punchSource.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
-        punchSource.Damage();
+        
         //SoundManager.Instance.PlaySoundOnce(punch, transform);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punch, transform.position);
         armAnimator.SetTrigger("punch");// animator trigger
         // Recolour right arm if punch is on cooldown.
+        yield return new WaitForSeconds(0.2f);
+        punchSource.Damage();
         rightArm.color = punchCooldownColour;
         //GameManager.Instance.fuel += 10; // NOT FINAL
         //GameManager.Instance.fuel = Mathf.Clamp(GameManager.Instance.fuel, 0, 100); // FOR SURE DEFO NOT FINAL
@@ -471,6 +473,7 @@ public class Controller : Entity
         }
 
         Debug.Log("Game Over");
+        GameOver.SetActive(true);
         yield return new WaitForSeconds(2);
         //SoundManager.Instance.MusicStop();
         Cursor.lockState = CursorLockMode.None;
@@ -485,7 +488,7 @@ public class Controller : Entity
             Destroy(WaveManager.Instance.gameObject);
             Destroy(InputManager.Instance.gameObject);
             Destroy(FMODEvents.Instance.gameObject);
-            Destroy(Controller.Instance.gameObject);
+            //Destroy(Controller.Instance.gameObject);
             Destroy(CombatUI.Instance.gameObject);
             // Reset fuel amount;
             GameManager.Instance.fuel = 100;

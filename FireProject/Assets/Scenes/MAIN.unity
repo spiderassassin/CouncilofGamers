@@ -2752,6 +2752,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3573795275052819348, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
   m_PrefabInstance: {fileID: 2047906454}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &88471584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3573795275052819349, guid: fa8ed751ba78549a3b6cec61310d27d3, type: 3}
+  m_PrefabInstance: {fileID: 2047906454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &92938713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14804,7 +14809,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 7005f871f46e54a4a96c8942761dc1a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15962,7 +15967,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh500276
+  m_Name: pb_Mesh30144
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -27465,7 +27470,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &734056532
 Rigidbody:
@@ -38157,7 +38162,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27610
+  m_Name: pb_Mesh27730
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40307,7 +40312,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh500016
+  m_Name: pb_Mesh29896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44703,10 +44708,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 429489916}
   m_HandleRect: {fileID: 952783123}
   m_Direction: 0
-  m_MinValue: 0.05
-  m_MaxValue: 0.6
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -45384,6 +45389,103 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74bece5c87deaa946b1d5c129a3123af, type: 3}
+--- !u!1 &1314521118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1314521119}
+  - component: {fileID: 1314521123}
+  - component: {fileID: 1314521122}
+  - component: {fileID: 1314521121}
+  m_Layer: 0
+  m_Name: Visual Representation (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1314521119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314521118}
+  m_LocalRotation: {x: -0, y: 0.20620367, z: -0, w: 0.9785091}
+  m_LocalPosition: {x: -58.700012, y: 26.2, z: -102.8}
+  m_LocalScale: {x: 20, y: 30, z: 20}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 88471584}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 23.8, z: 0}
+--- !u!65 &1314521121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314521118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1314521122
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314521118}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e7b0266ff67354a289fb6d8a0d029c41, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1314521123
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314521118}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1316170905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61367,6 +61469,13 @@ MonoBehaviour:
       Data3: 800854163
       Data4: 1196748429
     Path: event:/Pigeons
+  punchImpact:
+    Guid:
+      Data1: -2096892739
+      Data2: 1180963183
+      Data3: 1774354820
+      Data4: 481498048
+    Path: event:/PunchImpact
   flamethrower:
     Guid:
       Data1: 606439428
@@ -67909,7 +68018,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28010
+  m_Name: pb_Mesh28130
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -74339,6 +74448,7 @@ MonoBehaviour:
   punchAllowed: 1
   flameAttackAllowed: 1
   fireballAllowed: 1
+  GameOver: {fileID: 0}
   isMoving: 0
   playerwalk: {fileID: 8300000, guid: 019bb0e8b264a4e28ba303cc69211e33, type: 3}
   playerrun: {fileID: 8300000, guid: c5025d2444204458e811ad481007732a, type: 3}
@@ -74358,7 +74468,7 @@ MonoBehaviour:
   punchCooldown: 3
   healthIncreaseRate: 5
   rightArm: {fileID: 1474664498668837894}
-  punchCooldownColour: {r: 0.9716981, g: 0.86260295, b: 0.8387771, a: 1}
+  punchCooldownColour: {r: 0.9150943, g: 0.293013, b: 0.15970986, a: 1}
   armAnimator: {fileID: 1474664498842433659}
   invincibility: 0
   invincibilityDuration: 0.25
