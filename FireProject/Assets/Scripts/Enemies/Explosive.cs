@@ -25,10 +25,13 @@ public class Explosive: Enemy {
             if (!waitingToExplode.Running) {
                 // Reset task (not really necessary).
                 waitingToExplode = null;
+                
                 // Boom!
-                Attack();
-                // Kill the enemy.
-                Death();
+                animator.SetBool("isexploding", true);
+                print("boom");
+                StartCoroutine(waitandexplode());
+                
+                
             }
         } else if (state == EnemyState.Moving) {
             SetDestination(currentTarget.position);
@@ -61,5 +64,13 @@ public class Explosive: Enemy {
 
         // If we're damaged, start the attack.
         state = EnemyState.Attacking;
+    }
+    IEnumerator waitandexplode()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Attack();
+
+        // Kill the enemy.
+        Death();
     }
 }
