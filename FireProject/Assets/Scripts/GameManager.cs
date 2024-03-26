@@ -170,6 +170,8 @@ public class GameManager : MonoBehaviour
         if (GameManager.Instance.gameStage == GameManager.GameStage.Ending && gameEndCompletion < 2) {
             if (!isFading)
             {
+                // Assign the canvas group to the credits canvas group.
+                GameManager.Instance.creditsCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToDimBackground").GetComponent<CanvasGroup>();
                 StartCoroutine(FadeOutCanvas(creditsCanvasGroup, creditsAlpha));
             }
         }
@@ -181,6 +183,8 @@ public class GameManager : MonoBehaviour
             // Fade out the entire canvas.
             if (!isFading)
             {
+                // Assign the canvas group to the end canvas group.
+                GameManager.Instance.endCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToBlackBackground").GetComponent<CanvasGroup>();
                 StartCoroutine(FadeOutCanvas(endCanvasGroup, 1f, true));
             }
         }
