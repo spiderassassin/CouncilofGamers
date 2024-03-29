@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36684
+  m_Name: pb_Mesh40126
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -836,7 +836,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37788
+  m_Name: pb_Mesh41228
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1073,7 +1073,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36190
+  m_Name: pb_Mesh39632
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -2362,7 +2362,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35910
+  m_Name: pb_Mesh39352
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7712,7 +7712,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36792
+  m_Name: pb_Mesh40232
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7955,7 +7955,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37724
+  m_Name: pb_Mesh41164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8195,7 +8195,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36998
+  m_Name: pb_Mesh40438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11526,7 +11526,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37518
+  m_Name: pb_Mesh40958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11757,7 +11757,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36760
+  m_Name: pb_Mesh40200
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14029,7 +14029,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37296
+  m_Name: pb_Mesh40736
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15134,7 +15134,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38202
+  m_Name: pb_Mesh41642
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -15505,7 +15505,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38376
+  m_Name: pb_Mesh41816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22738,7 +22738,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38516
+  m_Name: pb_Mesh41956
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23249,10 +23249,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2198687682187778705, guid: 54249e340c2f2214d908896dc1129070, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2198687682187778717, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: snapReadyPrompt
       value: 
@@ -23287,7 +23283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682559256887, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2198687682559256887, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_AnchorMin.x
@@ -30516,7 +30512,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35734
+  m_Name: pb_Mesh-113368
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32718,7 +32714,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36406
+  m_Name: pb_Mesh39848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36749,7 +36745,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36836
+  m_Name: pb_Mesh40276
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37397,7 +37393,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36392
+  m_Name: pb_Mesh39834
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38249,7 +38245,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38606
+  m_Name: pb_Mesh42046
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39926,7 +39922,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35950
+  m_Name: pb_Mesh39392
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41741,7 +41737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38146
+  m_Name: pb_Mesh41586
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44097,7 +44093,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36086
+  m_Name: pb_Mesh39528
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46088,7 +46084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1258272116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46281,7 +46277,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38082
+  m_Name: pb_Mesh41522
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -54578,7 +54574,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35924
+  m_Name: pb_Mesh39366
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -55018,15 +55014,10 @@ MonoBehaviour:
       first place, care to share?
     - "Nevermind, time\u2019s up. I feel the next wave approaching. "
     - 'By the way, I could tell you were holding back out there. '
-    - You can incinerate mutliple enemies at a time using your flame attack (by holding
-      down the left button).
-    - When chaos is at it's peak, your BloodRush bar (vertical) will fill up fast.
-      Your fire magic should help with that.
-    - When the bar is full, you can unleash your fire magic to it's fullest extent.
-    - One more thing -- punching demons is not the only way to refuel.
-    - If you find yourself in a sticky situation, you can always use your punch on
-      those who fell before you (the skulls) instead of demons.
-    playerSpeaking: 0001000001000001000000000000000000
+    - You can incinerate mutliple enemies at a time by using your flame attack (by
+      holding down the left mouse button). And I wonder what happens if that vertical
+      bar fills all the way up?
+    playerSpeaking: 00010000010000010000000000
   downtime2Dialogue:
     dialogueOver: 0
     name: Parole Guard
@@ -56310,7 +56301,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36962
+  m_Name: pb_Mesh40402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -57882,7 +57873,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37148
+  m_Name: pb_Mesh40588
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59526,7 +59517,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37830
+  m_Name: pb_Mesh41270
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62626,7 +62617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779531678}
   m_LocalRotation: {x: 0.15741168, y: 0.14425765, z: -0.02325043, w: 0.97666305}
-  m_LocalPosition: {x: 712.5, y: -649.6, z: 63}
+  m_LocalPosition: {x: 687.4, y: -630.7, z: 33.300003}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63895,7 +63886,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37598
+  m_Name: pb_Mesh41038
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -64920,7 +64911,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38676
+  m_Name: pb_Mesh42116
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -67348,7 +67339,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35886
+  m_Name: pb_Mesh39328
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -67879,7 +67870,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37132
+  m_Name: pb_Mesh40572
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -68043,7 +68034,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37926
+  m_Name: pb_Mesh41366
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -69816,11 +69807,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4856522368811236, guid: b2199aadf1bb8c4449f3edfc84a39f78, type: 3}
   m_PrefabInstance: {fileID: 1961762708}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1962128859 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2198687682187778705, guid: 54249e340c2f2214d908896dc1129070, type: 3}
-  m_PrefabInstance: {fileID: 564820802}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1965654051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70744,7 +70730,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37980
+  m_Name: pb_Mesh41420
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -71229,7 +71215,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36378
+  m_Name: pb_Mesh39820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72042,21 +72028,19 @@ MonoBehaviour:
   blockade2: {fileID: 1868046706}
   waveNumberText: {fileID: 1440135461}
   findGatePrompt: {fileID: 1126759489}
-  bloodrushBar: {fileID: 1962128859}
   tutorialIntroDialogue:
     dialogueOver: 0
     name: ' '
     sentences:
     - Welcome, Defender of the Realm. Let's get you acquainted with your surroundings.
-    - The Gate before you prevents demons from breaching into the Realm. It is the
-      only barrier between the demons and civilization.
-    - The Gate can withstand demonic incursion for a time, but watch its health carefully.
-    playerSpeaking: 000000
-  tutorialTeachSprintDialogue:
+    - The Gate prevents demons from breaching into the Realm. Visit the Gate down
+      the narrow passage to your right now.
+    playerSpeaking: 0000
+  tutorialPlayerSeesExitDialogue:
     dialogueOver: 0
-    name: 
+    name: ' '
     sentences:
-    - To sprint, use the Shift Key (toggle mode is activated).
+    - The Gate can withstand demonic incursion for a time, but watch its health carefully.
     playerSpeaking: 00
   tutorialTeachFireballDialogue:
     dialogueOver: 0
@@ -72520,7 +72504,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37168
+  m_Name: pb_Mesh40608
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -78186,8 +78170,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8771123490044458905}
-  m_LocalRotation: {x: 0, y: 0.9659259, z: -0, w: -0.25881898}
-  m_LocalPosition: {x: 135, y: -543, z: -1}
+  m_LocalRotation: {x: 0, y: 0.80901694, z: 0, w: 0.5877853}
+  m_LocalPosition: {x: 170, y: -554, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78195,4 +78179,4 @@ Transform:
   - {fileID: 5291564108030127892}
   m_Father: {fileID: 1474664498635110579}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 210, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 108, z: 0}

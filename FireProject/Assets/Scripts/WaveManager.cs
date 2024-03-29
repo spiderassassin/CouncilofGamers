@@ -53,12 +53,14 @@ public class WaveManager : MonoBehaviour
     public GameObject blockade2;
     public GameObject waveNumberText;
     public GameObject findGatePrompt;
+    public GameObject bloodrushBar;
+
 
 
     //public GameObject tutorialManager;
 
     public Dialogue tutorialIntroDialogue;
-    public Dialogue tutorialPlayerSeesExitDialogue;
+    public Dialogue tutorialTeachSprintDialogue;
     public Dialogue tutorialTeachFireballDialogue;
     public Dialogue tutorialTeachPunchDialogue;
     public Dialogue tutorialGPWaveDialogue;
@@ -177,7 +179,7 @@ public class WaveManager : MonoBehaviour
                 tutorialDialogue = tutorialIntroDialogue;
                 break;
             case TutorialStage.PlayerSeesExit:
-                tutorialDialogue = tutorialPlayerSeesExitDialogue;
+                tutorialDialogue = tutorialTeachSprintDialogue;
                 break;
             case TutorialStage.TeachFireball:
                 tutorialDialogue = tutorialTeachFireballDialogue;
@@ -467,14 +469,14 @@ public class WaveManager : MonoBehaviour
             player.GetComponent<Controller>().fireballAllowed = true;
         }
 
-        if (!tutorialExitDialogueGiven)
+        /*if (!tutorialExitDialogueGiven)
         {
             baseUI.SetActive(false);
         }
         else
         {
             baseUI.SetActive(true);
-        }
+        }*/
 
         
         switch (tutorialStage)
@@ -500,8 +502,8 @@ public class WaveManager : MonoBehaviour
 
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
                 {
-                    gatePointLight.SetActive(true);
-                    findGatePrompt.SetActive(true);
+                    //gatePointLight.SetActive(true);
+                    //findGatePrompt.SetActive(true);
                 }
 
                
@@ -509,15 +511,15 @@ public class WaveManager : MonoBehaviour
                 {
                    
                     
-                    baseUI.SetActive(true);
+                    //baseUI.SetActive(true);
                     tutorialStage = TutorialStage.PlayerSeesExit;
                 }
                 break;
             case TutorialStage.PlayerSeesExit:
                 if (!tutorialExitDialogueGiven)
                 {
-                    gatePointLight.SetActive(false);
-                    findGatePrompt.SetActive(false);
+                    //gatePointLight.SetActive(false);
+                    //findGatePrompt.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 2);
                     startTutorialDialogue();
                     tutorialExitDialogueGiven = true;
