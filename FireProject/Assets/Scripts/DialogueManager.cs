@@ -138,6 +138,11 @@ public class DialogueManager : MonoBehaviour
 
         }
 
+        if (sentence.Contains("BloodRush"))
+        {
+            WaveManager.Instance.bloodrushBar.SetActive(true);
+            //Debug.Log("bloodrush bar activated");
+        }
         
 
 
