@@ -8,7 +8,10 @@ public class paroleAnimations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(GameManager.Instance.gameStage == GameManager.GameStage.Wave3)
+        {
+            betray();
+        }
     }
 
     // Update is called once per frame

@@ -151,7 +151,7 @@ public class WaveManager : MonoBehaviour
     private void startDowntimeDialogue()
     {
 
-        paroleGuardSprite.SetActive(true);
+        //paroleGuardSprite.SetActive(true);
         // Start the downtime dialogue corresponding to the current GameStage.
         Dialogue downtimeDialogue = null;
         switch (GameManager.Instance.gameStage)
