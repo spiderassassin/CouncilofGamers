@@ -225,10 +225,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/MUSIC.bank
   Name: MUSIC
   StudioPath: bank:/MUSIC
-  lastModified: 638469107393780435
+  lastModified: 638474736992060673
   FileSizes:
   - Name: Desktop
-    Value: 7597504
+    Value: 9715648
   Exists: 1
 --- !u!114 &-6557544339654928464
 MonoBehaviour:
@@ -335,7 +335,7 @@ MonoBehaviour:
   - {fileID: 5360098946998698479}
   MinDistance: 1
   MaxDistance: 20
-  Length: 128000
+  Length: 160030
 --- !u!114 &-4584505885488224375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   - {fileID: -7870621024170119606}
   StringsBanks:
   - {fileID: -4192016114120372366}
-  cacheTime: 638469897023442160
+  cacheTime: 638474736992060673
   cacheVersion: 131616
 --- !u!114 &831036717453024154
 MonoBehaviour:
