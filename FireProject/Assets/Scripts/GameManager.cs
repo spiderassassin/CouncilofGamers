@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public float fireballCost = 5;
     public float FuelPercent => (float)fuel / GetMaxFuel();
     public float punchRefuel = 10f;
+    public float punchSkullRefuel = 50;
 
     public bool gamePaused;
     public int gameEndCompletion;  // Number of completed requirements before we return to the main menu.
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateFuel(bool isFiring, bool isFireball, bool isPunch = false)
+    public void UpdateFuel(bool isFiring, bool isFireball, bool isRegularPunch = false,bool isSkullPunch = false)
     {
         if (isFiring)
         {
@@ -114,9 +115,13 @@ public class GameManager : MonoBehaviour
         {
             fuel -= fireballCost;
         }
-        if (isPunch)
+        if (isRegularPunch)
         {
             fuel += punchRefuel;
+        }
+        if (isSkullPunch)
+        {
+            fuel += punchSkullRefuel;
         }
         fuel = Mathf.Clamp(fuel, 0, GetMaxFuel());
     }
