@@ -132,7 +132,13 @@ public class Controller : Entity
         {
             if (health < 100)
             {
-                health += Time.deltaTime * healthIncreaseRate;
+                health += Time.deltaTime * healthIncreaseRate * (100 - health);
+                //health += Time.deltaTime * healthIncreaseRate * (1/Mathf.Log(health+1));
+               
+                if (health > 100)
+                {
+                    health = 100;
+                }
             }
 
 

@@ -70744,7 +70744,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37980
+  m_Name: pb_Mesh29852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -77848,7 +77848,7 @@ MonoBehaviour:
   fireballOrigin: {fileID: 1665238772}
   fireballCooldown: 0.5
   punchCooldown: 3
-  healthIncreaseRate: 5
+  healthIncreaseRate: 0.2
   rightArm: {fileID: 1474664498668837894}
   punchCooldownColour: {r: 0.6509434, g: 0.11527123, b: 0, a: 1}
   armAnimator: {fileID: 1474664498842433659}
