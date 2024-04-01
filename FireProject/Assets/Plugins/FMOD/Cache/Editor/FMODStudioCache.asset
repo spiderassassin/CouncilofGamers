@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638475162469661275
+  lastModified: 638475231614004562
   FileSizes:
   - Name: Desktop
     Value: 1340
@@ -405,10 +405,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638475162469675390
+  lastModified: 638475231614010595
   FileSizes:
   - Name: Desktop
-    Value: 2150
+    Value: 2186
   Exists: 1
 --- !u!114 &-3953322433612704857
 MonoBehaviour:
@@ -590,12 +590,13 @@ MonoBehaviour:
   - {fileID: -7577059492197891039}
   - {fileID: -7113906517836005062}
   - {fileID: -53956695696752015}
+  - {fileID: 8279960921516851221}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7870621024170119606}
   StringsBanks:
   - {fileID: -4192016114120372366}
-  cacheTime: 638475172029378843
+  cacheTime: 638475234436232349
   cacheVersion: 131616
 --- !u!114 &831036717453024154
 MonoBehaviour:
@@ -871,10 +872,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638475172029378843
+  lastModified: 638475234436232349
   FileSizes:
   - Name: Desktop
-    Value: 1088608
+    Value: 1098368
   Exists: 1
 --- !u!114 &6678876101128191863
 MonoBehaviour:
@@ -921,6 +922,33 @@ MonoBehaviour:
     Data2: 1316538400
     Data3: 511364761
     Data4: 394709582
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8279960921516851221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/blood
+  m_EditorClassIdentifier: 
+  Path: event:/blood
+  Guid:
+    Data1: -77868351
+    Data2: 1173012830
+    Data3: 228622732
+    Data4: 1500633083
   Banks:
   - {fileID: 5598420786009147276}
   IsStream: 0

@@ -64948,6 +64948,13 @@ MonoBehaviour:
       Data3: -1215794014
       Data4: 105459990
     Path: event:/baseDamage
+  blood:
+    Guid:
+      Data1: -77868351
+      Data2: 1173012830
+      Data3: 228622732
+      Data4: 1500633083
+    Path: event:/blood
   flamethrower:
     Guid:
       Data1: 606439428
