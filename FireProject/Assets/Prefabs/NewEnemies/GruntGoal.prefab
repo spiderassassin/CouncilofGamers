@@ -134,6 +134,7 @@ MonoBehaviour:
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
+  Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
   attackDamage:
     damage: 10
     pushBack: 1

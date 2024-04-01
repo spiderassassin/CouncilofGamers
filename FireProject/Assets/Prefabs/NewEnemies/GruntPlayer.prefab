@@ -102,6 +102,7 @@ MonoBehaviour:
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
+  Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
   attackDamage:
     damage: 15
     pushBack: 1
@@ -112,6 +113,7 @@ MonoBehaviour:
   healthbar: {fileID: 5329166796899364831}
   attackRange: 4
   stickWithTank: 0
+  tutorialGrunt: 0
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
