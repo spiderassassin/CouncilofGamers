@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using FMOD.Studio;
+using FirstGearGames.SmoothCameraShaker;
 public class Controller : Entity
 {
     public static Controller Instance;
@@ -354,6 +355,7 @@ public class Controller : Entity
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.fireball, transform.position);
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
+        CameraShakerHandler.Shake(GameManager.Instance.firballShake);
         g.Launch(fireballOrigin.forward, velocity);
     }
 
@@ -476,19 +478,21 @@ public class Controller : Entity
                 isFiring = false;
                 Fire(false);
             }
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
         }
 
         Debug.Log("Game Over");
         
-        yield return new WaitForSeconds(2);
-        //SoundManager.Instance.MusicStop();
-        Cursor.lockState = CursorLockMode.None;
-        Destroy(CombatUI.Instance);
 
         // Don't do anything if the game is in the ending stage.
         if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
             GameOver.SetActive(true);
+
+            yield return new WaitForSeconds(3);
+            //SoundManager.Instance.MusicStop();
+            Cursor.lockState = CursorLockMode.None;
+            Destroy(CombatUI.Instance);
+
             // Stop all sounds.
             FMODEvents.Instance.StopAllSounds();
             // Destroy all singletons.

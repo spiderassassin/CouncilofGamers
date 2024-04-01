@@ -46,8 +46,7 @@ public class FMODEvents : MonoBehaviour
     public Bus sfx;
 
     public EventInstance punchInstance;
-    public EventInstance pause;
-
+    
 
     private void Awake()
     {
