@@ -46,6 +46,7 @@ public class Base : Entity
     {
         base.OnDamaged(attacker, dmg);
         GameManager.Instance.baseDamage = true;
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.baseDamage, transform.position);
         
     }
 
