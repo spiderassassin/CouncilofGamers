@@ -232,6 +232,7 @@ public class InputManager : MonoBehaviour
         if (GameManager.Instance.gamePaused)
         {
             pauseMenu.SetActive(false);
+            //SoundManager.Instance.pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             GameManager.Instance.gamePaused = false;
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;

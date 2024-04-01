@@ -37,14 +37,16 @@ public class FMODEvents : MonoBehaviour
     public EventReference downtime2;
     public EventReference betrayal;
 
-  
+    public EventReference pauseMenu;
+
+
 
     public Bus master;
     public Bus music;
     public Bus sfx;
 
     public EventInstance punchInstance;
-
+    public EventInstance pause;
 
 
     private void Awake()
