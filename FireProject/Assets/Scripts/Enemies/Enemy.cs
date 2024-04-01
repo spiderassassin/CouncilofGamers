@@ -100,7 +100,7 @@ public abstract class Enemy : FlammableEntity
         if (dmg.type == DamageType.AdditiveDamage && attacker is Controller)
         {
             SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punchImpact, transform.position);
-            CameraShakerHandler.Shake(GameManager.Instance.shakeData);
+            CameraShakerHandler.Shake(GameManager.Instance.punchShake);
 
         }
 
