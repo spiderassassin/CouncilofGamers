@@ -12,12 +12,14 @@ public struct DamageInformation
     public float pushBack;
     public DamageType type;
     public float fireCounter; // used to decide whether fire is lit or not
+    public bool passIFrames;
 
-    public DamageInformation(float damage, float pushBack, DamageType type, float fireCounter)
+    public DamageInformation(float damage, float pushBack, DamageType type, float fireCounter, bool passIframe)
     {
         this.damage = damage;
         this.pushBack = pushBack;
         this.type = type;
         this.fireCounter = fireCounter;
+        passIFrames = passIframe;
     }
 }

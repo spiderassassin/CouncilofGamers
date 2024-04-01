@@ -128,6 +128,7 @@ MonoBehaviour:
     pushBack: 8
     type: 1
     fireCounter: 0
+    passIFrames: 1
   speed: 50
   maxHealth: 0
   healthbar: {fileID: 5329166796899364831}
