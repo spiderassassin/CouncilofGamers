@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638469897018944514
+  lastModified: 638475162469661275
   FileSizes:
   - Name: Desktop
     Value: 1340
@@ -405,10 +405,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638469897018965774
+  lastModified: 638475162469675390
   FileSizes:
   - Name: Desktop
-    Value: 2098
+    Value: 2150
   Exists: 1
 --- !u!114 &-3953322433612704857
 MonoBehaviour:
@@ -520,6 +520,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-53956695696752015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/baseDamage
+  m_EditorClassIdentifier: 
+  Path: event:/baseDamage
+  Guid:
+    Data1: -1625382848
+    Data2: 1152042090
+    Data3: -1215794014
+    Data4: 105459990
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,12 +589,13 @@ MonoBehaviour:
   - {fileID: 7477812345106666569}
   - {fileID: -7577059492197891039}
   - {fileID: -7113906517836005062}
+  - {fileID: -53956695696752015}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7870621024170119606}
   StringsBanks:
   - {fileID: -4192016114120372366}
-  cacheTime: 638474736992060673
+  cacheTime: 638475172029378843
   cacheVersion: 131616
 --- !u!114 &831036717453024154
 MonoBehaviour:
@@ -843,10 +871,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638469897023442160
+  lastModified: 638475172029378843
   FileSizes:
   - Name: Desktop
-    Value: 1076160
+    Value: 1088608
   Exists: 1
 --- !u!114 &6678876101128191863
 MonoBehaviour:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FirstGearGames.SmoothCameraShaker;
 
 // Define the type of enemy
 public enum EnemyType
@@ -33,6 +34,7 @@ public abstract class Enemy : FlammableEntity
     protected EnemyState state = EnemyState.Moving;
 
     private Camera mainCamera;
+    
     private Coroutine pushback;
     public float maxHealth;
     protected Transform currentTarget;
@@ -96,6 +98,8 @@ public abstract class Enemy : FlammableEntity
         if (dmg.type == DamageType.AdditiveDamage && attacker is Controller)
         {
             SoundManager.Instance.PlayOneShot(FMODEvents.Instance.punchImpact, transform.position);
+            CameraShakerHandler.Shake(GameManager.Instance.shakeData);
+
         }
 
         if (dmg.pushBack != 0)

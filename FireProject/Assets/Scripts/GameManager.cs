@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FirstGearGames.SmoothCameraShaker;
 
 public class GameManager : MonoBehaviour
 {
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public bool baseDamage;
     public int baseFlashCount;
-
+    public ShakeData shakeData;
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {

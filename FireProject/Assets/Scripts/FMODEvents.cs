@@ -17,6 +17,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference slowmotion;
     public EventReference pigeons;
     public EventReference punchImpact;
+    public EventReference baseDamage;
 
     //loop sounds
     public EventReference flamethrower;
