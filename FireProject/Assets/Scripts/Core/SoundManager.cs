@@ -28,6 +28,8 @@ public class SoundManager : MonoBehaviour
     public EventInstance downtime1;
     public EventInstance downtime2;
     public EventInstance betrayal;
+    public EventInstance pause;
+
 
 
 

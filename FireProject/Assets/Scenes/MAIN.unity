@@ -8322,7 +8322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 0
+  debugGameStage: 4
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -46207,6 +46207,7 @@ GameObject:
   - component: {fileID: 1267055951}
   - component: {fileID: 1267055954}
   - component: {fileID: 1267055953}
+  - component: {fileID: 1267055955}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -46276,6 +46277,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267055950}
   m_CullTransparentMesh: 1
+--- !u!114 &1267055955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267055950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1392313817
+      Data2: 1341805230
+      Data3: 359297927
+      Data4: 1500564015
+    Path: snapshot:/pause
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!43 &1270391675
 Mesh:
   m_ObjectHideFlags: 0
@@ -65053,6 +65085,13 @@ MonoBehaviour:
       Data3: -1315893849
       Data4: -599304060
     Path: event:/Betrayal
+  pauseMenu:
+    Guid:
+      Data1: -1392313817
+      Data2: 1341805230
+      Data3: 359297927
+      Data4: 1500564015
+    Path: snapshot:/pause
 --- !u!4 &1825526968
 Transform:
   m_ObjectHideFlags: 0
@@ -77864,7 +77903,7 @@ MonoBehaviour:
   fireballOrigin: {fileID: 1665238772}
   fireballCooldown: 0.5
   punchCooldown: 1
-  healthIncreaseRate: 0.2
+  healthIncreaseRate: 0.05
   rightArm: {fileID: 1474664498668837894}
   punchCooldownColour: {r: 0.6509434, g: 0.11527123, b: 0, a: 1}
   armAnimator: {fileID: 1474664498842433659}

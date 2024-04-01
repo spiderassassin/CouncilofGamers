@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,7 +10,20 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject inputManager;
     public Slider slider;
+    
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        print("paused");
+
+        //SoundManager.Instance.pause = SoundManager.Instance.CreateInstance(FMODEvents.Instance.pauseMenu);
+        
+        //SoundManager.Instance.pause.start();
+       // SoundManager.Instance.pause.release();
+
+    }
+
     void Start()
     {
         SetMouseSensitivity();
@@ -52,6 +66,8 @@ public class PauseMenu : MonoBehaviour
             GameManager.Instance.gamePaused = false;
             Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.Locked;
+            //SoundManager.Instance.pause.stop(STOP_MODE.IMMEDIATE);
+            print("done");
             //LockPlayerGameplayInput = false;
             return;
         }
