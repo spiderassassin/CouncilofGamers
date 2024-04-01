@@ -514,9 +514,10 @@ public class Controller : Entity
     Coroutine pushback=null;
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        if ((dead == false && invincibility == false) && (isSnapping == false))
+        if ((dead == false && (invincibility == false||dmg.passIFrames)) && (isSnapping == false))
         {
             invincibility = true;
+            invincibilityDurationTimer = 0;
             CombatUI.Instance.DamageOverlay();
             //SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
             SoundManager.Instance.PlayOneShot(FMODEvents.Instance.playerDamage, transform.position);
