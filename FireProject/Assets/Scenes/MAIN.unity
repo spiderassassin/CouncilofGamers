@@ -9280,7 +9280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 0
+  debugGameStage: 4
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -9289,7 +9289,7 @@ MonoBehaviour:
   intensity: 0
   maxIntensity: 5
   gainAdrenalineThreshold: 10
-  enemiesOnFireFactor: 5
+  enemiesOnFireFactor: 1
   playerHealthFactor: 0.01
   decayAdrenalineThreshold: 0.01
   decayAmount: 3
