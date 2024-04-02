@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     public int baseFlashCount;
     public ShakeData firballShake;
     public ShakeData punchShake;
+    public ShakeData fireShake;
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using FirstGearGames.SmoothCameraShaker;
 
 /// <summary>
 /// The base class for enemies (Entity + IFlammable).
@@ -111,6 +112,7 @@ public abstract class FlammableEntity : Entity, IFlammable
                 else if (!attacker.Equals(this))
                     SetFire(DamageType.FirePassive_Lvl2);
                 SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
+                CameraShakerHandler.Shake(GameManager.Instance.fireShake);
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
             }

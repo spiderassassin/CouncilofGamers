@@ -9084,7 +9084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 4
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -9113,6 +9113,7 @@ MonoBehaviour:
   baseFlashCount: 0
   firballShake: {fileID: 11400000, guid: 6a36c3f6f0b1b42ec856583a7ee006a3, type: 2}
   punchShake: {fileID: 11400000, guid: f197ae480b2ff4662b99e4cea16d6c78, type: 2}
+  fireShake: {fileID: 11400000, guid: 940978cbbafc84ca3afff361900b5cbd, type: 2}
 --- !u!4 &223697854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ca4bcde723d144f4bb748b2b7223aa3c, type: 3}
@@ -69169,6 +69170,13 @@ MonoBehaviour:
       Data3: 228622732
       Data4: 1500633083
     Path: event:/blood
+  fireballexplode:
+    Guid:
+      Data1: 1579271494
+      Data2: 1207866310
+      Data3: 292279708
+      Data4: -1298007163
+    Path: event:/Fireballexplode
   flamethrower:
     Guid:
       Data1: 606439428
