@@ -92,8 +92,8 @@ public class Ending : MonoBehaviour
         StartCoroutine(WaitForText(textDuration));
 
         if (index == textBlocks.Length - 1) {
-            // Increment the completion counter.
-            ++GameManager.Instance.gameEndCompletion;
+            // Indicate that the credits are over.
+            GameManager.Instance.gameEndCreditsOver = true;
         }
     }
 

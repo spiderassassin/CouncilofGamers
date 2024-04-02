@@ -2810,7 +2810,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9463,8 +9463,8 @@ MonoBehaviour:
   punchRefuel: 35
   punchSkullRefuel: 50
   gamePaused: 0
-  gameEndCompletion: 0
-  gameEndCompletionTarget: 2
+  gameEndDeath: 0
+  gameEndCreditsOver: 0
   creditsCanvasGroup: {fileID: 457489846}
   endCanvasGroup: {fileID: 81300338}
   fadeDuration: 5
@@ -16120,7 +16120,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -26772,7 +26772,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 11
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -31237,6 +31237,7 @@ MonoBehaviour:
   counterDecayTime: 2
   waveManager: {fileID: 2027314003}
   prompt: {fileID: 1126759489}
+  NPCSprite: {fileID: 1888134733}
 --- !u!135 &734056531
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50439,7 +50440,7 @@ RectTransform:
   - {fileID: 1293135701}
   - {fileID: 170595247}
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -60945,7 +60946,7 @@ RectTransform:
   - {fileID: 1394320605}
   - {fileID: 1181442861}
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -83234,11 +83235,11 @@ RectTransform:
   - {fileID: 1069255122}
   - {fileID: 1305081513}
   - {fileID: 1556187515}
+  - {fileID: 618161590}
   - {fileID: 457489845}
   - {fileID: 1527201456}
   - {fileID: 81300337}
   - {fileID: 1267055951}
-  - {fileID: 618161590}
   - {fileID: 201394545}
   - {fileID: 1207247928}
   m_Father: {fileID: 1474664498635110579}

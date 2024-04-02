@@ -255,7 +255,8 @@ public class WaveManager : MonoBehaviour
                 print("Wave Over");
                 
                 SoundManager.Instance.WaveMusicStop();
-                GameManager.Instance.gameStage++;
+                // Don't increment the game stage if we're in the ending, so that the wave repeats if the player somehow survives.
+                if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) GameManager.Instance.gameStage++;
                 paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
                     // Turn off the music.

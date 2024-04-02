@@ -507,7 +507,8 @@ public class Controller : Entity
             // Restart from the beginning of the current stage.
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
-            ++GameManager.Instance.gameEndCompletion;
+            // Indicate that the player has died during the credits.
+            GameManager.Instance.gameEndDeath = true;
         }
     }
 

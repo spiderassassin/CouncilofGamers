@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     public float punchSkullRefuel = 50;
 
     public bool gamePaused;
-    public int gameEndCompletion;  // Number of completed requirements before we return to the main menu.
-    public int gameEndCompletionTarget = 2; // Number of requirements before we return to the main menu.
+    public bool gameEndDeath;  // Whether the player has died during the ending.
+    public bool gameEndCreditsOver; // Whether the credits have finished.
 
     public CanvasGroup creditsCanvasGroup;
     public CanvasGroup endCanvasGroup;
@@ -174,19 +174,8 @@ public class GameManager : MonoBehaviour
         }
         UpdateAdrenaline();
 
-        // Darken the screen a bit for the credits section.
-        if (GameManager.Instance.gameStage == GameManager.GameStage.Ending && gameEndCompletion < 2) {
-            if (!isFading)
-            {
-                // Assign the canvas group to the credits canvas group.
-                GameManager.Instance.creditsCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToDimBackground").GetComponent<CanvasGroup>();
-                StartCoroutine(FadeOutCanvas(creditsCanvasGroup, creditsAlpha));
-            }
-        }
-
-        // Increment this elsewhere when the player has completed a requirement for the ending.
-        // Currently, credits need to finish, and player meeds to die.
-        if (gameEndCompletion == 2)
+        // Currently, credits need to finish, and player needs to die.
+        if (gameEndDeath && gameEndCreditsOver)
         {
             // Fade out the entire canvas.
             if (!isFading)
@@ -194,6 +183,22 @@ public class GameManager : MonoBehaviour
                 // Assign the canvas group to the end canvas group.
                 GameManager.Instance.endCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToBlackBackground").GetComponent<CanvasGroup>();
                 StartCoroutine(FadeOutCanvas(endCanvasGroup, 1f, true));
+            }
+        } else if (gameEndDeath) {
+            // If the player has died during the ending, wait for the credits to finish, but fade out to black.
+            if (!isFading)
+            {
+                // Assign the canvas group to the credits canvas group.
+                GameManager.Instance.creditsCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToDimBackground").GetComponent<CanvasGroup>();
+                StartCoroutine(FadeOutCanvas(creditsCanvasGroup, 1f));
+            }
+        } else if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
+            // Darken the screen a bit for the credits section.
+            if (!isFading)
+            {
+                // Assign the canvas group to the credits canvas group.
+                GameManager.Instance.creditsCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToDimBackground").GetComponent<CanvasGroup>();
+                StartCoroutine(FadeOutCanvas(creditsCanvasGroup, creditsAlpha));
             }
         }
     }
