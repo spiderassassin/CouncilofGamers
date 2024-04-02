@@ -219,6 +219,7 @@ public class WaveManager : MonoBehaviour
         }
         else if (wavemode == false)
         {
+            bloodrushBar.SetActive(true);
             // Start the wave corresponding to the current GameStage.
             switch (GameManager.Instance.gameStage)
             {
@@ -246,7 +247,8 @@ public class WaveManager : MonoBehaviour
         }
 
         if ((wavemode == true) && (isSpawning == false) ) {
-            if(livingEnemies.Count == 0)
+            bloodrushBar.SetActive(true);
+            if (livingEnemies.Count == 0)
             {
                 wavemode = false;
                 waveNumberText.SetActive(false);
