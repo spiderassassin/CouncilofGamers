@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638475814900276585
+  lastModified: 638475986855786248
   FileSizes:
   - Name: Desktop
     Value: 2122
@@ -225,7 +225,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/MUSIC.bank
   Name: MUSIC
   StudioPath: bank:/MUSIC
-  lastModified: 638475814900266594
+  lastModified: 638474736992060673
   FileSizes:
   - Name: Desktop
     Value: 9715648
@@ -405,10 +405,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638475814900276585
+  lastModified: 638475986855795242
   FileSizes:
   - Name: Desktop
-    Value: 2232
+    Value: 2280
   Exists: 1
 --- !u!114 &-3953322433612704857
 MonoBehaviour:
@@ -456,6 +456,33 @@ MonoBehaviour:
     Data2: 1271852406
     Data3: -79975779
     Data4: 1517643810
+  Banks:
+  - {fileID: 5598420786009147276}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2338526770218607506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Fireballexplode
+  m_EditorClassIdentifier: 
+  Path: event:/Fireballexplode
+  Guid:
+    Data1: 1579271494
+    Data2: 1207866310
+    Data3: 292279708
+    Data4: -1298007163
   Banks:
   - {fileID: 5598420786009147276}
   IsStream: 0
@@ -592,12 +619,13 @@ MonoBehaviour:
   - {fileID: 8279960921516851221}
   - {fileID: 8204982217477811871}
   - {fileID: 3599258924764161548}
+  - {fileID: -2338526770218607506}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7870621024170119606}
   StringsBanks:
   - {fileID: -4192016114120372366}
-  cacheTime: 638475814900316577
+  cacheTime: 638475989438205866
   cacheVersion: 131616
 --- !u!114 &831036717453024154
 MonoBehaviour:
@@ -873,10 +901,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638475814900316577
+  lastModified: 638475989438205866
   FileSizes:
   - Name: Desktop
-    Value: 1098368
+    Value: 1120704
   Exists: 1
 --- !u!114 &6678876101128191863
 MonoBehaviour:
