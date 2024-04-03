@@ -7,7 +7,7 @@ using FirstGearGames.SmoothCameraShaker;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, Ending};
+    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, PreEnding, Ending};
     public GameStage gameStage;
     public GameStage debugGameStage;
 

@@ -71,6 +71,7 @@ public class WaveManager : MonoBehaviour
     public Dialogue tutorialSnapDialogue;
 
     public Dialogue tutorialEndDialogue;
+    public Dialogue endParoleGuardDialogue;
 
     public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
     public TutorialStage tutorialStage;
@@ -257,15 +258,19 @@ public class WaveManager : MonoBehaviour
                 SoundManager.Instance.WaveMusicStop();
                 // Don't increment the game stage if we're in the ending, so that the wave repeats if the player somehow survives.
                 if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) GameManager.Instance.gameStage++;
-                paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
                 if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
+                    paroleGuardSprite.GetComponent<paroleAnimations>().notbetray();
+                    paroleGuardSprite.GetComponent<paroleAnimations>().hide();
                     // Turn off the music.
                     //SoundManager.Instance.MusicStop();
 
                     // Start the ending wave.
                     StartWave(endingWave.wave);
                     print("Ending Wave");
+                } else if (GameManager.Instance.gameStage == GameManager.GameStage.PreEnding) {
+                    FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
                 } else {
+                    paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
                     SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
                     SoundManager.Instance.hello.start();
