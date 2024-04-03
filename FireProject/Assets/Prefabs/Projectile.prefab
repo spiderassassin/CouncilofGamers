@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 6001993289011212056}
-  health: 1
+  health: 20
   body: {fileID: -4350436504653605415}
   text: {fileID: 0}
   passiveFireSources: {fileID: 5548934761499958959}
@@ -133,6 +133,7 @@ MonoBehaviour:
     type: 1
     fireCounter: 0
     passIFrames: 0
+  excludeLayer: 7
 --- !u!54 &-4350436504653605415
 Rigidbody:
   m_ObjectHideFlags: 0

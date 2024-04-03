@@ -19,6 +19,13 @@ public class Fireball : FireSource
     {
         if (!TriggerValid(other)) return;
 
+        Projectile p = other.GetComponent<Projectile>();
+        if (p)
+        {
+            p.SetTarget(p.transform.position + Random.insideUnitSphere);
+            return;
+        }
+
         base.OnTriggerEnter(other);
 
         enable.SetActive(true);
