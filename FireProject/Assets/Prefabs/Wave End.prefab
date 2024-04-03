@@ -186,3 +186,31 @@ MonoBehaviour:
       spawnPoint: 3
       count: 50
       waitUntilPreviousDead: 0
+    - note: then 100[GruntPlayer] from [SpawnPoint1]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 100
+      waitUntilPreviousDead: 1
+    - note: 100[GruntPlayer] from [SpawnPoint2]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 100
+      waitUntilPreviousDead: 0
+    - note: 100[GruntPlayer] from [SpawnPoint3]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 100
+      waitUntilPreviousDead: 0
+    - note: 100[GruntPlayer] from [SpawnPoint4]
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 100
+      waitUntilPreviousDead: 0

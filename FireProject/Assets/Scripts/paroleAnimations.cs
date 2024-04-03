@@ -35,6 +35,11 @@ public class paroleAnimations : MonoBehaviour
         animator.SetBool("betrayed", true);
     }
 
+    public void notbetray()
+    {
+        animator.SetBool("betrayed", false);
+    }
+
     public void inquisitive()
     {
         animator.SetBool("inquisitive", true);
