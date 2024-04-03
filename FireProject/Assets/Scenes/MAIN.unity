@@ -9444,7 +9444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 3
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -59478,9 +59478,9 @@ MonoBehaviour:
     - 'By the way, I could tell you were holding back out there. '
     - You can incinerate mutliple enemies at a time using your flame attack (by holding
       down the left button).
-    - When chaos is at it's peak, your BloodRush bar (vertical) will fill up fast.
-      Your fire magic should help with that.
-    - When the bar is full, you can unleash your fire magic to it's fullest extent.
+    - As more enemies catch fire, your BloodRush bar (vertical) will fill up.
+    - When the bar is full, you can unleash your fire magic to it's fullest extent
+      by using your snap ability.
     - One more thing -- punching demons is not the only way to refuel.
     - If you find yourself in a sticky situation, you can always use your punch on
       those who fell before you (the skulls) instead of demons.
@@ -60671,6 +60671,9 @@ MonoBehaviour:
     names:
     - Michael Bowling
     - Emily Halina
+  - role: Special Thanks
+    names:
+    - Matthew Guzdial
   - role: Playtesters
     names:
     - INT D 450 Class
@@ -64599,7 +64602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30272
+  m_Name: pb_Mesh29654
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -77655,7 +77658,7 @@ MonoBehaviour:
     dialogueOver: 0
     name: 
     sentences:
-    - To sprint, use the Shift Key (toggle mode is activated).
+    - To sprint, use the Shift Key.
     playerSpeaking: 00
   tutorialTeachFireballDialogue:
     dialogueOver: 0
