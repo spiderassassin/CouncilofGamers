@@ -25,8 +25,8 @@ public class Tank: Enemy {
             if (!waitingShortRange.Running) {
                 // Reset task.
                 waitingShortRange = null;
-                // Keep attacking.
-                state = EnemyState.Attacking;
+                // Resume movement.
+                state = EnemyState.Moving;
             }
         } else if (waitingLongRange != null) {
             if (!waitingLongRange.Running) {
