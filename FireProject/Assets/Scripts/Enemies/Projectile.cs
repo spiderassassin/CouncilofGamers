@@ -10,6 +10,7 @@ public class Projectile :FlammableEntity
     public float damageRadius = 1;
     public DamageInformation dmg;
     public int excludeLayer = 7;
+    public int punchSwitchLayer = 7;
 
     public new Vector3 Position => transform.position;
 
@@ -39,11 +40,21 @@ public class Projectile :FlammableEntity
     {
         // base.OnDamaged(attacker, dmg);
         health  = Mathf.Clamp(health-dmg.damage,0,baseHealth);
-        float vy = body.velocity.y;
-        Vector3 v = body.velocity;
-        v *= (health / baseHealth);
-        v.y = vy;
-        body.velocity = v;
+
+        if(attacker is Controller && dmg.type== DamageType.AdditiveDamage)
+        {
+            SetTarget(transform.position + Vector3.down);
+            body.velocity *= 2;
+        }
+        else
+        {
+            float vy = body.velocity.y;
+            Vector3 v = body.velocity;
+            v *= (health / baseHealth);
+            vy *= 1.7f;
+            v.y = vy;
+            body.velocity = v;
+        }
         // if (health <= 0) Death();
     }
 
