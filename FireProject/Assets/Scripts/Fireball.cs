@@ -23,6 +23,7 @@ public class Fireball : FireSource
 
         enable.SetActive(true);
         enable.transform.SetParent(null);
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.fireballexplode, transform.position);
         Destroy(gameObject);
     }
 }
