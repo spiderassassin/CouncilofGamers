@@ -304,7 +304,7 @@ public class WaveManager : MonoBehaviour
                     t >= wave.chunks[i].maxWait) break;
 
                 if (wave.chunks[i].waitUntilPreviousDead && 
-                    (t > 10f && TotalLivingEnemies == 0)) break;
+                    ((t > 25f && TotalLivingEnemies <= 3)||t>5f&&TotalLivingEnemies==0)) break;
 
                 if (!wave.chunks[i].waitUntilPreviousDead) break;
 
