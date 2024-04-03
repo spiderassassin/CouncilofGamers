@@ -225,6 +225,13 @@ public class DialogueManager : MonoBehaviour
             prompt.SetActive(true);
             promptText.text = "Find the source of the strange voice";
         }
+
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Ending)
+        {
+            // Set up wave manager so the ending wave gets triggered.
+            WaveManager.Instance.wavemode = true;
+            WaveManager.Instance.isSpawning = false;
+        }
     }
 
     

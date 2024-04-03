@@ -4,6 +4,8 @@ using UnityEngine;
 public class Tank: Enemy {
     [SerializeField] private GameObject projectile;
     public DamageInformation playerDirectHitDmg;
+    // Amount of damage it deals if player is belowe direct damage amount.
+    public float lowHealthDamage;
     public int projectileAttackCooldown = 3;
     private Task waitingShortRange;
     private Task waitingLongRange;
@@ -23,8 +25,8 @@ public class Tank: Enemy {
             if (!waitingShortRange.Running) {
                 // Reset task.
                 waitingShortRange = null;
-                // Keep attacking.
-                state = EnemyState.Attacking;
+                // Resume movement.
+                state = EnemyState.Moving;
             }
         } else if (waitingLongRange != null) {
             if (!waitingLongRange.Running) {
@@ -66,6 +68,11 @@ public class Tank: Enemy {
         {
             if (Time.timeSinceLevelLoad - timeHit >= closeAttackCooldown)
             {
+                if (Controller.Instance.Health < playerDirectHitDmg.damage)
+                {
+                    // If player is below the direct hit damage, deal the low health damage instead.
+                    playerDirectHitDmg.damage = lowHealthDamage;
+                }
                 Controller.Instance.OnDamaged(this, playerDirectHitDmg);
                 timeHit = Time.timeSinceLevelLoad;
             }

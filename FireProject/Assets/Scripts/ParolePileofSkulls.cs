@@ -7,12 +7,21 @@ public class ParolePileofSkulls : FlammableEntity
 {
     public GameObject waveManager;
     public GameObject prompt;
+    public GameObject NPCSprite;
     private TextMeshProUGUI promptText;
 
     protected override void Start()
     {
         base.Start();
         promptText = prompt.GetComponent<TextMeshProUGUI>();
+
+        // If the game stage is past the tutorial, destroy the pile of skulls.
+        if (GameManager.Instance.gameStage > GameManager.GameStage.TutorialPunchWave)
+        {
+            Destroy(gameObject);
+            // Hide the parole guard.
+            NPCSprite.GetComponent<paroleAnimations>().hide();
+        }
     }
 
     protected override void Update()
