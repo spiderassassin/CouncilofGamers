@@ -57,6 +57,18 @@ public class PauseMenu : MonoBehaviour
     }
 
 
+    public void SetMusic()
+    {
+        FMODEvents.Instance.music.setVolume(slider.value);
+    }
+
+
+    public void SetSFX()
+    {
+        FMODEvents.Instance.sfx.setVolume(slider.value);
+    }
+
+
 
     public void ResumeGame()
     {
