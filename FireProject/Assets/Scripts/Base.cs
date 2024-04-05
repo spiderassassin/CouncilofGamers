@@ -8,6 +8,8 @@ public class Base : Entity
 {
     // Start is called before the first frame update
 
+    private bool damage_on = false;
+
     public TextMeshProUGUI baseHealthText;
     void Start()
     {
@@ -22,6 +24,11 @@ public class Base : Entity
             baseHealthText.text = "Gate Health\n" + base.Health.ToString() + " HP";
             if (GameManager.Instance.baseDamage)
             {
+                if (!damage_on)
+                {
+                    damage_on = true;
+                    StartCoroutine(HealthFlash(baseHealthText));
+                }
                 if (GameManager.Instance.baseFlashCount % 2 == 0)
                 {
                     baseHealthText.color = Color.red;
@@ -40,6 +47,20 @@ public class Base : Entity
             }
         }
         
+    }
+
+    public IEnumerator HealthFlash(TextMeshProUGUI health)
+    {
+        Vector3 health_orig = health.GetComponent<RectTransform>().localScale;
+        Vector3 health_big = new Vector3((float)(health_orig.x * 1.2), (float)(health_orig.y * 1.2), (float)(health_orig.z * 1.2));
+        for (int i = 0; i < 5; i++)
+        {
+            health.GetComponent<RectTransform>().localScale = health_big;
+            yield return new WaitForSeconds(0.25f);
+            health.GetComponent<RectTransform>().localScale = health_orig;
+            yield return new WaitForSeconds(0.25f);
+        }
+        damage_on = false;
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)

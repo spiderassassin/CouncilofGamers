@@ -11,6 +11,8 @@ public class DialogueTrigger : MonoBehaviour
     public bool canStartDialogue;
     public GameObject conversationStartPrompt;
     public AudioSource parole;
+    public bool inArea;
+
     
     
 
@@ -40,6 +42,13 @@ public class DialogueTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+
+        if (other.tag != "Player")
+        {
+            return;
+        }
+
+        Debug.Log("on trigger stay");
         /*
         Debug.Log("triggering dialogue");
         if (!dialogueStarted)
@@ -52,11 +61,18 @@ public class DialogueTrigger : MonoBehaviour
             GameManager.GameStage.Downtime2,
             GameManager.GameStage.Downtime3
         };
-        if (downtimeStages.Contains(GameManager.Instance.gameStage))
+
+        //if (!canStartDialogue)
+        //{
+        //    conversationStartPrompt.SetActive(false);
+        //}
+        if (downtimeStages.Contains(GameManager.Instance.gameStage) && WaveManager.Instance.tutorialSkullPilePunched)
         {
+            Debug.Log("on trigger stay if");
             conversationStartPrompt.SetActive(true);
             canStartDialogue = true;
         }
+        
         
     }
 
@@ -65,5 +81,8 @@ public class DialogueTrigger : MonoBehaviour
         conversationStartPrompt.SetActive(false);
     }
 
-    
+
+
+
+
 }
