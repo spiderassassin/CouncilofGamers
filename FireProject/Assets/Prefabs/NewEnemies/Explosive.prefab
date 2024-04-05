@@ -123,6 +123,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
   Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
+  bloodpivot: {fileID: 0}
   attackDamage:
     damage: 50
     pushBack: 8
@@ -133,7 +134,7 @@ MonoBehaviour:
   maxHealth: 0
   healthbar: {fileID: 5329166796899364831}
   attackRange: 5
-  explosionRadius: 10
+  explosionRadius: 15
   explosionDelay: 3
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:

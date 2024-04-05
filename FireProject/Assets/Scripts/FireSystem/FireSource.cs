@@ -152,7 +152,7 @@ public class FireSource : MonoBehaviour
     {
 
         DamageInformation d = activeDamage;
-        d.damage *= DamageMultiplier;
+        // d.damage *= DamageMultiplier; // don't do this
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
