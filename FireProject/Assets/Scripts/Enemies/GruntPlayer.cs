@@ -37,6 +37,7 @@ public class GruntPlayer: Enemy {
         {
             currentTarget = player;
         }
+        print("on "+gameObject.name+" from " + attacker.ToString() + dmg.damage+dmg.type);
     }
 
     protected override void Update() {

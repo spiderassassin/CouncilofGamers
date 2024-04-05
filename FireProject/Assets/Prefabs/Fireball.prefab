@@ -14824,7 +14824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionMask:
     serializedVersion: 2
-    m_Bits: 831
+    m_Bits: 2879
   activeDamage:
     damage: 30
     pushBack: 0.1

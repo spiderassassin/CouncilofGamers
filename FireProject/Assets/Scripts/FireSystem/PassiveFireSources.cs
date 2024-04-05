@@ -15,6 +15,7 @@ public class PassiveFireSources : MonoBehaviour
     public Vector3 litScale = Vector3.one;
     public Vector3 overdriveAddition = Vector3.one;
     public BasicSpritePlayer splayer;
+    public bool forceFacePlayer = false;
 
     public DamageType CurrentState { get; private set; }
 
@@ -22,11 +23,15 @@ public class PassiveFireSources : MonoBehaviour
     private float currentT;
     private float overdrive;
 
+    Camera cam;
+
     public void Initialize(IAttacker attacker, IFlammable damagable)
     {
         passiveLevel1.Initialize(attacker, damagable);
         passiveLevel2.Initialize(attacker, damagable);
         passiveLevel3.Initialize(attacker, damagable);
+
+        cam = Camera.main;
     }
     private void DisableAll()
     {
@@ -46,6 +51,12 @@ public class PassiveFireSources : MonoBehaviour
         Vector3 overdriveContribution = Vector3.Lerp(Vector3.zero, overdriveAddition, overdrive);
 
         rescaleTransform.localScale = Vector3.LerpUnclamped(unlitScale, litScale, currentT) +overdriveContribution;
+
+        if (forceFacePlayer)
+        {
+            transform.LookAt(cam.transform);
+            transform.Rotate(0, 180, 0);
+        }
     }
 
     /// <summary>

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave:
     chunks:
-    - note: 1[GruntPlayer] from [SpawnPoint1]
-      enemyType: 2
+    - note: 1[Explosive] from [SpawnPoint1]
+      enemyType: 5
       maxWait: -1
       spawnDelay: 0
       spawnPoint: 0

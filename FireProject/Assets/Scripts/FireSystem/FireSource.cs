@@ -152,7 +152,7 @@ public class FireSource : MonoBehaviour
     {
 
         DamageInformation d = activeDamage;
-        d.damage *= DamageMultiplier;
+        // d.damage *= DamageMultiplier;
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
@@ -179,6 +179,7 @@ public class FireSource : MonoBehaviour
             if (maximumTargets!=-1 && i <= 0) break;
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
+                if (gameObject.name == "Level2") print("tryhit"+c.gameObject.name);
                 FireManager.manager.FireDamageOnCollider(source, c, d);
                 if (isPunch)
                 {

@@ -291,7 +291,8 @@ public class Controller : Entity
             simulateGravity();
         }
 
-        characterController.Move(additive * Time.deltaTime);
+        if(!InputManager.Instance.LockPlayerGameplayInput)
+            characterController.Move(additive * Time.deltaTime);
     }
 
     IEnumerator Punch()
@@ -553,7 +554,11 @@ public class Controller : Entity
             additive += -additive.normalized*Time.deltaTime*50f;
             yield return new WaitForEndOfFrame();
 
-            if (additive.magnitude <= .1f) break;
+            if (additive.magnitude <= .1f)
+            {
+                additive = Vector3.zero;
+                break;
+            }
         }
         pushback = null;
     }
