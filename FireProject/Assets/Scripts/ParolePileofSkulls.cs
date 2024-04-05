@@ -63,6 +63,8 @@ public class ParolePileofSkulls : FlammableEntity
 
         prompt.SetActive(false);
 
+        WaveManager.Instance.triggerAreaForParoleDialogue.SetActive(true);
+
         Destroy(gameObject);
     }
 }

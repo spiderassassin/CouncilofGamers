@@ -22,7 +22,9 @@ public class WaveNumber : MonoBehaviour
         {
             // Add a space before the number.
             waveNumber = waveNumber.Insert(4, " ");
+            waveNumberText.text = waveNumber;
         }
-        waveNumberText.text = waveNumber;
+
+        
     }
 }

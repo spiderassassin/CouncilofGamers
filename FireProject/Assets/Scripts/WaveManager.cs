@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using FMOD.Studio;
+using System;
 
 
 public class WaveManager : MonoBehaviour
@@ -87,6 +88,7 @@ public class WaveManager : MonoBehaviour
     private bool tutorialPunchEnemyReleasedStart;
     private bool tutorialPunchEnemyReleasedEnd;
     private bool tutorialPunchKill;
+    private bool conversationPromptFixed;
 
     private bool tutorialGPWaveDialogueOver;
 
@@ -225,7 +227,7 @@ public class WaveManager : MonoBehaviour
             switch (GameManager.Instance.gameStage)
             {
                 case GameManager.GameStage.Wave1:
-
+                    tutorialSkullPilePunched = true;
                     Color32 activeColor = new Color32(255, 255, 255, 255);
                     SnapPrompt.GetComponent<Image>().color = activeColor;
                     QPrompt.GetComponent<Image>().color = activeColor;
@@ -233,14 +235,17 @@ public class WaveManager : MonoBehaviour
                     FlameAttackPrompt.GetComponent<Image>().color = activeColor;
                     LeftClickPrompt.GetComponent<Image>().color = activeColor;
                     player.GetComponent<Controller>().flameAttackAllowed = true;
-
+                    StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
+                    StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
+                    tutorialSkullPilePunched = true;
                     blockade1.SetActive(false);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
+                    tutorialSkullPilePunched = true;
                     StartWave(wave3.wave);
                     blockade2.SetActive(false);
                     break;
@@ -253,6 +258,7 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 waveNumberText.SetActive(false);
+                triggerAreaForParoleDialogue.SetActive(true);
                 print("Wave Over");
                 
                 SoundManager.Instance.WaveMusicStop();
@@ -284,6 +290,7 @@ public class WaveManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
+        triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
         SoundManager.Instance.WaveMusicPlay();
         wavemode = true;
@@ -293,6 +300,43 @@ public class WaveManager : MonoBehaviour
             StartCoroutine(Spawn(wave));
         }
         
+    }
+
+    public IEnumerator PromptFlash(GameObject key, GameObject action)
+    {
+        Vector3 key_orig = key.GetComponent<RectTransform>().localScale;
+        Vector3 key_big = new Vector3((float)(key_orig.x * 1.5), (float)(key_orig.y * 1.5), (float)(key_orig.z * 1.5));
+
+        Vector3 action_orig = action.GetComponent<RectTransform>().localScale;
+        Vector3 action_big = new Vector3((float)(action_orig.x * 1.5), (float)(action_orig.y * 1.5), (float)(action_orig.z * 1.5));
+
+        for (int i = 0; i < 5; i++)
+        {
+            //key.SetActive(false);
+            //action.SetActive(false);
+            key.GetComponent<RectTransform>().localScale = key_big;
+            action.GetComponent<RectTransform>().localScale = action_big;
+            yield return new WaitForSeconds(0.25f);
+            //key.SetActive(true);
+            key.GetComponent<RectTransform>().localScale = key_orig;
+            action.GetComponent<RectTransform>().localScale = action_orig;
+            //action.SetActive(true);
+            yield return new WaitForSeconds(0.25f);
+        }
+
+    }
+
+    public IEnumerator BarFlash(GameObject bar)
+    {
+        Vector3 bar_orig = bar.GetComponent<RectTransform>().localScale;
+        Vector3 bar_big = new Vector3((float)(bar_orig.x * 1.2), (float)(bar_orig.y * 1.2), (float)(bar_orig.z * 1.2));
+        for (int i = 0; i < 5; i++)
+        {
+            bar.GetComponent<RectTransform>().localScale = bar_big;
+            yield return new WaitForSeconds(0.25f);
+            bar.GetComponent<RectTransform>().localScale = bar_orig;
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 
     IEnumerator Spawn(Wave wave)
@@ -494,8 +538,8 @@ public class WaveManager : MonoBehaviour
                 //actionPrompts.SetActive(true);
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
-                    triggerAreaForParoleDialogue.SetActive(false);
-                    triggerAreaForSkullPromptDialogue.SetActive(false);
+                    //triggerAreaForParoleDialogue.SetActive(false);
+                    //triggerAreaForSkullPromptDialogue.SetActive(false);
                     SoundManager.Instance.wave0.start();
                     GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
@@ -545,6 +589,7 @@ public class WaveManager : MonoBehaviour
                 {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
                     FireballPromptHidden = false;
+                    StartCoroutine(PromptFlash(RightClickPrompt, FireballPrompt));
                     StartCoroutine(Spawn(tutorialFireballWave));
                     tutorialFireballEnemyReleasedStart = true;
                 }
@@ -571,6 +616,7 @@ public class WaveManager : MonoBehaviour
                 {
                     FireballPromptHidden = true;
                     PunchPromptHidden = false;
+                    StartCoroutine(PromptFlash(EPrompt, PunchPrompt));
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     StartCoroutine(Spawn(tutorialPunchWave));
                     tutorialPunchEnemyReleasedStart = true;
@@ -615,6 +661,7 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("punching skulls stage");
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
+                    //triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 6);
 
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
@@ -631,11 +678,8 @@ public class WaveManager : MonoBehaviour
                     //triggerAreaForSkullPromptDialogue.SetActive(true);
                     startTutorialDialogue();
                     
-                } else if (tutorialSkullPilePunched)
-                {
-                    Debug.Log("tutorialSkullPile Pucnhed");
-                    triggerAreaForParoleDialogue.SetActive(true);
                 }
+                
 
                 break;
             default:

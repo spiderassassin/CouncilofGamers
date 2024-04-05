@@ -34,8 +34,11 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     public int hhhcounter;
 
-    public GameObject prompt;
-    private TextMeshProUGUI promptText;
+    //public GameObject prompt;
+    //private TextMeshProUGUI promptText;
+    public GameObject wave;
+    public TextMeshProUGUI waveText;
+
 
 
     // Start is called before the first frame update
@@ -43,7 +46,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         playerSpeaking = new Queue<bool>();
-        promptText = prompt.GetComponent<TextMeshProUGUI>();
+        waveText = wave.GetComponent<TextMeshProUGUI>();
     }
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
@@ -52,6 +55,13 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("current dialogue: " + currentDialogue + " " + currentDialogue.name);
         currentDialogue.dialogueOver = false;
         currentDialogueTrigger = dialogueTrigger;
+        if (currentDialogueTrigger != null)
+        {
+            currentDialogueTrigger.canStartDialogue = false;
+            currentDialogueTrigger.conversationStartPrompt.SetActive(false);
+            Debug.Log("setting prompt to false");
+        }
+        
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
@@ -141,8 +151,18 @@ public class DialogueManager : MonoBehaviour
         if (sentence.Contains("BloodRush"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
+            StartCoroutine(WaveManager.Instance.BarFlash(WaveManager.Instance.bloodrushBar));
             //Debug.Log("bloodrush bar activated");
         }
+
+        if (sentence.Contains("Over here, near the exit"))
+        {
+            //Debug.Log("correct line");
+            WaveManager.Instance.triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
+        }
+
+       
+
         
 
 
@@ -222,8 +242,8 @@ public class DialogueManager : MonoBehaviour
         if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
         {
             // Show prompt telling player to follow the voice.
-            prompt.SetActive(true);
-            promptText.text = "Find the source of the strange voice";
+            wave.SetActive(true);
+            waveText.text = "Find the source of the strange voice";
         }
 
         if (GameManager.Instance.gameStage == GameManager.GameStage.Ending)
