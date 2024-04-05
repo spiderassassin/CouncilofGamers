@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1030455535682367546, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_Name
+      value: bloodpivot
+      objectReference: {fileID: 0}
     - target: {fileID: 1895627975111397011, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Color.b
       value: 0.6593601
@@ -103,11 +107,13 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
   Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
+  bloodpivot: {fileID: 7637900534774135044}
   attackDamage:
     damage: 15
     pushBack: 1
     type: 1
     fireCounter: 0
+    passIFrames: 0
   speed: 12
   maxHealth: 0
   healthbar: {fileID: 5329166796899364831}
@@ -162,3 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7637900534774135044 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6304443683690199781, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 4504343109499700193}
+  m_PrefabAsset: {fileID: 0}
