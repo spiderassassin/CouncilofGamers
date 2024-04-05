@@ -15,8 +15,8 @@ public class Blooddestroy : MonoBehaviour
 
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(2f);
-        //Instantiate(BloodDecal, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(BloodDecal, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Destroy(gameObject);
 
     }

@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6304443683690199781, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
 --- !u!1 &652658202170767502 stripped
@@ -213,6 +217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3777456365833590545 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6304443683690199781, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 7138727324291411444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4474483616337008981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6703983569931416737, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -280,6 +289,7 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
   Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
+  bloodpivot: {fileID: 3777456365833590545}
   attackDamage:
     damage: 15
     pushBack: 0

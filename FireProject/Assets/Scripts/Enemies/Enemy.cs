@@ -27,6 +27,7 @@ public abstract class Enemy : FlammableEntity
     public Transform player;
     public Animator animator;
     public GameObject Blood;
+    public Transform bloodpivot;
     
     //public AudioClip deathSound;
     public DamageInformation attackDamage;
@@ -136,7 +137,7 @@ public abstract class Enemy : FlammableEntity
     {
         base.Death();
         WaveManager.Instance.livingEnemies.Remove(this);
-        Instantiate(Blood, transform.position, Quaternion.identity);
+        Instantiate(Blood, bloodpivot.position, Quaternion.identity);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.blood, transform.position);
         //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
         
