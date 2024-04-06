@@ -557,7 +557,7 @@ public class WaveManager : MonoBehaviour
                 if (tutorialIntroDialogueSeen)
                  {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
-                    print("next");
+                    
                 }
 
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
