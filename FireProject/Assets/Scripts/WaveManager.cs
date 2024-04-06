@@ -38,6 +38,9 @@ public class WaveManager : MonoBehaviour
     public WaveDataObject wave3;
     public WaveDataObject endingWave;
 
+    public GameObject blockadeCrumblesBeforeWave1;
+    public GameObject blockadeCrumblesBeforeWave2;
+
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
 
@@ -50,8 +53,6 @@ public class WaveManager : MonoBehaviour
     public GameObject actionPrompts;
     public GameObject gatePointLight;
     public GameObject player;
-    public GameObject blockade1;
-    public GameObject blockade2;
     public GameObject waveNumberText;
     public GameObject findGatePrompt;
     public GameObject bloodrushBar;
@@ -237,17 +238,17 @@ public class WaveManager : MonoBehaviour
                     player.GetComponent<Controller>().flameAttackAllowed = true;
                     StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
                     StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
+                    blockadeCrumblesBeforeWave1.SetActive(false);
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
                     tutorialSkullPilePunched = true;
-                    blockade1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
                     tutorialSkullPilePunched = true;
                     StartWave(wave3.wave);
-                    blockade2.SetActive(false);
                     break;
             }
         }
