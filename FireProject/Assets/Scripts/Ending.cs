@@ -29,6 +29,7 @@ public class Ending : MonoBehaviour
         // Set the alpha of all the text to 0.
         roleText.color = new Color(roleText.color.r, roleText.color.g, roleText.color.b, 0);
         nameText.color = new Color(nameText.color.r, nameText.color.g, nameText.color.b, 0);
+        
     }
 
     private void Update()
@@ -39,10 +40,17 @@ public class Ending : MonoBehaviour
                 // First time, wait a bit before starting the credits.
                 waitingForText = true;
                 StartCoroutine(WaitForText(introDelay));
+                //SoundManager.Instance.credits.release();
             } else if (textIndex != textBlocks.Length) {
                 waitingForText = true;
                 StartCoroutine(WaitAndLoadText(textIndex));
                 ++textIndex;
+            }
+
+            if(textIndex == 2)
+            {
+                SoundManager.Instance.credits.start();
+                Debug.Log("music");
             }
         }
     }

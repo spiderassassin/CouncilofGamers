@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     public GameObject audioSource;
 
     //Event Instances
+    public EventInstance menu;
+    public EventInstance credits;
     public EventInstance wave0;
     public EventInstance wave1;
     public EventInstance wave2;
@@ -61,6 +63,9 @@ public class SoundManager : MonoBehaviour
         downtime2 = CreateInstance(FMODEvents.Instance.downtime2);
         betrayal = CreateInstance(FMODEvents.Instance.betrayal);
         
+        credits = CreateInstance(FMODEvents.Instance.credits);
+
+
 
     }
 
