@@ -540,7 +540,13 @@ public class WaveManager : MonoBehaviour
                 {
                     //triggerAreaForParoleDialogue.SetActive(false);
                     //triggerAreaForSkullPromptDialogue.SetActive(false);
-                    SoundManager.Instance.wave0.start();
+                    FMOD.Studio.PLAYBACK_STATE state;
+                    SoundManager.Instance.wave0.getPlaybackState(out state);
+                    if(state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                    {
+                        SoundManager.Instance.wave0.start();
+                    }
+                    
                     GameManager.Instance.fuel = 50f;
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
@@ -550,6 +556,7 @@ public class WaveManager : MonoBehaviour
                 if (tutorialIntroDialogueSeen)
                  {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
+                    print("next");
                 }
 
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
