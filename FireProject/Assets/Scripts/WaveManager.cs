@@ -50,6 +50,8 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public GameObject triggerAreaForParoleDialogue;
     public GameObject triggerAreaForSkullPromptDialogue;
+    public GameObject triggerAreaForSprintDialogue;
+    public GameObject triggerAreaForFireballDialogue;
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
@@ -240,7 +242,8 @@ public class WaveManager : MonoBehaviour
                     StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
                     StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
                     blockadeCrumblesBeforeWave1.SetActive(false);
-                    
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
@@ -602,6 +605,8 @@ public class WaveManager : MonoBehaviour
 
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
                     FireballPromptHidden = false;
                     StartCoroutine(PromptFlash(RightClickPrompt, FireballPrompt));

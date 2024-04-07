@@ -14347,7 +14347,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29542
+  m_Name: pb_Mesh37216
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49095,7 +49095,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31346
+  m_Name: pb_Mesh39038
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60066,7 +60066,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh592300
+  m_Name: pb_Mesh38690
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62047,7 +62047,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30144
+  m_Name: pb_Mesh37818
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -77504,6 +77504,8 @@ MonoBehaviour:
   paroleGuardSprite: {fileID: 1888134733}
   triggerAreaForParoleDialogue: {fileID: 1491700451}
   triggerAreaForSkullPromptDialogue: {fileID: 19032556}
+  triggerAreaForSprintDialogue: {fileID: 1779531678}
+  triggerAreaForFireballDialogue: {fileID: 885041899}
   baseUI: {fileID: 618161589}
   actionPrompts: {fileID: 657778508}
   gatePointLight: {fileID: 141531370}
@@ -77547,7 +77549,9 @@ MonoBehaviour:
     sentences:
     - Sounds like more enemies are approaching. You can easily dispatch them with
       fireballs or by punching them.
-    playerSpeaking: 00
+    - You can also ignite the pools of demon blood on the groud to spread fire more
+      easily.
+    playerSpeaking: 0000
   tutorialGGWaveDialogue:
     dialogueOver: 0
     name: ' '
