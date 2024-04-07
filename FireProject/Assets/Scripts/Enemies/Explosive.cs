@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 // Run toward the player.
 // When close to the player, set a timer.
@@ -52,7 +54,11 @@ public class Explosive: Enemy {
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
             SetDestination(transform.position);
-            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
+            SoundManager.Instance.explode = SoundManager.Instance.CreateInstance(FMODEvents.Instance.explosionscream);
+            RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.explode, transform);
+            SoundManager.Instance.explode.start();
+            SoundManager.Instance.explode.release();
+            //SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
             waitingToExplode = new Task(explosionDelay);
             
         }
@@ -79,7 +85,7 @@ public class Explosive: Enemy {
     {
         yield return new WaitForSeconds(explosionAnimationDuration);
         Attack();
-
+        SoundManager.Instance.explode.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         // Kill the enemy.
         Death();
     }
