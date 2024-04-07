@@ -243,6 +243,8 @@ public class WaveManager : MonoBehaviour
                     StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
                     StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
                     blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     triggerAreaForSprintDialogue.SetActive(false);
                     triggerAreaForFireballDialogue.SetActive(false);
                     StartWave(wave1.wave);
@@ -251,6 +253,7 @@ public class WaveManager : MonoBehaviour
                     tutorialSkullPilePunched = true;
                     blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
@@ -561,6 +564,10 @@ public class WaveManager : MonoBehaviour
                     }
                     
                     GameManager.Instance.fuel = 50f;
+
+                    blockadeCrumblesBeforeWave1.SetActive(true);
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
