@@ -28,6 +28,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference hhhh;
     public EventReference firespread;
     public EventReference explosionscream;
+    public EventReference rumbling;
 
     //music
     public EventReference mainMenu;
