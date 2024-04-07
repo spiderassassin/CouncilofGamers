@@ -9474,6 +9474,7 @@ MonoBehaviour:
   firballShake: {fileID: 11400000, guid: 6a36c3f6f0b1b42ec856583a7ee006a3, type: 2}
   punchShake: {fileID: 11400000, guid: f197ae480b2ff4662b99e4cea16d6c78, type: 2}
   fireShake: {fileID: 11400000, guid: 940978cbbafc84ca3afff361900b5cbd, type: 2}
+  rumblingShake: {fileID: 11400000, guid: 1a8c8d2576ee949fc9eae547d4715159, type: 2}
 --- !u!4 &223697854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ca4bcde723d144f4bb748b2b7223aa3c, type: 3}
