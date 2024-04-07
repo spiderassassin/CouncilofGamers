@@ -148,7 +148,7 @@ MonoBehaviour:
   attackRange: 5
   explosionRadius: 15
   explosionDelay: 3
-  explosionAnimationDuration: 1
+  explosionAnimationDuration: 0.6
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
