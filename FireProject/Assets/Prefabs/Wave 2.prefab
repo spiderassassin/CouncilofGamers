@@ -53,12 +53,12 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
-    - note: then 3[GruntPlayer] after 3s from [SpawnPoint1]
+    - note: then 30[GruntPlayer] after 3s from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
       spawnDelay: 3
       spawnPoint: 0
-      count: 3
+      count: 30
       waitUntilPreviousDead: 1
     - note: 3[GruntGoal] from [SpawnPoint2]
       enemyType: 1

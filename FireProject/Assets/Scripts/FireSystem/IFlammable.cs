@@ -17,7 +17,7 @@ public interface IFlammable
     /// <para>Under the hood will probably activate some fire source according to dmgtype.</para>
     /// </summary>
     /// <param name="type">The damage type (None -> no fire).</param>
-    public void SetFire(DamageType type);
+    public void SetFire(DamageType type,float delay);
     public void StepUpFire(); 
 
     /// <summary>

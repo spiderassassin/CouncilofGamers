@@ -24,7 +24,7 @@ public class GruntPlayer: Enemy {
 
         if (tutorialGrunt)
         {
-            health = 10f;
+            currentHealth = 10f;
         }
     }
 

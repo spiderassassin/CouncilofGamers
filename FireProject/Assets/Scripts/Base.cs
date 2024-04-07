@@ -11,9 +11,9 @@ public class Base : Entity
     private bool damage_on = false;
 
     public TextMeshProUGUI baseHealthText;
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame

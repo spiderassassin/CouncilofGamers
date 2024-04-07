@@ -17,7 +17,7 @@ public class PassiveFireSources : MonoBehaviour
     public BasicSpritePlayer splayer;
     public bool forceFacePlayer = false;
 
-    public DamageType CurrentState { get; private set; }
+    public DamageType CurrentState;
 
     private float targetT;
     private float currentT;
@@ -63,15 +63,28 @@ public class PassiveFireSources : MonoBehaviour
     /// Switch to the input damage type.
     /// </summary>
     /// <param name="type">None means to deactivate everything, otherwise specify the type.</param>
-    public void Switch(DamageType type)
+    public void Switch(DamageType type,float delay)
     {
+        if (type == CurrentState) return;
         if (!Utilities.IsFireType(type)) return;
+        GameManager.Instance.StartCoroutine(DelayedSwitch(type,type== DamageType.FirePassive_Lvl2?delay:0));
+        CurrentState = type;
+    }
+    private IEnumerator DelayedSwitch(DamageType type,float wait)
+    {
+        if(wait>0)
+            yield return new WaitForSeconds(wait);
 
-        if(type== DamageType.ClearFire)
+        if(!passiveLevel1)
+        {
+            yield break;
+        }
+
+        if (type == DamageType.ClearFire)
         {
             DisableAll();
         }
-        else if(type== DamageType.FirePassive_Lvl1)
+        else if (type == DamageType.FirePassive_Lvl1)
         {
             DisableAll();
             passiveLevel1.SetActive(true);
@@ -86,7 +99,6 @@ public class PassiveFireSources : MonoBehaviour
             DisableAll();
             passiveLevel3.SetActive(true);
         }
-        CurrentState = type;
     }
 
     public void Rescale(float t)

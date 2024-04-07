@@ -9,7 +9,7 @@ public class DemonBlood : FlammableEntity
     {
         if (dmg.type != DamageType.ClearFire)
         {
-            health += dmg.damage;
+            baseHealth += dmg.damage;
         }
         base.OnDamaged(attacker, dmg);
     }

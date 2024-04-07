@@ -52,7 +52,6 @@ public class FireManager : MonoBehaviour
     }
     public void StepFireLevel(IAttacker attacker, DamageInformation immediateDamage)
     {
-        print(" STEPPED fire");
         immediateDamage.type = DamageType.AdditiveDamage;
         foreach (var f in existingFlammables)
         {
@@ -72,7 +71,7 @@ public class FireManager : MonoBehaviour
         {
             flammablesMap.Add(c1, f);
         }
-        f.SetFire(DamageType.ClearFire);
+        f.SetFire(DamageType.ClearFire,0);
     }
     public void RemoveFlammable(IFlammable f)
     {

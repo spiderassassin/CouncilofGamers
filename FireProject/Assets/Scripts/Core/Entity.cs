@@ -9,12 +9,21 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 {
     public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
-    public float health = 100;
-    
+    /// <summary>
+    /// The base health.
+    /// </summary>
+    protected float baseHealth = 100;
 
-    public float Health => health;
+
+    protected float currentHealth;
+    public float Health => currentHealth;
 
     public Vector3 Position => transform.position;
+
+    protected virtual void Start()
+    {
+        currentHealth = baseHealth;
+    }
 
     private void OnValidate()
     {
@@ -36,8 +45,8 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        health -= dmg.damage;
-        if (health < 0)
+        currentHealth -= dmg.damage;
+        if (currentHealth < 0)
         {
             Death(); // might be bad if this is repeatedly called
         }
