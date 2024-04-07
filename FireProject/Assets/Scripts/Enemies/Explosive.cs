@@ -42,7 +42,7 @@ public class Explosive: Enemy {
                 
                 // Increase scale of enemy to 2x.
                 transform.localScale = new Vector3(transform.localScale.x + Time.deltaTime * 0.5f, transform.localScale.y + Time.deltaTime * 0.5f, transform.localScale.z);
-                transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * 0.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * 0.2f, transform.position.z);
                 
             }
         } else if (state == EnemyState.Moving) {
