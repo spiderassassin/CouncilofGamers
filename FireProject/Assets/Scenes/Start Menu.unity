@@ -1372,6 +1372,10 @@ PrefabInstance:
       value: event:/Main menu
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: rumbling.Path
+      value: event:/rumbling
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: credits.Guid.Data1
       value: -1705496508
       objectReference: {fileID: 0}
@@ -1402,6 +1406,22 @@ PrefabInstance:
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: mainMenu.Guid.Data4
       value: 27608741
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: rumbling.Guid.Data1
+      value: 534239197
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: rumbling.Guid.Data2
+      value: 1078387927
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: rumbling.Guid.Data3
+      value: 2108857782
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: rumbling.Guid.Data4
+      value: -2011012642
       objectReference: {fileID: 0}
     - target: {fileID: 6818304865411603848, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: m_Name
