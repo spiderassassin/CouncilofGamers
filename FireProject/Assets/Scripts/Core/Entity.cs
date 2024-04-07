@@ -20,7 +20,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public Vector3 Position => transform.position;
 
-    private bool dead = false;  // Limit the number of death calls an entity can make to 1.
+    private bool alreadyDead = false;  // Limit the number of death calls an entity can make to 1.
 
     protected virtual void Start()
     {
@@ -48,10 +48,10 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         currentHealth -= dmg.damage;
-        if (currentHealth < 0 && !dead)
+        if (currentHealth < 0 && !alreadyDead)
         {
             // Ensure Death() only gets called once.
-            dead = true;
+            alreadyDead = true;
             Death(); // might be bad if this is repeatedly called
         }
     }
