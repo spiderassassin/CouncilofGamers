@@ -27,6 +27,7 @@ public class SoundManager : MonoBehaviour
 
     public EventInstance hello;
     public EventInstance hhhh;
+    public EventInstance explode;
     public EventInstance downtime1;
     public EventInstance downtime2;
     public EventInstance betrayal;
