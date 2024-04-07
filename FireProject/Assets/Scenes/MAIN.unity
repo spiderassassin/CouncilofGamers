@@ -59521,7 +59521,7 @@ MonoBehaviour:
     - And did you hear that? One of the walls has finally given out, which means
       the enemies might be coming from a new direction.
     - 'By the way, I could tell you were holding back out there. '
-    - You can incinerate mutliple enemies at a time using your flame attack (by holding
+    - You can incinerate multiple enemies at a time using your flame attack (by holding
       down the left mouse button).
     - As more enemies catch fire, your BloodRush bar (vertical) will fill up.
     - When the bar is full, you can unleash your fire magic to it's fullest extent
@@ -60066,7 +60066,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh39388
+  m_Name: pb_Mesh592300
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
