@@ -336,8 +336,10 @@ MonoBehaviour:
   activeDamage:
     damage: 0
     pushBack: 0
-    type: 2
+    type: 1
     fireCounter: 0
+    passIFrames: 0
+    spreadDamage: 0
   baseLifespan: 6
   tickRate: 0.25
   activeDamageProbability: 0
@@ -356,6 +358,8 @@ MonoBehaviour:
     pushBack: 0
     type: 0
     fireCounter: 0
+    passIFrames: 0
+    spreadDamage: 0
 --- !u!1 &4024264099154266145
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +413,7 @@ MonoBehaviour:
   litScale: {x: 1, y: 1, z: 1}
   overdriveAddition: {x: 0.5, y: 0.5, z: 0.5}
   splayer: {fileID: 8268115652716073788}
+  forceFacePlayer: 0
 --- !u!1 &4189009074424477786
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +533,8 @@ MonoBehaviour:
     pushBack: 0
     type: 4
     fireCounter: 0
+    passIFrames: 0
+    spreadDamage: 0
   baseLifespan: 6
   tickRate: 0.1
   activeDamageProbability: 0
@@ -546,6 +553,8 @@ MonoBehaviour:
     pushBack: 0.1
     type: 0
     fireCounter: 0
+    passIFrames: 0
+    spreadDamage: 0
 --- !u!1 &6174015342280184843
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +673,9 @@ MonoBehaviour:
     damage: 0
     pushBack: -1
     type: 2
-    fireCounter: 1
+    fireCounter: 3
+    passIFrames: 0
+    spreadDamage: 1
   baseLifespan: 30
   tickRate: 0.2
   activeDamageProbability: 0
@@ -683,6 +694,8 @@ MonoBehaviour:
     pushBack: 0
     type: 0
     fireCounter: 0
+    passIFrames: 0
+    spreadDamage: 0
 --- !u!1 &6771413742772632936
 GameObject:
   m_ObjectHideFlags: 0

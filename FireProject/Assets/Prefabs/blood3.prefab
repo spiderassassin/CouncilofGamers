@@ -249,10 +249,6 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4663211707607296071, guid: af422b545f004f243bec32015693b411, type: 3}
-      propertyPath: activeDamage.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663211707607296071, guid: af422b545f004f243bec32015693b411, type: 3}
       propertyPath: activeDamage.damage
       value: 2
       objectReference: {fileID: 0}

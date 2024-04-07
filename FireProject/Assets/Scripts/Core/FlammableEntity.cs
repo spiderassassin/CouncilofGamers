@@ -9,6 +9,8 @@ using FirstGearGames.SmoothCameraShaker;
 /// </summary>
 public abstract class FlammableEntity : Entity, IFlammable
 {
+    public const float SPREAD_DELAY = .5f;
+
     public Rigidbody body;
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;
@@ -69,11 +71,11 @@ public abstract class FlammableEntity : Entity, IFlammable
         }
     }
 
-    public void SetFire(DamageType type)
+    public void SetFire(DamageType type, float delay)
     {
         if (!Utilities.IsFireType(type)) return;
 
-        PassiveFireSources.Switch(type);
+        PassiveFireSources.Switch(type,delay);
         if(type != DamageType.ClearFire)
         {
                 onFire = true;
@@ -97,24 +99,27 @@ public abstract class FlammableEntity : Entity, IFlammable
         // Level one is now the transitionary state between not being on fire and being on fire.
         if (dmg.type == DamageType.FirePassive_Lvl1)
         {
-            if (attacker == null)
-                SetFire(dmg.type);
-            else if (!attacker.Equals(this))
-                SetFire(dmg.type);
-
             SetFireCounter(currentFireCounter+dmg.fireCounter);
             lastIncrementTime = Time.timeSinceLevelLoad;
 
             if (currentFireCounter >= fireCounterRequired&& PassiveFireSources.CurrentState < DamageType.FirePassive_Lvl2)
             {
+                float delay = dmg.spreadDamage ? SPREAD_DELAY : 0;
                 if (attacker == null)
-                    SetFire(DamageType.FirePassive_Lvl2);
+                    SetFire(DamageType.FirePassive_Lvl2,delay);
                 else if (!attacker.Equals(this))
-                    SetFire(DamageType.FirePassive_Lvl2);
+                    SetFire(DamageType.FirePassive_Lvl2,delay);
                 SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
                 CameraShakerHandler.Shake(GameManager.Instance.fireShake);
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
+            }
+            else
+            {
+                if (attacker == null)
+                    SetFire(dmg.type, 0);
+                else if (!attacker.Equals(this))
+                    SetFire(dmg.type, 0);
             }
         }
 
@@ -128,7 +133,7 @@ public abstract class FlammableEntity : Entity, IFlammable
 
         if (currentFireCounter == 0)
         {
-            SetFire(DamageType.ClearFire);
+            SetFire(DamageType.ClearFire,0);
         }
 
         float t = Mathf.InverseLerp(0, fireCounterRequired, currentFireCounter);
@@ -139,6 +144,6 @@ public abstract class FlammableEntity : Entity, IFlammable
     {
         DamageType next = (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl2 ? DamageType.FirePassive_Lvl3 : DamageType.ClearFire);
         if (next == DamageType.ClearFire) return;
-        SetFire(next);
+        SetFire(next,0);
     }
 }
