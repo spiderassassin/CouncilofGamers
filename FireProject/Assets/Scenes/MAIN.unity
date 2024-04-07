@@ -9458,7 +9458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 6
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0

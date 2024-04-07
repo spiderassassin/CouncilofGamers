@@ -414,6 +414,7 @@ MonoBehaviour:
   overdriveAddition: {x: 0.5, y: 0.5, z: 0.5}
   splayer: {fileID: 8268115652716073788}
   forceFacePlayer: 0
+  CurrentState: 0
 --- !u!1 &4189009074424477786
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +674,7 @@ MonoBehaviour:
     damage: 0
     pushBack: -1
     type: 2
-    fireCounter: 3
+    fireCounter: 1.5
     passIFrames: 0
     spreadDamage: 1
   baseLifespan: 30
