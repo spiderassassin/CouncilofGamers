@@ -9,6 +9,7 @@ public class Explosive: Enemy {
     public float attackRange = 5;
     public float explosionRadius = 10;
     public int explosionDelay = 3;
+    public float explosionAnimationDuration;
     
 
     protected override void Start()
@@ -76,7 +77,7 @@ public class Explosive: Enemy {
     }
     IEnumerator waitandexplode()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(explosionAnimationDuration);
         Attack();
 
         // Kill the enemy.

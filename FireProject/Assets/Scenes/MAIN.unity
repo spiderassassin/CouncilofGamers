@@ -1005,7 +1005,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29354
+  m_Name: pb_Mesh37726
   serializedVersion: 10
   m_SubMeshes: []
   m_Shapes:
@@ -25838,7 +25838,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29082
+  m_Name: pb_Mesh37452
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26223,7 +26223,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh104484
+  m_Name: pb_Mesh39914
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33849,7 +33849,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh149620
+  m_Name: pb_Mesh37246
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -59518,8 +59518,10 @@ MonoBehaviour:
     - I never did get a chance to read the report on why you were locked up in the
       first place, care to share?
     - 'Nevermind, time''s up. I feel the next wave approaching. '
+    - And did you hear that? One of the walls has finally given out, which means
+      the enemies might be coming from a new direction.
     - 'By the way, I could tell you were holding back out there. '
-    - You can incinerate mutliple enemies at a time using your flame attack (by holding
+    - You can incinerate multiple enemies at a time using your flame attack (by holding
       down the left mouse button).
     - As more enemies catch fire, your BloodRush bar (vertical) will fill up.
     - When the bar is full, you can unleash your fire magic to it's fullest extent
@@ -59527,7 +59529,7 @@ MonoBehaviour:
     - One more thing -- punching demons is not the only way to refuel.
     - If you find yourself in a sticky situation, you can always use your punch on
       those who fell before you (the skulls) instead of demons.
-    playerSpeaking: 0001000001000001000000000000000000
+    playerSpeaking: 000100000100000100000000000000000000
   downtime2Dialogue:
     dialogueOver: 0
     name: Parole Guard
@@ -59553,8 +59555,10 @@ MonoBehaviour:
     - "Oh\u2026 hm."
     - "A bit of bad news, it seems the Demonlords have caught wind of you; their
       vanguard will be here any second, and when their main force reaches the portals\u2026"
-    - I hope you don't run out of fire. Our conversation ends here, good luck.
-    playerSpeaking: 000100000100000000010000000000
+    - I hope you don't run out of fire.
+    - Great, and there goes another one of the walls.
+    - Our conversation ends here, good luck.
+    playerSpeaking: 0001000001000000000100000000000000
   downtime3Dialogue:
     dialogueOver: 0
     name: Parole Guard
@@ -60062,7 +60066,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31014
+  m_Name: pb_Mesh592300
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

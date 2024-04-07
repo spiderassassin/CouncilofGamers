@@ -237,8 +237,6 @@ public class WaveManager : MonoBehaviour
                     FlameAttackPrompt.GetComponent<Image>().color = activeColor;
                     LeftClickPrompt.GetComponent<Image>().color = activeColor;
                     player.GetComponent<Controller>().flameAttackAllowed = true;
-                    SoundManager.Instance.PlayOneShot(FMODEvents.Instance.rumbling, paroleGuardSprite.transform.position);
-                    CameraShakerHandler.Shake(GameManager.Instance.rumblingShake);
                     StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
                     StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
                     blockadeCrumblesBeforeWave1.SetActive(false);
@@ -247,13 +245,14 @@ public class WaveManager : MonoBehaviour
                     break;
                 case GameManager.GameStage.Wave2:
                     tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
-                    SoundManager.Instance.PlayOneShot(FMODEvents.Instance.rumbling, paroleGuardSprite.transform.position);
-                    CameraShakerHandler.Shake(GameManager.Instance.rumblingShake);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
                     tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
                     StartWave(wave3.wave);
                     break;
             }
