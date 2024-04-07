@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using FMODUnity;
 using FMOD.Studio;
+using FirstGearGames.SmoothCameraShaker;
 
 
 public class DialogueManager : MonoBehaviour
@@ -161,15 +163,15 @@ public class DialogueManager : MonoBehaviour
             WaveManager.Instance.triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
         }
 
-       
+        string[] rumblingSentences = {
+            "And did you hear that? One of the walls has finally given out, which means the enemies might be coming from a new direction.",
+            "Great, and there goes another one of the walls.",
+        };
 
-        
-
-
-
-
-
-
+        if (rumblingSentences.Contains(sentence)) {
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.rumbling, NPCSprite.transform.position);
+            CameraShakerHandler.Shake(GameManager.Instance.rumblingShake);
+       }
 
 
         bool speakingBool = playerSpeaking.Dequeue();
