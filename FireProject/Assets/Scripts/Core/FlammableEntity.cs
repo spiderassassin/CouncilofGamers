@@ -37,8 +37,9 @@ public abstract class FlammableEntity : Entity, IFlammable
             Debug.LogError(gameObject.name+ " - Flammable Entities must have a rigid body attached (isKinematic is fine).");
         }
     }
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         passiveFireSources.Initialize(this, this);
     }
     protected virtual void OnEnable()

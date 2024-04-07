@@ -9458,7 +9458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 0
+  debugGameStage: 4
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -16385,7 +16385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 448488288}
-  health: 1000
   baseHealthText: {fileID: 618161592}
 --- !u!65 &448488288
 BoxCollider:
@@ -32354,7 +32353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 734056531}
-  health: 1
   body: {fileID: 734056532}
   text: {fileID: 0}
   passiveFireSources: {fileID: 810102346}
@@ -61341,7 +61339,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 1497971953}
-  health: 1000
   baseHealthText: {fileID: 618161592}
 --- !u!65 &1497971953
 BoxCollider:
@@ -79627,6 +79624,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
   tutorialPunchWave:
     chunks:
     - note: 
@@ -79636,6 +79635,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
   tutorialGruntPlayerWave:
     chunks:
     - note: 
@@ -79645,6 +79646,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
     - note: 
       enemyType: 2
       maxWait: -1
@@ -79652,6 +79655,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
   tutorialGruntGoalWave:
     chunks:
     - note: 
@@ -79661,6 +79666,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 1
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
     - note: 
       enemyType: 1
       maxWait: -1
@@ -79668,6 +79675,8 @@ MonoBehaviour:
       spawnPoint: 0
       count: 2
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
   wave1: {fileID: 3303653138007572062, guid: 92ddfba1ab0ec594caf2e7880d672bdf, type: 3}
   wave2: {fileID: 8418132539410971719, guid: c583deca89e2d4c4894c37a5ad25252d, type: 3}
   wave3: {fileID: 3624478538292695410, guid: e740a8ddaba5c634490ca1a46d6a9785, type: 3}
@@ -86217,7 +86226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliders:
   - {fileID: 7095554248486665563}
-  health: 100
   characterController: {fileID: 7095554248486665563}
   speed: 16
   sprintspeed: 20

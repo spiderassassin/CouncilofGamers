@@ -39,7 +39,6 @@ public abstract class Enemy : FlammableEntity
     private Camera mainCamera;
     
     private Coroutine pushback;
-    public float maxHealth;
     protected Transform currentTarget;
 
     protected float currentBaseSpeed;
@@ -49,9 +48,13 @@ public abstract class Enemy : FlammableEntity
         yield return new WaitForSeconds(seconds);
     }
 
+    public void Restart(float healthMultiply)
+    {
+        baseHealth *= healthMultiply;
+        Start();
+    }
     protected override void Start()
     {
-        maxHealth = Health;
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         currentBaseSpeed = speed;
@@ -60,12 +63,12 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
 
         currentTarget = player;
-        healthbar.fillAmount = Health / maxHealth;
+        healthbar.fillAmount = Health / baseHealth;
     }
 
     protected override void Update()
     {
-        healthbar.fillAmount = Health / maxHealth;
+        healthbar.fillAmount = Health / baseHealth;
         base.Update();
         // Scale speed based on adrenaline.
         agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);

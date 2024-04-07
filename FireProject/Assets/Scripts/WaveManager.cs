@@ -379,7 +379,7 @@ public class WaveManager : MonoBehaviour
             }
 
             Enemy e = null;
-            for(int j = 0; j < wave.chunks[i].count; ++j)
+            for(int j = 0; j < wave.chunks[i].count*wave.chunks[i].countMultiplier; ++j)
             {
                 switch (wave.chunks[i].enemyType)
                 {
@@ -411,6 +411,7 @@ public class WaveManager : MonoBehaviour
                 }
                 GameObject enemy1 = Instantiate(e.gameObject);
                 livingEnemies.Add(enemy1.GetComponent<Enemy>());
+                enemy1.GetComponent<Enemy>().Restart(wave.chunks[i].healthMultiplier);
 
                 Transform spawnPoint = null;
                 switch (wave.chunks[i].spawnPoint)

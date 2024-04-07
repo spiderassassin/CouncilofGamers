@@ -91,8 +91,9 @@ public class Controller : Entity
         punchSource.Initialize(this, null);
         firesource.Initialize(this, null);
     }
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         Cursor.lockState = CursorLockMode.Locked;
         //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
         walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
@@ -131,14 +132,14 @@ public class Controller : Entity
 
         if (dead == false)
         {
-            if (health < 100)
+            if (currentHealth < 100)
             {
-                health += Time.deltaTime * healthIncreaseRate * (100 - health);
+                currentHealth += Time.deltaTime * healthIncreaseRate * (100 - currentHealth);
                 //health += Time.deltaTime * healthIncreaseRate * (1/Mathf.Log(health+1));
                
-                if (health > 100)
+                if (currentHealth > 100)
                 {
-                    health = 100;
+                    currentHealth = 100;
                 }
             }
 
@@ -523,9 +524,9 @@ public class Controller : Entity
             CombatUI.Instance.DamageOverlay();
             //SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
             SoundManager.Instance.PlayOneShot(FMODEvents.Instance.playerDamage, transform.position);
-            health -= dmg.damage;
+            currentHealth -= dmg.damage;
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 dead = true;
 
