@@ -41,6 +41,7 @@ public class WaveManager : MonoBehaviour
 
     public GameObject blockadeCrumblesBeforeWave1;
     public GameObject blockadeCrumblesBeforeWave2;
+    public GameObject blockadeCrumblesBeforeWave3;
 
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
@@ -256,6 +257,7 @@ public class WaveManager : MonoBehaviour
                     tutorialSkullPilePunched = true;
                     blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(false);
                     StartWave(wave3.wave);
                     break;
             }
