@@ -30,14 +30,9 @@ public class Explosive: Enemy {
             if (!waitingToExplode.Running) {
                 // Reset task (not really necessary).
                 waitingToExplode = null;
-                
-                // Boom!
-                animator.SetBool("isexploding", true);
-                print("boom");
-                StartCoroutine(waitandexplode());
 
-             
-                
+                // Once the explosion buildup is complete, kill the enemy (explosion happens on death).
+                Death();
             }
             else
             {
@@ -76,26 +71,19 @@ public class Explosive: Enemy {
         }
     }
 
-    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
-    {
-        base.OnDamaged(attacker, dmg);
-
-        // If we're damaged, start the attack.
-        state = EnemyState.Attacking;
-    }
-
     public override void Death()
     {
+        // When the enemy dies, whether it's from its own buildup or the player killed it, it should explode.
         explode.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        Attack();
-        base.Death();
+        animator.SetBool("isexploding", true);
+        StartCoroutine(waitandexplode());
     }
+
     IEnumerator waitandexplode()
     {
         yield return new WaitForSeconds(explosionAnimationDuration);
-        
-        
+        Attack();
         // Kill the enemy.
-        Death();
+        base.Death();
     }
 }
