@@ -18,11 +18,11 @@ MonoBehaviour:
   _shakeObjects: 1
   _iterationPercent: 1
   _unlimitedDuration: 0
-  _totalDuration: 5
+  _totalDuration: 7
   _fadeInDuration: 1
   _fadeOutDuration: 1
-  _magnitude: 1
-  _magnitudeNoise: 0.255
+  _magnitude: 0.5
+  _magnitudeNoise: 0.187
   _magnitudeCurve:
     serializedVersion: 2
     m_Curve:
@@ -73,8 +73,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _positionalInfluence: {x: 1, y: 1, z: 0}
+  _positionalInfluence: {x: 0.4, y: 1, z: 0}
   _positionalInverts: 0
-  _rotationalInfluence: {x: 0, y: 0, z: 1}
+  _rotationalInfluence: {x: 0, y: 1, z: 0}
   _rotationalInverts: 0
   _randomSeed: 1
