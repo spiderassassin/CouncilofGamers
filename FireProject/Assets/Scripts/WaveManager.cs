@@ -245,11 +245,14 @@ public class WaveManager : MonoBehaviour
                     break;
                 case GameManager.GameStage.Wave2:
                     tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
                     tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
                     StartWave(wave3.wave);
                     break;
             }
