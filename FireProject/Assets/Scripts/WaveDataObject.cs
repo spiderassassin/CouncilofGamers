@@ -20,7 +20,7 @@ public class WaveDataObject : MonoBehaviour
             }
 
             if (c.waitUntilPreviousDead) s += "then ";
-            s += c.count.ToString();
+            s += (c.count*c.countMultiplier).ToString();
             s += "["+c.enemyType.ToString()+"] ";
             if (c.spawnDelay > 0)
             {

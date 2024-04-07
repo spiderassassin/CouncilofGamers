@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
+
+    public float countMultiplier = 1;
+    public float healthMultiplier = 1;
     [System.Serializable]
     public class WaveChunk
     {
@@ -24,5 +27,4 @@ public class Wave
     public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive, GruntPlayerTutorial };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<WaveChunk> chunks;
-
 }
