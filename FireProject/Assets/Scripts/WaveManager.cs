@@ -41,6 +41,7 @@ public class WaveManager : MonoBehaviour
 
     public GameObject blockadeCrumblesBeforeWave1;
     public GameObject blockadeCrumblesBeforeWave2;
+    public GameObject blockadeCrumblesBeforeWave3;
 
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
@@ -50,6 +51,8 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public GameObject triggerAreaForParoleDialogue;
     public GameObject triggerAreaForSkullPromptDialogue;
+    public GameObject triggerAreaForSprintDialogue;
+    public GameObject triggerAreaForFireballDialogue;
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
@@ -240,19 +243,24 @@ public class WaveManager : MonoBehaviour
                     StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
                     StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
                     blockadeCrumblesBeforeWave1.SetActive(false);
-                    
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
                     tutorialSkullPilePunched = true;
                     blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
                     tutorialSkullPilePunched = true;
                     blockadeCrumblesBeforeWave1.SetActive(false);
                     blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(false);
                     StartWave(wave3.wave);
                     break;
             }
@@ -556,6 +564,10 @@ public class WaveManager : MonoBehaviour
                     }
                     
                     GameManager.Instance.fuel = 50f;
+
+                    blockadeCrumblesBeforeWave1.SetActive(true);
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
@@ -602,6 +614,8 @@ public class WaveManager : MonoBehaviour
 
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
                     FireballPromptHidden = false;
                     StartCoroutine(PromptFlash(RightClickPrompt, FireballPrompt));
