@@ -164,8 +164,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         string[] rumblingSentences = {
-            "And did you hear that? One of the walls has finally given out, which means the enemies might be coming from a new direction.",
-            "Great, and there goes another one of the walls.",
+            "Nevermind, time's up. I feel the next wave approaching.",
+            "I hope you don't run out of fire.",
+            "I'll watch you die. I'll savour every moment while you're torn apart. And I'll bring your skull back to Hell myself.",
         };
 
         if (rumblingSentences.Contains(sentence)) {
