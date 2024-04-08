@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
     public bool toggleSprint = false;
+    public bool allowSprint = false;
 
     private InputAction moveAction;
     private InputAction lookAction;

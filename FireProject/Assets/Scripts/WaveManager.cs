@@ -381,7 +381,7 @@ public class WaveManager : MonoBehaviour
                 }
                 GameObject enemy1 = Instantiate(e.gameObject);
                 livingEnemies.Add(enemy1.GetComponent<Enemy>());
-                enemy1.GetComponent<Enemy>().Restart(wave.chunks[i].healthMultiplier*wave.healthMultiplier);
+                enemy1.GetComponent<Enemy>().Restart(wave.chunks[i].healthMultiplier*wave.healthMultiplier,wave.chunks[i].damageMultiplier*wave.damageMultiplier);
 
                 Transform spawnPoint = null;
                 switch (wave.chunks[i].spawnPoint)
