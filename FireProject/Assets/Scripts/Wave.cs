@@ -8,6 +8,7 @@ public class Wave
 
     public float countMultiplier = 1;
     public float healthMultiplier = 1;
+    public float damageMultiplier = 1;
     [System.Serializable]
     public class WaveChunk
     {
@@ -22,6 +23,7 @@ public class Wave
 
         public int countMultiplier = 1;
         public float healthMultiplier = 1;
+        public float damageMultiplier = 1;
     }
 
     public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive, GruntPlayerTutorial };

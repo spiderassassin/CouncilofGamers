@@ -47,6 +47,7 @@ MonoBehaviour:
   wave:
     countMultiplier: 2
     healthMultiplier: 0.6
+    damageMultiplier: 0.7
     chunks:
     - note: 1[Tank] from [SpawnPoint4]
       enemyType: 3
@@ -57,6 +58,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayerWithTank] from [SpawnPoint3]
       enemyType: 4
       maxWait: -1
@@ -66,6 +68,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayerWithTank] from [SpawnPoint2]
       enemyType: 4
       maxWait: -1
@@ -75,6 +78,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayerWithTank] from [SpawnPoint1]
       enemyType: 4
       maxWait: -1
@@ -84,6 +88,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 4[GruntGoal] after 10s from [SpawnPoint4]
       enemyType: 1
       maxWait: -1
@@ -93,6 +98,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 5[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -102,6 +108,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 1[GruntGoal] from [SpawnPoint1]
       enemyType: 1
       maxWait: -1
@@ -111,6 +118,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: break for 3s
       enemyType: 0
       maxWait: -1
@@ -120,6 +128,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 1[Tank] from [SpawnPoint1]
       enemyType: 3
       maxWait: -1
@@ -129,6 +138,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 1[Tank] from [SpawnPoint3]
       enemyType: 3
       maxWait: -1
@@ -138,6 +148,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 5[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -147,6 +158,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 5[GruntPlayerWithTank] after 10s from [SpawnPoint1]
       enemyType: 4
       maxWait: -1
@@ -156,6 +168,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntGoal] from [SpawnPoint2]
       enemyType: 1
       maxWait: -1
@@ -165,6 +178,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 1[Explosive] from [SpawnPoint4]
       enemyType: 5
       maxWait: -1
@@ -174,6 +188,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[Explosive] after 10s from [SpawnPoint1]
       enemyType: 5
       maxWait: -1
@@ -183,6 +198,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: break for 1s
       enemyType: 0
       maxWait: -1
@@ -192,6 +208,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 2[Tank] from [SpawnPoint1]
       enemyType: 3
       maxWait: -1
@@ -201,6 +218,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 2[GruntGoal] from [SpawnPoint2]
       enemyType: 1
       maxWait: -1
@@ -210,6 +228,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 10[GruntPlayerWithTank] from [SpawnPoint4]
       enemyType: 4
       maxWait: -1
@@ -219,6 +238,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[Explosive] after 10s from [SpawnPoint4]
       enemyType: 5
       maxWait: -1
@@ -228,6 +248,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntGoal] from [SpawnPoint2]
       enemyType: 1
       maxWait: -1
@@ -237,6 +258,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 1[Tank] from [SpawnPoint3]
       enemyType: 3
       maxWait: -1
@@ -246,6 +268,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 1[Tank] from [SpawnPoint4]
       enemyType: 3
       maxWait: -1
@@ -255,6 +278,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[Explosive] from [SpawnPoint4]
       enemyType: 5
       maxWait: -1
@@ -264,6 +288,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: 10[GruntPlayerWithTank] after 10s from [SpawnPoint4]
       enemyType: 4
       maxWait: -1
@@ -273,6 +298,7 @@ MonoBehaviour:
       waitUntilPreviousDead: 0
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 10[Explosive] after 10s from [SpawnPoint4]
       enemyType: 5
       maxWait: -1
@@ -282,3 +308,4 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
       countMultiplier: 1
       healthMultiplier: 1
+      damageMultiplier: 1
