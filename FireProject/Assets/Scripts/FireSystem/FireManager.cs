@@ -50,6 +50,10 @@ public class FireManager : MonoBehaviour
         if (f == null) return;
         f.Damageable.OnDamaged(attacker, activeFire);
     }
+    public IFlammable GetIFlammable(Collider c)
+    {
+        return Lookup(c);
+    }
     public void StepFireLevel(IAttacker attacker, DamageInformation immediateDamage)
     {
         immediateDamage.type = DamageType.AdditiveDamage;

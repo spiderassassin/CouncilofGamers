@@ -43,7 +43,7 @@ public class FireSource : MonoBehaviour
     public bool isPunch = false;
 
     Collider col;
-    Collider[] colliders = new Collider[10];
+    Collider[] colliders = new Collider[100];
     RaycastHit hit;
 
     public void Initialize(IAttacker a, IFlammable d)
@@ -76,13 +76,18 @@ public class FireSource : MonoBehaviour
     }
     protected virtual void OnDisable()
     {
+        return;
         if(self != null)
-            self.SetFire(DamageType.ClearFire,0);
+        {
+            self.SetFire(DamageType.ClearFire, 0);
+        }
     }
     public void SetActive(bool active)
     {
-        if(gameObject.activeInHierarchy!=active)
+        if (gameObject.activeInHierarchy != active)
+        {
             gameObject.SetActive(active);
+        }
     }
 
     protected virtual bool TriggerValid(Collider other)
@@ -123,6 +128,7 @@ public class FireSource : MonoBehaviour
             LifeSpan -= Time.deltaTime;
             if (LifeSpan <= 0f)
             {
+                self.SetFire(DamageType.ClearFire, 0);
                 gameObject.SetActive(false);
             }
 
@@ -185,7 +191,11 @@ public class FireSource : MonoBehaviour
                     GameManager.Instance.UpdateFuel(false, false, true);
                 }
             }
-            --i;
+            IFlammable f = FireManager.manager.GetIFlammable(c);
+            if (f != null && f != self)
+            {
+                --i;
+            }
         }
 
         

@@ -79,7 +79,7 @@ public abstract class FlammableEntity : Entity, IFlammable
         PassiveFireSources.Switch(type,delay);
         if(type != DamageType.ClearFire)
         {
-                onFire = true;
+            onFire = true;
         }
         else
         {
@@ -100,7 +100,8 @@ public abstract class FlammableEntity : Entity, IFlammable
         // Level one is now the transitionary state between not being on fire and being on fire.
         if (dmg.type == DamageType.FirePassive_Lvl1)
         {
-            SetFireCounter(currentFireCounter+dmg.fireCounter);
+            if(dmg.fireCounter>0)
+                SetFireCounter(currentFireCounter+dmg.fireCounter);
             lastIncrementTime = Time.timeSinceLevelLoad;
 
             if (currentFireCounter >= fireCounterRequired&& PassiveFireSources.CurrentState < DamageType.FirePassive_Lvl2)
@@ -144,7 +145,11 @@ public abstract class FlammableEntity : Entity, IFlammable
     public void StepUpFire()
     {
         DamageType next = (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl2 ? DamageType.FirePassive_Lvl3 : DamageType.ClearFire);
-        if (next == DamageType.ClearFire) return;
+        if (next == DamageType.ClearFire)
+        {
+            print("would've cleared fire from " + PassiveFireSources.CurrentState);
+            return;
+        }
         SetFire(next,0);
     }
 }
