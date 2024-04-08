@@ -14,17 +14,14 @@ public class Base : Entity
     protected override void Start()
     {
         base.Start();
-        health = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("currentl health in base script: " + currentHealth.ToString());
         if (/*baseHealthText != null && */currentHealth>=0)
         {
             baseHealthText.text = "Gate Health\n" + currentHealth.ToString() + " HP";
-            Debug.Log("hdjbflkejhfe");
             if (GameManager.Instance.baseDamage)
             {
                 if (!damage_on)
