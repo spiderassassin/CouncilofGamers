@@ -14,14 +14,17 @@ public class Base : Entity
     protected override void Start()
     {
         base.Start();
+        baseHealth = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (baseHealthText != null && Health>=0)
+        Debug.Log("currentl health in base script: " + currentHealth.ToString());
+        if (/*baseHealthText != null && */currentHealth>=0)
         {
-            baseHealthText.text = "Gate Health\n" + base.Health.ToString() + " HP";
+            baseHealthText.text = "Gate Health\n" + currentHealth.ToString() + " HP";
+            Debug.Log("hdjbflkejhfe");
             if (GameManager.Instance.baseDamage)
             {
                 if (!damage_on)
@@ -29,6 +32,7 @@ public class Base : Entity
                     damage_on = true;
                     StartCoroutine(HealthFlash(baseHealthText));
                 }
+                /*
                 if (GameManager.Instance.baseFlashCount % 2 == 0)
                 {
                     baseHealthText.color = Color.red;
@@ -43,7 +47,7 @@ public class Base : Entity
                     baseHealthText.color = Color.white;
                     GameManager.Instance.baseFlashCount = 0;
                     GameManager.Instance.baseDamage = false;
-                }
+                }*/
             }
         }
         
@@ -56,16 +60,20 @@ public class Base : Entity
         for (int i = 0; i < 5; i++)
         {
             health.GetComponent<RectTransform>().localScale = health_big;
+            baseHealthText.color = Color.red;
             yield return new WaitForSeconds(0.25f);
             health.GetComponent<RectTransform>().localScale = health_orig;
+            baseHealthText.color = Color.white;
             yield return new WaitForSeconds(0.25f);
         }
         damage_on = false;
+        GameManager.Instance.baseDamage = false;
     }
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker, dmg);
+        Debug.Log("Base Damaged");
         GameManager.Instance.baseDamage = true;
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.baseDamage, transform.position);
         

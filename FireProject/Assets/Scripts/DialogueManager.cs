@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
     //private TextMeshProUGUI promptText;
     public GameObject wave;
     public TextMeshProUGUI waveText;
+    public TextMeshProUGUI baseHealthText;
 
 
 
@@ -153,7 +154,7 @@ public class DialogueManager : MonoBehaviour
         if (sentence.Contains("BloodRush"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
-            StartCoroutine(WaveManager.Instance.BarFlash(WaveManager.Instance.bloodrushBar));
+            StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f));
             //Debug.Log("bloodrush bar activated");
         }
 
@@ -161,6 +162,10 @@ public class DialogueManager : MonoBehaviour
         {
             //Debug.Log("correct line");
             WaveManager.Instance.triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
+        }
+
+        if (sentence.Contains("watch its health carefully")){
+            StartCoroutine(baseHealthText.GetComponent<UIElement>().SizeFlash(1.2f));
         }
 
         string[] rumblingSentences = {
