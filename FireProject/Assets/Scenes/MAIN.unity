@@ -9280,7 +9280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 0
+  debugGameStage: 4
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -32062,6 +32062,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 734056531}
   health: 0
+  deathThreshold: 0
   body: {fileID: 734056532}
   text: {fileID: 0}
   passiveFireSources: {fileID: 810102346}
@@ -61528,6 +61529,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 1497971953}
   health: 0
+  deathThreshold: 0
   baseHealthText: {fileID: 0}
 --- !u!65 &1497971953
 BoxCollider:
@@ -87134,6 +87136,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 7095554248486665563}
   health: 100
+  deathThreshold: 0
   characterController: {fileID: 7095554248486665563}
   speed: 16
   sprintspeed: 20

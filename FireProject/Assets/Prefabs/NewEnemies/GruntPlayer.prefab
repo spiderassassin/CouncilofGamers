@@ -113,6 +113,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 2651559876208772468}
   health: 100
+  deathThreshold: 1
   body: {fileID: 2651559876208772471}
   text: {fileID: 3313630595976187514}
   passiveFireSources: {fileID: 7173092607548225344}
@@ -130,8 +131,8 @@ MonoBehaviour:
     type: 1
     fireCounter: 0
     passIFrames: 0
+    spreadDamage: 0
   speed: 12
-  maxHealth: 0
   healthbar: {fileID: 5329166796899364831}
   attackRange: 4
   stickWithTank: 0

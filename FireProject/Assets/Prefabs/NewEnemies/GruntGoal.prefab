@@ -125,6 +125,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 37018340930786910}
   health: 150
+  deathThreshold: 2
   body: {fileID: 37018340930786909}
   text: {fileID: 699141154222251344}
   passiveFireSources: {fileID: 5171339551207367786}
@@ -142,8 +143,8 @@ MonoBehaviour:
     type: 1
     fireCounter: 0
     passIFrames: 0
+    spreadDamage: 0
   speed: 8
-  maxHealth: 0
   healthbar: {fileID: 7906835110228327669}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   projectileAttackCooldown: 10

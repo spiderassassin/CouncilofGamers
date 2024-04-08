@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave:
-    countMultiplier: 1
-    healthMultiplier: 1
+    countMultiplier: 2
+    healthMultiplier: 0.5
     chunks:
     - note: 1[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
