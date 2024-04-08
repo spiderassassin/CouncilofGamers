@@ -50,7 +50,7 @@ public abstract class Enemy : FlammableEntity
 
     public void Restart(float healthMultiply)
     {
-        baseHealth *= healthMultiply;
+        health *= healthMultiply;
         Start();
     }
     protected override void Start()
@@ -63,12 +63,12 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
 
         currentTarget = player;
-        healthbar.fillAmount = Health / baseHealth;
+        healthbar.fillAmount = Health / health;
     }
 
     protected override void Update()
     {
-        healthbar.fillAmount = Health / baseHealth;
+        healthbar.fillAmount = Health / health;
         base.Update();
         // Scale speed based on adrenaline.
         agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);

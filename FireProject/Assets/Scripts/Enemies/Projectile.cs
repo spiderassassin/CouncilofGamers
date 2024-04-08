@@ -37,7 +37,7 @@ public class Projectile :FlammableEntity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         // base.OnDamaged(attacker, dmg);
-        currentHealth = Mathf.Clamp(currentHealth - dmg.damage,0,baseHealth);
+        currentHealth = Mathf.Clamp(currentHealth - dmg.damage,0,health);
 
         if(attacker is Controller && dmg.type== DamageType.AdditiveDamage)
         {
@@ -48,7 +48,7 @@ public class Projectile :FlammableEntity
         {
             float vy = body.velocity.y;
             Vector3 v = body.velocity;
-            v *= (currentHealth / baseHealth);
+            v *= (currentHealth / health);
             vy *= 1.7f;
             v.y = vy;
             body.velocity = v;
