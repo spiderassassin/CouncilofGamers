@@ -38,7 +38,7 @@ public class FireSource : MonoBehaviour
     public float LifeSpan { get; private set; }
 
     public List<Collider> inRange;
-    private float timer;
+    private float lastDamageTime;
 
     public bool isPunch = false;
 
@@ -62,7 +62,6 @@ public class FireSource : MonoBehaviour
         inRange = new List<Collider>();
         col = GetComponent<Collider>();
 
-        timer = tickRate;
         LifeSpan = baseLifespan;
 
         if (!isPunch) {
@@ -132,13 +131,10 @@ public class FireSource : MonoBehaviour
                 gameObject.SetActive(false);
             }
 
-            // Timer for inflicting damage at the damage rate.
-            timer += Time.deltaTime;
-            if (timer >= tickRate)
+            if (Time.timeSinceLevelLoad - lastDamageTime >= tickRate)
             {
                 DamageTick();
-
-                timer = 0;
+                lastDamageTime = Time.timeSinceLevelLoad;
             }
         }
         
