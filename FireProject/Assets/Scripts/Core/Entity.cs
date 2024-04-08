@@ -14,6 +14,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
     /// The base health. See currentHealth.
     /// </summary>
     protected float health;
+    [SerializeField] protected float deathThreshold = 0;
 
     protected float currentHealth;
    
@@ -51,7 +52,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
         currentHealth -= dmg.damage;
         //Debug.Log("current health " + currentHealth.ToString());
-        if (currentHealth < 0 && !alreadyDead)
+        if (currentHealth <= deathThreshold && !alreadyDead)
         {
             // Ensure Death() only gets called once.
             alreadyDead = true;
