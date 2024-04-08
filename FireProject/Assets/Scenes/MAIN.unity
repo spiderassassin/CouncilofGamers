@@ -9458,7 +9458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 4
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -47475,6 +47475,7 @@ GameObject:
   - component: {fileID: 1132825641}
   - component: {fileID: 1132825640}
   - component: {fileID: 1132825643}
+  - component: {fileID: 1132825644}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -47547,9 +47548,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1132825643}
-        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
-        m_MethodName: quitGame
+      - m_Target: {fileID: 1132825644}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuittoMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47609,6 +47610,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd1051b25a6d9e468e678d568056936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1132825644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132825637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deee842fb02ab2b4f91664a135075df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  inputManager: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1001 &1137286632
 PrefabInstance:
   m_ObjectHideFlags: 0
