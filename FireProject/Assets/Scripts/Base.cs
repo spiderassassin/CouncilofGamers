@@ -14,7 +14,7 @@ public class Base : Entity
     protected override void Start()
     {
         base.Start();
-        baseHealth = 1000;
+        health = 1000;
     }
 
     // Update is called once per frame

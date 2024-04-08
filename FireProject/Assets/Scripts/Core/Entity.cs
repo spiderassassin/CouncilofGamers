@@ -9,13 +9,14 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 {
     public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
+    [SerializeField]
     /// <summary>
-    /// The base health.
+    /// The base health. See currentHealth.
     /// </summary>
-    protected float baseHealth = 100;
-
+    protected float health;
 
     protected float currentHealth;
+   
     public float Health => currentHealth;
 
     public Vector3 Position => transform.position;
@@ -24,7 +25,7 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     protected virtual void Start()
     {
-        currentHealth = baseHealth;
+        currentHealth = health;
     }
 
     private void OnValidate()
