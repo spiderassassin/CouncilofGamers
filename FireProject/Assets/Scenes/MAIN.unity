@@ -9458,7 +9458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 4
+  debugGameStage: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -27407,6 +27407,7 @@ GameObject:
   - component: {fileID: 618161590}
   - component: {fileID: 618161593}
   - component: {fileID: 618161592}
+  - component: {fileID: 618161594}
   m_Layer: 5
   m_Name: Base Health
   m_TagString: Untagged
@@ -27533,6 +27534,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618161589}
   m_CullTransparentMesh: 1
+--- !u!114 &618161594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618161589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33682471f91107a4aaad3afa6c0336ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &618350679
 GameObject:
   m_ObjectHideFlags: 0
@@ -28719,6 +28732,7 @@ MonoBehaviour:
   hhhcounter: 0
   wave: {fileID: 1440135461}
   waveText: {fileID: 1440135464}
+  baseHealthText: {fileID: 618161592}
 --- !u!4 &645014638
 Transform:
   m_ObjectHideFlags: 0
@@ -61605,7 +61619,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45828
+  m_Name: pb_Mesh31318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
