@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FMOD.Studio;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -83,6 +84,24 @@ public class PauseMenu : MonoBehaviour
             //LockPlayerGameplayInput = false;
             return;
         }
+    }
+
+    public void QuittoMenu()
+    {
+        Destroy(CombatUI.Instance);
+
+        // Stop all sounds.
+        FMODEvents.Instance.StopAllSounds();
+        // Destroy all singletons.
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(WaveManager.Instance.gameObject);
+        Destroy(InputManager.Instance.gameObject);
+        Destroy(FMODEvents.Instance.gameObject);
+        Destroy(GameManager.Instance.gameObject);
+      
+        Destroy(CombatUI.Instance.gameObject);
+        Destroy(Controller.Instance.gameObject);
+        SceneManager.LoadScene(0);
     }
 
 }
