@@ -47,7 +47,9 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
+
         currentHealth -= dmg.damage;
+        //Debug.Log("current health " + currentHealth.ToString());
         if (currentHealth < 0 && !alreadyDead)
         {
             // Ensure Death() only gets called once.

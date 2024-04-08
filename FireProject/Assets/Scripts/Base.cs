@@ -14,14 +14,17 @@ public class Base : Entity
     protected override void Start()
     {
         base.Start();
+        baseHealth = 1000;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (baseHealthText != null && Health>=0)
+        Debug.Log("currentl health in base script: " + currentHealth.ToString());
+        if (/*baseHealthText != null && */currentHealth>=0)
         {
-            baseHealthText.text = "Gate Health\n" + base.Health.ToString() + " HP";
+            baseHealthText.text = "Gate Health\n" + currentHealth.ToString() + " HP";
+            Debug.Log("hdjbflkejhfe");
             if (GameManager.Instance.baseDamage)
             {
                 if (!damage_on)
@@ -70,6 +73,7 @@ public class Base : Entity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker, dmg);
+        Debug.Log("Base Damaged");
         GameManager.Instance.baseDamage = true;
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.baseDamage, transform.position);
         
