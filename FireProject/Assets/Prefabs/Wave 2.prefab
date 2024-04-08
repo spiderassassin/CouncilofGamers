@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave:
     countMultiplier: 2
-    healthMultiplier: 0.7
+    healthMultiplier: 0.5
     chunks:
     - note: 1[Explosive] from [SpawnPoint1]
       enemyType: 5
