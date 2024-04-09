@@ -20,13 +20,24 @@ public class WaveDataObject : MonoBehaviour
             }
 
             if (c.waitUntilPreviousDead) s += "then ";
-            s += (c.count*c.countMultiplier).ToString();
+            s += Mathf.RoundToInt(c.count*c.countMultiplier*wave.countMultiplier).ToString();
             s += "["+c.enemyType.ToString()+"] ";
             if (c.spawnDelay > 0)
             {
                 s += "after " + c.spawnDelay.ToString()+"s ";
             }
             s += "from [" + c.spawnPoint.ToString()+"]";
+            float hm = c.healthMultiplier * wave.healthMultiplier;
+            float dm = c.damageMultiplier * wave.damageMultiplier;
+            if (hm != 1)
+            {
+                s += " x" + hm + "HP";
+                if (dm != 1) s += " |";
+            }
+            if (dm != 1)
+            {
+                s += " x" + dm + "DMG";
+            }
             c.note = s;
         }
     }

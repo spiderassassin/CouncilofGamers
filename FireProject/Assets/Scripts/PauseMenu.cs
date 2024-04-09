@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        print("paused");
 
         //SoundManager.Instance.pause = SoundManager.Instance.CreateInstance(FMODEvents.Instance.pauseMenu);
         

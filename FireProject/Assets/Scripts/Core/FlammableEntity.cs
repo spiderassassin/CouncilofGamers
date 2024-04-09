@@ -152,7 +152,6 @@ public abstract class FlammableEntity : Entity, IFlammable
         DamageType next = (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl2 ? DamageType.FirePassive_Lvl3 : DamageType.ClearFire);
         if (next == DamageType.ClearFire)
         {
-            print("would've cleared fire from " + PassiveFireSources.CurrentState);
             return;
         }
         SetFire(next,0);

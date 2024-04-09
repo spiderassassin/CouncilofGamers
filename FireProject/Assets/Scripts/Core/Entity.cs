@@ -67,6 +67,6 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public virtual void Death()
     {
-        print("DYING " + gameObject.name);
+        //print("DYING " + gameObject.name);
     }
 }
