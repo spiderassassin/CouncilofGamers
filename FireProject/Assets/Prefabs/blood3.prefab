@@ -107,6 +107,7 @@ MonoBehaviour:
   body: {fileID: 658832108803611400}
   text: {fileID: 0}
   passiveFireSources: {fileID: 3398670611350824487}
+  isBlood: 1
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
