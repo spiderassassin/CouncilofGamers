@@ -96,7 +96,7 @@ public class Controller : Entity
         base.Start();
         Cursor.lockState = CursorLockMode.Locked;
         //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
-        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
         //run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
         
         //FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform, GetComponent<Rigidbody>());
@@ -154,7 +154,7 @@ public class Controller : Entity
                 {
                     isMoving = true;
                     //audio logic for walk sound effect
-                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
                     walk.start();
                     walk.release();
@@ -188,7 +188,7 @@ public class Controller : Entity
 
                         sprint = false;
                         run.stop(STOP_MODE.ALLOWFADEOUT);
-                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
                         FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
                         walk.start();
                         walk.release();
