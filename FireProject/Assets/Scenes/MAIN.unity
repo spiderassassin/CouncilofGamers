@@ -7810,7 +7810,7 @@ RectTransform:
   - {fileID: 1390038368}
   - {fileID: 1384490447}
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25474,7 +25474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5465535710732466084, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5465535710732466084, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalScale.x
@@ -56713,7 +56713,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dialogue Text
+  m_text: You know who probably loved to knit? That old man you shared a cell with,
+    Genderen. He was released shortly after you took this post. Free to live out
+    what's left of his little life.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 238eae7023469ce47b5c1e19430915e6, type: 2}
   m_sharedMaterial: {fileID: -9017711984695292684, guid: 238eae7023469ce47b5c1e19430915e6, type: 2}
@@ -56740,8 +56742,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -61981,7 +61983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31318
+  m_Name: pb_Mesh29796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -86833,8 +86835,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1990769398}
-  - {fileID: 188248926}
   - {fileID: 78818876}
+  - {fileID: 188248926}
   - {fileID: 1157124310}
   - {fileID: 1069255122}
   - {fileID: 1305081513}
