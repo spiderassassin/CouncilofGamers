@@ -89,9 +89,9 @@ public class InputManager : MonoBehaviour
         snapAction = playerInput.currentActionMap.FindAction("Snap");
         fireballAction = playerInput.currentActionMap.FindAction("Fireball");
 
-        sprintAction = playerInput.currentActionMap.FindAction("Sprint");
+        /*sprintAction = playerInput.currentActionMap.FindAction("Sprint");
         sprintAction.performed += SprintAction_performed;
-        sprintAction.canceled += SprintAction_canceled;
+        sprintAction.canceled += SprintAction_canceled;*/
 
         startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
         startDialogueAction.performed += StartDialogueAction_performed;
