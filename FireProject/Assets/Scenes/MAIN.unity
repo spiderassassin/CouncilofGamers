@@ -7974,7 +7974,7 @@ RectTransform:
   - {fileID: 1390038368}
   - {fileID: 1384490447}
   m_Father: {fileID: 1474664498842433657}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26294,7 +26294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5465535710732466084, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5465535710732466084, guid: 54249e340c2f2214d908896dc1129070, type: 3}
       propertyPath: m_LocalScale.x
@@ -50310,7 +50310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: 17}
+  m_AnchoredPosition: {x: -274, y: 17}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1176724991
@@ -57437,7 +57437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: -59}
+  m_AnchoredPosition: {x: 301, y: -55.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384490448
@@ -57523,7 +57523,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -5.3363495, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -57550,8 +57550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pulseSpeed: 0.1
-  minAlpha: 0
-  maxAlpha: 0
+  minAlpha: 1
+  maxAlpha: 1
   img: {fileID: 0}
 --- !u!1 &1390038365
 GameObject:
@@ -57591,7 +57591,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dialogue Text
+  m_text: You know who probably loved to knit? That old man you shared a cell with,
+    Genderen. He was released shortly after you took this post. Free to live out
+    what's left of his little life.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 238eae7023469ce47b5c1e19430915e6, type: 2}
   m_sharedMaterial: {fileID: -9017711984695292684, guid: 238eae7023469ce47b5c1e19430915e6, type: 2}
@@ -57618,8 +57620,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -57654,7 +57656,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -138.01524, y: -8.959917, z: -443.05396, w: -1.2841969}
+  m_margin: {x: -125.39252, y: -8.959917, z: -438.50812, w: -1.2841969}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -57685,7 +57687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.2, y: -21}
+  m_AnchoredPosition: {x: -148.2, y: -15}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1390071298
@@ -62859,7 +62861,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31318
+  m_Name: pb_Mesh29796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -81077,6 +81079,7 @@ MonoBehaviour:
   waveNumberText: {fileID: 1440135461}
   findGatePrompt: {fileID: 0}
   bloodrushBar: {fileID: 1962128859}
+  dialogueText: {fileID: 1390038365}
   tutorialIntroDialogue:
     dialogueOver: 0
     name: ' '
@@ -81089,9 +81092,8 @@ MonoBehaviour:
   tutorialTeachSprintDialogue:
     dialogueOver: 0
     name: 
-    sentences:
-    - To sprint, use the Shift Key.
-    playerSpeaking: 00
+    sentences: []
+    playerSpeaking: 
   tutorialTeachFireballDialogue:
     dialogueOver: 0
     name: ' '
@@ -87284,8 +87286,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1990769398}
-  - {fileID: 188248926}
   - {fileID: 78818876}
+  - {fileID: 188248926}
   - {fileID: 1157124310}
   - {fileID: 1069255122}
   - {fileID: 1305081513}
