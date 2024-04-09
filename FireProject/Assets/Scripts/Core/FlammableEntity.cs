@@ -14,6 +14,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     public Rigidbody body;
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;
+    public bool isBlood = false;
     public bool onFire = false;
     public float fireCounterRequired = 3;
     public float counterDecayTime = 2;
@@ -111,8 +112,12 @@ public abstract class FlammableEntity : Entity, IFlammable
                     SetFire(DamageType.FirePassive_Lvl2,delay);
                 else if (!attacker.Equals(this))
                     SetFire(DamageType.FirePassive_Lvl2,delay);
+                
                 SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
-                CameraShakerHandler.Shake(GameManager.Instance.fireShake);
+                if (!isBlood)
+                {
+                    CameraShakerHandler.Shake(GameManager.Instance.fireShake);
+                }
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
             }
