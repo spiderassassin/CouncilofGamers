@@ -60,6 +60,7 @@ public class WaveManager : MonoBehaviour
     public GameObject waveNumberText;
     public GameObject findGatePrompt;
     public GameObject bloodrushBar;
+    public GameObject dialogueText;
 
 
 
@@ -536,6 +537,8 @@ public class WaveManager : MonoBehaviour
                     
                     GameManager.Instance.fuel = 50f;
 
+                    dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y + 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
+
                     blockadeCrumblesBeforeWave1.SetActive(true);
                     blockadeCrumblesBeforeWave2.SetActive(true);
                     blockadeCrumblesBeforeWave3.SetActive(true);
@@ -680,7 +683,10 @@ public class WaveManager : MonoBehaviour
                     }
                     tutorialFindParoleGuardDialogueSeen = true;
                     //triggerAreaForSkullPromptDialogue.SetActive(true);
+                    dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y - 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
+
                     startTutorialDialogue();
+
                     
                 }
                 

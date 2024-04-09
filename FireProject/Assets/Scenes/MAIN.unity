@@ -49670,7 +49670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: 17}
+  m_AnchoredPosition: {x: -274, y: 17}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1176724991
@@ -56559,7 +56559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: -59}
+  m_AnchoredPosition: {x: 301, y: -55.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384490448
@@ -56645,7 +56645,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -5.3363495, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -56672,8 +56672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pulseSpeed: 0.1
-  minAlpha: 0
-  maxAlpha: 0
+  minAlpha: 1
+  maxAlpha: 1
   img: {fileID: 0}
 --- !u!1 &1390038365
 GameObject:
@@ -56776,7 +56776,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -138.01524, y: -8.959917, z: -443.05396, w: -1.2841969}
+  m_margin: {x: -125.39252, y: -8.959917, z: -438.50812, w: -1.2841969}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -56807,7 +56807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.2, y: -21}
+  m_AnchoredPosition: {x: -148.2, y: -15}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1390071298
@@ -80700,6 +80700,7 @@ MonoBehaviour:
   waveNumberText: {fileID: 1440135461}
   findGatePrompt: {fileID: 0}
   bloodrushBar: {fileID: 1962128859}
+  dialogueText: {fileID: 1390038365}
   tutorialIntroDialogue:
     dialogueOver: 0
     name: ' '
@@ -80712,9 +80713,8 @@ MonoBehaviour:
   tutorialTeachSprintDialogue:
     dialogueOver: 0
     name: 
-    sentences:
-    - To sprint, use the Shift Key.
-    playerSpeaking: 00
+    sentences: []
+    playerSpeaking: 
   tutorialTeachFireballDialogue:
     dialogueOver: 0
     name: ' '
