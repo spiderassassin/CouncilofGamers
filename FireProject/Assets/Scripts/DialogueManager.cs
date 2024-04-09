@@ -90,14 +90,16 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public IEnumerator ShowOneLetterAtATime(string sentence)
+    public IEnumerator ShowOneWordAtATime(string sentence)
     {
         //dialogueText.text = sentence;
-        dialogueText.text = "";
-        for (int i = 0; i < sentence.Length; i++)
+        
+        string[] words = sentence.Split(' ');
+        dialogueText.text = words[0];
+        for (int i = 1; i < words.Length; i++)
         {
-            dialogueText.text += sentence[i];
-            yield return new WaitForSeconds(0.001f);
+            dialogueText.text += " "+words[i];
+            yield return new WaitForSeconds(0.05f);
         }
         SoundManager.Instance.hhhh.setParameterByName("isTalking", 1);
 
@@ -227,7 +229,7 @@ public class DialogueManager : MonoBehaviour
         }
         GameManager.Instance.nextSentenceReady = false;
 
-        StartCoroutine(ShowOneLetterAtATime(sentence));
+        StartCoroutine(ShowOneWordAtATime(sentence));
         
     }
 
