@@ -33,12 +33,6 @@ public class PassiveFireSources : MonoBehaviour
 
         cam = Camera.main;
     }
-    private void DisableAll()
-    {
-        passiveLevel1.SetActive(false);
-        passiveLevel2.SetActive(false);
-        passiveLevel3.SetActive(false);
-    }
 
     private void Update()
     {
@@ -68,7 +62,6 @@ public class PassiveFireSources : MonoBehaviour
         if (type == CurrentState) return;
         if (!Utilities.IsFireType(type)) return;
         GameManager.Instance.StartCoroutine(DelayedSwitch(type,type== DamageType.FirePassive_Lvl2?delay:0));
-        CurrentState = type;
     }
     private IEnumerator DelayedSwitch(DamageType type,float wait)
     {
@@ -82,23 +75,30 @@ public class PassiveFireSources : MonoBehaviour
 
         if (type == DamageType.ClearFire)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel2.SetActive(false);
+            passiveLevel3.SetActive(false);
         }
         else if (type == DamageType.FirePassive_Lvl1)
         {
-            DisableAll();
+            passiveLevel2.SetActive(false);
+            passiveLevel3.SetActive(false);
             passiveLevel1.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl2)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel3.SetActive(false); 
             passiveLevel2.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl3)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel2.SetActive(false);
             passiveLevel3.SetActive(true);
         }
+
+        CurrentState = type;
     }
 
     public void Rescale(float t)

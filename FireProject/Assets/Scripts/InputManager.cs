@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
     public bool toggleSprint = false;
+    public bool allowSprint = false;
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -88,9 +89,9 @@ public class InputManager : MonoBehaviour
         snapAction = playerInput.currentActionMap.FindAction("Snap");
         fireballAction = playerInput.currentActionMap.FindAction("Fireball");
 
-        sprintAction = playerInput.currentActionMap.FindAction("Sprint");
+        /*sprintAction = playerInput.currentActionMap.FindAction("Sprint");
         sprintAction.performed += SprintAction_performed;
-        sprintAction.canceled += SprintAction_canceled;
+        sprintAction.canceled += SprintAction_canceled;*/
 
         startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
         startDialogueAction.performed += StartDialogueAction_performed;

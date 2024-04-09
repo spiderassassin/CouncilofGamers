@@ -6,15 +6,20 @@ using TMPro;
 
 public class ScreenText : MonoBehaviour
 {
-    private int textIndex = 0;
+    public int textIndex = 0;
     private bool waitingForInput = false;
     private int fadeDelay = 2;
     public TextMeshProUGUI[] mainText;
     public TextMeshProUGUI continueText;
 
-    // Start is called before the first frame update
+    
+    private void Awake()
+    {
+        textIndex = 0;
+    }
     void Start()
     {
+        
         // Set the alpha of all the main text to 0.
         foreach (TextMeshProUGUI text in mainText) {
             text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
@@ -49,6 +54,8 @@ public class ScreenText : MonoBehaviour
 
     IEnumerator FadeIn(TextMeshProUGUI text) {
         // Set the alpha to 0.
+        print("fade in");
+        print(text.color.a);
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         // Loop until the alpha is 1.
         while (text.color.a < 1.0f) {
@@ -56,6 +63,7 @@ public class ScreenText : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + 0.01f);
             // Wait for 0.01 seconds.
             yield return new WaitForSeconds(0.01f);
+            print(text.color.a);
         }
     }
 
@@ -71,10 +79,12 @@ public class ScreenText : MonoBehaviour
 
     IEnumerator WaitAndLoadText(int index) {
         // Fade out the current text segment, if it exists.
+        print(index);
         if (index > 0) {
             StartCoroutine(FadeOut(mainText[index - 1]));
             ToggleContinueText(false);
             // Delay for a little...
+
             yield return new WaitForSeconds(fadeDelay);
         }
         // ...then load the next text segment.

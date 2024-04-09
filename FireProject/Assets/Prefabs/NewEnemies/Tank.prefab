@@ -283,6 +283,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 8745785091267799905}
   health: 750
+  deathThreshold: 5
   body: {fileID: 8745785091267799906}
   text: {fileID: 8101729322448986223}
   passiveFireSources: {fileID: 4474483616337008981}

@@ -14,6 +14,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     public Rigidbody body;
     public TextMeshPro text;
     public PassiveFireSources passiveFireSources;
+    public bool isBlood = false;
     public bool onFire = false;
     public float fireCounterRequired = 3;
     public float counterDecayTime = 2;
@@ -79,7 +80,7 @@ public abstract class FlammableEntity : Entity, IFlammable
         PassiveFireSources.Switch(type,delay);
         if(type != DamageType.ClearFire)
         {
-                onFire = true;
+            onFire = true;
         }
         else
         {
@@ -100,7 +101,8 @@ public abstract class FlammableEntity : Entity, IFlammable
         // Level one is now the transitionary state between not being on fire and being on fire.
         if (dmg.type == DamageType.FirePassive_Lvl1)
         {
-            SetFireCounter(currentFireCounter+dmg.fireCounter);
+            if(dmg.fireCounter>0)
+                SetFireCounter(currentFireCounter+dmg.fireCounter);
             lastIncrementTime = Time.timeSinceLevelLoad;
 
             if (currentFireCounter >= fireCounterRequired&& PassiveFireSources.CurrentState < DamageType.FirePassive_Lvl2)
@@ -110,8 +112,12 @@ public abstract class FlammableEntity : Entity, IFlammable
                     SetFire(DamageType.FirePassive_Lvl2,delay);
                 else if (!attacker.Equals(this))
                     SetFire(DamageType.FirePassive_Lvl2,delay);
+                
                 SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
-                CameraShakerHandler.Shake(GameManager.Instance.fireShake);
+                if (!isBlood)
+                {
+                    CameraShakerHandler.Shake(GameManager.Instance.fireShake);
+                }
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
             }
@@ -144,7 +150,11 @@ public abstract class FlammableEntity : Entity, IFlammable
     public void StepUpFire()
     {
         DamageType next = (PassiveFireSources.CurrentState == DamageType.FirePassive_Lvl2 ? DamageType.FirePassive_Lvl3 : DamageType.ClearFire);
-        if (next == DamageType.ClearFire) return;
+        if (next == DamageType.ClearFire)
+        {
+            print("would've cleared fire from " + PassiveFireSources.CurrentState);
+            return;
+        }
         SetFire(next,0);
     }
 }

@@ -42,15 +42,17 @@ public abstract class Enemy : FlammableEntity
     protected Transform currentTarget;
 
     protected float currentBaseSpeed;
+    float damageMultiplier = 1;
 
     public Image healthbar;
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
     }
 
-    public void Restart(float healthMultiply)
+    public void Restart(float healthMultiply,float damageMultiplier)
     {
         health *= healthMultiply;
+        this.damageMultiplier = damageMultiplier;
         Start();
     }
     protected override void Start()
@@ -149,13 +151,17 @@ public abstract class Enemy : FlammableEntity
 
     public override void Attack() {
         base.Attack();
+
+        DamageInformation d = attackDamage;
+        d.damage *= damageMultiplier;
+
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
         foreach (Collider hit in hitColliders) {
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, attackDamage);
+                damageable.OnDamaged(this, d);
             }
         }
     }
