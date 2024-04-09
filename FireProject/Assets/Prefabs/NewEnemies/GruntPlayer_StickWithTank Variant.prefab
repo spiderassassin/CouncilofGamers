@@ -23,6 +23,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GruntPlayer_StickWithTank Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2651559876208772469, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651559876208772469, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2651559876208772475, guid: c9b00414700a9b742be34a1a3fbd5183, type: 3}
       propertyPath: m_RootOrder
       value: 0

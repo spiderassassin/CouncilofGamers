@@ -179,6 +179,11 @@ public class FireSource : MonoBehaviour
                 }
             }
             if (maximumTargets!=-1 && i <= 0) break;
+            IFlammable f = FireManager.manager.GetIFlammable(c);
+            if (f != null && f != self)
+            {
+                --i;
+            }
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
@@ -186,11 +191,6 @@ public class FireSource : MonoBehaviour
                 {
                     GameManager.Instance.UpdateFuel(false, false, true);
                 }
-            }
-            IFlammable f = FireManager.manager.GetIFlammable(c);
-            if (f != null && f != self)
-            {
-                --i;
             }
         }
 

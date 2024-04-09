@@ -42,7 +42,7 @@ public abstract class Enemy : FlammableEntity
     protected Transform currentTarget;
 
     protected float currentBaseSpeed;
-    float damageMultiplier = 1;
+    protected float damageMultiplier = 1;
 
     public Image healthbar;
     public IEnumerator sleep(int seconds) {

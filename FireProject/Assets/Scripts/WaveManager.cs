@@ -25,6 +25,7 @@ public class WaveManager : MonoBehaviour
     public Tank tank;
     public Explosive explosive;
     public GruntPlayer gruntPlayerTutorial;
+    public Enemy explosiveSafer;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave tutorialFireballWave;
@@ -329,9 +330,12 @@ public class WaveManager : MonoBehaviour
     {
         Debug.Log("spawning");
         isSpawning = true;
-
+        int currentChunk;
         for (int i = 0; i < wave.chunks.Count; i++)
         {
+            print("Spawning Chunk: " + i);
+            if (wave.chunks[i].enemyType == Wave.EnemyType.None) print("Break " + wave.chunks[i].spawnDelay+"s");
+            currentChunk = i;
             if(wave.chunks[i].spawnDelay>0) yield return new WaitForSeconds(wave.chunks[i].spawnDelay);
             float t = 0; // time in chunk
             while (true)
@@ -349,7 +353,7 @@ public class WaveManager : MonoBehaviour
             }
 
             Enemy e = null;
-            for(int j = 0; j < wave.chunks[i].count*wave.chunks[i].countMultiplier*wave.countMultiplier; ++j)
+            for(int j = 0; j < Mathf.RoundToInt(wave.chunks[i].count*wave.chunks[i].countMultiplier*wave.countMultiplier); ++j)
             {
                 switch (wave.chunks[i].enemyType)
                 {
@@ -371,6 +375,9 @@ public class WaveManager : MonoBehaviour
                         break;
                     case Wave.EnemyType.Explosive:
                         e = explosive;
+                        break;
+                    case Wave.EnemyType.ExplosiveSafer:
+                        e = explosiveSafer;
                         break;
                     case Wave.EnemyType.GruntPlayerTutorial:
                         e = gruntPlayerTutorial;
