@@ -277,7 +277,7 @@ public class WaveManager : MonoBehaviour
             bloodrushBar.SetActive(true);
             if (livingEnemies.Count == 0)
             {
-                if(!GameManager.Instance.gameOver)
+                //if(!GameManager.Instance.gameOver)
                 StartCoroutine(endwave());
                 
                 //Debug.Log(GameManager.Instance.gameStage);
