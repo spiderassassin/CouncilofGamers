@@ -119,7 +119,7 @@ public class DialogueManager : MonoBehaviour
         }
         sentence = sentences.Dequeue();
         print(sentence);
-        if(sentence == "At this point, I wish I had gotten Genderen sent down here instead of you. He would've died easily.")
+        if(sentence == "I'll watch you die. I'll savour every moment while you're torn apart. And I'll bring your skull back to Hell myself.")
         {
             SoundManager.Instance.betrayal.start();
             NPCSprite.GetComponent<paroleAnimations>().betray();
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        if (sentence == "…Well on the plus side, I also sold fireworks.")
+        if (sentence == "… Well on the plus side, I also sold fireworks.")
         {
 
             NPCSprite.GetComponent<paroleAnimations>().notinquisitive();
@@ -153,7 +153,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        if (sentence.Contains("BloodRush"))
+        if (sentence.Contains("Bloodrush"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
             StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f));
@@ -172,7 +172,7 @@ public class DialogueManager : MonoBehaviour
 
         string[] rumblingSentences = {
             "Nevermind, time's up. I feel the next wave approaching.",
-            "I hope you don't run out of fire.",
+            "In a pinch you might be able to salvage some extra demon blood in the skulls lying around the place. Just smash'em for more fuel.",
             "I'll watch you die. I'll savour every moment while you're torn apart. And I'll bring your skull back to Hell myself.",
         };
 
