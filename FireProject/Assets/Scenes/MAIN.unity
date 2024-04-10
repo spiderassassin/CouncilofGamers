@@ -61878,7 +61878,7 @@ MonoBehaviour:
       Care to share?
     - Nevermind, time's up. I feel the next wave approaching.
     - And did you hear that? One of the walls has finally given out, which means
-      demons might be coming from a new direction.
+      demons might be coming from a new direction. Watch out.
     playerSpeaking: 000100000100000100000000000000000000
   downtime2Dialogue:
     dialogueOver: 0
