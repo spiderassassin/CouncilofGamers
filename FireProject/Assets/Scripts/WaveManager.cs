@@ -277,6 +277,7 @@ public class WaveManager : MonoBehaviour
             bloodrushBar.SetActive(true);
             if (livingEnemies.Count == 0)
             {
+                if(!GameManager.Instance.gameOver)
                 StartCoroutine(endwave());
                 
                 //Debug.Log(GameManager.Instance.gameStage);
@@ -287,7 +288,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator endwave()
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         wavemode = false;
         waveNumberText.SetActive(false);
         triggerAreaForParoleDialogue.SetActive(true);

@@ -471,6 +471,7 @@ public class Controller : Entity
     }
     public IEnumerator Die(bool playerDeath = true)
     {
+        GameManager.Instance.gameOver = true;
         if (playerDeath)
         {
             
@@ -480,7 +481,7 @@ public class Controller : Entity
                 isFiring = false;
                 Fire(false);
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
         }
 
         Debug.Log("Game Over");
@@ -507,9 +508,11 @@ public class Controller : Entity
             // Reset fuel amount;
             GameManager.Instance.fuel = 100;
             // Restart from the beginning of the current stage.
+            GameManager.Instance.gameOver = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
             // Indicate that the player has died during the credits.
+            GameManager.Instance.gameOver = false;
             GameManager.Instance.gameEndDeath = true;
         }
     }
