@@ -278,17 +278,17 @@ public class WaveManager : MonoBehaviour
             if (livingEnemies.Count == 0)
             {
                 //if(!GameManager.Instance.gameOver)
-                StartCoroutine(endwave());
+                endwave();
                 
                 //Debug.Log(GameManager.Instance.gameStage);
             }
         }
     }
 
-    IEnumerator endwave()
+    void endwave()
     {
 
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(0f);
         wavemode = false;
         waveNumberText.SetActive(false);
         triggerAreaForParoleDialogue.SetActive(true);

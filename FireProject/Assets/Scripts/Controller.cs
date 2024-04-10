@@ -471,6 +471,8 @@ public class Controller : Entity
     }
     public IEnumerator Die(bool playerDeath = true)
     {
+
+        //GameManager.Instance.gameOver = true;
         
         if (playerDeath)
         {
