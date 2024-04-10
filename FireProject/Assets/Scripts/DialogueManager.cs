@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using FMODUnity;
 using FMOD.Studio;
+using FirstGearGames.SmoothCameraShaker;
 
 
 public class DialogueManager : MonoBehaviour
@@ -34,8 +36,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject player;
     public int hhhcounter;
 
-    public GameObject prompt;
-    private TextMeshProUGUI promptText;
+    //public GameObject prompt;
+    //private TextMeshProUGUI promptText;
+    public GameObject wave;
+    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI baseHealthText;
+
 
 
     // Start is called before the first frame update
@@ -43,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         playerSpeaking = new Queue<bool>();
-        promptText = prompt.GetComponent<TextMeshProUGUI>();
+        waveText = wave.GetComponent<TextMeshProUGUI>();
     }
 
     public void StartDialogue(Dialogue dialogue, DialogueTrigger dialogueTrigger=null, bool advanceGameStage=false)
@@ -52,6 +58,13 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("current dialogue: " + currentDialogue + " " + currentDialogue.name);
         currentDialogue.dialogueOver = false;
         currentDialogueTrigger = dialogueTrigger;
+        if (currentDialogueTrigger != null)
+        {
+            currentDialogueTrigger.canStartDialogue = false;
+            currentDialogueTrigger.conversationStartPrompt.SetActive(false);
+            Debug.Log("setting prompt to false");
+        }
+        
         nameText.text = dialogue.name;
         animator.SetBool("isOpen", true);
         actionPromptsHUD.SetActive(false);
@@ -77,14 +90,16 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public IEnumerator ShowOneLetterAtATime(string sentence)
+    public IEnumerator ShowOneWordAtATime(string sentence)
     {
         //dialogueText.text = sentence;
-        dialogueText.text = "";
-        for (int i = 0; i < sentence.Length; i++)
+        
+        string[] words = sentence.Split(' ');
+        dialogueText.text = words[0];
+        for (int i = 1; i < words.Length; i++)
         {
-            dialogueText.text += sentence[i];
-            yield return new WaitForSeconds(0.001f);
+            dialogueText.text += " "+words[i];
+            yield return new WaitForSeconds(0.05f);
         }
         SoundManager.Instance.hhhh.setParameterByName("isTalking", 1);
 
@@ -141,15 +156,30 @@ public class DialogueManager : MonoBehaviour
         if (sentence.Contains("BloodRush"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
+            StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f));
             //Debug.Log("bloodrush bar activated");
         }
-        
 
+        if (sentence.Contains("Over here, near the exit"))
+        {
+            //Debug.Log("correct line");
+            WaveManager.Instance.triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
+        }
 
+        if (sentence.Contains("watch its health carefully")){
+            StartCoroutine(baseHealthText.GetComponent<UIElement>().SizeFlash(1.2f));
+        }
 
+        string[] rumblingSentences = {
+            "Nevermind, time's up. I feel the next wave approaching.",
+            "I hope you don't run out of fire.",
+            "I'll watch you die. I'll savour every moment while you're torn apart. And I'll bring your skull back to Hell myself.",
+        };
 
-
-
+        if (rumblingSentences.Contains(sentence)) {
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.rumbling, NPCSprite.transform.position);
+            CameraShakerHandler.Shake(GameManager.Instance.rumblingShake);
+       }
 
 
         bool speakingBool = playerSpeaking.Dequeue();
@@ -199,7 +229,7 @@ public class DialogueManager : MonoBehaviour
         }
         GameManager.Instance.nextSentenceReady = false;
 
-        StartCoroutine(ShowOneLetterAtATime(sentence));
+        StartCoroutine(ShowOneWordAtATime(sentence));
         
     }
 
@@ -222,8 +252,8 @@ public class DialogueManager : MonoBehaviour
         if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
         {
             // Show prompt telling player to follow the voice.
-            prompt.SetActive(true);
-            promptText.text = "Find the source of the strange voice";
+            wave.SetActive(true);
+            waveText.text = "Find the source of the strange voice";
         }
 
         if (GameManager.Instance.gameStage == GameManager.GameStage.Ending)

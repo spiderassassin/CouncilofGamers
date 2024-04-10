@@ -38,12 +38,12 @@ public class FireSource : MonoBehaviour
     public float LifeSpan { get; private set; }
 
     public List<Collider> inRange;
-    private float timer;
+    private float lastDamageTime;
 
     public bool isPunch = false;
 
     Collider col;
-    Collider[] colliders = new Collider[10];
+    Collider[] colliders = new Collider[100];
     RaycastHit hit;
 
     public void Initialize(IAttacker a, IFlammable d)
@@ -62,7 +62,6 @@ public class FireSource : MonoBehaviour
         inRange = new List<Collider>();
         col = GetComponent<Collider>();
 
-        timer = tickRate;
         LifeSpan = baseLifespan;
 
         if (!isPunch) {
@@ -76,13 +75,18 @@ public class FireSource : MonoBehaviour
     }
     protected virtual void OnDisable()
     {
+        return;
         if(self != null)
-            self.SetFire(DamageType.ClearFire);
+        {
+            self.SetFire(DamageType.ClearFire, 0);
+        }
     }
     public void SetActive(bool active)
     {
-        if(gameObject.activeInHierarchy!=active)
+        if (gameObject.activeInHierarchy != active)
+        {
             gameObject.SetActive(active);
+        }
     }
 
     protected virtual bool TriggerValid(Collider other)
@@ -123,16 +127,14 @@ public class FireSource : MonoBehaviour
             LifeSpan -= Time.deltaTime;
             if (LifeSpan <= 0f)
             {
+                self.SetFire(DamageType.ClearFire, 0);
                 gameObject.SetActive(false);
             }
 
-            // Timer for inflicting damage at the damage rate.
-            timer += Time.deltaTime;
-            if (timer >= tickRate)
+            if (Time.timeSinceLevelLoad - lastDamageTime >= tickRate)
             {
                 DamageTick();
-
-                timer = 0;
+                lastDamageTime = Time.timeSinceLevelLoad;
             }
         }
         
@@ -152,7 +154,7 @@ public class FireSource : MonoBehaviour
     {
 
         DamageInformation d = activeDamage;
-        d.damage *= DamageMultiplier;
+        // d.damage *= DamageMultiplier; // don't do this
 
         // inefficient patch for null references
         for(int a = inRange.Count-1; a >= 0; --a)
@@ -177,6 +179,11 @@ public class FireSource : MonoBehaviour
                 }
             }
             if (maximumTargets!=-1 && i <= 0) break;
+            IFlammable f = FireManager.manager.GetIFlammable(c);
+            if (f != null && f != self)
+            {
+                --i;
+            }
             if (Random.Range(0f, 1f) <= (overrideProbability == -1 ? activeDamageProbability : overrideProbability))
             {
                 FireManager.manager.FireDamageOnCollider(source, c, d);
@@ -185,7 +192,6 @@ public class FireSource : MonoBehaviour
                     GameManager.Instance.UpdateFuel(false, false, true);
                 }
             }
-            --i;
         }
 
         

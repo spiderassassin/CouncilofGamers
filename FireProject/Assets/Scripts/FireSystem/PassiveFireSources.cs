@@ -15,24 +15,23 @@ public class PassiveFireSources : MonoBehaviour
     public Vector3 litScale = Vector3.one;
     public Vector3 overdriveAddition = Vector3.one;
     public BasicSpritePlayer splayer;
+    public bool forceFacePlayer = false;
 
-    public DamageType CurrentState { get; private set; }
+    public DamageType CurrentState;
 
     private float targetT;
     private float currentT;
     private float overdrive;
+
+    Camera cam;
 
     public void Initialize(IAttacker attacker, IFlammable damagable)
     {
         passiveLevel1.Initialize(attacker, damagable);
         passiveLevel2.Initialize(attacker, damagable);
         passiveLevel3.Initialize(attacker, damagable);
-    }
-    private void DisableAll()
-    {
-        passiveLevel1.SetActive(false);
-        passiveLevel2.SetActive(false);
-        passiveLevel3.SetActive(false);
+
+        cam = Camera.main;
     }
 
     private void Update()
@@ -46,35 +45,59 @@ public class PassiveFireSources : MonoBehaviour
         Vector3 overdriveContribution = Vector3.Lerp(Vector3.zero, overdriveAddition, overdrive);
 
         rescaleTransform.localScale = Vector3.LerpUnclamped(unlitScale, litScale, currentT) +overdriveContribution;
+
+        if (forceFacePlayer)
+        {
+            transform.LookAt(cam.transform);
+            transform.Rotate(0, 180, 0);
+        }
     }
 
     /// <summary>
     /// Switch to the input damage type.
     /// </summary>
     /// <param name="type">None means to deactivate everything, otherwise specify the type.</param>
-    public void Switch(DamageType type)
+    public void Switch(DamageType type,float delay)
     {
+        if (type == CurrentState) return;
         if (!Utilities.IsFireType(type)) return;
+        GameManager.Instance.StartCoroutine(DelayedSwitch(type,type== DamageType.FirePassive_Lvl2?delay:0));
+    }
+    private IEnumerator DelayedSwitch(DamageType type,float wait)
+    {
+        if(wait>0)
+            yield return new WaitForSeconds(wait);
 
-        if(type== DamageType.ClearFire)
+        if(!passiveLevel1)
         {
-            DisableAll();
+            yield break;
         }
-        else if(type== DamageType.FirePassive_Lvl1)
+
+        if (type == DamageType.ClearFire)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel2.SetActive(false);
+            passiveLevel3.SetActive(false);
+        }
+        else if (type == DamageType.FirePassive_Lvl1)
+        {
+            passiveLevel2.SetActive(false);
+            passiveLevel3.SetActive(false);
             passiveLevel1.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl2)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel3.SetActive(false); 
             passiveLevel2.SetActive(true);
         }
         else if (type == DamageType.FirePassive_Lvl3)
         {
-            DisableAll();
+            passiveLevel1.SetActive(false);
+            passiveLevel2.SetActive(false);
             passiveLevel3.SetActive(true);
         }
+
         CurrentState = type;
     }
 

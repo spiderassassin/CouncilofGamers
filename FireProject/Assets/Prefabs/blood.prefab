@@ -4820,7 +4820,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 76f3c2b37139444c6bafc63a89e43c25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4883,4 +4883,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f3f3ef2031e42c1a361c6199615abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BloodDecal: {fileID: 100000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
+  BloodDecal: {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}

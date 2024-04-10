@@ -125,6 +125,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 37018340930786910}
   health: 150
+  deathThreshold: 2
   body: {fileID: 37018340930786909}
   text: {fileID: 699141154222251344}
   passiveFireSources: {fileID: 5171339551207367786}
@@ -135,14 +136,15 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1864330007992911458}
   Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
+  bloodpivot: {fileID: 5598253909727160878}
   attackDamage:
     damage: 10
     pushBack: 1
     type: 1
     fireCounter: 0
     passIFrames: 0
+    spreadDamage: 0
   speed: 8
-  maxHealth: 0
   healthbar: {fileID: 7906835110228327669}
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   projectileAttackCooldown: 10
@@ -185,6 +187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5598253909727160878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6304443683690199781, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 1931231039145218251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7906835110228327669 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8608530383485234238, guid: d20c058a8cd53c74385f156bf8181420, type: 3}

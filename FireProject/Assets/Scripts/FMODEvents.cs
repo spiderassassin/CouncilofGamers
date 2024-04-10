@@ -28,14 +28,17 @@ public class FMODEvents : MonoBehaviour
     public EventReference hhhh;
     public EventReference firespread;
     public EventReference explosionscream;
+    public EventReference rumbling;
 
     //music
+    public EventReference mainMenu;
     public EventReference wave0;
     public EventReference wave1;
     public EventReference wave2;
     public EventReference wave3;
     public EventReference downtime1;
     public EventReference downtime2;
+    public EventReference credits;
     public EventReference betrayal;
 
     public EventReference pauseMenu;

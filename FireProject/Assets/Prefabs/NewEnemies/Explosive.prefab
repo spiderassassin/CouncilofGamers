@@ -125,6 +125,7 @@ MonoBehaviour:
   colliders:
   - {fileID: 2651559876208772468}
   health: 50
+  deathThreshold: 1
   body: {fileID: 2651559876208772471}
   text: {fileID: 3313630595976187514}
   passiveFireSources: {fileID: 7173092607548225344}
@@ -135,18 +136,20 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
   Blood: {fileID: 93584521762714590, guid: e71ca1476da77443d8151f01c5048020, type: 3}
+  bloodpivot: {fileID: 7637900534774135044}
   attackDamage:
     damage: 50
     pushBack: 8
     type: 1
     fireCounter: 0
     passIFrames: 1
+    spreadDamage: 0
   speed: 50
-  maxHealth: 0
   healthbar: {fileID: 5329166796899364831}
   attackRange: 5
-  explosionRadius: 10
+  explosionRadius: 15
   explosionDelay: 3
+  explosionAnimationDuration: 0.6
 --- !u!136 &2651559876208772468 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1895627975973340821, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -195,3 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505a463083ef4b048ac5c36b16cf8dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7637900534774135044 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6304443683690199781, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 4504343109499700193}
+  m_PrefabAsset: {fileID: 0}

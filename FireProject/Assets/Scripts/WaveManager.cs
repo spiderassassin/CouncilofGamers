@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using FMOD.Studio;
+using System;
+using FirstGearGames.SmoothCameraShaker;
 
 
 public class WaveManager : MonoBehaviour
@@ -23,6 +25,7 @@ public class WaveManager : MonoBehaviour
     public Tank tank;
     public Explosive explosive;
     public GruntPlayer gruntPlayerTutorial;
+    public Enemy explosiveSafer;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave tutorialFireballWave;
@@ -37,6 +40,10 @@ public class WaveManager : MonoBehaviour
     public WaveDataObject wave3;
     public WaveDataObject endingWave;
 
+    public GameObject blockadeCrumblesBeforeWave1;
+    public GameObject blockadeCrumblesBeforeWave2;
+    public GameObject blockadeCrumblesBeforeWave3;
+
     public bool isSpawning;
     public List<Enemy> livingEnemies; // TODO: remove from this as enemies die.
 
@@ -45,15 +52,16 @@ public class WaveManager : MonoBehaviour
     public GameObject paroleGuardSprite;
     public GameObject triggerAreaForParoleDialogue;
     public GameObject triggerAreaForSkullPromptDialogue;
+    public GameObject triggerAreaForSprintDialogue;
+    public GameObject triggerAreaForFireballDialogue;
     public GameObject baseUI;
     public GameObject actionPrompts;
     public GameObject gatePointLight;
     public GameObject player;
-    public GameObject blockade1;
-    public GameObject blockade2;
     public GameObject waveNumberText;
     public GameObject findGatePrompt;
     public GameObject bloodrushBar;
+    public GameObject dialogueText;
 
 
 
@@ -87,6 +95,7 @@ public class WaveManager : MonoBehaviour
     private bool tutorialPunchEnemyReleasedStart;
     private bool tutorialPunchEnemyReleasedEnd;
     private bool tutorialPunchKill;
+    private bool conversationPromptFixed;
 
     private bool tutorialGPWaveDialogueOver;
 
@@ -225,7 +234,7 @@ public class WaveManager : MonoBehaviour
             switch (GameManager.Instance.gameStage)
             {
                 case GameManager.GameStage.Wave1:
-
+                    tutorialSkullPilePunched = true;
                     Color32 activeColor = new Color32(255, 255, 255, 255);
                     SnapPrompt.GetComponent<Image>().color = activeColor;
                     QPrompt.GetComponent<Image>().color = activeColor;
@@ -233,16 +242,33 @@ public class WaveManager : MonoBehaviour
                     FlameAttackPrompt.GetComponent<Image>().color = activeColor;
                     LeftClickPrompt.GetComponent<Image>().color = activeColor;
                     player.GetComponent<Controller>().flameAttackAllowed = true;
+                    //StartCoroutine(PromptFlash(LeftClickPrompt, FlameAttackPrompt));
+                    StartCoroutine(LeftClickPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
+                    StartCoroutine(FlameAttackPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
+                    //StartCoroutine(PromptFlash(QPrompt, SnapPrompt));
+                    StartCoroutine(QPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
+                    StartCoroutine(SnapPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
 
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     StartWave(wave1.wave);
                     break;
                 case GameManager.GameStage.Wave2:
-                    blockade1.SetActive(false);
+                    tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     StartWave(wave2.wave);
                     break;
                 case GameManager.GameStage.Wave3:
+                    tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(false);
                     StartWave(wave3.wave);
-                    blockade2.SetActive(false);
                     break;
             }
         }
@@ -253,6 +279,7 @@ public class WaveManager : MonoBehaviour
             {
                 wavemode = false;
                 waveNumberText.SetActive(false);
+                triggerAreaForParoleDialogue.SetActive(true);
                 print("Wave Over");
                 
                 SoundManager.Instance.WaveMusicStop();
@@ -284,7 +311,10 @@ public class WaveManager : MonoBehaviour
     }
 
     public void StartWave(Wave wave) {
+        triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
+        
+
         SoundManager.Instance.WaveMusicPlay();
         wavemode = true;
         if (isSpawning == false)
@@ -295,13 +325,18 @@ public class WaveManager : MonoBehaviour
         
     }
 
+    
+
     IEnumerator Spawn(Wave wave)
     {
         Debug.Log("spawning");
         isSpawning = true;
-
+        int currentChunk;
         for (int i = 0; i < wave.chunks.Count; i++)
         {
+            print("Spawning Chunk: " + i);
+            if (wave.chunks[i].enemyType == Wave.EnemyType.None) print("Break " + wave.chunks[i].spawnDelay+"s");
+            currentChunk = i;
             if(wave.chunks[i].spawnDelay>0) yield return new WaitForSeconds(wave.chunks[i].spawnDelay);
             float t = 0; // time in chunk
             while (true)
@@ -319,7 +354,7 @@ public class WaveManager : MonoBehaviour
             }
 
             Enemy e = null;
-            for(int j = 0; j < wave.chunks[i].count; ++j)
+            for(int j = 0; j < Mathf.RoundToInt(wave.chunks[i].count*wave.chunks[i].countMultiplier*wave.countMultiplier); ++j)
             {
                 switch (wave.chunks[i].enemyType)
                 {
@@ -342,6 +377,9 @@ public class WaveManager : MonoBehaviour
                     case Wave.EnemyType.Explosive:
                         e = explosive;
                         break;
+                    case Wave.EnemyType.ExplosiveSafer:
+                        e = explosiveSafer;
+                        break;
                     case Wave.EnemyType.GruntPlayerTutorial:
                         e = gruntPlayerTutorial;
                         e.GetComponent<GruntPlayer>().tutorialGrunt = true;
@@ -351,6 +389,7 @@ public class WaveManager : MonoBehaviour
                 }
                 GameObject enemy1 = Instantiate(e.gameObject);
                 livingEnemies.Add(enemy1.GetComponent<Enemy>());
+                enemy1.GetComponent<Enemy>().Restart(wave.chunks[i].healthMultiplier*wave.healthMultiplier,wave.chunks[i].damageMultiplier*wave.damageMultiplier);
 
                 Transform spawnPoint = null;
                 switch (wave.chunks[i].spawnPoint)
@@ -494,10 +533,22 @@ public class WaveManager : MonoBehaviour
                 //actionPrompts.SetActive(true);
                if (!tutorialExitSeen && !tutorialIntroDialogueSeen)
                 {
-                    triggerAreaForParoleDialogue.SetActive(false);
-                    triggerAreaForSkullPromptDialogue.SetActive(false);
-                    SoundManager.Instance.wave0.start();
+                    //triggerAreaForParoleDialogue.SetActive(false);
+                    //triggerAreaForSkullPromptDialogue.SetActive(false);
+                    FMOD.Studio.PLAYBACK_STATE state;
+                    SoundManager.Instance.wave0.getPlaybackState(out state);
+                    if(state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                    {
+                        SoundManager.Instance.wave0.start();
+                    }
+                    
                     GameManager.Instance.fuel = 50f;
+
+                    dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y + 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
+
+                    blockadeCrumblesBeforeWave1.SetActive(true);
+                    blockadeCrumblesBeforeWave2.SetActive(true);
+                    blockadeCrumblesBeforeWave3.SetActive(true);
                     startTutorialDialogue();
                     tutorialIntroDialogueSeen = true;
                 }
@@ -506,6 +557,7 @@ public class WaveManager : MonoBehaviour
                 if (tutorialIntroDialogueSeen)
                  {
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 1);//next stage of dynamic music
+                    
                 }
 
                if (tutorialIntroDialogue.dialogueOver && !tutorialExitSeen)
@@ -543,8 +595,13 @@ public class WaveManager : MonoBehaviour
 
                 else if (tutorialTeachFireballDialogue.dialogueOver && !tutorialFireballEnemyReleasedStart)
                 {
+                    triggerAreaForSprintDialogue.SetActive(false);
+                    triggerAreaForFireballDialogue.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 3);
                     FireballPromptHidden = false;
+                    //StartCoroutine(PromptFlash(RightClickPrompt, FireballPrompt));
+                    StartCoroutine(RightClickPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
+                    StartCoroutine(FireballPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
                     StartCoroutine(Spawn(tutorialFireballWave));
                     tutorialFireballEnemyReleasedStart = true;
                 }
@@ -571,6 +628,9 @@ public class WaveManager : MonoBehaviour
                 {
                     FireballPromptHidden = true;
                     PunchPromptHidden = false;
+                    //StartCoroutine(PromptFlash(EPrompt, PunchPrompt));
+                    StartCoroutine(EPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
+                    StartCoroutine(PunchPrompt.GetComponent<UIElement>().SizeFlash(1.5f));
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 4);
                     StartCoroutine(Spawn(tutorialPunchWave));
                     tutorialPunchEnemyReleasedStart = true;
@@ -615,6 +675,7 @@ public class WaveManager : MonoBehaviour
                 Debug.Log("punching skulls stage");
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
+                    //triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
                     SoundManager.Instance.wave0.setParameterByName("wave0looping", 6);
 
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
@@ -629,13 +690,13 @@ public class WaveManager : MonoBehaviour
                     }
                     tutorialFindParoleGuardDialogueSeen = true;
                     //triggerAreaForSkullPromptDialogue.SetActive(true);
+                    dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y - 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
+
                     startTutorialDialogue();
+
                     
-                } else if (tutorialSkullPilePunched)
-                {
-                    Debug.Log("tutorialSkullPile Pucnhed");
-                    triggerAreaForParoleDialogue.SetActive(true);
                 }
+                
 
                 break;
             default:

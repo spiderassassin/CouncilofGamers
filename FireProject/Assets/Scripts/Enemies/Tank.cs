@@ -19,7 +19,7 @@ public class Tank: Enemy {
     float timeHit;
     
     protected override void Update() {
-        healthbar.fillAmount = Health / maxHealth;
+        healthbar.fillAmount = Health / health;
         // Handle the short range waiting if it's currently being used.
         if (waitingShortRange != null) {
             if (!waitingShortRange.Running) {

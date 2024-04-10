@@ -16,13 +16,11 @@ public class Projectile :FlammableEntity
 
     Vector3 last;
     bool allowHitEnemy;
-    float baseHealth;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        baseHealth = health;
         if (targetPlayer) {
             // Automatically set the destination to the player's position.
             dest = Controller.Instance.transform.position+Vector3.up*1.5f;
@@ -39,7 +37,7 @@ public class Projectile :FlammableEntity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         // base.OnDamaged(attacker, dmg);
-        health  = Mathf.Clamp(health-dmg.damage,0,baseHealth);
+        currentHealth = Mathf.Clamp(currentHealth - dmg.damage,0,health);
 
         if(attacker is Controller && dmg.type== DamageType.AdditiveDamage)
         {
@@ -50,7 +48,7 @@ public class Projectile :FlammableEntity
         {
             float vy = body.velocity.y;
             Vector3 v = body.velocity;
-            v *= (health / baseHealth);
+            v *= (currentHealth / health);
             vy *= 1.7f;
             v.y = vy;
             body.velocity = v;

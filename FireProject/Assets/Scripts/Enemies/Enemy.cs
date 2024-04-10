@@ -27,6 +27,7 @@ public abstract class Enemy : FlammableEntity
     public Transform player;
     public Animator animator;
     public GameObject Blood;
+    public Transform bloodpivot;
     
     //public AudioClip deathSound;
     public DamageInformation attackDamage;
@@ -38,19 +39,24 @@ public abstract class Enemy : FlammableEntity
     private Camera mainCamera;
     
     private Coroutine pushback;
-    public float maxHealth;
     protected Transform currentTarget;
 
     protected float currentBaseSpeed;
+    protected float damageMultiplier = 1;
 
     public Image healthbar;
     public IEnumerator sleep(int seconds) {
         yield return new WaitForSeconds(seconds);
     }
 
+    public void Restart(float healthMultiply,float damageMultiplier)
+    {
+        health *= healthMultiply;
+        this.damageMultiplier = damageMultiplier;
+        Start();
+    }
     protected override void Start()
     {
-        maxHealth = Health;
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         currentBaseSpeed = speed;
@@ -59,12 +65,12 @@ public abstract class Enemy : FlammableEntity
         mainCamera = Camera.main;
 
         currentTarget = player;
-        healthbar.fillAmount = Health / maxHealth;
+        healthbar.fillAmount = Health / health;
     }
 
     protected override void Update()
     {
-        healthbar.fillAmount = Health / maxHealth;
+        healthbar.fillAmount = Health / health;
         base.Update();
         // Scale speed based on adrenaline.
         agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);
@@ -136,7 +142,7 @@ public abstract class Enemy : FlammableEntity
     {
         base.Death();
         WaveManager.Instance.livingEnemies.Remove(this);
-        Instantiate(Blood, transform.position, Quaternion.identity);
+        Instantiate(Blood, bloodpivot.position, Quaternion.identity);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.blood, transform.position);
         //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
         
@@ -145,13 +151,17 @@ public abstract class Enemy : FlammableEntity
 
     public override void Attack() {
         base.Attack();
+
+        DamageInformation d = attackDamage;
+        d.damage *= damageMultiplier;
+
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
         foreach (Collider hit in hitColliders) {
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
             if (damageable != null && !hit.GetComponent<Enemy>()) {
-                damageable.OnDamaged(this, attackDamage);
+                damageable.OnDamaged(this, d);
             }
         }
     }

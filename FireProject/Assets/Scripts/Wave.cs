@@ -5,6 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
+
+    public float countMultiplier = 1;
+    public float healthMultiplier = 1;
+    public float damageMultiplier = 1;
     [System.Serializable]
     public class WaveChunk
     {
@@ -16,12 +20,13 @@ public class Wave
         public SpawnPoint spawnPoint;
         public int count = 1; // how many spawn together
         public bool waitUntilPreviousDead = false; // if true wait for the previous enemies to die before beginning this chunk
+
+        public float countMultiplier = 1;
+        public float healthMultiplier = 1;
+        public float damageMultiplier = 1;
     }
 
-    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive, GruntPlayerTutorial };
+    public enum EnemyType { None, GruntGoal, GruntPlayer, Tank, GruntPlayerWithTank, Explosive, GruntPlayerTutorial,ExplosiveSafer };
     public enum SpawnPoint { SpawnPoint1, SpawnPoint2, SpawnPoint3, SpawnPoint4};
     public List<WaveChunk> chunks;
-
-    public int TotalEnemies => chunks.Count;
-
 }

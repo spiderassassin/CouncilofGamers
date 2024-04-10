@@ -91,11 +91,12 @@ public class Controller : Entity
         punchSource.Initialize(this, null);
         firesource.Initialize(this, null);
     }
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         Cursor.lockState = CursorLockMode.Locked;
         //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
-        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
         //run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
         
         //FMODUnity.RuntimeManager.AttachInstanceToGameObject(flame, gameObject.transform, GetComponent<Rigidbody>());
@@ -131,14 +132,14 @@ public class Controller : Entity
 
         if (dead == false)
         {
-            if (health < 100)
+            if (currentHealth < 100)
             {
-                health += Time.deltaTime * healthIncreaseRate * (100 - health);
+                currentHealth += Time.deltaTime * healthIncreaseRate * (100 - currentHealth);
                 //health += Time.deltaTime * healthIncreaseRate * (1/Mathf.Log(health+1));
                
-                if (health > 100)
+                if (currentHealth > 100)
                 {
-                    health = 100;
+                    currentHealth = 100;
                 }
             }
 
@@ -153,7 +154,7 @@ public class Controller : Entity
                 {
                     isMoving = true;
                     //audio logic for walk sound effect
-                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                    walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
                     walk.start();
                     walk.release();
@@ -187,7 +188,7 @@ public class Controller : Entity
 
                         sprint = false;
                         run.stop(STOP_MODE.ALLOWFADEOUT);
-                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.walk);
+                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
                         FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
                         walk.start();
                         walk.release();
@@ -291,7 +292,8 @@ public class Controller : Entity
             simulateGravity();
         }
 
-        characterController.Move(additive * Time.deltaTime);
+        if(!InputManager.Instance.LockPlayerGameplayInput)
+            characterController.Move(additive * Time.deltaTime);
     }
 
     IEnumerator Punch()
@@ -522,9 +524,9 @@ public class Controller : Entity
             CombatUI.Instance.DamageOverlay();
             //SoundManager.Instance.PlaySoundOnce(playerDamage, transform);
             SoundManager.Instance.PlayOneShot(FMODEvents.Instance.playerDamage, transform.position);
-            health -= dmg.damage;
+            currentHealth -= dmg.damage;
 
-            if (health <= 0)
+            if (currentHealth <= 0)
             {
                 dead = true;
 
@@ -553,7 +555,11 @@ public class Controller : Entity
             additive += -additive.normalized*Time.deltaTime*50f;
             yield return new WaitForEndOfFrame();
 
-            if (additive.magnitude <= .1f) break;
+            if (additive.magnitude <= .1f)
+            {
+                additive = Vector3.zero;
+                break;
+            }
         }
         pushback = null;
     }

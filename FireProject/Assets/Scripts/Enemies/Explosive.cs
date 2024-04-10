@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 // Run toward the player.
 // When close to the player, set a timer.
@@ -9,7 +11,10 @@ public class Explosive: Enemy {
     public float attackRange = 5;
     public float explosionRadius = 10;
     public int explosionDelay = 3;
-    
+    public float explosionAnimationDuration;
+    EventInstance explode;
+
+
 
     protected override void Start()
     {
@@ -25,21 +30,16 @@ public class Explosive: Enemy {
             if (!waitingToExplode.Running) {
                 // Reset task (not really necessary).
                 waitingToExplode = null;
-                
-                // Boom!
-                animator.SetBool("isexploding", true);
-                print("boom");
-                StartCoroutine(waitandexplode());
 
-             
-                
+                // Once the explosion buildup is complete, kill the enemy (explosion happens on death).
+                Death();
             }
             else
             {
                 
                 // Increase scale of enemy to 2x.
                 transform.localScale = new Vector3(transform.localScale.x + Time.deltaTime * 0.5f, transform.localScale.y + Time.deltaTime * 0.5f, transform.localScale.z);
-                transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * 0.5f, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * 0.2f, transform.position.z);
                 
             }
         } else if (state == EnemyState.Moving) {
@@ -51,35 +51,43 @@ public class Explosive: Enemy {
         } else if (state == EnemyState.Attacking) {
             // Stop moving and attack.
             SetDestination(transform.position);
-            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
+            explode = SoundManager.Instance.CreateInstance(FMODEvents.Instance.explosionscream);
+            RuntimeManager.AttachInstanceToGameObject(explode, transform);
+            explode.start();
+            explode.release();
+            //SoundManager.Instance.PlayOneShot(FMODEvents.Instance.explosionscream, transform.position);
             waitingToExplode = new Task(explosionDelay);
             
         }
     }
 
     public override void Attack() {
+
+        DamageInformation d = attackDamage;
+        d.damage *= damageMultiplier;
+
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, explosionRadius);
         foreach (Collider hit in hitColliders) {
             // Deal damage if the object has class IDamageable (including enemies).
             IDamageable damageable = hit.GetComponent<IDamageable>();
-            if (damageable != null) damageable.OnDamaged(this, attackDamage);
+            if (damageable != null) damageable.OnDamaged(this, d);
         }
     }
 
-    public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
+    public override void Death()
     {
-        base.OnDamaged(attacker, dmg);
-
-        // If we're damaged, start the attack.
-        state = EnemyState.Attacking;
+        // When the enemy dies, whether it's from its own buildup or the player killed it, it should explode.
+        explode.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        animator.SetBool("isexploding", true);
+        StartCoroutine(waitandexplode());
     }
+
     IEnumerator waitandexplode()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(explosionAnimationDuration);
         Attack();
-
         // Kill the enemy.
-        Death();
+        base.Death();
     }
 }

@@ -9,12 +9,25 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 {
     public Collider[] colliders; // Assign the damageable, flammable colliders for this entity.
-    public float health = 100;
-    
+    [SerializeField]
+    /// <summary>
+    /// The base health. See currentHealth.
+    /// </summary>
+    protected float health;
+    [SerializeField] protected float deathThreshold = 0;
 
-    public float Health => health;
+    protected float currentHealth;
+   
+    public float Health => currentHealth;
 
     public Vector3 Position => transform.position;
+
+    private bool alreadyDead = false;  // Limit the number of death calls an entity can make to 1.
+
+    protected virtual void Start()
+    {
+        currentHealth = health;
+    }
 
     private void OnValidate()
     {
@@ -36,9 +49,13 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public virtual void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
-        health -= dmg.damage;
-        if (health < 0)
+
+        currentHealth -= dmg.damage;
+        //Debug.Log("current health " + currentHealth.ToString());
+        if (currentHealth <= deathThreshold && !alreadyDead)
         {
+            // Ensure Death() only gets called once.
+            alreadyDead = true;
             Death(); // might be bad if this is repeatedly called
         }
     }
@@ -50,6 +67,6 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public virtual void Death()
     {
-        print("DYING " + gameObject.name);
+        //print("DYING " + gameObject.name);
     }
 }

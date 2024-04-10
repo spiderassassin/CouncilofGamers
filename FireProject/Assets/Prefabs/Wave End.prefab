@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave:
+    countMultiplier: 1
+    healthMultiplier: 1.5
+    damageMultiplier: 1.25
     chunks:
     - note: 3[GruntPlayer] after 5s from [SpawnPoint1]
       enemyType: 2
@@ -53,6 +56,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 3
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayer] after 5s from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -60,6 +66,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 3
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayer] after 5s from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
@@ -67,6 +76,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 3
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 3[GruntPlayer] after 5s from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
@@ -74,6 +86,9 @@ MonoBehaviour:
       spawnPoint: 3
       count: 3
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 7[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -81,6 +96,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 7
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 7[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -88,6 +106,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 7
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 7[GruntPlayer] from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
@@ -95,6 +116,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 7
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 7[GruntPlayer] from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
@@ -102,6 +126,9 @@ MonoBehaviour:
       spawnPoint: 3
       count: 7
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 15[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -109,6 +136,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 15
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 15[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -116,6 +146,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 15
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 15[GruntPlayer] from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
@@ -123,6 +156,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 15
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 15[GruntPlayer] from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
@@ -130,6 +166,9 @@ MonoBehaviour:
       spawnPoint: 3
       count: 15
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 30[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -137,6 +176,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 30
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 30[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -144,6 +186,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 30
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 30[GruntPlayer] from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
@@ -151,6 +196,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 30
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 30[GruntPlayer] from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
@@ -158,6 +206,9 @@ MonoBehaviour:
       spawnPoint: 3
       count: 30
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 50[Explosive] from [SpawnPoint1]
       enemyType: 5
       maxWait: -1
@@ -165,6 +216,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 50
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 50[Explosive] from [SpawnPoint2]
       enemyType: 5
       maxWait: -1
@@ -172,6 +226,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 50
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 50[Explosive] from [SpawnPoint3]
       enemyType: 5
       maxWait: -1
@@ -179,6 +236,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 50
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 50[Explosive] from [SpawnPoint4]
       enemyType: 5
       maxWait: -1
@@ -186,6 +246,9 @@ MonoBehaviour:
       spawnPoint: 3
       count: 50
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: then 100[GruntPlayer] from [SpawnPoint1]
       enemyType: 2
       maxWait: -1
@@ -193,6 +256,9 @@ MonoBehaviour:
       spawnPoint: 0
       count: 100
       waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 100[GruntPlayer] from [SpawnPoint2]
       enemyType: 2
       maxWait: -1
@@ -200,6 +266,9 @@ MonoBehaviour:
       spawnPoint: 1
       count: 100
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 100[GruntPlayer] from [SpawnPoint3]
       enemyType: 2
       maxWait: -1
@@ -207,6 +276,9 @@ MonoBehaviour:
       spawnPoint: 2
       count: 100
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
     - note: 100[GruntPlayer] from [SpawnPoint4]
       enemyType: 2
       maxWait: -1
@@ -214,3 +286,6 @@ MonoBehaviour:
       spawnPoint: 3
       count: 100
       waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1

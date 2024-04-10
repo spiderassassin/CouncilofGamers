@@ -18,6 +18,6 @@ public class KillZone : MonoBehaviour, IAttacker
 
     private void OnTriggerEnter(Collider other)
     {
-        FireManager.manager.FireDamageOnCollider(this, other, new DamageInformation(9999999f, 0, DamageType.AdditiveDamage, 0, true));
+        FireManager.manager.FireDamageOnCollider(this, other, new DamageInformation(9999999f, 0, DamageType.AdditiveDamage, 0, true, false));
     }
 }
