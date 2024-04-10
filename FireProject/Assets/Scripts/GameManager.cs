@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     private bool isFading = false;
 
     public bool baseDamage;
+    public bool gameOver = false;
     public int baseFlashCount;
     public ShakeData firballShake;
     public ShakeData punchShake;
