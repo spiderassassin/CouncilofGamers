@@ -277,37 +277,51 @@ public class WaveManager : MonoBehaviour
             bloodrushBar.SetActive(true);
             if (livingEnemies.Count == 0)
             {
-                wavemode = false;
-                waveNumberText.SetActive(false);
-                triggerAreaForParoleDialogue.SetActive(true);
-                print("Wave Over");
+                StartCoroutine(endwave());
                 
-                SoundManager.Instance.WaveMusicStop();
-                // Don't increment the game stage if we're in the ending, so that the wave repeats if the player somehow survives.
-                if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) GameManager.Instance.gameStage++;
-                if (GameManager.Instance.gameStage == GameManager.GameStage.Ending) {
-                    paroleGuardSprite.GetComponent<paroleAnimations>().notbetray();
-                    paroleGuardSprite.GetComponent<paroleAnimations>().hide();
-                    // Turn off the music.
-                    //SoundManager.Instance.MusicStop();
-
-                    // Start the ending wave.
-                    StartWave(endingWave.wave);
-                    print("Ending Wave");
-                } else if (GameManager.Instance.gameStage == GameManager.GameStage.PreEnding) {
-                    FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
-                } else {
-                    paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
-                    SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
-                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
-                    SoundManager.Instance.hello.start();
-                    SoundManager.Instance.hello.release();
-                    startDowntimeDialogue();
-
-                }
                 //Debug.Log(GameManager.Instance.gameStage);
             }
         }
+    }
+
+    IEnumerator endwave()
+    {
+
+        yield return new WaitForSeconds(1f);
+        wavemode = false;
+        waveNumberText.SetActive(false);
+        triggerAreaForParoleDialogue.SetActive(true);
+        print("Wave Over");
+
+        SoundManager.Instance.WaveMusicStop();
+        // Don't increment the game stage if we're in the ending, so that the wave repeats if the player somehow survives.
+        if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) GameManager.Instance.gameStage++;
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Ending)
+        {
+            paroleGuardSprite.GetComponent<paroleAnimations>().notbetray();
+            paroleGuardSprite.GetComponent<paroleAnimations>().hide();
+            // Turn off the music.
+            //SoundManager.Instance.MusicStop();
+
+            // Start the ending wave.
+            StartWave(endingWave.wave);
+            print("Ending Wave");
+        }
+        else if (GameManager.Instance.gameStage == GameManager.GameStage.PreEnding)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
+        }
+        else
+        {
+            paroleGuardSprite.GetComponent<paroleAnimations>().unhide();
+            SoundManager.Instance.hello = SoundManager.Instance.CreateInstance(FMODEvents.Instance.hello);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
+            SoundManager.Instance.hello.start();
+            SoundManager.Instance.hello.release();
+            startDowntimeDialogue();
+
+        }
+
     }
 
     public void StartWave(Wave wave) {
@@ -672,7 +686,7 @@ public class WaveManager : MonoBehaviour
                 }
                 break;
             case TutorialStage.PunchSkulls:
-                Debug.Log("punching skulls stage");
+                //Debug.Log("punching skulls stage");
                 if (!tutorialFindParoleGuardDialogueSeen)
                 {
                     //triggerAreaForParoleDialogue.GetComponent<DialogueTrigger>().conversationStartPrompt.SetActive(false);
