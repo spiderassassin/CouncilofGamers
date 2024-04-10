@@ -525,7 +525,7 @@ namespace FirstGearGames.SmoothCameraShaker
         /// <returns>Instance generated using data.</returns>
         public static ShakerInstance Shake(ShakeData data)
         {
-            if (DefaultCameraShaker == null)
+            if (DefaultCameraShaker == null || _instance._shaking.Count>3)
                 return null;
 
             return DefaultCameraShaker.Shake(data);
