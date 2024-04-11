@@ -277,8 +277,7 @@ public class WaveManager : MonoBehaviour
             bloodrushBar.SetActive(true);
             if (livingEnemies.Count == 0)
             {
-                //if(!GameManager.Instance.gameOver)
-                endwave();
+                if(!GameManager.Instance.gameOver) endwave();
                 
                 //Debug.Log(GameManager.Instance.gameStage);
             }
@@ -287,8 +286,7 @@ public class WaveManager : MonoBehaviour
 
     void endwave()
     {
-
-        //yield return new WaitForSeconds(0f);
+        // yield return new WaitForSeconds(0f);
         wavemode = false;
         waveNumberText.SetActive(false);
         triggerAreaForParoleDialogue.SetActive(true);
@@ -310,7 +308,7 @@ public class WaveManager : MonoBehaviour
         }
         else if (GameManager.Instance.gameStage == GameManager.GameStage.PreEnding)
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
+            StartCoroutine(startEndingDialogue());
         }
         else
         {
@@ -323,6 +321,11 @@ public class WaveManager : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator startEndingDialogue() {
+        yield return new WaitForSeconds(2.0f);
+        FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
     }
 
     public void StartWave(Wave wave) {
