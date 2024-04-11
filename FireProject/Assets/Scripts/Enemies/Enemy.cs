@@ -28,7 +28,7 @@ public abstract class Enemy : FlammableEntity
     public Animator animator;
     public GameObject Blood;
     public Transform bloodpivot;
-    
+
     //public AudioClip deathSound;
     public DamageInformation attackDamage;
 
@@ -37,7 +37,7 @@ public abstract class Enemy : FlammableEntity
     protected EnemyState state = EnemyState.Moving;
 
     private Camera mainCamera;
-    
+
     private Coroutine pushback;
     protected Transform currentTarget;
 
@@ -45,11 +45,12 @@ public abstract class Enemy : FlammableEntity
     protected float damageMultiplier = 1;
 
     public Image healthbar;
-    public IEnumerator sleep(int seconds) {
+    public IEnumerator sleep(int seconds)
+    {
         yield return new WaitForSeconds(seconds);
     }
 
-    public void Restart(float healthMultiply,float damageMultiplier)
+    public void Restart(float healthMultiply, float damageMultiplier)
     {
         health *= healthMultiply;
         this.damageMultiplier = damageMultiplier;
@@ -59,6 +60,7 @@ public abstract class Enemy : FlammableEntity
     {
         base.Start();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.enabled = true;
         currentBaseSpeed = speed;
         agent.speed = currentBaseSpeed;
 
@@ -66,6 +68,7 @@ public abstract class Enemy : FlammableEntity
 
         currentTarget = player;
         healthbar.fillAmount = Health / health;
+
     }
 
     protected override void Update()
@@ -73,28 +76,36 @@ public abstract class Enemy : FlammableEntity
         healthbar.fillAmount = Health / health;
         base.Update();
         // Scale speed based on adrenaline.
-        agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent*3);
+        agent.speed = currentBaseSpeed + (GameManager.Instance.AdrenalinePercent * 3);
         // Animation updates.
-        if (state == EnemyState.Moving) {
+        if (state == EnemyState.Moving)
+        {
             animator.SetBool("isMoving", true);
             animator.SetBool("isAttacking", false);
             animator.SetBool("isLongRangeAttacking", false);
-        } else if (state == EnemyState.Attacking) {
+        }
+        else if (state == EnemyState.Attacking)
+        {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", true);
             animator.SetBool("isLongRangeAttacking", false);
-        } else if (state == EnemyState.LongRangeAttacking) {
+        }
+        else if (state == EnemyState.LongRangeAttacking)
+        {
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", false);
             animator.SetBool("isLongRangeAttacking", true);
-        } else {  // Idling.
+        }
+        else
+        {  // Idling.
             animator.SetBool("isMoving", false);
             animator.SetBool("isAttacking", false);
             animator.SetBool("isLongRangeAttacking", false);
         }
     }
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         // Billboarding effect.
         transform.LookAt(mainCamera.transform);
         transform.Rotate(0, 180, 0);
@@ -118,7 +129,7 @@ public abstract class Enemy : FlammableEntity
             {
                 StopCoroutine(pushback);
             }
-            pushback = StartCoroutine(Pushback(knockbackDirection*dmg.pushBack));
+            pushback = StartCoroutine(Pushback(knockbackDirection * dmg.pushBack));
         }
     }
     IEnumerator Pushback(Vector3 impulse)
@@ -145,11 +156,12 @@ public abstract class Enemy : FlammableEntity
         Instantiate(Blood, bloodpivot.position, Quaternion.identity);
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.blood, transform.position);
         //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
-        
+
         Destroy(gameObject);
     }
 
-    public override void Attack() {
+    public override void Attack()
+    {
         base.Attack();
 
         DamageInformation d = attackDamage;
@@ -157,10 +169,12 @@ public abstract class Enemy : FlammableEntity
 
         // Deal damage to any entities within a certain range.
         Collider[] hitColliders = Physics.OverlapSphere(Position, 5);
-        foreach (Collider hit in hitColliders) {
+        foreach (Collider hit in hitColliders)
+        {
             // Deal damage if the object has class IDamageable but not Enemy.
             IDamageable damageable = hit.GetComponent<IDamageable>();
-            if (damageable != null && !hit.GetComponent<Enemy>()) {
+            if (damageable != null && !hit.GetComponent<Enemy>())
+            {
                 damageable.OnDamaged(this, d);
             }
         }
@@ -170,6 +184,16 @@ public abstract class Enemy : FlammableEntity
     {
         if (!agent.enabled) return false;
         if (agent.pathPending) return true;
-        return agent.SetDestination(p);
+        bool result = agent.SetDestination(p);
+        if (agent.pathStatus != UnityEngine.AI.NavMeshPathStatus.PathComplete)
+        {
+            Vector3 corner = agent.path.corners[agent.path.corners.Length - 1];
+            if ((p - corner).magnitude > 10)
+            {
+                Death();
+                print("Manually Murder " + transform.name +" "+agent.pathStatus+" "+agent.path.corners.Length);
+            }
+        }
+        return result;
     }
 }
