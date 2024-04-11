@@ -7,6 +7,8 @@ using TMPro;
 using FMODUnity;
 using FMOD.Studio;
 using FirstGearGames.SmoothCameraShaker;
+using System.Threading;
+using UnityEngine.Experimental.GlobalIllumination;
 
 
 public class DialogueManager : MonoBehaviour
@@ -41,6 +43,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject wave;
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI baseHealthText;
+
+    private float timer;
 
 
 
@@ -90,23 +94,58 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public IEnumerator ShowOneWordAtATime(string sentence)
+    public IEnumerator ShowOneLetterAtATime(string sentence)
     {
-        //dialogueText.text = sentence;
+        dialogueText.color = new Color(dialogueText.color.r, dialogueText.color.g, dialogueText.color.b, 0);
+        dialogueText.text = sentence;
         
-        string[] words = sentence.Split(' ');
-        dialogueText.text = words[0];
-        for (int i = 1; i < words.Length; i++)
+
+
+
+        timer = 0;
+        int i = 0;
+        dialogueText.text = "";
+
+        while (i < sentence.Length)
         {
-            dialogueText.text += " "+words[i];
-            yield return new WaitForSeconds(0.05f);
+            //Debug.Log(timer);
+            timer += Time.deltaTime;
+            if (timer > 0.02f)
+            { 
+                dialogueText.text += sentence[i];
+                if (i < sentence.Length - 1)
+                {
+                    dialogueText.text += sentence[i + 1];
+                    i++;
+                }
+
+                if (i < sentence.Length - 2)
+                {
+                    dialogueText.text += sentence[i + 1];
+                    i++;
+                }
+                
+                //Debug.Log(dialogueText.text);
+                i++;
+                timer = 0;
+            }
+
+            else if (timer > 0.0067f)
+            {
+                dialogueText.text += sentence[i];
+                i++;
+                timer = 0;
+            }
+            yield return null;
         }
+
         SoundManager.Instance.hhhh.setParameterByName("isTalking", 1);
-
-
-
         GameManager.Instance.nextSentenceReady = true;
+        yield return null;
+
     }
+
+
 
     public void DisplayNextSentence()
     {
@@ -229,7 +268,7 @@ public class DialogueManager : MonoBehaviour
         }
         GameManager.Instance.nextSentenceReady = false;
 
-        StartCoroutine(ShowOneWordAtATime(sentence));
+        StartCoroutine(ShowOneLetterAtATime(sentence));
         
     }
 
