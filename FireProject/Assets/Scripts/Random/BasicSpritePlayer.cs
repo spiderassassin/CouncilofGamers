@@ -33,7 +33,7 @@ public class BasicSpritePlayer : MonoBehaviour
         {
             transform.LookAt(c.transform);
             transform.Rotate(0, 180, 0);
-            transform.Rotate(0, 0, Time.timeSinceLevelLoad, Space.Self);
+            transform.Rotate(0, 0, Time.timeSinceLevelLoad * 100f, Space.Self);
         }
     }
 }
