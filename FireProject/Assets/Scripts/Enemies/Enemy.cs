@@ -191,7 +191,7 @@ public abstract class Enemy : FlammableEntity
             if ((p - corner).magnitude > 10)
             {
                 Death();
-                print("Manually Murder " + transform.name +" "+agent.pathStatus+" "+agent.path.corners.Length);
+                Debug.LogError("Manually Murder " + transform.name +" "+agent.pathStatus+" "+agent.path.corners.Length);
             }
         }
         return result;

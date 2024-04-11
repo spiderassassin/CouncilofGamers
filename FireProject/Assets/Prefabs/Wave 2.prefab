@@ -169,7 +169,7 @@ MonoBehaviour:
       countMultiplier: 1
       healthMultiplier: 1
       damageMultiplier: 1
-    - note: then 5[Explosive] from [SpawnPoint3] x0.2HP
+    - note: then 5[Explosive] from [SpawnPoint3] x0.2HP | x0.25DMG
       enemyType: 5
       maxWait: -1
       spawnDelay: 0
@@ -178,4 +178,4 @@ MonoBehaviour:
       waitUntilPreviousDead: 1
       countMultiplier: 0.5
       healthMultiplier: 0.25
-      damageMultiplier: 1
+      damageMultiplier: 0.25

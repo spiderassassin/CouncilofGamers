@@ -11,6 +11,7 @@ public interface IDamageable
     /// The current health of this damageable.
     /// </summary>
     public float Health { get; }
+    public float PercentHealth { get; }
 
     /// <summary>
     /// To be called when this damageable should take damage.

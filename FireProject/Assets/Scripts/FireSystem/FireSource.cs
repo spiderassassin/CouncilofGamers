@@ -29,6 +29,7 @@ public class FireSource : MonoBehaviour
     public int maximumTargets = -1; // use -1 for infinite
     public bool requireVisibility = false;
     public LayerMask visibilityCheckMask;
+    public bool forgivingTermination = false;
 
     public float DamageMultiplier { get; set; }
 
@@ -127,6 +128,15 @@ public class FireSource : MonoBehaviour
             LifeSpan -= Time.deltaTime;
             if (LifeSpan <= 0f)
             {
+                if (forgivingTermination)
+                {
+                    if (self.Damageable.PercentHealth < .15f)
+                    {
+                        DamageInformation i = activeDamage;
+                        i.damage = self.Damageable.Health;
+                        self.Damageable.OnDamaged(source, i);
+                    }
+                }
                 self.SetFire(DamageType.ClearFire, 0);
                 gameObject.SetActive(false);
             }
