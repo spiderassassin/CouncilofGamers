@@ -22,6 +22,8 @@ public abstract class Entity : MonoBehaviour, IDamageable, IAttacker
 
     public Vector3 Position => transform.position;
 
+    public float PercentHealth => currentHealth / health;
+
     private bool alreadyDead = false;  // Limit the number of death calls an entity can make to 1.
 
     protected virtual void Start()

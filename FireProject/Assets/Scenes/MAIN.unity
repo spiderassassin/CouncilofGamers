@@ -1224,7 +1224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9117,7 +9117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStage: 0
-  debugGameStage: 4
+  debugGameStage: 6
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -41826,7 +41826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7845380003963984220, guid: 201a63e877efa814082f861ebfcc324a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42496,7 +42496,7 @@ Transform:
   m_Children:
   - {fileID: 2037727149}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &992363071
 MonoBehaviour:
@@ -58201,7 +58201,7 @@ Transform:
   - {fileID: 974919246}
   - {fileID: 1505287021}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1423007790
 PrefabInstance:
@@ -63299,7 +63299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1508476730
 PrefabInstance:
@@ -88389,7 +88389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6818304865411603854, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6818304865411603854, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: m_LocalPosition.x
