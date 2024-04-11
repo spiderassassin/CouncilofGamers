@@ -96,8 +96,8 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator ShowOneLetterAtATime(string sentence)
     {
-        dialogueText.color = new Color(dialogueText.color.r, dialogueText.color.g, dialogueText.color.b, 0);
-        dialogueText.text = sentence;
+        //dialogueText.color = new Color(dialogueText.color.r, dialogueText.color.g, dialogueText.color.b, 0);
+        //dialogueText.text = sentence;
         
 
 
