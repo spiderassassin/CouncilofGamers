@@ -24,7 +24,6 @@ public class UIElement : MonoBehaviour
         }
         */
 
-        Debug.Log("a");
         float pt = 0;
         float newVal = 1;
         float pulseSpeed = 12f;
@@ -37,16 +36,12 @@ public class UIElement : MonoBehaviour
         {
             timer += Time.deltaTime;
             pt += pulseSpeed * Time.deltaTime;
-            Debug.Log("b");
             if (pt >= 6.28f)
             {
                 pt = 0;
             }
-            Debug.Log("c");
             newVal = ((Mathf.Sin(pt) + 1) * (maxAlpha - minAlpha)) / 2 + minAlpha;
-            Debug.Log(newVal);
             GetComponent<RectTransform>().localScale = new Vector3((float)(orig.x * newVal), (float)(orig.y * newVal), (float)(orig.z * newVal));
-            Debug.Log("d");
             yield return null;
             
         }

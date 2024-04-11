@@ -41,7 +41,11 @@ public class GruntPlayer: Enemy {
 
     protected override void Update() {
         base.Update();
-        if (stickWithTank && !associatedTank) currentTarget = player;
+        if (stickWithTank && !associatedTank)
+        {
+            currentTarget = player;
+            agent.stoppingDistance = 0;
+        }
         if (!currentTarget) return;
 
         // Handle the waiting if it's currently being used.
