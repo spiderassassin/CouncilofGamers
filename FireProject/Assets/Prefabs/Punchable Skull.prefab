@@ -98,7 +98,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19312409, y: 0.18365729, z: 0.15770543}
+  m_Size: {x: 0.23, y: 0.23, z: 0.23}
   m_Center: {x: 0.014730318, y: 0.012271323, z: 0.000014146603}
 --- !u!114 &7845380004154290155
 MonoBehaviour:
@@ -115,9 +115,11 @@ MonoBehaviour:
   colliders:
   - {fileID: 7845380004154290158}
   health: 1
+  deathThreshold: 0
   body: {fileID: 348744271561791075}
   text: {fileID: 0}
   passiveFireSources: {fileID: 1459693975255900903}
+  isBlood: 0
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
