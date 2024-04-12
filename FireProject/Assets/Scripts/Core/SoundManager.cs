@@ -33,6 +33,7 @@ public class SoundManager : MonoBehaviour
     public EventInstance betrayal;
     public EventInstance pause;
 
+    public bool firespread = false;
 
 
 
@@ -74,6 +75,12 @@ public class SoundManager : MonoBehaviour
     {
 
         
+    }
+
+    public IEnumerator spread()
+    {
+        yield return new WaitForSeconds(0.5f);
+        firespread = false;
     }
 
     public void DowntimeMusicPlay()

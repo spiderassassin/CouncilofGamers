@@ -373,7 +373,7 @@ public class Controller : Entity
         
         
 
-        if (canSnap())
+        if (canSnap() && (isSnapping == false))
         {
             isSnapping = true;
             //Time.timeScale = 0.1f;
