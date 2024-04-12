@@ -163,6 +163,7 @@ public abstract class Enemy : FlammableEntity
     public override void Attack()
     {
         base.Attack();
+        print("h");
 
         DamageInformation d = attackDamage;
         d.damage *= damageMultiplier;

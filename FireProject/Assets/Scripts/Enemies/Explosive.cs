@@ -88,6 +88,8 @@ public class Explosive: Enemy {
         yield return new WaitForSeconds(explosionAnimationDuration);
         Attack();
         // Kill the enemy.
+        //Instantiate(Blood, bloodpivot.position, Quaternion.identity);
+        //SoundManager.Instance.PlayOneShot(FMODEvents.Instance.blood, transform.position);
         base.Death();
     }
 }

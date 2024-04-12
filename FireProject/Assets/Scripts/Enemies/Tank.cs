@@ -15,9 +15,18 @@ public class Tank: Enemy {
     public int closeAttackPause = 1;
     public float closeAttackCooldown = 1;
     public float closeAttackRange = 5;
+    public ParticleSystem shock;
 
     float timeHit;
-    
+
+    public override void Attack()
+    {
+        base.Attack();
+        
+        shock.Emit(1);
+    }
+
+
     protected override void Update() {
         healthbar.fillAmount = Health / health;
         // Handle the short range waiting if it's currently being used.
