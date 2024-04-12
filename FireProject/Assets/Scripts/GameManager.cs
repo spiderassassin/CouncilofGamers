@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool dialogueState;
     public bool nextSentenceReady;
     // ADRENALINE VARIABLES
+    [Header("Bloodrush/Adrenaline System")]
     public float adrenaline = 0;
     private float interpolant => Time.deltaTime * 1;
     
@@ -26,24 +27,28 @@ public class GameManager : MonoBehaviour
     private bool recentlySnapped = false;
 
     private float maxHealth = 100;
-
     public float intensity = 0; // amount of adrenaline gained per second
     public float maxIntensity;
-    public float gainAdrenalineThreshold = 10; // the value intensity must be at before adrenaline increases (might wanna change?)
+    public float gainAdrenalineThreshold = 999; // UNUSED!!! the value which intensity must be at before adrenaline increases
     public float enemiesOnFireFactor = 0.1f; // how much effect the number of enemies on fire has on intensity
+
+    public float enemiesOnFireExponent = 2f;
     public float playerHealthFactor = 0.1f; // how much effect player health loss has on intensity
     public float decayAdrenalineThreshold = 0; // the value intensity will decrease if its at or below
     public float decayAmount = 0.1f; // how fast adrenaline is lost when intensity is low enough
     private float enemiesOnFire = 0;
     private float playerHealthLoss;
 
-    // FUEL SYSTEM
+
+    [Header("Fuel System")]
     public float fuel = 0;
     public float flamethrowerCost = 0.001f;
     public float fireballCost = 5;
     public float FuelPercent => (float)fuel / GetMaxFuel();
     public float punchRefuel = 10f;
     public float punchSkullRefuel = 50;
+
+    [Header("Other")]
 
     public bool gamePaused;
     public bool gameEndDeath;  // Whether the player has died during the ending.
@@ -67,22 +72,16 @@ public class GameManager : MonoBehaviour
     {
         if (recentlySnapped)
         {
-            // If the player has snapped, use linear interpolation to smoothly decrease the
-            // adrenaline value to 0. Aim for a little bit past 0 to ensure the interpolation
-            // reaches 0, since it slows down on the edges.
             adrenaline = adrenaline - 0.5f;
         } else {
-            // If the player has not snapped, use linear interpolation to smoothly increase the
-            // adrenaline value to the number of enemies on fire. Aim for a little bit past the max
-            // to ensure the interpolation reaches 0, since it slows down on the edges.
+            // If the player has not snapped, check current intensity
+            // adrenaline decays if intensity is too low
+            // if its high enough, it gets added to adrenaline every tick
             enemiesOnFire = FireManager.manager.EntitiesOnFire;
             playerHealthLoss = maxHealth-Controller.Instance.Health; 
-            intensity = Mathf.Pow(enemiesOnFire, 2)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
+            intensity = Mathf.Pow(enemiesOnFire, enemiesOnFireExponent)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
 
-
-            intensity = Mathf.Clamp(intensity, 0, maxIntensity); // max intensity of 5
-            intensity = intensity*Time.deltaTime;
-
+            intensity = Mathf.Clamp(intensity, 0, maxIntensity); // intensity has a cap
             
             if (intensity <= decayAdrenalineThreshold)
             {
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                intensity = intensity*Time.deltaTime;
                 adrenaline = adrenaline + intensity;
             }
             // if (enemy has died) {gain some adrenaline}
