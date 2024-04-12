@@ -313,11 +313,38 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638484780015328490
+  lastModified: 638484818026719925
   FileSizes:
   - Name: Desktop
-    Value: 1232256
+    Value: 1258240
   Exists: 1
+--- !u!114 &-4396541862524264265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/tank
+  m_EditorClassIdentifier: 
+  Path: event:/tank
+  Guid:
+    Data1: -1326165062
+    Data2: 1249007414
+    Data3: 1327495566
+    Data4: -1982764352
+  Banks:
+  - {fileID: -4434575441779169207}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4077617460458117835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,12 +580,13 @@ MonoBehaviour:
   - {fileID: -7048786512975185886}
   - {fileID: 5482832404347378471}
   - {fileID: 7537718522220563775}
+  - {fileID: -4396541862524264265}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7115013829318208493}
   StringsBanks:
   - {fileID: 8777934334697852784}
-  cacheTime: 638484780015328490
+  cacheTime: 638484818026719925
   cacheVersion: 131616
 --- !u!114 &214640183667038553
 MonoBehaviour:
@@ -916,7 +944,7 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638484775449078877
+  lastModified: 638484814267170509
   FileSizes:
   - Name: Desktop
     Value: 2122
@@ -1042,10 +1070,10 @@ MonoBehaviour:
   Path: ../FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638484775449093997
+  lastModified: 638484814267183605
   FileSizes:
   - Name: Desktop
-    Value: 2408
+    Value: 2442
   Exists: 1
 --- !u!114 &9196215504214727546
 MonoBehaviour:

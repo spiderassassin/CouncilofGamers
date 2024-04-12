@@ -21,9 +21,11 @@ public class Tank: Enemy {
 
     public override void Attack()
     {
+        shock.Emit(1);
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.tank, transform.position);
         base.Attack();
         
-        shock.Emit(1);
+        
     }
 
 
