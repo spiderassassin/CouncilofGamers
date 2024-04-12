@@ -37,6 +37,7 @@ public class ParolePileofSkulls : FlammableEntity
         {
             prompt.SetActive(true);
             promptText.text = "Punch the pile of skulls";
+            StartCoroutine(promptText.GetComponent<UIElement>().SizeFlash(1.5f));
         }
     }
 

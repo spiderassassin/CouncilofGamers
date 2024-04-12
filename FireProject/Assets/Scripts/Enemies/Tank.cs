@@ -15,9 +15,21 @@ public class Tank: Enemy {
     public int closeAttackPause = 1;
     public float closeAttackCooldown = 1;
     public float closeAttackRange = 5;
+    public ParticleSystem shock;
 
     float timeHit;
-    
+
+    public override void Attack()
+    {
+        print("attack");
+        shock.Emit(1);
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.tank, transform.position);
+        base.Attack();
+        
+        
+    }
+
+
     protected override void Update() {
         healthbar.fillAmount = Health / health;
         // Handle the short range waiting if it's currently being used.
@@ -73,6 +85,8 @@ public class Tank: Enemy {
                     // If player is below the direct hit damage, deal the low health damage instead.
                     playerDirectHitDmg.damage = lowHealthDamage;
                 }
+                shock.Emit(1);
+                SoundManager.Instance.PlayOneShot(FMODEvents.Instance.tank, transform.position);
                 Controller.Instance.OnDamaged(this, playerDirectHitDmg);
                 timeHit = Time.timeSinceLevelLoad;
             }
