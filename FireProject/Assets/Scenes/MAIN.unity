@@ -8646,7 +8646,7 @@ MonoBehaviour:
   gainAdrenalineThreshold: 999
   enemiesOnFireFactor: 0.3
   enemiesOnFireExponent: 2
-  playerHealthFactor: 0
+  playerHealthFactor: 0.025
   decayAdrenalineThreshold: 2.5
   decayAmount: 12
   fuel: 0
