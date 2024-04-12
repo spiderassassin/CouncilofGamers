@@ -8796,12 +8796,13 @@ MonoBehaviour:
   nextSentenceReady: 0
   adrenaline: 0
   intensity: 0
-  maxIntensity: 5
-  gainAdrenalineThreshold: 10
-  enemiesOnFireFactor: 1
-  playerHealthFactor: 0.01
-  decayAdrenalineThreshold: 0.01
-  decayAmount: 3
+  maxIntensity: 30
+  gainAdrenalineThreshold: 999
+  enemiesOnFireFactor: 0.13
+  enemiesOnFireExponent: 2
+  playerHealthFactor: 0
+  decayAdrenalineThreshold: 2.5
+  decayAmount: 12
   fuel: 0
   flamethrowerCost: 4
   fireballCost: 5
@@ -71053,8 +71054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8771123490044458905}
-  assistModeHealthRegen: 1.5
-  regularHealthRegen: 0.05
+  assistModeHealthRegen: 1.2
+  regularHealthRegen: 0.065
 --- !u!1001 &1760995456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88301,7 +88302,7 @@ MonoBehaviour:
   fireballOrigin: {fileID: 1665238772}
   fireballCooldown: 0.5
   punchCooldown: 0.9
-  healthIncreaseRate: 0.05
+  healthIncreaseRate: 0.065
   rightArm: {fileID: 1474664498668837894}
   punchCooldownColour: {r: 0.6509434, g: 0.11527123, b: 0, a: 1}
   armAnimator: {fileID: 1474664498842433659}
