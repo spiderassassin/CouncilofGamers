@@ -160,9 +160,13 @@ public class DialogueManager : MonoBehaviour
         print(sentence);
         if(sentence == "I'll watch you die. I'll savour every moment while you're torn apart. And I'll bring your skull back to Hell myself.")
         {
-            SoundManager.Instance.betrayal.start();
             NPCSprite.GetComponent<paroleAnimations>().betray();
 
+        }
+
+        if (sentence == "Don't you get it?")
+        {
+            SoundManager.Instance.betrayal.start();
         }
 
         if (sentence == "By the way, I could tell you were holding back out there. ")
