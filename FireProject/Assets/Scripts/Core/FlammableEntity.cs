@@ -112,12 +112,20 @@ public abstract class FlammableEntity : Entity, IFlammable
                     SetFire(DamageType.FirePassive_Lvl2,delay);
                 else if (!attacker.Equals(this))
                     SetFire(DamageType.FirePassive_Lvl2,delay);
-                
-                SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
+                if (SoundManager.Instance.firespread == false)
+                {
+                    print("fire");
+                    SoundManager.Instance.firespread = true;
+                    SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
+                    StartCoroutine(SoundManager.Instance.spread());
+                    
+                }
+                //SoundManager.Instance.PlayOneShot(FMODEvents.Instance.firespread, transform.position);
                 if (!isBlood)
                 {
                     CameraShakerHandler.Shake(GameManager.Instance.fireShake);
                 }
+
                 PassiveFireSources.Spread();
                 PassiveFireSources.SpreadScale(1f);
             }
