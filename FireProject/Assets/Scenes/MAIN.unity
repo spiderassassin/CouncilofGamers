@@ -8642,13 +8642,13 @@ MonoBehaviour:
   nextSentenceReady: 0
   adrenaline: 0
   intensity: 0
-  maxIntensity: 5
-  gainAdrenalineThreshold: 10
-  enemiesOnFireFactor: 1
+  maxIntensity: 30
+  gainAdrenalineThreshold: 999
+  enemiesOnFireFactor: 0.3
   enemiesOnFireExponent: 2
-  playerHealthFactor: 0.01
-  decayAdrenalineThreshold: 0.01
-  decayAmount: 3
+  playerHealthFactor: 0
+  decayAdrenalineThreshold: 2.5
+  decayAmount: 12
   fuel: 0
   flamethrowerCost: 4
   fireballCost: 5
@@ -42435,7 +42435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
-  mouseSensitivity: {x: 0.2, y: 0.2}
+  mouseSensitivity: {x: 0.2, y: 0.15}
   toggleSprint: 0
   allowSprint: 0
   mouseX: 0

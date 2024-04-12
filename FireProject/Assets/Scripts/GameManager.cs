@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             intensity = Mathf.Pow(enemiesOnFire, enemiesOnFireExponent)*enemiesOnFireFactor + playerHealthLoss*playerHealthFactor;
 
             intensity = Mathf.Clamp(intensity, 0, maxIntensity); // intensity has a cap
-            intensity = intensity * Time.deltaTime;
+            //intensity = intensity * Time.deltaTime;
             if (intensity <= decayAdrenalineThreshold)
             {
                 adrenaline = adrenaline - adrenalineUnit * decayAmount * Time.deltaTime;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                //intensity = intensity*Time.deltaTime;
+                intensity = intensity*Time.deltaTime;
                 adrenaline = adrenaline + intensity;
             }
             // if (enemy has died) {gain some adrenaline}
