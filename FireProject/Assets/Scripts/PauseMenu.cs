@@ -10,6 +10,11 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject inputManager;
+    public bool sensitivity;
+    public bool sfx;
+    public bool music;
+
+
     public Slider slider;
     
     // Start is called before the first frame update
@@ -26,14 +31,37 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        SetMouseSensitivity();
-        //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
-        //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
-        
+        if (sensitivity)
+        {
+            slider.value = InputManager.Instance.mouseSensitivity.x;
+        }
+
+        if (music)
+        {
+            float volume;
+            FMODEvents.Instance.music.getVolume(out volume);
+            slider.value = volume;
+            //SetMouseSensitivity();
+            //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
+            //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+
+        }
+        if (sfx)
+        {
+            float volume;
+            FMODEvents.Instance.sfx.getVolume(out volume);
+            slider.value = volume;
+            //SetMouseSensitivity();
+            //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
+            //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+        // Update is called once per frame
+        void Update()
     {
         
     }
