@@ -173,7 +173,7 @@ public class InputManager : MonoBehaviour
     {
         if (LockPlayerGameplayInput) return;
         mouseX = obj.ReadValue<Vector2>().x*mouseSensitivity.x;
-        mouseY = obj.ReadValue<Vector2>().y*mouseSensitivity.y;
+        mouseY = obj.ReadValue<Vector2>().y*mouseSensitivity.y * 0.8f;
     }
 
     

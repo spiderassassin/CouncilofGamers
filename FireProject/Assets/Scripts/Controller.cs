@@ -503,7 +503,7 @@ public class Controller : Entity
             // Destroy all singletons.
             Destroy(SoundManager.Instance.gameObject);
             Destroy(WaveManager.Instance.gameObject);
-            Destroy(InputManager.Instance.gameObject);
+            //Destroy(InputManager.Instance.gameObject);
             Destroy(FMODEvents.Instance.gameObject);
             //Destroy(Controller.Instance.gameObject);
             Destroy(CombatUI.Instance.gameObject);

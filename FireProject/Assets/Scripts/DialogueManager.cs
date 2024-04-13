@@ -164,7 +164,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        if (sentence == "Don't you get it?")
+        if (sentence == "I thought you were just a smuggler, you know. I didn't know what you were capable of.")
         {
             SoundManager.Instance.betrayal.start();
         }
