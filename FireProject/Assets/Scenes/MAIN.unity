@@ -36124,7 +36124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30008
+  m_Name: pb_Mesh29816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63628,11 +63628,17 @@ MonoBehaviour:
     - Mama Coco nee Marcus
     - Jesse Liu
     - Young Seo
-  - role: Players
+  - role: Playtesters
     names:
     - Abrar Zahin
     - Imtisam Kamaldin-Suleiman
     - Tea Romanzin
+    - Gerard van Genderen
+    - Derek Frevel
+  - role: Playtesters
+    names:
+    - Ryan Haskins
+    - Georgin Maliakal
     - INT D 450 Class
     - et. al
   - role: A game by
@@ -81347,7 +81353,7 @@ MonoBehaviour:
     sentences:
     - Sounds like more enemies are approaching. You can easily dispatch them with
       fireballs or by punching them.
-    - You can also ignite the pools of demon blood on the groud to spread fire more
+    - You can also ignite the pools of demon blood on the ground to spread fire more
       easily.
     playerSpeaking: 0000
   tutorialGGWaveDialogue:
