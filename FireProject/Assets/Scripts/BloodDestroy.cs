@@ -19,7 +19,7 @@ public class BloodDestroy : MonoBehaviour
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(0.5f);
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, 10, groundLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, 100, groundLayer))
         {
             // Ray hit something, get the distance to the hit point
             groundDistance = hitInfo.distance;
