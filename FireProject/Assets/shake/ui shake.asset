@@ -15,14 +15,14 @@ MonoBehaviour:
   _scaledTime: 1
   _shakeCameras: 0
   _shakeCanvases: 1
-  _shakeObjects: 0
+  _shakeObjects: 1
   _iterationPercent: 1
   _unlimitedDuration: 0
   _totalDuration: 7
-  _fadeInDuration: 1
-  _fadeOutDuration: 1
-  _magnitude: 0.5
-  _magnitudeNoise: 0.187
+  _fadeInDuration: 0
+  _fadeOutDuration: 0
+  _magnitude: 10
+  _magnitudeNoise: 1
   _magnitudeCurve:
     serializedVersion: 2
     m_Curve:

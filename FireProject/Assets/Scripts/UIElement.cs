@@ -58,6 +58,20 @@ public class UIElement : MonoBehaviour
 
 
     }
+
+    public IEnumerator Shake(float duration, float magnitude)
+    {
+        Vector3 originalPos = transform.localPosition;
+        float elapsed = 0.0f;
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            GetComponent<RectTransform>().localPosition = new Vector2(x, y);
+            yield return null;
+
+        }
+    }
     /*
         public IEnumerator Flash(GameObject bar)
         {

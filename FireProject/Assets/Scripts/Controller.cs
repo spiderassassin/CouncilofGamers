@@ -358,6 +358,7 @@ public class Controller : Entity
         g.DamageMultiplier = GetDamageMultiplier(GameManager.Instance.AdrenalinePercent);
         g.transform.position = fireballOrigin.position;
         CameraShakerHandler.Shake(GameManager.Instance.firballShake);
+        //CameraShakerHandler.Shake(GameManager.Instance.snapShake);
         g.Launch(fireballOrigin.forward, velocity);
     }
 
