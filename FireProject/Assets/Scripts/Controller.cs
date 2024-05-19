@@ -362,7 +362,7 @@ public class Controller : Entity
         g.Launch(fireballOrigin.forward, velocity);
     }
 
-    bool canSnap()
+    public bool canSnap()
     {
         return GameManager.Instance.AdrenalinePercent >= 0.98f;
     }
