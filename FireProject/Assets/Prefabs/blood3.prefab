@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: -5426885271057423883}
-  - component: {fileID: 658832108803611400}
   - component: {fileID: 8840295173262268708}
+  - component: {fileID: 304131316454176221}
   m_Layer: 11
   m_Name: blood3
   m_TagString: Untagged
@@ -104,14 +104,27 @@ MonoBehaviour:
   - {fileID: 8840295173262268708}
   health: 7
   deathThreshold: 0
-  body: {fileID: 658832108803611400}
+  body: {fileID: 304131316454176221}
   text: {fileID: 0}
   passiveFireSources: {fileID: 3398670611350824487}
   isBlood: 1
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
---- !u!54 &658832108803611400
+--- !u!65 &8840295173262268708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.2, z: 2}
+  m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!54 &304131316454176221
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,19 +140,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8840295173262268708
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.2, z: 2}
-  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &2290000761241086223
 GameObject:
   m_ObjectHideFlags: 0
