@@ -397,8 +397,7 @@ public class Controller : Entity
     }
     public IEnumerator SnapLogic()
     {
-        if (canSnap())
-        {
+        
             //Time.timeScale = 1;
             //Time.fixedDeltaTime = 0.02f;
             CombatUI.Instance.snap();
@@ -416,12 +415,7 @@ public class Controller : Entity
             isSnapping = false;
 
 
-        }
-        else
-        {
-            SoundManager.Instance.PlaySoundOnce(failedSnap, transform); // For clarity.
-            yield return new WaitForSeconds(0f);
-        }
+        
     }
 
     void simulateGravity()
