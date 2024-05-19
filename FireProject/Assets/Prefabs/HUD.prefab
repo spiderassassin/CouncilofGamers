@@ -180,7 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adrenalineBar: {fileID: 2198687682187778718}
-  playerAdrenaline: 0
+  colourAdjustment: {fileID: 0}
+  snapReadyPrompt: {fileID: 0}
 --- !u!1 &2198687682228997906
 GameObject:
   m_ObjectHideFlags: 0
