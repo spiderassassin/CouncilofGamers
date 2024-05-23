@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, PreEnding, Ending};
     public GameStage gameStage;
     public GameStage debugGameStage;
+    // If true, the game ends after wave 2.
+    public bool demoMode;
 
     public List<GameStage> tutorialGameStages;
     public float AdrenalinePercent => (float)adrenaline / GetMaxAdrenaline();
