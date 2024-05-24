@@ -128,6 +128,8 @@ public class PauseMenu : MonoBehaviour
       
         Destroy(CombatUI.Instance.gameObject);
         Destroy(Controller.Instance.gameObject);
+        // Re-enable time.
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
