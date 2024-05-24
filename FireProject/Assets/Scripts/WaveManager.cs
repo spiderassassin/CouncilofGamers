@@ -293,6 +293,26 @@ public class WaveManager : MonoBehaviour
         print("Wave Over");
 
         SoundManager.Instance.WaveMusicStop();
+
+        // If we're in the demo mode, end the game after the second wave.
+        if (GameManager.Instance.demoMode && GameManager.Instance.gameStage == GameManager.GameStage.Wave2)
+        {
+            // First cleanup instances.
+            FMODEvents.Instance.StopAllSounds();
+            Destroy(SoundManager.Instance.gameObject);
+            Destroy(WaveManager.Instance.gameObject);
+            Destroy(InputManager.Instance.gameObject);
+            Destroy(FMODEvents.Instance.gameObject);
+            Destroy(GameManager.Instance.gameObject);
+            Destroy(CombatUI.Instance.gameObject);
+            Destroy(Controller.Instance.gameObject);
+            Cursor.lockState = CursorLockMode.None;
+
+            // Switch to the demo ending screen.
+            SceneManager.LoadScene("DemoEnding");
+            return;
+        }
+
         // Don't increment the game stage if we're in the ending, so that the wave repeats if the player somehow survives.
         if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) GameManager.Instance.gameStage++;
         if (GameManager.Instance.gameStage == GameManager.GameStage.Ending)

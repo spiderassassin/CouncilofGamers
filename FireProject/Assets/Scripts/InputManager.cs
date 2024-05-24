@@ -15,15 +15,12 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
-    public bool toggleSprint = false;
-    public bool allowSprint = false;
-
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction jumpAction;
     private InputAction fireAction;
     private InputAction punchAction;
-    private InputAction sprintAction;
+    private InputAction dashAction;
     private InputAction snapAction;
     private InputAction fireballAction;
     private InputAction startDialogueAction;
@@ -35,8 +32,7 @@ public class InputManager : MonoBehaviour
     public float moveY = 0;
 
     public bool jump = false;
-    public bool sprintOn = false;
-    public bool sprintOff = false;
+    public bool dash = false;
     public bool takeDamage = false;
     public bool punch => punchAction.WasPerformedThisFrame()&&!LockPlayerGameplayInput;
     public bool fireball => fireballAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
@@ -55,8 +51,6 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        sprintOff = true;
-
         if (Instance == null)
         {
             Instance = this;
@@ -89,9 +83,9 @@ public class InputManager : MonoBehaviour
         snapAction = playerInput.currentActionMap.FindAction("Snap");
         fireballAction = playerInput.currentActionMap.FindAction("Fireball");
 
-        /*sprintAction = playerInput.currentActionMap.FindAction("Sprint");
-        sprintAction.performed += SprintAction_performed;
-        sprintAction.canceled += SprintAction_canceled;*/
+        dashAction = playerInput.currentActionMap.FindAction("Dash");
+        dashAction.performed += DashAction_performed;
+        dashAction.canceled += DashAction_canceled;
 
         startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
         startDialogueAction.performed += StartDialogueAction_performed;
@@ -104,29 +98,16 @@ public class InputManager : MonoBehaviour
 
     }
 
-    private void SprintAction_canceled(InputAction.CallbackContext obj)
+    private void DashAction_canceled(InputAction.CallbackContext obj)
     {
         if (LockPlayerGameplayInput) return;
-        if (!toggleSprint)
-        {
-            sprintOn = false;
-            sprintOff = true;
-        }
+        dash = false;
     }
 
-    private void SprintAction_performed(InputAction.CallbackContext obj)
+    private void DashAction_performed(InputAction.CallbackContext obj)
     {
         if (LockPlayerGameplayInput) return;
-        if (toggleSprint)
-        {
-            sprintOn = !sprintOn;
-            sprintOff = !sprintOn;
-        }
-        else
-        {
-            sprintOn = true;
-            sprintOff = false;
-        }
+        dash = true;
     }
 
     private void FireAction_canceled(InputAction.CallbackContext obj)
@@ -277,8 +258,7 @@ public class InputManager : MonoBehaviour
             fire = false;
             stopfire = true;
             jump = false;
-            sprintOn = false;
-            sprintOff = true;
+            dash = false;
             //mouseX = 0;
             //mouseY = 0;
             //add more things here - sprint, jump, fire, etc

@@ -12,13 +12,16 @@ public class Controller : Entity
 
     public CharacterController characterController;
     public float speed = 10f;
-    public float sprintspeed = 35f;
+    public float dashSpeed;
+    public float dashTime;
+    public int dashCooldownTime;
+    private Task dashCooldown = null;
     public Vector3 velocity;
     public float gravity = -9.81f;
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 3f;
-    public bool sprint = false;
+    public bool dash = false;
     public bool isFiring = false;
     public bool isSnapping = false;
     public AudioSource source;
@@ -148,6 +151,7 @@ public class Controller : Entity
 
 
             GetComponentInChildren<CameraBehavior>().Look(InputManager.Instance.mouseX, InputManager.Instance.mouseY);//camera rotation
+            dash = InputManager.Instance.dash;
             if (InputManager.Instance.moveX != 0 || InputManager.Instance.moveY != 0)
             {
                 if (isMoving == false)
@@ -162,69 +166,20 @@ public class Controller : Entity
                 }
 
                 Move(InputManager.Instance.moveX, InputManager.Instance.moveY);
-
-                if (InputManager.Instance.sprintOn)
-                {
-                    if (sprint == false)
-                    {
-                        sprint = true;
-                        walk.stop(STOP_MODE.ALLOWFADEOUT);
-                        run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
-                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(run, transform);
-                        run.start();
-                        run.release();
-
-                        //SoundManager.Instance.StopSoundEffect(obj);
-                        //obj = SoundManager.Instance.PlaySoundloop(playerrun, transform);
-
-                        GetComponentInChildren<CameraBehavior>().Sprint();
-                    }
-
-                }
-                else if (InputManager.Instance.sprintOff)
-                {
-                    if (sprint == true)
-                    {
-
-                        sprint = false;
-                        run.stop(STOP_MODE.ALLOWFADEOUT);
-                        walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
-                        FMODUnity.RuntimeManager.AttachInstanceToGameObject(walk, transform);
-                        walk.start();
-                        walk.release();
-
-                        //SoundManager.Instance.StopSoundEffect(obj);
-                        //obj = SoundManager.Instance.PlaySoundloop(playerwalk, transform);
-                        GetComponentInChildren<CameraBehavior>().Sprint();
-                    }
-
-                }
             }
-
             else
             {
                 if (isMoving == true)
                 {
                     isMoving = false;
-                    
-
                 }
 
-                if (sprint == true)
+                walk.stop(STOP_MODE.ALLOWFADEOUT);
+                // Even if the player is not moving, they can still dash.
+                if (dash)
                 {
-
-                    sprint = false;
-                    GetComponentInChildren<CameraBehavior>().Sprint();
-                    run.stop(STOP_MODE.ALLOWFADEOUT);
-
+                    Dash(transform.forward);
                 }
-
-                else
-                {
-                    walk.stop(STOP_MODE.ALLOWFADEOUT);
-                }
-
-
             }
 
             if (InputManager.Instance.jump)
@@ -435,23 +390,46 @@ public class Controller : Entity
 
     void Move(float horizontal, float vertical)
     {
-            if (GameManager.Instance.dialogueState)
+        if (GameManager.Instance.dialogueState)
         {
-            
             return;
         }
-            Vector3 move = transform.right * horizontal + transform.forward * vertical;//horizontal and vertical movement of the player
-            if (sprint)
-            {
-                characterController.Move(move * sprintspeed * Time.deltaTime);
-                //SoundManager.Instance.Play(SoundManager.Instance.playerrun, source);
-            }
-            else
-            {
-                characterController.Move(move * speed * Time.deltaTime);
-                //SoundManager.Instance.Play(SoundManager.Instance.playerwalk, source);
-            }
-     
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;//horizontal and vertical movement of the player
+        bool dashed = false;
+        if (dash)
+        {
+            dashed = Dash(move);
+        }
+        if (!dashed)
+        {
+            characterController.Move(move * speed * Time.deltaTime);
+        }
+    }
+
+    // Returns true if the dash was successful, false otherwise.
+    bool Dash(Vector3 move)
+    {
+        // Check for the cooldown.
+        if (dashCooldown != null && dashCooldown.Running) {
+            return false;
+        }
+
+        GetComponentInChildren<CameraBehavior>().Dash();
+        StartCoroutine(DashCoroutine(move));
+        return true;
+    }
+
+    private IEnumerator DashCoroutine(Vector3 move)
+    {
+        // Restart cooldown.
+        dashCooldown = new Task(dashCooldownTime);
+        float startTime = Time.time;
+        while(Time.time < startTime + dashTime)
+        {
+            characterController.Move(move * dashSpeed * Time.deltaTime);
+            yield return null; // Stop here and continue next frame.
+        }
+        GetComponentInChildren<CameraBehavior>().Dash();
     }
 
     public void Jump()
