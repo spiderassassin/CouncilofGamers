@@ -28,9 +28,9 @@ public class CameraBehavior : MonoBehaviour
         
     }
 
-    public void Sprint()
+    public void Dash()
     {
-        animator.SetBool("isSprinting" , GetComponentInParent<Controller>().sprint);
+        animator.SetBool("isSprinting" , GetComponentInParent<Controller>().dash);
     }
 
     public void Die()

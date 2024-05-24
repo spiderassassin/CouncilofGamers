@@ -42444,15 +42444,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 992363071}
   mouseSensitivity: {x: 0.2, y: 0.15}
-  toggleSprint: 0
-  allowSprint: 0
   mouseX: 0
   mouseY: 0
   moveX: 0
   moveY: 0
   jump: 0
-  sprintOn: 0
-  sprintOff: 0
+  dash: 0
   takeDamage: 0
   fire: 0
   stopfire: 0
@@ -81434,8 +81431,9 @@ MonoBehaviour:
   tutorialTeachSprintDialogue:
     dialogueOver: 0
     name: 
-    sentences: []
-    playerSpeaking: 
+    sentences:
+    - If you need an extra burst of speed, use shift to dash in a direction.
+    playerSpeaking: 00
   tutorialTeachFireballDialogue:
     dialogueOver: 0
     name: ' '
@@ -88410,14 +88408,16 @@ MonoBehaviour:
   deathThreshold: 0
   characterController: {fileID: 7095554248486665563}
   speed: 20
-  sprintspeed: 20
+  dashSpeed: 35
+  dashTime: 0.4
+  dashCooldownTime: 1
   velocity: {x: 0, y: 0, z: 0}
   gravity: -40
   groundMask:
     serializedVersion: 2
     m_Bits: 8
   jumpHeight: 3
-  sprint: 0
+  dash: 0
   isFiring: 0
   isSnapping: 0
   source: {fileID: 0}

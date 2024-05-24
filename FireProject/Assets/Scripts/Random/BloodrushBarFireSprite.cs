@@ -25,7 +25,6 @@ public class BloodrushBarFireSprite : MonoBehaviour
 
     private void Update()
     {
-       Debug.Log(controller.canSnap());
        if (controller.canSnap())
         {
             
