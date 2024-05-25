@@ -13,6 +13,7 @@ public class Fireball : FireSource
         initialVelocity.y = 0;// giving it jump contribution plays weird
         if (!gameObject.activeSelf) SetActive(true);
         body.AddForce(direction * speed +initialVelocity, ForceMode.VelocityChange);
+
     }
 
     protected override void OnTriggerEnter(Collider other)
