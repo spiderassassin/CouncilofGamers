@@ -129,7 +129,7 @@ public abstract class Enemy : FlammableEntity
             {
                 StopCoroutine(pushback);
             }
-            pushback = StartCoroutine(Pushback(knockbackDirection * Mathf.Max(dmg.pushBack,10f))); // limit enemy knockback to prevent them ending up in weird places
+            pushback = StartCoroutine(Pushback(knockbackDirection * Mathf.Clamp(dmg.pushBack,-10f,10f))); // limit enemy knockback to prevent them ending up in weird places
         }
     }
     IEnumerator Pushback(Vector3 impulse)
