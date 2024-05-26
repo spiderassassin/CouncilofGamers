@@ -9,6 +9,7 @@ public class FMODEvents : MonoBehaviour
     public static FMODEvents Instance;
     //one shot sounds
     public EventReference punch;
+    public EventReference dash;
     public EventReference fireball;
     public EventReference enemySpawn;
     public EventReference enemyDamage;
