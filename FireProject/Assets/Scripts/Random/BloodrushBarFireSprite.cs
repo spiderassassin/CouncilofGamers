@@ -42,12 +42,12 @@ public class BloodrushBarFireSprite : MonoBehaviour
                 transform.Rotate(0, 180, 0);
                 transform.Rotate(0, 0, Time.timeSinceLevelLoad * 100f, Space.Self);
             }
-            Color newColor = new Color32(255, 255, 255, 255);
+            Color newColor = new Color32(0, 255, 255, 255);
             image.color = newColor;
         }
         else
         {
-            Color newColor = new Color32(255, 255, 255, 0);
+            Color newColor = new Color32(0, 255, 255, 0);
             image.color = newColor;
             timer = 0;
             i = 0;

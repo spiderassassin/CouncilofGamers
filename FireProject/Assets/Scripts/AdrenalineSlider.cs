@@ -19,7 +19,7 @@ public class AdrenalineSlider : MonoBehaviour
 
         if (adrenalineBar.value >= 1f)
         {
-            colourAdjustment.color = Color.white;
+            colourAdjustment.color = new Color32(0, 255, 255, 255);
             snapReadyPrompt.SetActive(true);
             StartCoroutine(Shake(5f));
             //GameObject.Find("Snap Ready Prompt").GetComponent<SnapVisibility>().setVisibility(true);

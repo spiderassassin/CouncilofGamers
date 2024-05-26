@@ -284,7 +284,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void endwave()
+    public void endwave()
     {
         // yield return new WaitForSeconds(0f);
         wavemode = false;
