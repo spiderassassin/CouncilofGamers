@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject inputManager;
+    public Controller controller;
     public bool sensitivity;
     public bool sfx;
     public bool music;
@@ -131,6 +132,29 @@ public class PauseMenu : MonoBehaviour
         // Re-enable time.
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public void ResetWave()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Destroy(CombatUI.Instance);
+        GameManager.Instance.gamePaused = false;
+        Time.timeScale = 1f;
+        // Stop all sounds.
+        FMODEvents.Instance.StopAllSounds();
+        // Destroy all singletons.
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(WaveManager.Instance.gameObject);
+        Destroy(FMODEvents.Instance.gameObject);
+        Destroy(CombatUI.Instance.gameObject);
+        // Reset fuel amount;
+        GameManager.Instance.fuel = 100;
+        // Restart from the beginning of the current stage.
+        GameManager.Instance.gameOver = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
     }
 
 }
