@@ -25,7 +25,7 @@ public class BloodrushBarFireSprite : MonoBehaviour
 
     private void Update()
     {
-       if (controller.canSnap())
+       if (GameManager.Instance.AdrenalinePercent>=1f)
         {
             
             timer += Time.deltaTime;

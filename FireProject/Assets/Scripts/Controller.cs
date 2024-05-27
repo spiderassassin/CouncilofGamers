@@ -19,7 +19,7 @@ public class Controller : Entity
     public Vector3 velocity;
     public float gravity = -9.81f;
     public LayerMask groundMask;
-    bool isGrounded;
+    public bool isGrounded;
     public float jumpHeight = 3f;
     public bool dash = false;
     public bool isFiring = false;
@@ -116,6 +116,7 @@ public class Controller : Entity
 
     void Update()
     {
+        simulateGravity();
         //print(flame.get3DAttributes())
         if (GameManager.Instance.gamePaused)
         {
@@ -244,7 +245,7 @@ public class Controller : Entity
 
 
 
-            simulateGravity();
+            //simulateGravity();
         }
 
         if(!InputManager.Instance.LockPlayerGameplayInput)
@@ -374,10 +375,18 @@ public class Controller : Entity
         
     }
 
+    bool checkGrounded()
+    {
+
+        return Physics.Raycast(transform.position, Vector3.down, 1f, groundMask);
+
+    }
+
     void simulateGravity()
     {
         //check if player is grounded
-        isGrounded = characterController.isGrounded; // Physics.CheckSphere(groundCheck.position, .05f, groundMask);
+        isGrounded = checkGrounded();
+        //isGrounded = characterController.isGrounded; // Physics.CheckSphere(groundCheck.position, .05f, groundMask);
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -415,6 +424,7 @@ public class Controller : Entity
         }
 
         GetComponentInChildren<CameraBehavior>().Dash();
+        SoundManager.Instance.PlayOneShot(FMODEvents.Instance.dash, transform.position);
         StartCoroutine(DashCoroutine(move));
         return true;
     }
