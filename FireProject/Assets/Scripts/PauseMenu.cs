@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMOD.Studio;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class PauseMenu : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-        
+
     }
 
 
