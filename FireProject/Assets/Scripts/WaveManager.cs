@@ -62,6 +62,7 @@ public class WaveManager : MonoBehaviour
     public GameObject findGatePrompt;
     public GameObject bloodrushBar;
     public GameObject dialogueText;
+    public GameObject restartWaveButton;
 
 
 
@@ -291,6 +292,7 @@ public class WaveManager : MonoBehaviour
         waveNumberText.SetActive(false);
         triggerAreaForParoleDialogue.SetActive(true);
         print("Wave Over");
+        restartWaveButton.SetActive(false);
 
         SoundManager.Instance.WaveMusicStop();
 
@@ -351,6 +353,7 @@ public class WaveManager : MonoBehaviour
     public void StartWave(Wave wave) {
         triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
+        restartWaveButton.SetActive(true);
         
 
         SoundManager.Instance.WaveMusicPlay();
@@ -581,6 +584,7 @@ public class WaveManager : MonoBehaviour
                     }
                     
                     GameManager.Instance.fuel = 50f;
+                    restartWaveButton.SetActive(true);
 
                     dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y + 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
 
@@ -729,7 +733,7 @@ public class WaveManager : MonoBehaviour
                     tutorialFindParoleGuardDialogueSeen = true;
                     //triggerAreaForSkullPromptDialogue.SetActive(true);
                     dialogueText.transform.SetPositionAndRotation(new Vector3(dialogueText.transform.position.x, dialogueText.transform.position.y - 40f, dialogueText.transform.position.z), dialogueText.transform.rotation); ;
-
+                    restartWaveButton.SetActive(false);
                     startTutorialDialogue();
 
                     
