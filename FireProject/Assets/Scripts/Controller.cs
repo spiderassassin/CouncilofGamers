@@ -439,6 +439,8 @@ public class Controller : Entity
             characterController.Move(move * dashSpeed * Time.deltaTime);
             yield return null; // Stop here and continue next frame.
         }
+        // Reset dash variable.
+        dash = false;
         GetComponentInChildren<CameraBehavior>().Dash();
     }
 
