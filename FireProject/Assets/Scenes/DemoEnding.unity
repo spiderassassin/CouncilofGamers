@@ -336,15 +336,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 133673890}
   mouseSensitivity: {x: 1, y: 1}
-  toggleSprint: 0
-  allowSprint: 0
   mouseX: 0
   mouseY: 0
   moveX: 0
   moveY: 0
   jump: 0
-  sprintOn: 0
-  sprintOff: 0
+  dash: 0
   takeDamage: 0
   fire: 0
   stopfire: 0
@@ -917,7 +914,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -997,10 +994,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textIndex: 0
+  demoMode: 0
   mainText:
   - {fileID: 918489501}
   continueText: {fileID: 1141114781}
-  restartAtEnd: 1
 --- !u!4 &2042121442
 Transform:
   m_ObjectHideFlags: 0
