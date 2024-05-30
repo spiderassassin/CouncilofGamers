@@ -7,6 +7,7 @@ using TMPro;
 public class ScreenText : MonoBehaviour
 {
     public int textIndex = 0;
+    public bool demoMode;
     private bool waitingForInput = false;
     private int fadeDelay = 2;
     public TextMeshProUGUI[] mainText;
@@ -16,6 +17,10 @@ public class ScreenText : MonoBehaviour
     private void Awake()
     {
         textIndex = 0;
+        if (demoMode) {
+            // Skip the first two text segments.
+            textIndex = 2;
+        }
     }
     void Start()
     {
