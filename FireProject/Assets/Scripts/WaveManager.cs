@@ -26,6 +26,7 @@ public class WaveManager : MonoBehaviour
     public Explosive explosive;
     public GruntPlayer gruntPlayerTutorial;
     public Enemy explosiveSafer;
+    public GameObject arrow;
 
     public bool wavemode = false;//check wheather the game is in wave mode or downtime mode.
     public Wave tutorialFireballWave;
@@ -339,6 +340,7 @@ public class WaveManager : MonoBehaviour
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
             SoundManager.Instance.hello.start();
             SoundManager.Instance.hello.release();
+            arrow.SetActive(true);
             startDowntimeDialogue();
 
         }
@@ -723,6 +725,7 @@ public class WaveManager : MonoBehaviour
                     FMODUnity.RuntimeManager.AttachInstanceToGameObject(SoundManager.Instance.hello, paroleGuardSprite.transform);
                     SoundManager.Instance.hello.start();
                     SoundManager.Instance.hello.release();
+                    arrow.SetActive(true);
                     // End of tutorial, set the game stage to downtime1.
 
                     GameManager.Instance.gameStage = GameManager.GameStage.Downtime1;

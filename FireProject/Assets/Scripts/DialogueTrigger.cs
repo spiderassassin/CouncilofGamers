@@ -36,6 +36,7 @@ public class DialogueTrigger : MonoBehaviour
         // Set flag so that at the end of the dialogue, the game stage will advance.
         FindObjectOfType<DialogueManager>().StartDialogue(downtimeDialogue, this, true);
         SoundManager.Instance.hello.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        WaveManager.Instance.arrow.SetActive(false);
         SoundManager.Instance.DowntimeMusicPlay();
 
     }
