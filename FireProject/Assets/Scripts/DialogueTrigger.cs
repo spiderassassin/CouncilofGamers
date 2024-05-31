@@ -12,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject conversationStartPrompt;
     public AudioSource parole;
     public bool inArea;
+    public GameObject waveNumberText;
 
     
     
@@ -80,6 +81,10 @@ public class DialogueTrigger : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         conversationStartPrompt.SetActive(false);
+        if (waveNumberText != null)
+        {
+            waveNumberText.GetComponent<UIElement>().SetOriginalSize();
+        }
     }
 
 

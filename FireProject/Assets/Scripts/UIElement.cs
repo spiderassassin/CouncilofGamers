@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class UIElement : MonoBehaviour
 {
+    Vector3 orig;
+    private void Start()
+    {
+        orig = GetComponent<RectTransform>().localScale;
+    }
+
+    public void SetOriginalSize()
+    {
+        GetComponent<RectTransform>().localScale = new Vector3(orig.x, orig.y, orig.z);
+    }
     public IEnumerator SizeFlash(float multiplier)   //1.5 for two, 1.2 for one
     {
         Debug.Log("-");
-        Vector3 orig = GetComponent<RectTransform>().localScale;
+        
         /*
         Vector3 big = new Vector3((float)(orig.x * multiplier), (float)(orig.y * multiplier), (float)(orig.z * multiplier));
         
