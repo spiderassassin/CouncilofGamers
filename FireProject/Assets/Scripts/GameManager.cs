@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
     public ShakeData rumblingShake;
     public ShakeData snapShake;
 
+    public bool usingController;
+
 
     private void UpdateAdrenaline() // Adjustable as needed.
     {
@@ -169,6 +171,8 @@ public class GameManager : MonoBehaviour
         }
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
+
+
     }
 
     void Update()

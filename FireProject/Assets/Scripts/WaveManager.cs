@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using FMOD.Studio;
 using System;
 using FirstGearGames.SmoothCameraShaker;
+using UnityEngine.InputSystem;
 
 
 public class WaveManager : MonoBehaviour
@@ -224,6 +225,11 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
 
+        if (Gamepad.current != null)
+        {
+            GameManager.Instance.usingController = true;
+        }
+
         if (GameManager.Instance.tutorialGameStages.Contains(GameManager.Instance.gameStage) || GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
         {
             Tutorial();
@@ -356,7 +362,7 @@ public class WaveManager : MonoBehaviour
         triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
         restartWaveButton.SetActive(true);
-        
+
 
         SoundManager.Instance.WaveMusicPlay();
         wavemode = true;
