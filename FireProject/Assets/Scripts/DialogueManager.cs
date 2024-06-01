@@ -213,6 +213,16 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(baseHealthText.GetComponent<UIElement>().SizeFlash(1.2f));
         }
 
+        if (sentence == "If you need an extra burst of speed, use shift to dash in a direction." && GameManager.Instance.usingController)
+        {
+            sentence = "If you need an extra burst of speed, use the west controller button to dash in a direction.";
+        }
+
+        if (sentence == "Don't hesitate to incinerate multiple demons at once. There's always more. (You can use your flame attack by holding down the left mouse button)." && GameManager.Instance.usingController)
+        {
+            sentence = "Don't hesitate to incinerate multiple demons at once. There's always more. (You can use your flame attack by holding down the right trigger).";
+        }
+
         string[] rumblingSentences = {
             "Nevermind, time's up. I feel the next wave approaching.",
             "In a pinch you might be able to salvage some extra demon blood in the skulls lying around the place. Just smash'em for more fuel.",

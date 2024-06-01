@@ -95,6 +95,11 @@ public class InputManager : MonoBehaviour
         pauseAction.performed += PauseAction_performed;
         pauseAction.canceled += PauseAction_canceled;
 
+        if (Gamepad.current != null)
+        {
+            GameManager.Instance.usingController = true;
+        }
+
 
     }
 
