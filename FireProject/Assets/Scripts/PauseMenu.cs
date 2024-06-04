@@ -77,6 +77,8 @@ public class PauseMenu : MonoBehaviour
         {
             InputManager.Instance.mouseSensitivity.x = slider.value;
             InputManager.Instance.mouseSensitivity.y = slider.value;
+            // Store the sensitivity in the playerprefs.
+            PlayerPrefs.SetFloat("MouseSensitivityX", slider.value);
         }
         
     }
@@ -124,8 +126,6 @@ public class PauseMenu : MonoBehaviour
         // Destroy all singletons.
         Destroy(SoundManager.Instance.gameObject);
         Destroy(WaveManager.Instance.gameObject);
-        Destroy(InputManager.Instance.gameObject);
-        Destroy(FMODEvents.Instance.gameObject);
         Destroy(GameManager.Instance.gameObject);
       
         Destroy(CombatUI.Instance.gameObject);
@@ -147,15 +147,12 @@ public class PauseMenu : MonoBehaviour
         // Destroy all singletons.
         Destroy(SoundManager.Instance.gameObject);
         Destroy(WaveManager.Instance.gameObject);
-        Destroy(FMODEvents.Instance.gameObject);
         Destroy(CombatUI.Instance.gameObject);
         // Reset fuel amount;
         GameManager.Instance.fuel = 100;
         // Restart from the beginning of the current stage.
         GameManager.Instance.gameOver = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-
     }
 
 }

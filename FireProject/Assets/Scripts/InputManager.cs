@@ -100,7 +100,11 @@ public class InputManager : MonoBehaviour
             GameManager.Instance.usingController = true;
         }
 
-
+        // Check if there is a previously stored mouse sensitivity value.
+        if (PlayerPrefs.HasKey("MouseSensitivityX"))
+        {
+            mouseSensitivity.x = PlayerPrefs.GetFloat("MouseSensitivityX");
+        }
     }
 
     private void DashAction_canceled(InputAction.CallbackContext obj)

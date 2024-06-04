@@ -310,8 +310,6 @@ public class WaveManager : MonoBehaviour
             FMODEvents.Instance.StopAllSounds();
             Destroy(SoundManager.Instance.gameObject);
             Destroy(WaveManager.Instance.gameObject);
-            Destroy(InputManager.Instance.gameObject);
-            Destroy(FMODEvents.Instance.gameObject);
             Destroy(GameManager.Instance.gameObject);
             Destroy(CombatUI.Instance.gameObject);
             Destroy(Controller.Instance.gameObject);
