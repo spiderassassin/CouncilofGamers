@@ -9038,7 +9038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStage: 0
   debugGameStage: 0
-  demoMode: 0
+  demoMode: 1
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
@@ -17867,7 +17867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcd03bedbd6e45018fe57457078d48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 146165742}
+  target: {fileID: 1888134734}
 --- !u!1001 &496442898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30286,7 +30286,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27864
+  m_Name: pb_Mesh38086
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
