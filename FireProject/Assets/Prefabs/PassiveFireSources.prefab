@@ -62,7 +62,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6837681125541924562}
   - component: {fileID: 3517033115295472882}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1809375227926672157}
   - component: {fileID: 8178833057483234874}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5792487691860985310}
   - component: {fileID: 1074811553843188731}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
