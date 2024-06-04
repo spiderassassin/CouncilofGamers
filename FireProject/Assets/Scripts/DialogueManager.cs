@@ -199,7 +199,7 @@ public class DialogueManager : MonoBehaviour
         if (sentence.Contains("Bloodrush"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
-            StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f));
+            StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f, true));
             //Debug.Log("bloodrush bar activated");
         }
 

@@ -14,10 +14,13 @@ public class UIElement : MonoBehaviour
     {
         GetComponent<RectTransform>().localScale = new Vector3(orig.x, orig.y, orig.z);
     }
-    public IEnumerator SizeFlash(float multiplier)   //1.5 for two, 1.2 for one
+
+    // Uses the original size set upon Start() unless bool is true, then checks the size at the time of the call.
+    public IEnumerator SizeFlash(float multiplier, bool updateOriginalSize=false)   //1.5 for two, 1.2 for one
     {
         Debug.Log("-");
-        
+        if (updateOriginalSize) orig = GetComponent<RectTransform>().localScale;
+
         /*
         Vector3 big = new Vector3((float)(orig.x * multiplier), (float)(orig.y * multiplier), (float)(orig.z * multiplier));
         
