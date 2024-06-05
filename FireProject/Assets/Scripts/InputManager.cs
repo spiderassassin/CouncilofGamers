@@ -26,6 +26,9 @@ public class InputManager : MonoBehaviour
     private InputAction startDialogueAction;
     private InputAction pauseAction;
 
+    // Indicates if the game has just been resumed after a pause.
+    public bool resumedGameplay;
+
     public float mouseX = 0;
     public float mouseY = 0;
     public float moveX = 0;
@@ -100,7 +103,11 @@ public class InputManager : MonoBehaviour
             GameManager.Instance.usingController = true;
         }
 
-
+        // Check if there is a previously stored mouse sensitivity value.
+        if (PlayerPrefs.HasKey("MouseSensitivityX"))
+        {
+            mouseSensitivity.x = PlayerPrefs.GetFloat("MouseSensitivityX");
+        }
     }
 
     private void DashAction_canceled(InputAction.CallbackContext obj)
@@ -144,6 +151,15 @@ public class InputManager : MonoBehaviour
         moveX = 0;
         moveY = 0;
     }
+
+    // Manually read movement.
+    public void CheckMoveAction()
+    {
+        if (LockPlayerGameplayInput) return;
+        moveX = moveAction.ReadValue<Vector2>().x;
+        moveY = moveAction.ReadValue<Vector2>().y;
+    }
+
     private void LookAction_canceled(InputAction.CallbackContext obj)
     {
         // if (LockPlayerGameplayInput) return;
@@ -254,6 +270,11 @@ public class InputManager : MonoBehaviour
         else
         {
             LockPlayerGameplayInput = false;
+            if (resumedGameplay)
+            {
+                CheckMoveAction();
+                resumedGameplay = false;
+            }
         }
 
         if (LockPlayerGameplayInput )
