@@ -292,6 +292,9 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         actionPromptsHUD.SetActive(true);
         GameManager.Instance.dialogueState = false;
+        // Call for a check for any movement keys that are still being held down.
+        InputManager.Instance.resumedGameplay = true;
+
         if (advanceGameStageOnEnd) {
             SoundManager.Instance.DowntimeMusicStop();
             // Set next game stage.
