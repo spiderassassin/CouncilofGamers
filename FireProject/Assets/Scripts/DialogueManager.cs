@@ -196,7 +196,7 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        if (sentence.Contains("Bloodrush"))
+        if (sentence.Contains("Bloodrush bar"))
         {
             WaveManager.Instance.bloodrushBar.SetActive(true);
             StartCoroutine(WaveManager.Instance.bloodrushBar.GetComponent<UIElement>().SizeFlash(1.2f, true));
@@ -317,6 +317,13 @@ public class DialogueManager : MonoBehaviour
             // Set up wave manager so the ending wave gets triggered.
             WaveManager.Instance.wavemode = true;
             WaveManager.Instance.isSpawning = false;
+        }
+
+        if (GameManager.Instance.gameStage == GameManager.GameStage.Downtime3 && GameManager.Instance.demoMode)
+        {
+            // Fade out to the main menu.
+            GameManager.Instance.endCanvasGroup = GameObject.Find("Canvas").transform.Find("FadeToBlackBackground").GetComponent<CanvasGroup>();
+            StartCoroutine(GameManager.Instance.FadeOutCanvas(GameManager.Instance.endCanvasGroup, 1f, true));
         }
     }
 

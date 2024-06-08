@@ -35927,7 +35927,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29966
+  m_Name: pb_Mesh279988
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -82189,6 +82189,14 @@ MonoBehaviour:
     - It doesn't matter. I have all the time in the world. You on the other hand...
     - ... farewell, Defender.
     playerSpeaking: 000000
+  endDemoDialogue:
+    dialogueOver: 0
+    name: 
+    sentences:
+    - Thanks for playing the demo version of our game, Infernal Bloodrush!
+    - If you had fun, wishlist the game on Steam by scanning the QR code on one of
+      our postcards!
+    playerSpeaking: 0000
   tutorialStage: 0
   tutorialSkullPilePunched: 0
   SnapPromptHidden: 1

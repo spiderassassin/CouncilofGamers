@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOutCanvas(CanvasGroup canvasGroup, float targetAlpha, bool end = false)
+    public IEnumerator FadeOutCanvas(CanvasGroup canvasGroup, float targetAlpha, bool end = false)
     {
         isFading = true;
 
@@ -233,8 +233,16 @@ public class GameManager : MonoBehaviour
         isFading = false;
 
         if (end) {
-            // Quit the game.
-            Application.Quit();
+            // First cleanup instances.
+            FMODEvents.Instance.StopAllSounds();
+            Destroy(SoundManager.Instance.gameObject);
+            Destroy(WaveManager.Instance.gameObject);
+            Destroy(GameManager.Instance.gameObject);
+            Destroy(CombatUI.Instance.gameObject);
+            Destroy(Controller.Instance.gameObject);
+            Cursor.lockState = CursorLockMode.None;
+            // Return to the menu.
+            SceneManager.LoadScene(0);
         }
     }
 }
