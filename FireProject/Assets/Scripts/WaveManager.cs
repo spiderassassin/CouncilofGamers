@@ -83,6 +83,8 @@ public class WaveManager : MonoBehaviour
 
     public Dialogue tutorialEndDialogue;
     public Dialogue endParoleGuardDialogue;
+    public Dialogue endDemoDialogue;
+    private bool demoEnding;
 
     public enum TutorialStage { IntroDialogue, PlayerSeesExit, TeachFireball, TeachPunch, GPWave, GGWave, PunchSkulls, End};
     public TutorialStage tutorialStage;
@@ -237,6 +239,8 @@ public class WaveManager : MonoBehaviour
         }
         else if (wavemode == false)
         {
+            // Skip wave starting if we're in the demo ending.
+            if (demoEnding) return;
             bloodrushBar.SetActive(true);
             // Start the wave corresponding to the current GameStage.
             switch (GameManager.Instance.gameStage)
@@ -306,17 +310,9 @@ public class WaveManager : MonoBehaviour
         // If we're in the demo mode, end the game after the second wave.
         if (GameManager.Instance.demoMode && GameManager.Instance.gameStage == GameManager.GameStage.Wave2)
         {
-            // First cleanup instances.
-            FMODEvents.Instance.StopAllSounds();
-            Destroy(SoundManager.Instance.gameObject);
-            Destroy(WaveManager.Instance.gameObject);
-            Destroy(GameManager.Instance.gameObject);
-            Destroy(CombatUI.Instance.gameObject);
-            Destroy(Controller.Instance.gameObject);
-            Cursor.lockState = CursorLockMode.None;
-
-            // Switch to the demo ending screen.
-            SceneManager.LoadScene("DemoEnding");
+            demoEnding = true;
+            triggerAreaForParoleDialogue.SetActive(false);
+            StartCoroutine(startDemoEndingDialogue());
             return;
         }
 
@@ -354,6 +350,11 @@ public class WaveManager : MonoBehaviour
     IEnumerator startEndingDialogue() {
         yield return new WaitForSeconds(2.0f);
         FindObjectOfType<DialogueManager>().StartDialogue(endParoleGuardDialogue, null, true);
+    }
+
+    IEnumerator startDemoEndingDialogue() {
+        yield return new WaitForSeconds(1.0f);
+        FindObjectOfType<DialogueManager>().StartDialogue(endDemoDialogue, null, true);
     }
 
     public void StartWave(Wave wave) {
