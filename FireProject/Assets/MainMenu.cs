@@ -21,5 +21,7 @@ public class MainMenu : MonoBehaviour
         SoundManager.Instance.wave0.start();
         SoundManager.Instance.wave0.release();
 
+        // Set asist mode to off when starting a new game.
+        PlayerPrefs.SetInt("AssistMode", 0);
     }
 }
