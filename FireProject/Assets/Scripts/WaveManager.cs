@@ -231,6 +231,10 @@ public class WaveManager : MonoBehaviour
         {
             GameManager.Instance.usingController = true;
         }
+        else
+        {
+            GameManager.Instance.usingController = false; 
+        }
 
         if (GameManager.Instance.tutorialGameStages.Contains(GameManager.Instance.gameStage) || GameManager.Instance.gameStage == GameManager.GameStage.Downtime1)
         {

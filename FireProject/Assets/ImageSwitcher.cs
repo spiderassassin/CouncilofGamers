@@ -13,20 +13,22 @@ public class ImageSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         //SwitchImage(true);
         if (GameManager.Instance.usingController)
         {
             SwitchImage(true);
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (GameManager.Instance.usingController)
         {
             SwitchImage(true);
-        }
+        }*/
     }
 
     public void SwitchImage(bool controller = false)
