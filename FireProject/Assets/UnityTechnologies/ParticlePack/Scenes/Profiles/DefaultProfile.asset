@@ -1490,7 +1490,7 @@ MonoBehaviour:
     value: 1
   sensitivityNormals:
     overrideState: 1
-    value: 0.65
+    value: 0.67
   lumThreshold:
     overrideState: 0
     value: 0.2
