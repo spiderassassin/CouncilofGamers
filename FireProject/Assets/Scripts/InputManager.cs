@@ -98,11 +98,6 @@ public class InputManager : MonoBehaviour
         pauseAction.performed += PauseAction_performed;
         pauseAction.canceled += PauseAction_canceled;
 
-        if (Gamepad.current != null)
-        {
-            GameManager.Instance.usingController = true;
-        }
-
         // Check if there is a previously stored mouse sensitivity value.
         if (PlayerPrefs.HasKey("MouseSensitivityX"))
         {

@@ -215,7 +215,7 @@ public class DialogueManager : MonoBehaviour
 
         if (sentence == "If you need an extra burst of speed, use shift to dash in a direction." && GameManager.Instance.usingController)
         {
-            sentence = "If you need an extra burst of speed, use the west controller button to dash in a direction.";
+            sentence = "If you need an extra burst of speed, use the X button to dash in a direction.";
         }
 
         if (sentence == "Don't hesitate to incinerate multiple demons at once. There's always more. (You can use your flame attack by holding down the left mouse button)." && GameManager.Instance.usingController)
