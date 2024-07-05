@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2361202307338172772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9147770382771182914}
+  - component: {fileID: 3624478538292695410}
+  m_Layer: 0
+  m_Name: Wave Endless
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9147770382771182914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361202307338172772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3624478538292695410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361202307338172772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5b98d60662500458930f8f051703a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wave:
+    countMultiplier: 1
+    healthMultiplier: 1.5
+    damageMultiplier: 1.25
+    chunks:
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint1] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 0
+      count: 3
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint2] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 1
+      count: 3
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint3] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 2
+      count: 3
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 3[GruntPlayer] after 5s from [SpawnPoint4] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 5
+      spawnPoint: 3
+      count: 3
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: then 7[GruntPlayer] from [SpawnPoint1] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 7
+      waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 7[GruntPlayer] from [SpawnPoint2] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 7
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 7[GruntPlayer] from [SpawnPoint3] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 7
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 7[GruntPlayer] from [SpawnPoint4] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 7
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: then 15[GruntPlayer] from [SpawnPoint1] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 15
+      waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 15[GruntPlayer] from [SpawnPoint2] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 15
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 15[GruntPlayer] from [SpawnPoint3] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 15
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 15[GruntPlayer] from [SpawnPoint4] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 15
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: then 30[GruntPlayer] from [SpawnPoint1] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 30
+      waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 30[GruntPlayer] from [SpawnPoint2] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 30
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 30[GruntPlayer] from [SpawnPoint3] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 30
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: 30[GruntPlayer] from [SpawnPoint4] x1.5HP | x1.25DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 30
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 1
+    - note: then 40[Explosive] from [SpawnPoint1] x1.5HP | x2.5DMG
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 40
+      waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 2
+    - note: 40[Explosive] from [SpawnPoint2] x1.5HP | x2.5DMG
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 2
+    - note: 40[Explosive] from [SpawnPoint3] x1.5HP | x2.5DMG
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 2
+    - note: 40[Explosive] from [SpawnPoint4] x1.5HP | x2.5DMG
+      enemyType: 5
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 2
+    - note: then 40[GruntPlayer] from [SpawnPoint1] x1.5HP | x3.75DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 0
+      count: 40
+      waitUntilPreviousDead: 1
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 3
+    - note: 40[GruntPlayer] from [SpawnPoint2] x1.5HP | x3.75DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 1
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 3
+    - note: 40[GruntPlayer] from [SpawnPoint3] x1.5HP | x3.75DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 2
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 3
+    - note: 40[GruntPlayer] from [SpawnPoint4] x1.5HP | x3.75DMG
+      enemyType: 2
+      maxWait: -1
+      spawnDelay: 0
+      spawnPoint: 3
+      count: 40
+      waitUntilPreviousDead: 0
+      countMultiplier: 1
+      healthMultiplier: 1
+      damageMultiplier: 3

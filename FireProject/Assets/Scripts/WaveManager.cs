@@ -41,6 +41,7 @@ public class WaveManager : MonoBehaviour
     public WaveDataObject wave2;
     public WaveDataObject wave3;
     public WaveDataObject endingWave;
+    public WaveDataObject waveEndless;
 
     public GameObject blockadeCrumblesBeforeWave1;
     public GameObject blockadeCrumblesBeforeWave2;
@@ -286,6 +287,13 @@ public class WaveManager : MonoBehaviour
                     blockadeCrumblesBeforeWave3.SetActive(false);
                     StartWave(wave3.wave);
                     break;
+                case GameManager.GameStage.Endless:
+                    tutorialSkullPilePunched = true;
+                    blockadeCrumblesBeforeWave1.SetActive(false);
+                    blockadeCrumblesBeforeWave2.SetActive(false);
+                    blockadeCrumblesBeforeWave3.SetActive(false);
+                    StartWave(waveEndless.wave);
+                    break;
             }
         }
 
@@ -364,7 +372,7 @@ public class WaveManager : MonoBehaviour
     public void StartWave(Wave wave) {
         triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
-        restartWaveButton.SetActive(true);
+        if (!GameManager.Instance.endlessMode) restartWaveButton.SetActive(true);
 
 
         SoundManager.Instance.WaveMusicPlay();

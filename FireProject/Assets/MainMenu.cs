@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using FMODUnity;
 using FMOD.Studio;
 using TMPro;
@@ -8,6 +9,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public TextMeshProUGUI highscoreText;
+    public Button endlessButton;
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +18,14 @@ public class MainMenu : MonoBehaviour
         SoundManager.Instance.menu.start();
         SoundManager.Instance.menu.release();
 
-        var highscore = PlayerPrefs.GetInt("Highscore", 0);
-        var highscoreName = PlayerPrefs.GetString("HighscoreName", "");
-        // Format with parentheses.
-        if (!string.IsNullOrEmpty(highscoreName)) highscoreName = $"({highscoreName})";
+        if (PlayerPrefs.GetInt("GameBeaten", 0) == 1) endlessButton.GetComponentInChildren<Button>().interactable = true;
 
-        highscoreText.text = $"Highscore: {highscore}\n{highscoreName}";
+        var highscore = PlayerPrefs.GetInt("Highscore", 0);
+        highscoreText.text = $"Highscore: {highscore}";
     }
 
     // Update is called once per frame
-    public void nextScene()
+    public void nextScene(bool endless=false)
     {
         SoundManager.Instance.menu.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         SoundManager.Instance.wave0.start();
@@ -33,5 +33,6 @@ public class MainMenu : MonoBehaviour
 
         // Set asist mode to off when starting a new game.
         PlayerPrefs.SetInt("AssistMode", 0);
+        PlayerPrefs.SetInt("EndlessMode", endless ? 1 : 0);
     }
 }
