@@ -66,6 +66,7 @@ public class WaveManager : MonoBehaviour
     public GameObject bloodrushBar;
     public GameObject dialogueText;
     public GameObject restartWaveButton;
+    public GameObject assistModeButton;
 
 
 
@@ -372,7 +373,17 @@ public class WaveManager : MonoBehaviour
     public void StartWave(Wave wave) {
         triggerAreaForParoleDialogue.SetActive(false);
         waveNumberText.SetActive(true);
-        if (!GameManager.Instance.endlessMode) restartWaveButton.SetActive(true);
+        if (GameManager.Instance.endlessMode)
+        {
+            restartWaveButton.SetActive(false);
+            assistModeButton.SetActive(false);
+            GameManager.Instance.score = 0;
+        }
+        else
+        {
+            restartWaveButton.SetActive(true);
+            assistModeButton.SetActive(true);
+        }
 
 
         SoundManager.Instance.WaveMusicPlay();
@@ -380,7 +391,14 @@ public class WaveManager : MonoBehaviour
         if (isSpawning == false)
         {
             isSpawning = true;
-            StartCoroutine(Spawn(wave));
+            if (GameManager.Instance.endlessMode)
+            {
+                StartCoroutine(SpawnEndless());
+            }
+            else
+            {
+                StartCoroutine(Spawn(wave));
+            }
         }
         
     }
@@ -513,6 +531,139 @@ public class WaveManager : MonoBehaviour
 
     }
 
+    IEnumerator SpawnEndless()
+    {
+        // This wave never stops spawning enemies.
+        isSpawning = true;
+
+        while (true)
+        {
+            // Choose an enemy to spawn.
+            var enemyType = GameManager.Instance.enemyTypes[randomIndex(GameManager.Instance.enemyTypeProbabilities)];
+
+            // Choose a spawn point.
+            var spawnPoint = GameManager.Instance.spawnPoints[randomIndex(GameManager.Instance.spawnPointProbabilities)];
+
+            // Choose a number of enemies to spawn.
+            var enemyCount = GameManager.Instance.enemyCounts[randomIndex(GameManager.Instance.enemyCountProbabilities)];
+
+            // Choose a health multiplier for the enemies.
+            var healthMultiplier = GameManager.Instance.healthMultipliers[randomIndex(GameManager.Instance.healthMultiplierProbabilities)];
+
+            // Choose a damage multiplier for the enemies.
+            var damageMultiplier = GameManager.Instance.damageMultipliers[randomIndex(GameManager.Instance.damageMultiplierProbabilities)];
+
+            // Print everything.
+            Debug.Log($"Spawning {enemyCount} {enemyType} enemies at {spawnPoint} with health multiplier {healthMultiplier} and damage multiplier {damageMultiplier}.");
+
+            // Spawn the enemies.
+            Enemy e = null;
+            switch (enemyType)
+            {
+                case Wave.EnemyType.None:
+                    break;
+                case Wave.EnemyType.GruntGoal:
+                    e = gruntgoal;
+                    break;
+                case Wave.EnemyType.GruntPlayer:
+                    e = gruntPlayer;
+                    e.GetComponent<GruntPlayer>().tutorialGrunt = false;
+                    break;
+                case Wave.EnemyType.Tank:
+                    e = tank;
+                    break;
+                case Wave.EnemyType.GruntPlayerWithTank:
+                    e = gruntStayWithTank;
+                    e.GetComponent<GruntPlayer>().tutorialGrunt = false;
+                    break;
+                case Wave.EnemyType.Explosive:
+                    e = explosive;
+                    break;
+                case Wave.EnemyType.ExplosiveSafer:
+                    e = explosiveSafer;
+                    break;
+                default:
+                    // There is a GruntPlayerTutorial enemy type, but we ignore this.
+                    break;
+            }
+
+            if (e == null) continue;
+
+            Transform spawn = null;
+            switch (spawnPoint)
+            {
+                case Wave.SpawnPoint.SpawnPoint1:
+                    spawn = spawnPoint1;
+                    break;
+                case Wave.SpawnPoint.SpawnPoint2:
+                    spawn = spawnPoint2;
+                    break;
+                case Wave.SpawnPoint.SpawnPoint3:
+                    spawn = spawnPoint3;
+                    break;
+                case Wave.SpawnPoint.SpawnPoint4:
+                    spawn = spawnPoint4;
+                    break;
+            }
+
+            for (int i = 0; i < enemyCount; ++i)
+            {
+                generateEnemy(e, healthMultiplier, damageMultiplier, spawn, i == 0);
+                if (enemyType == Wave.EnemyType.Tank)
+                {
+                    // Spawn tank grunts.
+                    for (int j = 0; j < GameManager.Instance.tankGrunts; ++j)
+                    {
+                        generateEnemy(gruntStayWithTank, healthMultiplier, damageMultiplier, spawn);
+                    }
+                    // Restrict to max number of tanks.
+                    if (i >= GameManager.Instance.maxTanks) break;
+                }
+            }
+
+            // Choose a delay before the next spawn.
+            var delay = GameManager.Instance.spawnDelays[randomIndex(GameManager.Instance.spawnDelayProbabilities)];
+
+            // Wait for the delay. If there are ever no enemies alive, skip the delay.
+            float t = 0; // Time spent waiting.
+            while (true)
+            {
+                if (t >= delay) break;
+                if (TotalLivingEnemies == 0) break;
+                yield return new WaitForEndOfFrame();
+                t += Time.deltaTime;
+            }
+        }
+    }
+
+    private int randomIndex(float[] probabilities)
+    {
+        float r = UnityEngine.Random.value;
+        float sum = 0;
+        for (int i = 0; i < probabilities.Length; ++i)
+        {
+            sum += probabilities[i];
+            if (r < sum) return i;
+        }
+        return probabilities.Length - 1;
+    }
+
+    private void generateEnemy(Enemy e, float healthMultiplier, float damageMultiplier, Transform spawnPoint, bool firstEnemy=false)
+    {
+        GameObject enemy = Instantiate(e.gameObject);
+        livingEnemies.Add(enemy.GetComponent<Enemy>());
+        enemy.GetComponent<Enemy>().Restart(healthMultiplier, damageMultiplier);
+
+        enemy.SetActive(false);
+        enemy.transform.position = spawnPoint.position;
+        enemy.GetComponent<Enemy>().player = playerTransform;
+        enemy.GetComponent<Enemy>().goal = goalPoint;
+        enemy.SetActive(true);
+        if (firstEnemy)
+        {
+            SoundManager.Instance.PlayOneShot(FMODEvents.Instance.enemySpawn, spawnPoint.position);
+        }
+    }
 
     public void Tutorial()
     {

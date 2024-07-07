@@ -53,9 +53,22 @@ public class GameManager : MonoBehaviour
     [Header("Endless Mode")]
     public bool endlessMode;
     public int score;
-    
     public GameObject restartWaveButton;
     public GameObject assistModeButton;
+    public Wave.EnemyType[] enemyTypes;
+    public float[] enemyTypeProbabilities;
+    public Wave.SpawnPoint[] spawnPoints;
+    public float[] spawnPointProbabilities;
+    public int[] enemyCounts;
+    public float[] enemyCountProbabilities;
+    public int[] spawnDelays;
+    public float[] spawnDelayProbabilities;
+    public float[] healthMultipliers;
+    public float[] healthMultiplierProbabilities;
+    public float[] damageMultipliers;
+    public float[] damageMultiplierProbabilities;
+    public int tankGrunts;      // Number of grunt enemies accompanying a single tank.
+    public int maxTanks;         // Maximum number of tanks that can spawn at once.
 
     [Header("Other")]
 
@@ -182,6 +195,7 @@ public class GameManager : MonoBehaviour
         // Set endless mode from player prefs.
         endlessMode = PlayerPrefs.GetInt("EndlessMode", 0) == 1;
         if (endlessMode) gameStage = GameStage.Endless;
+        score = 0;
         // Disable certain pause menu options.
         restartWaveButton.SetActive(false);
         assistModeButton.SetActive(false);

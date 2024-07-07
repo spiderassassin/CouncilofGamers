@@ -28,8 +28,11 @@ public class MainMenu : MonoBehaviour
     public void nextScene(bool endless=false)
     {
         SoundManager.Instance.menu.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        SoundManager.Instance.wave0.start();
-        SoundManager.Instance.wave0.release();
+        if (!endless)
+        {
+            SoundManager.Instance.wave0.start();
+            SoundManager.Instance.wave0.release();
+        }
 
         // Set asist mode to off when starting a new game.
         PlayerPrefs.SetInt("AssistMode", 0);

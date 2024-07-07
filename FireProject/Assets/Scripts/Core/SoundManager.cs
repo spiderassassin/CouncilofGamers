@@ -128,6 +128,11 @@ public class SoundManager : MonoBehaviour
                 wave3.start();
                 break;
 
+            case GameManager.GameStage.Endless:
+                // For now, just play wave3 music.
+                wave3.start();
+                break;
+
         }
     }
     public void WaveMusicStop()
