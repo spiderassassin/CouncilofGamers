@@ -461,6 +461,7 @@ public class Controller : Entity
         
         if (playerDeath)
         {
+            armAnimator.SetBool("isDed", true); // make arm animation stop
             
             GetComponentInChildren<CameraBehavior>().Die();
             if (isFiring)
@@ -516,7 +517,7 @@ public class Controller : Entity
             if (currentHealth <= 0)
             {
                 dead = true;
-
+            
                 StartCoroutine(Die());
             }
             else
