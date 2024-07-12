@@ -7,7 +7,7 @@ using FirstGearGames.SmoothCameraShaker;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, PreEnding, Ending};
+    public enum GameStage { TutorialIntro, TutorialFireballWave, TutorialPunchWave, Downtime1, Wave1, Downtime2, Wave2, Downtime3, Wave3, PreEnding, Ending, Endless};
     public GameStage gameStage;
     public GameStage debugGameStage;
     // If true, the game ends after wave 2.
@@ -49,6 +49,26 @@ public class GameManager : MonoBehaviour
     public float FuelPercent => (float)fuel / GetMaxFuel();
     public float punchRefuel = 10f;
     public float punchSkullRefuel = 50;
+
+    [Header("Endless Mode")]
+    public bool endlessMode;
+    public int score;
+    public GameObject restartWaveButton;
+    public GameObject assistModeButton;
+    public Wave.EnemyType[] enemyTypes;
+    public float[] enemyTypeProbabilities;
+    public Wave.SpawnPoint[] spawnPoints;
+    public float[] spawnPointProbabilities;
+    public int[] enemyCounts;
+    public float[] enemyCountProbabilities;
+    public int[] spawnDelays;
+    public float[] spawnDelayProbabilities;
+    public float[] healthMultipliers;
+    public float[] healthMultiplierProbabilities;
+    public float[] damageMultipliers;
+    public float[] damageMultiplierProbabilities;
+    public int tankGrunts;      // Number of grunt enemies accompanying a single tank.
+    public int maxTanks;         // Maximum number of tanks that can spawn at once.
 
     [Header("Other")]
 
@@ -172,7 +192,13 @@ public class GameManager : MonoBehaviour
         fuel = GetMaxFuel();
         tutorialGameStages = new List<GameStage> { GameStage.TutorialIntro, GameStage.TutorialFireballWave, GameStage.TutorialPunchWave };
 
-
+        // Set endless mode from player prefs.
+        endlessMode = PlayerPrefs.GetInt("EndlessMode", 0) == 1;
+        if (endlessMode) gameStage = GameStage.Endless;
+        score = 0;
+        // Disable certain pause menu options.
+        restartWaveButton.SetActive(false);
+        assistModeButton.SetActive(false);
     }
 
     void Update()
@@ -241,6 +267,10 @@ public class GameManager : MonoBehaviour
             Destroy(CombatUI.Instance.gameObject);
             Destroy(Controller.Instance.gameObject);
             Cursor.lockState = CursorLockMode.None;
+
+            // Indicate that player has beaten the game at least once.
+            PlayerPrefs.SetInt("GameBeaten", 1);
+
             // Return to the menu.
             SceneManager.LoadScene(0);
         }

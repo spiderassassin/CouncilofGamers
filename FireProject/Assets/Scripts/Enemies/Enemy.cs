@@ -157,6 +157,9 @@ public abstract class Enemy : FlammableEntity
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.blood, transform.position);
         //SoundManager.Instance.PlaySoundOnce(deathSound, transform.position);
 
+        // Update score.
+        if (!GameManager.Instance.gameOver) ++GameManager.Instance.score;
+
         Destroy(gameObject);
     }
 

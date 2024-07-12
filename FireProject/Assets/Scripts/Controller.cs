@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using FMOD.Studio;
 using FirstGearGames.SmoothCameraShaker;
+using TMPro;
 public class Controller : Entity
 {
     public static Controller Instance;
@@ -37,6 +38,7 @@ public class Controller : Entity
 
 
     public GameObject GameOver;
+    public GameObject Highscore;
 
     public bool isMoving = false;
 
@@ -474,9 +476,36 @@ public class Controller : Entity
 
         Debug.Log("Game Over");
         
+        if (GameManager.Instance.endlessMode) {
+            // Check for new highscore and update if necessary.
+            var scoreText = "Score: " + GameManager.Instance.score;
 
-        // Don't do anything if the game is in the ending stage.
-        if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
+            if (GameManager.Instance.score > PlayerPrefs.GetInt("Highscore", -1)) {
+                PlayerPrefs.SetInt("Highscore", GameManager.Instance.score);
+                scoreText = "New Highscore!\n" + scoreText;
+            }
+
+            Highscore.GetComponentInChildren<TextMeshProUGUI>().text = scoreText;
+            Highscore.SetActive(true);
+
+            yield return new WaitForSeconds(3);
+
+            Cursor.lockState = CursorLockMode.None;
+            Destroy(CombatUI.Instance);
+
+            // Stop all sounds.
+            FMODEvents.Instance.StopAllSounds();
+            // Destroy all singletons.
+            Destroy(SoundManager.Instance.gameObject);
+            Destroy(WaveManager.Instance.gameObject);
+            Destroy(CombatUI.Instance.gameObject);
+            // Reset fuel amount;
+            GameManager.Instance.fuel = 100;
+            GameManager.Instance.gameOver = false;
+            // Return to menu.
+            SceneManager.LoadScene(0);
+        } else if (GameManager.Instance.gameStage != GameManager.GameStage.Ending) {
+            // Only do something if the game is not in the ending stage.
             GameOver.SetActive(true);
 
             yield return new WaitForSeconds(3);
