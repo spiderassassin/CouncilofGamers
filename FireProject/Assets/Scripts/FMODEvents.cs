@@ -74,6 +74,25 @@ public class FMODEvents : MonoBehaviour
         master = RuntimeManager.GetBus("bus:/");
         music = RuntimeManager.GetBus("bus:/music");
         sfx = RuntimeManager.GetBus("bus:/sfx");
+
+
+        Debug.Log("has key");
+        Debug.Log(PlayerPrefs.GetFloat("Music"));
+        if (PlayerPrefs.HasKey("Volume"))
+        {
+            master.setVolume(PlayerPrefs.GetFloat("Volume"));
+        }
+
+        if (PlayerPrefs.HasKey("Music"))
+        {
+            music.setVolume(PlayerPrefs.GetFloat("Music"));
+        }
+
+        if (PlayerPrefs.HasKey("SFX"))
+        {
+            sfx.setVolume(PlayerPrefs.GetFloat("SFX"));
+        }
+
     }
 
     public void StopAllSounds()

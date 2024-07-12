@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using FMOD.Studio;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Timeline;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class PauseMenu : MonoBehaviour
     public bool sensitivity;
     public bool sfx;
     public bool music;
+
+    public GameObject startButton;
+    public GameObject settingsButton;
+    public GameObject quitButton;
+    public GameObject gameLogo;
 
 
     public Slider slider;
@@ -35,27 +41,54 @@ public class PauseMenu : MonoBehaviour
     {
         if (sensitivity)
         {
-            slider.value = InputManager.Instance.mouseSensitivity.x;
+            if (InputManager.Instance)
+            {
+                slider.value = InputManager.Instance.mouseSensitivity.x;
+            }
+
+            if (PlayerPrefs.HasKey("MouseSensitivityX"))
+            {
+                slider.value = PlayerPrefs.GetFloat("MouseSensitivityX");
+            }
+
         }
 
         if (music)
         {
-            float volume;
-            FMODEvents.Instance.music.getVolume(out volume);
-            slider.value = volume;
-            //SetMouseSensitivity();
-            //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
-            //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+            if (FMODEvents.Instance)
+            {
+                float volume;
+                FMODEvents.Instance.music.getVolume(out volume);
+                slider.value = volume;
+                //SetMouseSensitivity();
+                //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
+                //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+            }
+
+            if (PlayerPrefs.HasKey("Music"))
+            {
+                slider.value = PlayerPrefs.GetFloat("Music");
+            }
+
 
         }
         if (sfx)
         {
-            float volume;
-            FMODEvents.Instance.sfx.getVolume(out volume);
-            slider.value = volume;
-            //SetMouseSensitivity();
-            //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
-            //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+            if ((FMODEvents.Instance)){
+                float volume;
+                FMODEvents.Instance.sfx.getVolume(out volume);
+                slider.value = volume;
+                //SetMouseSensitivity();
+                //inputManager.GetComponent<InputManager>().mouseSensitivity.x = 0.0f;
+                //inputManager.GetComponent<InputManager>().mouseSensitivity.y = 0.0f;
+            }
+
+            if (PlayerPrefs.HasKey("SFX"))
+            {
+                slider.value = PlayerPrefs.GetFloat("SFX");
+            }
+
+
 
         }
     }
@@ -75,8 +108,12 @@ public class PauseMenu : MonoBehaviour
         //inputManager.GetComponent<InputManager>().mouseSensitivity.y = slider.value;
         if (slider)
         {
-            InputManager.Instance.mouseSensitivity.x = slider.value;
-            InputManager.Instance.mouseSensitivity.y = slider.value;
+            if (InputManager.Instance)
+            {
+                InputManager.Instance.mouseSensitivity.x = slider.value;
+                InputManager.Instance.mouseSensitivity.y = slider.value;
+            }
+            
             // Store the sensitivity in the playerprefs.
             PlayerPrefs.SetFloat("MouseSensitivityX", slider.value);
         }
@@ -85,19 +122,36 @@ public class PauseMenu : MonoBehaviour
 
     public void SetVolume()
     {
-        FMODEvents.Instance.master.setVolume(slider.value);
+        if (FMODEvents.Instance)
+        {
+            FMODEvents.Instance.master.setVolume(slider.value);
+        }
+        PlayerPrefs.SetFloat("Volume", slider.value);
+        
     }
 
 
     public void SetMusic()
     {
-        FMODEvents.Instance.music.setVolume(slider.value);
+        if (FMODEvents.Instance)
+        {
+            FMODEvents.Instance.music.setVolume(slider.value);
+        }
+
+        PlayerPrefs.SetFloat("Music", slider.value);
+        
     }
 
 
     public void SetSFX()
     {
-        FMODEvents.Instance.sfx.setVolume(slider.value);
+        if (FMODEvents.Instance)
+        {
+            FMODEvents.Instance.sfx.setVolume(slider.value);
+        }
+
+        PlayerPrefs.SetFloat("SFX", slider.value);
+        
     }
 
 
@@ -133,6 +187,17 @@ public class PauseMenu : MonoBehaviour
         // Re-enable time.
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public void ReturntoMenu()
+    {
+        startButton.SetActive(true);
+        settingsButton.SetActive(true);
+        quitButton.SetActive(true);
+        gameLogo.SetActive(true);
+        pauseMenu.SetActive(false);
+        
+        
     }
 
     public void ResetWave()
