@@ -103,6 +103,8 @@ public class InputManager : MonoBehaviour
         {
             mouseSensitivity.x = PlayerPrefs.GetFloat("MouseSensitivityX");
         }
+
+        
     }
 
     private void DashAction_canceled(InputAction.CallbackContext obj)

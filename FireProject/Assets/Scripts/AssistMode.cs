@@ -22,11 +22,13 @@ public class AssistMode : MonoBehaviour
     {
         if (mode)
         {
-            player.GetComponent<Controller>().healthIncreaseRate = assistModeHealthRegen;
-        }
+                player.GetComponent<Controller>().healthIncreaseRate = assistModeHealthRegen;
+            }
         else
         {
-            player.GetComponent<Controller>().healthIncreaseRate = regularHealthRegen;
+
+                player.GetComponent<Controller>().healthIncreaseRate = regularHealthRegen;
+            
         }
         // Store the asist mode state in the playerprefs.
         PlayerPrefs.SetInt("AssistMode", mode ? 1 : 0);
