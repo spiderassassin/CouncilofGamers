@@ -320,7 +320,7 @@ public class Controller : Entity
         //CameraShakerHandler.Shake(GameManager.Instance.snapShake);
 
 
-        aimAssist.gameObject.SetActive(true);
+        //aimAssist.gameObject.SetActive(true);
         if(aimAssist.inRange.Count == 0)
         {
             g.Launch(fireballOrigin.forward, velocity);
@@ -351,10 +351,12 @@ public class Controller : Entity
             print(force);
             Vector3 rotatedForce = Quaternion.LookRotation(direction) * force;*/
             print(direction.x);
-            g.Launch(new Vector3(direction.x, fireballOrigin.forward.y, fireballOrigin.forward.z), velocity);
+            print(direction.z);
+            
+            g.Launch(new Vector3(direction.x, fireballOrigin.forward.y, direction.z), velocity);
             //g.Launch(fireballOrigin.forward, velocity);
         }
-        aimAssist.gameObject.SetActive(false);
+        //aimAssist.gameObject.SetActive(false);
 
 
     }
