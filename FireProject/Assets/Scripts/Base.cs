@@ -70,7 +70,7 @@ public class Base : Entity
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker, dmg);
-        Debug.Log("Base Damaged");
+        //Debug.Log("Base Damaged");
         GameManager.Instance.baseDamage = true;
         SoundManager.Instance.PlayOneShot(FMODEvents.Instance.baseDamage, transform.position);
         

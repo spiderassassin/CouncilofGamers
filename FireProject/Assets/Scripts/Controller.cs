@@ -61,6 +61,7 @@ public class Controller : Entity
     public ParticleSystem coneFireSystem;
     public FireSource punchSource;
     public Fireball fireballPrefab;
+    public AimAssist aimAssist;
     public Transform fireballOrigin;
     public float fireballCooldown = .5f;
     public float punchCooldown = .2f;
@@ -317,7 +318,66 @@ public class Controller : Entity
         g.transform.position = fireballOrigin.position;
         CameraShakerHandler.Shake(GameManager.Instance.firballShake);
         //CameraShakerHandler.Shake(GameManager.Instance.snapShake);
-        g.Launch(fireballOrigin.forward, velocity);
+
+
+        //aimAssist.gameObject.SetActive(true);
+        if(aimAssist.inRange.Count == 0)
+        {
+            g.Launch(fireballOrigin.forward, velocity);
+        }
+        else
+        {
+            //print("detected");
+            Collider c = aimAssist.inRange[0];
+
+            Vector3 targetPos = c.transform.position;
+            Vector3 firePos = transform.position;
+            Vector3 direction = (targetPos - firePos).normalized;
+
+            /*float x = Vector3.Distance(new Vector3(targetPos.x, 0, targetPos.z), new Vector3(firePos.x, 0, firePos.z));
+            float y = targetPos.y - firePos.y;
+
+            // Calculate the firing angle using the formula for projectile motion
+            float angle = CalculateFiringAngle(x, y, 30f, velocity.y * gravity);
+
+
+
+           
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            rotation = Quaternion.Euler(rotation.eulerAngles.x, rotation.eulerAngles.y - angle, rotation.eulerAngles.z);
+
+            float angleInRadians = angle * Mathf.Deg2Rad;
+            Vector3 force = new Vector3(0, Mathf.Sin(angleInRadians), Mathf.Cos(angleInRadians)) * g.GetComponent<Rigidbody>().mass;
+            print(force);
+            Vector3 rotatedForce = Quaternion.LookRotation(direction) * force;*/
+            print(direction.x);
+            print(direction.z);
+            
+            g.Launch(new Vector3(direction.x, fireballOrigin.forward.y, direction.z), velocity);
+            //g.Launch(fireballOrigin.forward, velocity);
+        }
+        //aimAssist.gameObject.SetActive(false);
+
+
+    }
+
+
+    float CalculateFiringAngle(float x, float y, float v, float g)
+    {
+        float v2 = v * v; // v^2
+        float v4 = v2 * v2; // v^4
+        float gx = g * x; // g * x
+        float sqrtTerm = Mathf.Sqrt(v4 - g * (g * x * x + 2 * y * v2));
+
+        if (float.IsNaN(sqrtTerm))
+        {
+            return float.NaN;
+        }
+
+        float angle1 = Mathf.Atan((v2 + sqrtTerm) / gx);
+        float angle2 = Mathf.Atan((v2 - sqrtTerm) / gx);
+
+        return Mathf.Min(angle1, angle2) * Mathf.Rad2Deg; // Choose the smaller angle for a more direct shot
     }
 
     public bool canSnap()

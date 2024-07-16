@@ -24,7 +24,7 @@ public class BloodDestroy : MonoBehaviour
             // Ray hit something, get the distance to the hit point
             groundDistance = hitInfo.distance;
             hitNormal = hitInfo.normal;
-            Debug.Log("Distance to ground: " + groundDistance);
+            //Debug.Log("Distance to ground: " + groundDistance);
             GameObject inst = Instantiate(BloodDecal, new Vector3(transform.position.x, transform.position.y - groundDistance + 0.1f, transform.position.z), Quaternion.identity);
             inst.transform.up = hitNormal;
         }
