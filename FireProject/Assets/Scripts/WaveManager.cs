@@ -535,6 +535,7 @@ public class WaveManager : MonoBehaviour
     {
         // This wave never stops spawning enemies.
         isSpawning = true;
+        int enemiesSpawned = 0;
 
         while (true)
         {
@@ -571,6 +572,8 @@ public class WaveManager : MonoBehaviour
                     break;
                 case Wave.EnemyType.Tank:
                     e = tank;
+                    // Scale down the number of tanks to spawn.
+                    enemyCount = Mathf.Max(1, enemyCount / GameManager.Instance.tankScaleDownFactor);
                     break;
                 case Wave.EnemyType.GruntPlayerWithTank:
                     e = gruntStayWithTank;
@@ -605,6 +608,17 @@ public class WaveManager : MonoBehaviour
                     spawn = spawnPoint4;
                     break;
             }
+
+            // If in a low difficulty period, scale down enemy HP.
+            if (enemiesSpawned < GameManager.Instance.easyDifficultyDuration)
+            {
+                healthMultiplier /= GameManager.Instance.difficultyScaleDownFactor;
+            }
+            else if (enemiesSpawned >= GameManager.Instance.easyDifficultyDuration + GameManager.Instance.hardDifficultyDuration)
+            {
+                enemiesSpawned = 0;
+            }
+            ++enemiesSpawned;
 
             for (int i = 0; i < enemyCount; ++i)
             {

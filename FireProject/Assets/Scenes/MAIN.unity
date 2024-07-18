@@ -8587,36 +8587,36 @@ MonoBehaviour:
   - 0.25
   enemyCounts: 0100000003000000050000000a0000000f000000
   enemyCountProbabilities:
-  - 0.1
   - 0.25
-  - 0.3
   - 0.25
-  - 0.1
-  spawnDelays: 0000000002000000040000000600000008000000
+  - 0.25
+  - 0.2
+  - 0.05
+  spawnDelays: 000000000a00000014000000
   spawnDelayProbabilities:
-  - 0.25
-  - 0.15
-  - 0.25
-  - 0.25
-  - 0.1
-  healthMultipliers:
+  - 0.2
   - 0.5
+  - 0.3
+  healthMultipliers:
   - 1
   - 1.5
   healthMultiplierProbabilities:
-  - 0.3
-  - 0.4
+  - 0.7
   - 0.3
   damageMultipliers:
   - 0.5
   - 1
   - 1.5
   damageMultiplierProbabilities:
-  - 0.3
-  - 0.4
-  - 0.3
+  - 0.25
+  - 0.5
+  - 0.25
   tankGrunts: 8
   maxTanks: 5
+  tankScaleDownFactor: 3
+  easyDifficultyDuration: 20
+  hardDifficultyDuration: 10
+  difficultyScaleDownFactor: 3
   gamePaused: 0
   gameEndDeath: 0
   gameEndCreditsOver: 0
