@@ -8548,8 +8548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 4
-  debugGameStage: 4
+  gameStage: 0
+  debugGameStage: 0
   demoMode: 1
   tutorialGameStages: 
   snapped: 0
