@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour
     public float[] damageMultiplierProbabilities;
     public int tankGrunts;      // Number of grunt enemies accompanying a single tank.
     public int maxTanks;         // Maximum number of tanks that can spawn at once.
+    public int tankScaleDownFactor; // The scale factor for reducing the number of tanks that spawn.
+    public int easyDifficultyDuration; // The number of spawns before the difficulty swaps to hard.
+    public int hardDifficultyDuration; // The number of spawns before the difficulty swaps to easy.
+    public int difficultyScaleDownFactor; // The scale factor for reducing the HP of enemies.
 
     [Header("Other")]
 
