@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public EventInstance wave1;
     public EventInstance wave2;
     public EventInstance wave3;
+    public EventInstance endless;
 
     public EventInstance hello;
     public EventInstance hhhh;
@@ -57,6 +58,7 @@ public class SoundManager : MonoBehaviour
         wave1 = CreateInstance(FMODEvents.Instance.wave1);
         wave2 = CreateInstance(FMODEvents.Instance.wave2);
         wave3 = CreateInstance(FMODEvents.Instance.wave3);
+        endless = CreateInstance(FMODEvents.Instance.endless);
 
         hello = CreateInstance(FMODEvents.Instance.hello);
         hhhh  = CreateInstance(FMODEvents.Instance.hhhh);
@@ -130,7 +132,7 @@ public class SoundManager : MonoBehaviour
 
             case GameManager.GameStage.Endless:
                 // For now, just play wave3 music.
-                wave3.start();
+                endless.start();
                 break;
 
         }
@@ -148,6 +150,12 @@ public class SoundManager : MonoBehaviour
             case GameManager.GameStage.Wave3:
                 wave3.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 break;
+
+            case GameManager.GameStage.Endless:
+                endless.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                break;
+
+
         }
     }
 

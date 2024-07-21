@@ -42,6 +42,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference downtime2;
     public EventReference credits;
     public EventReference betrayal;
+    public EventReference endless;
 
     public EventReference pauseMenu;
 
