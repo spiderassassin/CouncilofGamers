@@ -544,6 +544,7 @@ public class Controller : Entity
                 PlayerPrefs.SetInt("Highscore", GameManager.Instance.score);
                 scoreText = "New Highscore!\n" + scoreText;
             }
+           
 
             Highscore.GetComponentInChildren<TextMeshProUGUI>().text = scoreText;
             Highscore.SetActive(true);

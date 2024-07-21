@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3825,6 +3825,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: dash.Path
+      value: event:/dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: tank.Path
       value: event:/tank
       objectReference: {fileID: 0}
@@ -3833,12 +3837,32 @@ PrefabInstance:
       value: event:/credits
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Path
+      value: event:/endless
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: mainMenu.Path
       value: event:/Main menu
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: rumbling.Path
       value: event:/rumbling
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: dash.Guid.Data1
+      value: -646363676
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: dash.Guid.Data2
+      value: 1282493087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: dash.Guid.Data3
+      value: -84394328
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: dash.Guid.Data4
+      value: 83182164
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: tank.Guid.Data1
@@ -3871,6 +3895,22 @@ PrefabInstance:
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: credits.Guid.Data4
       value: -855168773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data1
+      value: -1494555016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data2
+      value: 1329115018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data3
+      value: 1417502634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data4
+      value: -703482700
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: mainMenu.Guid.Data1

@@ -8548,8 +8548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf721a844e2453c9d1cae9e0f30a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStage: 4
-  debugGameStage: 4
+  gameStage: 0
+  debugGameStage: 0
   demoMode: 1
   tutorialGameStages: 
   snapped: 0
@@ -74371,7 +74371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980416134336906413, guid: 4f2abad69f06fbd4892ec63289732760, type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2980416134336906413, guid: 4f2abad69f06fbd4892ec63289732760, type: 3}
       propertyPath: m_LocalPosition.x
@@ -90437,6 +90437,10 @@ PrefabInstance:
       value: event:/credits
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Path
+      value: event:/endless
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: mainMenu.Path
       value: event:/Main menu
       objectReference: {fileID: 0}
@@ -90491,6 +90495,22 @@ PrefabInstance:
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: credits.Guid.Data4
       value: -855168773
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data1
+      value: -1494555016
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data2
+      value: 1329115018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data3
+      value: 1417502634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
+      propertyPath: endless.Guid.Data4
+      value: -703482700
       objectReference: {fileID: 0}
     - target: {fileID: 6818304863740401861, guid: ceae47fa3507b48f6aab746e3e1cc06c, type: 3}
       propertyPath: mainMenu.Guid.Data1
