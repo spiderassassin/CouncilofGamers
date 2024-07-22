@@ -22,6 +22,9 @@ public class FMODEvents : MonoBehaviour
     public EventReference blood;
     public EventReference fireballexplode;
     public EventReference tank;
+
+    public EventReference button;
+
     //loop sounds
     public EventReference flamethrower;
     public EventReference walk;
