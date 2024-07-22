@@ -74425,6 +74425,10 @@ PrefabInstance:
       propertyPath: activeDamage.pushBack
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7294000366691121254, guid: 4f2abad69f06fbd4892ec63289732760, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7603319072953106712, guid: 4f2abad69f06fbd4892ec63289732760, type: 3}
       propertyPath: m_Name
       value: fireballVolume
