@@ -9,8 +9,12 @@ public class EventSystemSelector : MonoBehaviour
 
     private void OnEnable()
     {
+        if(UnityEngine.InputSystem.Gamepad.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(selection);
+        }
         // EventSystem.current.firstSelectedGameObject = selection;
-        EventSystem.current.SetSelectedGameObject(selection);
+        //EventSystem.current.SetSelectedGameObject(selection);
         // StartCoroutine(Refresh());
     }
 
