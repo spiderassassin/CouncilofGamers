@@ -58,7 +58,7 @@ public class MainMenu : MonoBehaviour
                 timer = 0f;
             }
 
-            if(timer > 19f){
+            if(timer > 18f){
                 video.SetActive(true);
             }
 
