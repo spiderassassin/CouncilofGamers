@@ -14,6 +14,7 @@ public class CombatUI : MonoBehaviour
     float durationTimer;
     public PostProcessVolume postProcessVolume;
     private ColorGrading colorGrading;
+    private Vignette vignette;
     private bool grey = false;
     // Start is called before the first frame update
 
@@ -37,12 +38,18 @@ public class CombatUI : MonoBehaviour
         snapOverlay.color = new Color(snapOverlay.color.r, snapOverlay.color.g, snapOverlay.color.b, 0);
         
         postProcessVolume.profile.TryGetSettings(out colorGrading);//for saturation effect on snap
+        postProcessVolume.profile.TryGetSettings(out vignette);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        
+       vignette.intensity.value = 1 - (Controller.Instance.Health / 100f) - 0.1f;
+        
+        
 
 
 
