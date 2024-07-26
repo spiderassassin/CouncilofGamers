@@ -681,6 +681,7 @@ public class WaveManager : MonoBehaviour
 
     public void Tutorial()
     {
+        assistModeButton.SetActive(true);
 
         Color32 inactiveColor = new Color32(0, 0, 0, 100);
         Color32 activeColor = new Color32(255, 255, 255, 255);
