@@ -45,9 +45,9 @@ public class CombatUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-       vignette.intensity.value = 1 - (Controller.Instance.Health / 100f) - 0.1f;
+
+
+        vignette.intensity.value = Mathf.Clamp01(1f - Mathf.Pow(Controller.Instance.Health / 100f,2f)*4f)*.8f;
         
         
 

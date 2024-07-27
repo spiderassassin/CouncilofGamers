@@ -111,6 +111,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+  visualScaler: {fileID: 175411284930848277}
 --- !u!65 &8840295173262268708
 BoxCollider:
   m_ObjectHideFlags: 0

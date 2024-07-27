@@ -101,9 +101,11 @@ MonoBehaviour:
   body: {fileID: 2651559876208772471}
   text: {fileID: 3313630595976187514}
   passiveFireSources: {fileID: 7173092607548225344}
+  isBlood: 0
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+  visualScaler: {fileID: 2651559877632822641}
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 4436281028067464520}
@@ -118,6 +120,9 @@ MonoBehaviour:
     spreadDamage: 0
   speed: 12
   healthbar: {fileID: 5329166796899364831}
+  mask:
+    serializedVersion: 2
+    m_Bits: 25
   attackRange: 4
   stickWithTank: 0
   tutorialGrunt: 1
@@ -129,6 +134,11 @@ CapsuleCollider:
 --- !u!54 &2651559876208772471 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1895627975973340822, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 4504343109499700193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2651559877632822641 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
   m_PrefabInstance: {fileID: 4504343109499700193}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3313630595976187514 stripped

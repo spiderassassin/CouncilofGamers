@@ -350,8 +350,6 @@ public class Controller : Entity
             Vector3 force = new Vector3(0, Mathf.Sin(angleInRadians), Mathf.Cos(angleInRadians)) * g.GetComponent<Rigidbody>().mass;
             print(force);
             Vector3 rotatedForce = Quaternion.LookRotation(direction) * force;*/
-            print(direction.x);
-            print(direction.z);
             
             g.Launch(new Vector3(direction.x, fireballOrigin.forward.y, direction.z), velocity);
             //g.Launch(fireballOrigin.forward, velocity);

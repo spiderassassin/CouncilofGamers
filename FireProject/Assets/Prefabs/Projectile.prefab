@@ -231,6 +231,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+  visualScaler: {fileID: 7947939262482941943}
   speed: 15
   dest: {x: 0, y: 0, z: 0}
   targetPlayer: 1

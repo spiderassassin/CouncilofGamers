@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4312207195484979252, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5749259753564942978, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 4
@@ -300,6 +304,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1144129677137367492 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7850083443684867120, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 7138727324291411444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1470001329916658122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8608530383485234238, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -381,6 +390,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+  visualScaler: {fileID: 1144129677137367492}
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
@@ -395,6 +405,9 @@ MonoBehaviour:
     spreadDamage: 0
   speed: 10
   healthbar: {fileID: 1470001329916658122}
+  mask:
+    serializedVersion: 2
+    m_Bits: 25
   projectile: {fileID: 8997031753317357129, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
   playerDirectHitDmg:
     damage: 50

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5426885271057423883, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+      propertyPath: visualScaler
+      value: 
+      objectReference: {fileID: 2855540676988080976}
     - target: {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
       propertyPath: m_Name
       value: JuicyPool Variant
@@ -89,3 +93,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+--- !u!4 &2855540676988080976 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 175411284930848277, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+  m_PrefabInstance: {fileID: 2724612626656556357}
+  m_PrefabAsset: {fileID: 0}

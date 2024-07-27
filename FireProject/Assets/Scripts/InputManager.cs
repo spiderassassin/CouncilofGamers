@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
+    public float defaultSensitivity = .2f;
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction jumpAction;
@@ -52,6 +53,11 @@ public class InputManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    private void OnValidate()
+    {
+        //clear all stored player prefs in editor
+        PlayerPrefs.DeleteAll();
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -102,6 +108,14 @@ public class InputManager : MonoBehaviour
         if (PlayerPrefs.HasKey("MouseSensitivityX"))
         {
             mouseSensitivity.x = PlayerPrefs.GetFloat("MouseSensitivityX");
+            mouseSensitivity.y = mouseSensitivity.x;
+        }
+        else
+        {
+            //default sensitivity
+            mouseSensitivity.x = defaultSensitivity;
+            mouseSensitivity.y = mouseSensitivity.x;
+            PlayerPrefs.SetFloat("MouseSensitivityX", defaultSensitivity);
         }
 
         
