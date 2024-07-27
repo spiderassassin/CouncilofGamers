@@ -132,6 +132,9 @@ public abstract class Enemy : FlammableEntity
             pushback = StartCoroutine(Pushback(knockbackDirection * Mathf.Clamp(dmg.pushBack, -10f,10f))); // limit enemy knockback to prevent them ending up in weird places
         }
     }
+
+    public LayerMask mask;
+    RaycastHit hit;
     IEnumerator Pushback(Vector3 impulse)
     {
         agent.enabled = false;
@@ -144,6 +147,28 @@ public abstract class Enemy : FlammableEntity
             if (body.velocity.magnitude <= .1f) break;
             ++m;
             if (m >= 4) break;
+        }
+        while (true)
+        {
+            var w =  new WaitForEndOfFrame();
+            yield return w;
+            yield return w;
+            yield return w;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 50f, mask, QueryTriggerInteraction.Ignore))
+            {
+                if (hit.distance > 2f)
+                {
+                    body.velocity = new Vector3(body.velocity.x, -5f, body.velocity.z);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            else
+            {
+                body.velocity = new Vector3(body.velocity.x, -5f, body.velocity.z);
+            }
         }
         body.isKinematic = true;
         agent.enabled = true;

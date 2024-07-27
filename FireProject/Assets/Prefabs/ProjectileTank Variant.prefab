@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: dmg.pushBack
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -4328296067596558655, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+      propertyPath: visualScaler
+      value: 
+      objectReference: {fileID: 706263008161697304}
     - target: {fileID: 1147035457302099954, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -81,3 +85,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+--- !u!4 &706263008161697304 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7947939262482941943, guid: ef591610f9d3dce4491e193982db5ce7, type: 3}
+  m_PrefabInstance: {fileID: 7458496243020794351}
+  m_PrefabAsset: {fileID: 0}

@@ -18,6 +18,9 @@ public abstract class FlammableEntity : Entity, IFlammable
     public bool onFire = false;
     public float fireCounterRequired = 3;
     public float counterDecayTime = 2;
+    public Transform visualScaler;
+
+    private Vector3 ogScale;
 
     float decayCounterTimer;
     float currentFireCounter = 0;
@@ -40,6 +43,7 @@ public abstract class FlammableEntity : Entity, IFlammable
     }
     protected override void Start()
     {
+        ogScale = visualScaler.transform.localScale;
         base.Start();
         passiveFireSources.Initialize(this, this);
     }
@@ -55,6 +59,8 @@ public abstract class FlammableEntity : Entity, IFlammable
 
     protected virtual void Update()
     {
+        visualScaler.transform.localScale = Vector3.Lerp(visualScaler.transform.localScale, ogScale, Time.deltaTime * 10f);
+
         if (PassiveFireSources.CurrentState== DamageType.ClearFire)
         {
             currentFireCounter = 0;
@@ -91,6 +97,11 @@ public abstract class FlammableEntity : Entity, IFlammable
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
         base.OnDamaged(attacker,dmg);
+
+        if(dmg.damage > 0f && (visualScaler.transform.localScale - ogScale).magnitude < .2f)
+        {
+            visualScaler.transform.localScale *= 1.07f;
+        }
 
         // If the fire type would override the fire to a lower intensity, prevent that.
         if (Utilities.IsFireType(dmg.type)&& dmg.type < CurrentType)
@@ -153,6 +164,11 @@ public abstract class FlammableEntity : Entity, IFlammable
 
         float t = Mathf.InverseLerp(0, fireCounterRequired, currentFireCounter);
         PassiveFireSources.Rescale(t);
+
+        if ((visualScaler.transform.localScale - ogScale).magnitude < .25f)
+        {
+            visualScaler.transform.localScale *= 1.15f;
+        }
     }
 
     public void StepUpFire()
