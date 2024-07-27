@@ -304,6 +304,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1144129677137367492 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7850083443684867120, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+  m_PrefabInstance: {fileID: 7138727324291411444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1470001329916658122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8608530383485234238, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
@@ -385,7 +390,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
-  visualScaler: {fileID: 8745785092528235364}
+  visualScaler: {fileID: 1144129677137367492}
   goal: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 6918558770028280669}
@@ -422,10 +427,5 @@ MonoBehaviour:
 --- !u!4 &8745785091267799918 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1895627975973340826, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
-  m_PrefabInstance: {fileID: 7138727324291411444}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8745785092528235364 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1895627975111397008, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
   m_PrefabInstance: {fileID: 7138727324291411444}
   m_PrefabAsset: {fileID: 0}
