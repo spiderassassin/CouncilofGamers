@@ -31946,7 +31946,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
-  visualScaler: {fileID: 0}
+  visualScaler: {fileID: 1703787090}
   waveManager: {fileID: 2027314003}
   prompt: {fileID: 1440135461}
   NPCSprite: {fileID: 1888134733}
@@ -52629,7 +52629,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1049244
+  m_Name: pb_Mesh101206
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
