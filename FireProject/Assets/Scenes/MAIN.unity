@@ -17044,7 +17044,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1049608
+  m_Name: pb_Mesh1119592
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25994,7 +25994,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33086
+  m_Name: pb_Mesh1119774
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40287,7 +40287,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30170
+  m_Name: pb_Mesh1116814
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -58076,7 +58076,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh1048188
+  m_Name: pb_Mesh1118172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -82668,8 +82668,6 @@ MonoBehaviour:
     sentences:
     - Sounds like more enemies are approaching. You can easily dispatch them with
       fireballs or by punching them.
-    - You can also ignite the pools of demon blood on the ground to spread fire more
-      easily.
     playerSpeaking: 0000
   tutorialGGWaveDialogue:
     dialogueOver: 0
