@@ -5,10 +5,14 @@ using TMPro;
 
 public class ParolePileofSkulls : FlammableEntity
 {
+
+
     public GameObject waveManager;
     public GameObject prompt;
     public GameObject NPCSprite;
     private TextMeshProUGUI promptText;
+
+    public override bool ShouldLeadAim => false;
 
     protected override void Start()
     {

@@ -31,6 +31,9 @@ public abstract class FlammableEntity : Entity, IFlammable
     public IDamageable Damageable => this;
     public PassiveFireSources PassiveFireSources => passiveFireSources;
 
+    public virtual Vector3 AimVelocity => body.velocity;
+    public abstract bool ShouldLeadAim { get; }
+
     private void OnValidate()
     {
         if (!enabled) return;

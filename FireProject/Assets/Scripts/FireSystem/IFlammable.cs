@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public interface IFlammable 
 {
+    public Vector3 AimVelocity { get; }
+
     public IDamageable Damageable { get; }
     public PassiveFireSources PassiveFireSources { get;}
     public bool IsOnFire { get; }

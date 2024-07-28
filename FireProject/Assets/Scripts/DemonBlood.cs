@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DemonBlood : FlammableEntity
 {
+    public override bool ShouldLeadAim => false;
 
     public override void OnDamaged(IAttacker attacker, DamageInformation dmg)
     {
