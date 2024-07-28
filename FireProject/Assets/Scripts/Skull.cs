@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Skull : FlammableEntity
 {
+    public override bool ShouldLeadAim => false;
+
     protected override void Update()
     {
         // base.Update();

@@ -14,6 +14,8 @@ public class Projectile :FlammableEntity
 
     public new Vector3 Position => transform.position;
 
+    public override bool ShouldLeadAim => false;
+
     Vector3 last;
     bool allowHitEnemy;
 

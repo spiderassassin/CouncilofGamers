@@ -36,6 +36,22 @@ public abstract class Enemy : FlammableEntity
     public float speed = 5f;
     protected EnemyState state = EnemyState.Moving;
 
+    public override bool ShouldLeadAim => true;
+    public override Vector3 AimVelocity
+    {
+        get
+        {
+            if (body.isKinematic)
+            {
+                return agent.velocity;
+            }
+            else
+            {
+                return Vector3.zero; // rigidbody velocity is too unreliable.
+            }
+        }
+    }
+
     private Camera mainCamera;
 
     private Coroutine pushback;

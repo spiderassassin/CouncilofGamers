@@ -329,8 +329,16 @@ public class Controller : Entity
         {
             //print("detected");
             Collider c = aimAssist.inRange[0];
+            var v = FireManager.manager.GetIFlammable(c);
+            Vector3 offset = Vector3.zero;
+            if (v != null)
+            {
+                /*offset = v.AimVelocity*.7f;
+                offset.y = 0f;*/
+                g.Home(c);
+            }
 
-            Vector3 targetPos = c.transform.position;
+            Vector3 targetPos = c.transform.position + offset;
             Vector3 firePos = transform.position;
             Vector3 direction = (targetPos - firePos).normalized;
 

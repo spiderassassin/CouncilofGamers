@@ -8,11 +8,28 @@ public class Fireball : FireSource
     public float speed = 10f;
     public GameObject enable;
 
+    private Collider homing;
+
+    private void FixedUpdate()
+    {
+        if (!homing) return;
+        Vector3 v = body.velocity;
+        Vector3 dir = (homing.bounds.center - transform.position).normalized;
+        Vector3 newv = dir * v.magnitude;
+        newv.y = v.y;
+        body.velocity = newv;
+    }
+
     public void Launch(Vector3 direction, Vector3 initialVelocity)
     {
         initialVelocity.y = 0;// giving it jump contribution plays weird
         if (!gameObject.activeSelf) SetActive(true);
         body.AddForce(direction * speed +initialVelocity, ForceMode.VelocityChange);
+    }
+
+    public void Home(Collider c)
+    {
+        homing = c;
     }
 
     protected override void OnTriggerEnter(Collider other)
