@@ -53,7 +53,7 @@ public class AimAssist : MonoBehaviour
     {
         if (!TriggerValid(other)) return;
         if (inRange.Contains(other)) return;
-        if(other.gameObject.layer == enemyLayer)
+        if(other.gameObject.layer == enemyLayer && !(other.gameObject.tag == "tank"))
         {
             inRange.Add(other);
         }

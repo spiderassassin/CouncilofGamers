@@ -9,15 +9,29 @@ public class Fireball : FireSource
     public GameObject enable;
 
     private Collider homing;
+    private Vector3 homingbounds; 
 
     private void FixedUpdate()
     {
         if (!homing) return;
         Vector3 v = body.velocity;
-        Vector3 dir = (homing.bounds.center - transform.position).normalized;
+        Vector3 v_normalized = v.normalized;
+
+
+        Vector3 dir = (homingbounds - transform.position).normalized;
+        float dp = Vector3.Dot(dir, v_normalized);
+        Vector3 distance = homingbounds - transform.position;
+        distance.y = 0;
+
+        if (dp >= 0)
+        {
+            homingbounds = homing.bounds.center;
+        }
         Vector3 newv = dir * v.magnitude;
         newv.y = v.y;
         body.velocity = newv;
+        
+
     }
 
     public void Launch(Vector3 direction, Vector3 initialVelocity)
@@ -30,6 +44,9 @@ public class Fireball : FireSource
     public void Home(Collider c)
     {
         homing = c;
+        homingbounds = homing.bounds.center;
+
+
     }
 
     protected override void OnTriggerEnter(Collider other)
