@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 1895627975973340817, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
+      propertyPath: m_TagString
+      value: tank
+      objectReference: {fileID: 0}
     - target: {fileID: 1895627975973340820, guid: d20c058a8cd53c74385f156bf8181420, type: 3}
       propertyPath: m_Height
       value: 5.94
