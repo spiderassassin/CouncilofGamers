@@ -45,41 +45,41 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("EndlessMode", endless ? 1 : 0);
     }
 
-    private void Update()
-    {
-        if (!trailermode)
-        {
-            if (!Input.anyKey)
-            {
-                timer = timer + Time.deltaTime;
-            }
-            else
-            {
-                timer = 0f;
-            }
+    // private void Update()
+    // {
+    //     if (!trailermode)
+    //     {
+    //         if (!Input.anyKey)
+    //         {
+    //             timer = timer + Time.deltaTime;
+    //         }
+    //         else
+    //         {
+    //             timer = 0f;
+    //         }
 
-            if(timer > 18f){
-                video.SetActive(true);
-            }
+    //         if(timer > 18f){
+    //             video.SetActive(true);
+    //         }
 
-            if (timer > 20f)
-            {
-                timer = 0f;
-                trailermode = true;
-                //video.SetActive(true);
-                canvas.SetActive(false);
+    //         if (timer > 20f)
+    //         {
+    //             timer = 0f;
+    //             trailermode = true;
+    //             //video.SetActive(true);
+    //             canvas.SetActive(false);
 
-            }
-        }
+    //         }
+    //     }
 
-        if (trailermode)
-        {
-            if (Input.anyKey)
-            {
-                trailermode = false;
-                video.SetActive(false);
-                canvas.SetActive(true);
-            }
-        }
-    }
+    //     if (trailermode)
+    //     {
+    //         if (Input.anyKey)
+    //         {
+    //             trailermode = false;
+    //             video.SetActive(false);
+    //             canvas.SetActive(true);
+    //         }
+    //     }
+    // }
 }
