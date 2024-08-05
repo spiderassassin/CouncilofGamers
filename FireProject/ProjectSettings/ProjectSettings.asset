@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Council of Gamers
-  productName: Infernal Bloodrush
+  productName: InfernalBloodrush
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.13725491, b: 0.13725491, a: 1}
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Council-of-Gamers.Infernal-Bloodrush
+    Standalone: com.Council-of-Gamers.InfernalBloodrush
   buildNumber:
     Standalone: 0
     iPhone: 0

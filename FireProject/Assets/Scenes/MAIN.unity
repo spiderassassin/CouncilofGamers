@@ -8550,7 +8550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStage: 0
   debugGameStage: 0
-  demoMode: 1
+  demoMode: 0
   tutorialGameStages: 
   snapped: 0
   dialogueState: 0
