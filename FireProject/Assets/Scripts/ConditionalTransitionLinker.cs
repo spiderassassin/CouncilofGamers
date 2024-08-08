@@ -30,6 +30,7 @@ public class ConditionalTransitionLinker : MonoBehaviour
     {
         normal.Apply(ref nav);
         target.navigation = nav;
+        wasActive = !checkActive.activeSelf;
     }
 
     private void Update()
