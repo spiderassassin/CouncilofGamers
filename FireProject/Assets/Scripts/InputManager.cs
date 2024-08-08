@@ -39,6 +39,7 @@ public class InputManager : MonoBehaviour
     public bool dash = false;
     public bool takeDamage = false;
     public bool punch => punchAction.WasPerformedThisFrame()&&!LockPlayerGameplayInput;
+    public bool escapeMenuButtons => punchAction.WasPerformedThisFrame() || pauseAction.WasPerformedThisFrame();
     public bool fireball => fireballAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
 
     public bool fire = false;

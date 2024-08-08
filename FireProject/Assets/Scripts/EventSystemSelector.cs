@@ -18,11 +18,14 @@ public class EventSystemSelector : MonoBehaviour
         // StartCoroutine(Refresh());
     }
 
-    IEnumerator Refresh()
+    private void Update()
     {
-        GameObject g = EventSystem.current.gameObject;
-        g.SetActive(false);
-        yield return new WaitForEndOfFrame();
-        g.SetActive(true);
+        if (InputManager.Instance)
+        {
+            if (InputManager.Instance.escapeMenuButtons)
+            {
+                EventSystem.current.SetSelectedGameObject(selection);
+            }
+        }
     }
 }
