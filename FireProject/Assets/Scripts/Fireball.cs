@@ -9,7 +9,7 @@ public class Fireball : FireSource
     public GameObject enable;
 
     private Collider homing;
-    private Vector3 homingbounds; 
+    private Vector3 homingbounds;
 
     private void FixedUpdate()
     {
@@ -23,12 +23,19 @@ public class Fireball : FireSource
         Vector3 distance = homingbounds - transform.position;
         distance.y = 0;
 
+        if(distance.magnitude <= 3f)
+        {
+            homing = null;
+            return;
+        }
+
         if (dp >= 0)
         {
             homingbounds = homing.bounds.center;
         }
         Vector3 newv = dir * v.magnitude;
         newv.y = v.y;
+        // if (newv.y > 1f) newv.y = 0f;
         body.velocity = newv;
         
 
