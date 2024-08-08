@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
 
         // Set endless mode from player prefs.
         endlessMode = PlayerPrefs.GetInt("EndlessMode", 0) == 1;
+        print("ENDLESS MODE: " + endlessMode);
         if (endlessMode) gameStage = GameStage.Endless;
         score = 0;
         // Disable certain pause menu options.
@@ -274,6 +275,7 @@ public class GameManager : MonoBehaviour
 
             // Indicate that player has beaten the game at least once.
             PlayerPrefs.SetInt("GameBeaten", 1);
+            print("SET GAME BEATEN!");
 
             // Return to the menu.
             SceneManager.LoadScene(0);
