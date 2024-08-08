@@ -26,6 +26,12 @@ public class ConditionalTransitionLinker : MonoBehaviour
         target.navigation = nav;
     }
 
+    private void OnEnable()
+    {
+        normal.Apply(ref nav);
+        target.navigation = nav;
+    }
+
     private void Update()
     {
         bool active = checkActive.activeSelf;
