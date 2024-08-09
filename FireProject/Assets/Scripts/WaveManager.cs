@@ -302,7 +302,15 @@ public class WaveManager : MonoBehaviour
             bloodrushBar.SetActive(true);
             if (livingEnemies.Count == 0)
             {
-                if(!GameManager.Instance.gameOver) endwave();
+                if(!GameManager.Instance.gameOver)
+                {
+                    if(GameManager.Instance.gameStage == GameManager.GameStage.Wave3)
+                    {
+                        PlayerPrefs.SetInt("GameBeaten", 1);
+                        print("Game has been beaten!");
+                    }
+                    endwave();
+                }
                 
                 //Debug.Log(GameManager.Instance.gameStage);
             }
