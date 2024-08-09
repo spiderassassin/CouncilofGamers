@@ -15,6 +15,8 @@ public class UnlockEndless : MonoBehaviour
     public void UnlockEndlessMode()
     {
         PlayerPrefs.SetInt("GameBeaten", 1);
+        SoundManager.Instance.menu.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Destroy(SoundManager.Instance.gameObject);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 }
