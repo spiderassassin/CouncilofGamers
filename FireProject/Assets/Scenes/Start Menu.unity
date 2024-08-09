@@ -5450,6 +5450,7 @@ GameObject:
   - component: {fileID: 2023511470}
   - component: {fileID: 2023511472}
   - component: {fileID: 2023511471}
+  - component: {fileID: 2023511473}
   m_Layer: 5
   m_Name: Mouse Sensitivity temp
   m_TagString: Untagged
@@ -5519,7 +5520,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1680842545}
+    m_SelectOnUp: {fileID: 1903234854}
     m_SelectOnDown: {fileID: 2099764510}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -5567,6 +5568,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2023511473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023511469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b79e3b8742bdbe40bb161b74e2f9471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2023511472}
+  normal:
+    up: {fileID: 1903234854}
+    down: {fileID: 2099764510}
+    left: {fileID: 0}
+    right: {fileID: 0}
+  conditioned:
+    up: {fileID: 1680842545}
+    down: {fileID: 2099764510}
+    left: {fileID: 0}
+    right: {fileID: 0}
+  checkActive: {fileID: 1903234852}
 --- !u!1 &2045754098
 GameObject:
   m_ObjectHideFlags: 0
