@@ -5,17 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start Menu.unity
     guid: ca6ce0277420d4143b6902268f17c97d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: 50f0382d3853a934b96a2dc0154018b4
   - enabled: 1
     path: Assets/Scenes/MAIN.unity
     guid: b2f9056c5b39e7642bac16d4a6f213a8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ending.unity
     guid: a804584f1e6db804f96d0a0ffd9e56a4
+  - enabled: 0
+    path: Assets/_Mobile/NKRsys-Mobile-Input-Handling-1.2.4/MobileControlsTesting.unity
+    guid: 2cdb128c9a426b3459ecaadcf6b3033f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 91eaf3cf884631d4c88e1b2ae229067e, type: 2}

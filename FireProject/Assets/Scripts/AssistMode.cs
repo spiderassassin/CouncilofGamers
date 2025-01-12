@@ -15,7 +15,7 @@ public class AssistMode : MonoBehaviour
         bool assistMode = PlayerPrefs.GetInt("AssistMode") == 1;
         ToggleAssistMode(assistMode);
         // Update the toggle component to match the assist mode state.
-        GetComponent<UnityEngine.UI.Toggle>().isOn = assistMode;
+        //GetComponent<UnityEngine.UI.Toggle>().isOn = assistMode;
     }
 
     public void ToggleAssistMode(bool mode)

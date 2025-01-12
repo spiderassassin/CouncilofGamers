@@ -123,6 +123,7 @@ MonoBehaviour:
   onFire: 0
   fireCounterRequired: 3
   counterDecayTime: 2
+  visualScaler: {fileID: 3506185731579450577}
 --- !u!54 &348744271561791075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -222,5 +223,10 @@ MonoBehaviour:
 --- !u!4 &1459693975255900904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4024264099154266159, guid: af422b545f004f243bec32015693b411, type: 3}
+  m_PrefabInstance: {fileID: 2565029853289343687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3506185731579450577 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1382790177700937238, guid: af422b545f004f243bec32015693b411, type: 3}
   m_PrefabInstance: {fileID: 2565029853289343687}
   m_PrefabAsset: {fileID: 0}

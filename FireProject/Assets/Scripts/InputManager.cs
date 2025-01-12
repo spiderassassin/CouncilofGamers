@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
 
     public bool LockPlayerGameplayInput { get; set; }
 
+    public bool mobile = true;
     [SerializeField]
     private PlayerInput playerInput;
     public Vector2 mouseSensitivity = Vector2.one;
@@ -38,14 +39,19 @@ public class InputManager : MonoBehaviour
     public bool jump = false;
     public bool dash = false;
     public bool takeDamage = false;
-    public bool punch => punchAction.WasPerformedThisFrame()&&!LockPlayerGameplayInput;
-    public bool escapeMenuButtons => punchAction.WasPerformedThisFrame() || pauseAction.WasPerformedThisFrame();
-    public bool fireball => fireballAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
+    public bool pausePerformedThisFrame;
+    public bool punchPerformedThisFrame;
+    public bool punch => punchPerformedThisFrame&&!LockPlayerGameplayInput;
+    public bool escapeMenuButtons => punchPerformedThisFrame || pausePerformedThisFrame;
+    public bool fireballPerformedThisFrame;
+    public bool fireball => fireballPerformedThisFrame && !LockPlayerGameplayInput;
 
     public bool fire = false;
     public bool stopfire = false;//called when user releases input
-    public bool snap =>snapAction.WasPerformedThisFrame() && !LockPlayerGameplayInput;
-    public bool dialogue => jumpAction.WasPerformedThisFrame();
+    public bool snapPerformedThisFrame;
+    public bool snap =>snapPerformedThisFrame && !LockPlayerGameplayInput;
+    public bool jumpPerformedThisFrame;
+    public bool dialogue => jumpPerformedThisFrame;
 
     public bool startwave = false;//this is for testing only, to start waves
 
@@ -73,37 +79,40 @@ public class InputManager : MonoBehaviour
         }
 
         // Register inputs.
-        moveAction = playerInput.currentActionMap.FindAction("Move");
-        moveAction.canceled += MoveAction_canceled;
-        moveAction.performed += MoveAction_performed;
+        if (mobile == false)
+        {
+            moveAction = playerInput.currentActionMap.FindAction("Move");
+            moveAction.canceled += MoveAction_canceled;
+            moveAction.performed += MoveAction_performed;
 
-        jumpAction = playerInput.currentActionMap.FindAction("Jump");
-        jumpAction.performed += JumpAction_performed;
-        jumpAction.canceled += JumpAction_canceled;
+            jumpAction = playerInput.currentActionMap.FindAction("Jump");
+            jumpAction.performed += JumpAction_performed;
+            jumpAction.canceled += JumpAction_canceled;
 
-        lookAction = playerInput.currentActionMap.FindAction("Look");
-        lookAction.performed += LookAction_performed;
-        lookAction.canceled += LookAction_canceled;
+            lookAction = playerInput.currentActionMap.FindAction("Look");
+            lookAction.performed += LookAction_performed;
+            lookAction.canceled += LookAction_canceled;
 
-        fireAction = playerInput.currentActionMap.FindAction("Fire");
-        fireAction.performed += FireAction_performed;
-        fireAction.canceled += FireAction_canceled;
+            fireAction = playerInput.currentActionMap.FindAction("Fire");
+            fireAction.performed += FireAction_performed;
+            fireAction.canceled += FireAction_canceled;
 
-        punchAction = playerInput.currentActionMap.FindAction("Punch");
-        snapAction = playerInput.currentActionMap.FindAction("Snap");
-        fireballAction = playerInput.currentActionMap.FindAction("Fireball");
+            punchAction = playerInput.currentActionMap.FindAction("Punch");
+            snapAction = playerInput.currentActionMap.FindAction("Snap");
+            fireballAction = playerInput.currentActionMap.FindAction("Fireball");
 
-        dashAction = playerInput.currentActionMap.FindAction("Dash");
-        dashAction.performed += DashAction_performed;
-        dashAction.canceled += DashAction_canceled;
+            dashAction = playerInput.currentActionMap.FindAction("Dash");
+            dashAction.performed += DashAction_performed;
+            dashAction.canceled += DashAction_canceled;
 
-        startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
-        startDialogueAction.performed += StartDialogueAction_performed;
-        startDialogueAction.canceled += StartDialogueAction_canceled;
+            startDialogueAction = playerInput.currentActionMap.FindAction("StartDialogue");
+            startDialogueAction.performed += StartDialogueAction_performed;
+            startDialogueAction.canceled += StartDialogueAction_canceled;
 
-        pauseAction = playerInput.currentActionMap.FindAction("Pause");
-        pauseAction.performed += PauseAction_performed;
-        pauseAction.canceled += PauseAction_canceled;
+            pauseAction = playerInput.currentActionMap.FindAction("Pause");
+            pauseAction.performed += PauseAction_performed;
+            pauseAction.canceled += PauseAction_canceled;
+        }
 
         // Check if there is a previously stored mouse sensitivity value.
         if (PlayerPrefs.HasKey("MouseSensitivityX"))
@@ -250,7 +259,7 @@ public class InputManager : MonoBehaviour
             //SoundManager.Instance.pause.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             GameManager.Instance.gamePaused = false;
             Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
+            // // Cursor.lockState = CursorLockMode.Locked;
             //LockPlayerGameplayInput = false;
             return;
         }

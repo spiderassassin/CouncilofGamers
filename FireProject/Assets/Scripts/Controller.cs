@@ -100,7 +100,7 @@ public class Controller : Entity
     protected override void Start()
     {
         base.Start();
-        Cursor.lockState = CursorLockMode.Locked;
+        // // Cursor.lockState = CursorLockMode.Locked;
         //flame = SoundManager.Instance.CreateInstance(FMODEvents.Instance.flamethrower);
         walk = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);
         //run = SoundManager.Instance.CreateInstance(FMODEvents.Instance.run);

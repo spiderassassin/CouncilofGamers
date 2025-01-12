@@ -163,7 +163,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
             GameManager.Instance.gamePaused = false;
             Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
+            // // Cursor.lockState = CursorLockMode.Locked;
             //SoundManager.Instance.pause.stop(STOP_MODE.IMMEDIATE);
             print("done");
             //LockPlayerGameplayInput = false;
@@ -203,7 +203,7 @@ public class PauseMenu : MonoBehaviour
     public void ResetWave()
     {
 
-        Cursor.lockState = CursorLockMode.Locked;
+        // // Cursor.lockState = CursorLockMode.Locked;
         Destroy(CombatUI.Instance);
         GameManager.Instance.gamePaused = false;
         Time.timeScale = 1f;
